@@ -1,0 +1,29 @@
+.tagContainer {
+	padding: 6px 12px;
+	border-radius: 4px;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 700;
+	
+	&.small {
+		padding: 4px 8px;
+		font-size: 14px;
+	}
+	
+	&.primary {
+		background: $blue;
+		color: white;
+	}
+	&.success {
+		background: $green-light;
+		color: $green-dark;
+	}
+	&.error {
+		background: $red;
+		color: white;
+	}
+	&.outlined {
+		border: 2px solid $blue;
+		color: $blue;
+	}
+}

@@ -22,9 +22,13 @@ class CreateUsersTable extends Migration
             $table->string('role')->default('student');
             $table->string('country');
             $table->string('timezone');
+            $table->json('spoken_languages')->nullable();
+            $table->string('site_language')->nullable();
+            $table->string('currency')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->rememberToken();
+            $table->boolean('is_night');
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path')->nullable();
             $table->timestamps();

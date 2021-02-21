@@ -1,0 +1,28 @@
+.inputContainer {
+	
+	.selectLabel {
+		margin-bottom: 2px;
+		font-style: normal;
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 20px;
+		color: rgba(23, 70, 150, 0.5);
+	}
+	
+	select {
+		border: 1px solid rgba(23, 70, 150, 0.2);
+		box-sizing: border-box;
+		border-radius: 4px;
+		padding: 10px 14px;
+		font-size: 18px;
+		color: $blue-dark;
+		
+		&:hover {
+		
+		}
+		
+		&:focus {
+			border: 1px solid rgba($blue, 0.2);
+		}
+	}
+}

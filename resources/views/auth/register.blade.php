@@ -9,9 +9,21 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
+            <div class="block mt-4">
+                <label for="teacher" class="flex items-center">
+                    <input id="teacher" type="checkbox" class="form-checkbox" name="teacher">
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Teacher') }}</span>
+                </label>
+            </div>
+
             <div>
-                <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-jet-label for="first_name" value="{{ __('First Name') }}" />
+                <x-jet-input id="first_name" class="block mt-1 w-full" type="text" name="first_name" :value="old('first_name')" required autofocus autocomplete="first_name" />
+            </div>
+
+            <div>
+                <x-jet-label for="last_name" value="{{ __('Last Name') }}" />
+                <x-jet-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="old('last_name')" required autofocus autocomplete="last_name" />
             </div>
 
             <div class="mt-4">

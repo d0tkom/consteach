@@ -2,8 +2,13 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Route;
 use KgBot\LaravelLocalization\Classes\ExportLocalizations;
+use App\Models\Teacher;
+use App\Models\Lesson;
+use App\Models\Student;
+use App\Models\Appointment;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +28,24 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     switch (Auth::user()->role) {
         case ('student'):
-            return Inertia\Inertia::render('Student/Dashboard');
+            $lessons = Lesson::where('student_id', Auth::user()->extra->id)
+                ->with('teacher') 
+                ->get()
+                ->sortBy(function($lesson, $key) {
+                    return $lesson->teacher->user->first_name;
+                });
+            $appointments = Appointment::where('student_id', Auth::user()->extra->id)->where('student_approved', 0)->where('teacher_approved', 0)->with(['teacher', 'teacher.user', 'student', 'student.user'])->get();
+            return Inertia\Inertia::render('Student/Dashboard')->with(['appointments' => $appointments, 'lessons' => $lessons]);
             break;
         case ('teacher'):
-            return Inertia\Inertia::render('Teacher/Dashboard');
+            $lessons = Lesson::where('teacher_id', Auth::user()->extra->id)
+                ->with('student') 
+                ->get()
+                ->sortBy(function($lesson, $key) {
+                    return $lesson->student->user->first_name;
+                });
+            $appointments = Appointment::where('teacher_id', Auth::user()->extra->id)->where('student_approved', 0)->where('teacher_approved', 0)->with(['teacher', 'teacher.user', 'student', 'student.user'])->get();
+            return Inertia\Inertia::render('Teacher/Dashboard')->with(['appointments' => $appointments, 'lessons' => $lessons]);
             break;
         case ('admin'):
             return Inertia\Inertia::render('Admin/Dashboard');
@@ -37,25 +56,35 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     }
 })->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/teacher/calendar', function () {
-    return Inertia\Inertia::render('Teacher/Calendar');
-})->name('teacher.calendar');
+Route::middleware(['auth:sanctum', 'verified'])->get('/teacher/{teacher_id}', function ($teacher_id) {
+    $teacher = Teacher::where('id', $teacher_id)->with('user')->first();
+    return Inertia\Inertia::render('Teacher/View')->with(['teacher' => $teacher]);
+})->name('teacher.view');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/teacher/students', function () {
-    return Inertia\Inertia::render('Teacher/Students');
-})->name('teacher.students');
+Route::middleware(['auth:sanctum', 'verified'])->post('/checkout/payment', [CheckoutController::class, 'store']);
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/teacher/settings', function () {
-    return Inertia\Inertia::render('Teacher/Settings');
-})->name('teacher.settings');
+Route::middleware(['auth:sanctum', 'verified'])->get('/checkout/{teacher_id}', function ($teacher_id) {
+    $teacher = Teacher::find($teacher_id);
+    return Inertia\Inertia::render('Checkout')->with(['teacher' => $teacher]);
+})->name('checkout');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/teacher/invoices', function () {
-    return Inertia\Inertia::render('Teacher/Invoices');
-})->name('teacher.invoices');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/student/settings', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/settings', function () {
+    switch (Auth::user()->role) {
+        case ('student'):
+            return Inertia\Inertia::render('Student/Settings');
+            break;
+        case ('teacher'):
+            return Inertia\Inertia::render('Teacher/Settings');
+            break;
+        case ('admin'):
+            return Inertia\Inertia::render('Admin/Dashboard');
+            break;
+        default:
+            return view('welcome');
+            break;
+    }
     return Inertia\Inertia::render('Student/Settings');
-})->name('student.settings');
+})->name('settings');
 
 Route::get('/get/local/data', function() {
 
@@ -66,5 +95,5 @@ Route::get('/get/local/data', function() {
 
 Route::resource('/users', UserController::class);
 
-Route::get('login/{provider}', [LoginController::class, 'redirectToProvider']);
-Route::get('login/{provider}/callback', [LoginController::class, 'handleProviderCallback']);
+Route::get('login/{provider}', [LoginController::class, 'redirectToProvider'])->name('google.login');
+Route::get('login/{provider}/callback', [LoginController::class, 'handleProviderCallback'])->name('facebook.login');

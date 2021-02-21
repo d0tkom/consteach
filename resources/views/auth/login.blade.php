@@ -42,9 +42,13 @@
                 <x-jet-button class="ml-4">
                     {{ __('Login') }}
                 </x-jet-button>
-                    <a href="{{ url('login/google') }}" style="margin-top: 0px !important;background: green;color: #ffffff;padding: 5px;border-radius:7px;" class="ml-2 btn-google">
-                        <strong>Login With Google</strong>
-                    </a>
+
+                <a href="{{ url('login/google') . '?user_role=teacher' }}" class="ml-4 btn-google">
+                    <strong>Google</strong>
+                </a>
+                <a href="{{ url('login/facebook') }}" class="ml-4 btn-facebook">
+                    <strong>Facebook</strong>
+                </a>
 
             </div>
         </form>

@@ -1,23 +1,77 @@
 <template>
     <app-layout>
-        <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ trans.get('titles.profile') }}
-            </h2>
-        </template>
-
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <p>First name: {{ $page.props.user.first_name }}</p>
-                    <p>Last name: {{ $page.props.user.last_name }}</p>
-                    <p>Nationality: {{ $page.props.user.country }}</p>
-                    <p>Phone: {{ $page.props.user.phone_number }}</p>
-                    <p>Video: {{ $page.props.user.video }}</p>
-                    <p>Email: {{ $page.props.user.email }}</p>
-                    <p>Email: {{ $page.props.user.email }}</p>
-                    <p>Email: {{ $page.props.user.email }}</p>
-                    <p>Email: {{ $page.props.user.email }}</p>
+        <div class="teacherHubContainer mt-8">
+            <div class="card flat lg">
+                <div class="card p-sm">
+                    <div class="flex justify-between">
+                        <div class="flex items-center">
+                            <div class="profileImg blue-border rounded-full overflow-hidden mr-8">
+                                <img :src="$page.props.user.profile_photo_url" alt="Profilkép">
+                            </div>
+                            <div class="name text-3xl font-bold color-primary-dark">
+                                {{ $page.props.user.first_name }}
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="infoItem flex mx-4">
+                                <div class="mr-4">
+                                    <img src="https://via.placeholder.com/33x40" alt="Diák ikon">
+                                </div>
+                                <div class="text-center">
+                                    <div class="color-primary-dark font-bold">
+                                        {{ $page.props.user.extra.student_count }}
+                                    </div>
+                                    <div class="color-gray font-bold">Diák</div>
+                                </div>
+                            </div>
+                            <div class="infoItem flex mx-4">
+                                <div  class="mr-4">
+                                    <img src="https://via.placeholder.com/33x40" alt="Diák ikon">
+                                </div>
+                                <div class="text-center">
+                                    <div class="color-primary-dark font-bold">
+                                        {{ $page.props.user.extra.appointment_count }}
+                                    </div>
+                                    <div class="color-gray font-bold">Óra</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <div class="flex items-center">
+                                <span class="walletIcon material-icons mr-2 text-2xl color-primary-dark">account_balance_wallet</span>
+                                <span class="font-bold text-2xl color-green-dark">15,000 HUF</span>
+                            </div>
+                            <div class="text-right">Egyenleg</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <div class="col-span-2 card p-sm">
+                        <div class="flex justify-between mb-4">
+                            <div class="color-primary-dark text-lg font-bold">Lefoglalt óráim</div>
+                            <div class="color-gray">2020. január 21.</div>
+                        </div>
+                        <div class="events">
+                            <booked-event
+                                v-for="(appointment, a) in appointments"
+                                :key="a"
+                                from-teacher
+                                :data="appointment"
+                            />
+                        </div>
+                    </div>
+                    <!-- Sidebar -->
+                    <div class="col-span-1">
+                        <div class="card p-sm">
+                            <div class="color-primary-dark text-lg font-bold mb-4">Diákjaim</div>
+                            <bought-event
+                                v-for="(lesson, l) in lessons"
+                                :key="l"
+                                from-teacher
+                                :data="lesson"
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -25,13 +79,19 @@
 </template>
 
 <script>
-    import AppLayout from './../../Layouts/AppLayout'
-    import Welcome from './../../Jetstream/Welcome'
-
+    import AppLayout from '@/Layouts/AppLayout'
+    import BookedEvent from "@/Widgets/BookedEvent";
+    import BoughtEvent from "@/Widgets/BoughtEvent";
+    
     export default {
         components: {
+            BoughtEvent,
             AppLayout,
-            Welcome,
+            BookedEvent,
+        },
+        props: {
+            lessons: Array,
+            appointments: Array,
         },
     }
 </script>

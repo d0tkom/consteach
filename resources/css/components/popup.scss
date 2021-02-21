@@ -1,0 +1,67 @@
+
+	body.scrollLock {
+		overflow: hidden;
+	}
+	
+	.popUpContainer {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: rgba($blue-dark, .6);
+		opacity: 0;
+		pointer-events: none;
+		transition: all .35s ease-in-out;
+		z-index: $z-popup;
+		
+		.popUpBg {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+		
+		.popupContent {
+			width: 96%;
+			max-width: 500px;
+			padding: 40px;
+			position: relative;
+			padding-top: 100px;
+			border-radius: 10px;
+			transition: all .25s ease-in-out;
+			margin-top: 100px;
+			opacity: 0;
+			
+			.brandLogo {
+				position: absolute;
+				top: 20px;
+				left: 50%;
+				transform: translate(-50%, 0);
+			}
+			
+			.closeBtn {
+				position: absolute;
+				top: 20px;
+				right: 20px;
+			}
+		}
+		
+		&.large {
+			.popupContent {
+				max-width: 600px;
+			}
+		}
+		
+		&.active {
+			opacity: 1;
+			pointer-events: initial;
+			
+			.popupContent {
+				transition: all .25s .2s ease-in-out;
+				margin-top: 0;
+				opacity: 1;
+			}
+		}
+	}

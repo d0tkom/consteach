@@ -25,7 +25,8 @@ class LoginController extends Controller
      */
     public function redirectToProvider($provider)
     {
-        return Socialite::driver($provider)->redirect();
+        session(['user_role' => request('user_role')]);
+        return Socialite::driver($provider)->with(['teszt' => 'example.com'])->redirect();
     }
 
     /**
@@ -43,13 +44,18 @@ class LoginController extends Controller
         if (!$user) {
             $user = User::create([
                 'email' => $socialite_user->getEmail(),
-                'name' => $socialite_user->getName(),
+                'first_name' => explode(' ', $socialite_user->getName())[0],
+                'last_name' => explode(' ', $socialite_user->getName())[1],
                 'username' => $socialite_user->getNickname(),
                 'provider_id' => $socialite_user->getId(),
-                'role' => 'teacher',
+                'role' => session('user_role'),
+                'country' => 'HU',
+                'timezone' => 'UTC+2'
                 //'token' => $user->token
             ]);
         }
+
+        session()->forget('user_role');
 
         Auth::login($user, true);
 

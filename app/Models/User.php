@@ -9,6 +9,10 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Student;
+use App\Models\Teacher;
+use App\Models\Order;
+use Laravel\Cashier\Billable;
 
 class User extends Authenticatable
 {
@@ -17,6 +21,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use Billable;
 
     /**
      * The attributes that are mass assignable.
@@ -24,7 +29,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'country',
+        'timezone',
         'email',
         'password',
         'provider_id',
@@ -50,6 +58,11 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'spoken_languages' => 'array',
+    ];
+
+    protected $with = [
+        'extra'
     ];
 
     /**
@@ -60,4 +73,14 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function extra()
+    {
+        return $this->role == 'student' ? $this->hasOne(Student::class) : $this->hasOne(Teacher::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

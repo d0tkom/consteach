@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -69,6 +70,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $validatedData = $request->validate([
             'first_name' => ['bail', 'required', 'min:2', 'max:50'],
             'last_name' => ['bail', 'required', 'min:2', 'max:50'],
@@ -80,11 +82,28 @@ class UserController extends Controller
         $user->first_name = request()->input('first_name');
         $user->last_name = request()->input('last_name');
         $user->email = request()->input('email');
-        $user->country = request()->input('country');
+        $user->country = request()->input('country') ?? '';
+        $user->timezone = request()->input('timezone');
+        $user->spoken_languages = request()->input('spoken_languages');
+        $user->site_language = request()->input('site_language');
+        $user->currency = request()->input('currency');
 
         $user->save();
 
-        return redirect(route('student.settings'));
+        if ($user->role == 'teacher') {
+            $teacher = Teacher::where('user_id', $user->id)->first();
+
+            $teacher->teaching_languages = request()->input('teaching_languages');
+            $teacher->about_me = request()->input('about_me');
+            $teacher->video_url = request()->input('video_url');
+            $teacher->one_hour_price = request()->input('one_hour_price');
+            $teacher->five_hour_price = request()->input('five_hour_price');
+            $teacher->ten_hour_price = request()->input('ten_hour_price');
+
+            $teacher->save();
+        }
+
+        return redirect(route('settings'));
     }
 
     /**

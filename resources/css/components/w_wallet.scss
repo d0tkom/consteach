@@ -1,0 +1,16 @@
+.walletWidget {
+	position: absolute;
+	top: 60px;
+	left: 0;
+	width: 200px;
+	min-height: 200px;
+	z-index: $z-wallet;
+	border-radius: 10px;
+	transition: all .25s ease-in-out;
+	
+	&:not(.opened) {
+		top: 40px;
+		opacity: 0;
+		pointer-events: none;
+	}
+}

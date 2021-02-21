@@ -1,0 +1,38 @@
+
+.checkboxContainer {
+	display: flex;
+	align-items: flex-end;
+	user-select: none;
+	
+	.inputLabel {
+		font-style: normal;
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 20px;
+		color: $blue-dark;
+		transition: all .25s;
+	}
+	
+	.checkbox {
+		color: $blue;
+		
+		&:hover {
+		
+		}
+		
+		&:focus {
+			outline: none;
+			border: 1px solid rgba($blue, 0.2);
+		}
+	}
+	
+	&.error {
+		.inputLabel {
+			color: red;
+		}
+		
+		.checkbox {
+			border-color: red;
+		}
+	}
+}

@@ -1,0 +1,85 @@
+@import 'fonts/Montserrat/fonts.css';
+@import 'partials/variables';
+
+@import 'components/btn';
+@import 'components/checkbox';
+@import 'components/date';
+@import 'components/input';
+@import 'components/popup';
+@import 'components/select';
+@import 'components/slider';
+@import 'components/tag';
+@import 'components/textarea';
+@import 'components/thread';
+@import 'components/threads';
+
+@import 'components/p_site-header';
+
+@import 'components/l_app-layout';
+
+@import 'components/p_cancel-lesson';
+@import 'components/p_change-password';
+@import 'components/p_delete-profile';
+@import 'components/p_find-teacher-day';
+@import 'components/p_find-teacher-language';
+@import 'components/p_find-teacher-order';
+@import 'components/p_find-teacher-price';
+@import 'components/p_lesson-not-ready';
+
+@import 'components/p_student-settings';
+@import 'components/p_teacher-hub';
+@import 'components/p_teacher-settings';
+@import 'components/p_teacher-view';
+
+@import 'components/w_booked-event';
+@import 'components/w_teacher';
+@import 'components/w_wallet';
+@import 'components/w_profile-popup';
+@import 'components/w_bought-event';
+
+
+
+body {
+	color: $blue-dark;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.color-green {
+	color: $green-light;
+}
+
+.color-green-dark {
+	color: $green-dark;
+}
+
+.color-orange {
+	color: $orange;
+}
+
+.color-gray {
+	color: $gray;
+}
+
+.color-primary {
+	color: $blue;
+}
+
+.color-primary-dark {
+	color: $blue-dark;
+}
+
+.siteContent {
+	margin-top: 80px;
+}
+
+.studentHubContainer {
+	img {
+		max-width: 100px;
+	}
+}
+
+.teacherHubContainer {
+	img {
+		max-width: 100px;
+	}
+}

@@ -1,0 +1,22 @@
+.threadsContainer {
+	border-radius: 8px;
+	
+	.top {
+		background: #F2FAFF;
+	}
+	
+	.threads {
+		min-height: 360px;
+		.thread {
+			border-radius: 4px;
+			cursor: pointer;
+			
+			.profileImg {
+				width: 48px;
+				height: 48px;
+				overflow: hidden;
+				border-radius: 50%;
+			}
+		}
+	}
+}

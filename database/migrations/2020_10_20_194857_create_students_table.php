@@ -15,10 +15,14 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->constrained();
             $table->string('wanted_language');
             $table->string('language');
             $table->boolean('is_night');
+            $table->string('address');
+            $table->string('postal');
+            $table->string('city');
+            $table->string('state');
             $table->timestamps();
         });
     }

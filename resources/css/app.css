@@ -1,3 +1,53 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.blue-border {
+    border: 1px solid #9FC6DF;
+}
+
+.card {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.card:not(.flat) {
+    background: white;
+    border: 1px solid #9FC6DF;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.card.p-sm {
+    padding: 20px;
+}
+
+.card.lg {
+    max-width: 1200px;
+}
+
+.card.md {
+    max-width: 600px;
+}
+
+.card.sm {
+    max-width: 400px;
+}
+
+@media all and (max-width: 600px) {
+    .card:not(.flat) {
+        padding: 10px;
+        border-radius: 6px;
+    }
+
+    .card.p-sm {
+        padding: 10px;
+    }
+}
+
+body {
+    background: linear-gradient(349deg, #E8F3FA 81%, white 41%, #fcfaf7 150%);
+}

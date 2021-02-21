@@ -15,11 +15,13 @@ class CreateLessonsTable extends Migration
     {
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('student_id')->constrained('users');
-            $table->foreignId('teacher_id')->constrained('users');
+            $table->foreignId('student_id')->constrained();
+            $table->foreignId('teacher_id')->constrained();
             $table->smallInteger('finished');
             $table->tinyInteger('booked');
             $table->smallInteger('available');
+            $table->string('language');
+            $table->string('level');
             $table->timestamps();
         });
     }

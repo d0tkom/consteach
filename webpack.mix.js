@@ -11,9 +11,16 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sourceMaps(true, 'source-map')
+mix.js('resources/js/app.js', 'public/js').vue()
     .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),
         require('tailwindcss'),
-    ]);
+        require('autoprefixer'),
+    ])
+    .sass('resources/css/landing.scss', 'public/css')
+    .sass('resources/css/app.scss', 'public/css')
+    .webpackConfig(require('./webpack.config'));
+
+if (mix.inProduction()) {
+    mix.version();
+}

@@ -1,19 +1,21 @@
-require('./bootstrap');
+require('@/bootstrap');
+require('@/dateFilters');
+require('@/globalComponents')
 
-import { app, plugin } from '@inertiajs/inertia-vue';
+import { App as InertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-vue';
 import Vue from 'vue';
-import { InertiaForm } from 'laravel-jetstream';
 import PortalVue from 'portal-vue';
 import Lang from 'lang.js';
 import messages from './../assets/js/ll_messages';
+import { directive as onClickOutside } from 'vue-on-click-outside'
+
 
 
 window.Lang = Lang;
-window.Vue = Vue;
 
 Vue.mixin({ methods: { route } });
-Vue.use(plugin);
-Vue.use(InertiaForm);
+Vue.directive('on-click-outside', onClickOutside)
+Vue.use(InertiaPlugin);
 Vue.use(PortalVue);
 
 const default_locale = window.default_locale;
@@ -21,14 +23,14 @@ const fallback_locale = window.fallback_locale;
 
 Vue.prototype.trans = new Lang({messages, locale: default_locale, fallback: fallback_locale});
 
-const el = document.getElementById('app');
+const app = document.getElementById('app');
 
 new Vue({
     render: (h) =>
-        h(app, {
+        h(InertiaApp, {
             props: {
-                initialPage: JSON.parse(el.dataset.page),
+                initialPage: JSON.parse(app.dataset.page),
                 resolveComponent: (name) => require(`./Pages/${name}`).default,
             },
         }),
-}).$mount(el);
+}).$mount(app);

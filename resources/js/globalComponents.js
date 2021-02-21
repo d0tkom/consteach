@@ -1,0 +1,20 @@
+import Vue from 'vue';
+import cBtn from '@/components/cBtn';
+import cSelect from '@/components/cSelect';
+import cInput from '@/components/cInput';
+import cSlider from '@/components/cSlider';
+import cDate from '@/components/cDate';
+import cTextArea from '@/components/cTextArea';
+import cTag from '@/components/cTag';
+import cPopUp from '@/components/cPopUp';
+import cCheckbox from '@/components/cCheckbox';
+
+Vue.component('cBtn', cBtn);
+Vue.component('cSelect', cSelect);
+Vue.component('cInput', cInput);
+Vue.component('cSlider', cSlider);
+Vue.component('cDate', cDate);
+Vue.component('cTextArea', cTextArea);
+Vue.component('cTag', cTag);
+Vue.component('cPopUp', cPopUp);
+Vue.component('cCheckbox', cCheckbox);
