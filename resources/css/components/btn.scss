@@ -71,11 +71,11 @@
 				padding: 10px 20px;
 				
 				&:hover {
-					background: rgba($blue, .05);
+					background: rgba($blue, .1);
 				}
 				
 				&:active {
-					background: rgba($blue, .1);
+					background: rgba($blue, .2);
 				}
 			}
 			
@@ -95,6 +95,49 @@
 				}
 			}
 		}
+
+        &.color-facebook {
+          background: #3B5998;
+          color: white;
+
+        &:hover {
+          background: lighten(#3B5998, 10);
+        }
+
+        &:active {
+          background: lighten(#3B5998, 20);
+        }
+
+        &.text {
+          background: transparent;
+          color: #3B5998;
+          padding: 10px 20px;
+
+          &:hover {
+            background: rgba(#3B5998, .05);
+          }
+
+          &:active {
+            background: rgba(#3B5998, .1);
+          }
+        }
+
+        &.outlined {
+          background: transparent;
+          color: #3B5998;
+          padding: 10px 20px;
+          border: 2px solid #3B5998;
+
+          &:hover {
+            background: #3B5998;
+            color: white;
+          }
+
+          &:active {
+            background: lighten(#3B5998, 10);
+          }
+        }
+      }
 		
 		&.color-error {
 			background: $red;
@@ -200,7 +243,7 @@
 		}
 		
 		.btnIcon {
-			margin-right: 0;
+			margin-right: 0 !important;
 		}
 	}
 	

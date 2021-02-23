@@ -140,6 +140,7 @@ body .wave.wave-2 {
 }
 body header {
   height: 40px;
+  padding: 0 10px;
   background-color: #fff;
 }
 body header.fixed {
@@ -220,7 +221,7 @@ body header nav .nav-bar {
   right: 15px;
   top: 45px;
   padding: 15px;
-  z-index: 99;
+  z-index: 30;
 }
 @media only screen and (min-width: 1201px) {
   body header nav .nav-bar {
@@ -234,6 +235,9 @@ body header nav .nav-bar {
 }
 body header nav .nav-bar.show {
   display: block;
+}
+body header nav .nav-bar .authBtns {
+  order: 3;
 }
 @media only screen and (min-width: 1201px) {
   body header nav .nav-bar .lang {

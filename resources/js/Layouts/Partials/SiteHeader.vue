@@ -1,7 +1,11 @@
 <template>
 	<header>
 		<div class="headerContainer flex justify-between items-center">
-			<logo />
+			<inertia-link
+				href="/"
+			>
+				<logo />
+			</inertia-link>
 			<nav class="hidden sm:flex items-center justify-between">
 				<div class="walletContainer relative mr-4" v-if="$page.props.user.role == 'teacher'">
 					<c-btn

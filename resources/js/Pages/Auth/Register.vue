@@ -1,33 +1,85 @@
 <template>
-    <jet-authentication-card>
-        <template #logo>
-            <jet-authentication-card-logo />
-        </template>
-
+	<div>
         <jet-validation-errors class="mb-4" />
-
+		
+		<div class="socialLogin">
+			<c-btn
+				class="mb-4"
+				full
+				color="facebook"
+				icon="facebook"
+				navigate-to="/login/facebook"
+			>{{ trans.get('auth.login_with_facebook_btn') }}</c-btn>
+			
+			<c-btn
+				full
+				outlined
+				navigate-to="/login/google?user_role=teacher"
+			>
+				<div class="flex items-center">
+					<div class="googleIconContainer mr-4">
+						<img src="/img/google_logo.svg" alt="Google logo">
+					</div>
+					<span>{{ trans.get('auth.login_with_google_btn') }}</span>
+				</div>
+			</c-btn>
+		</div>
+		
+		<div class="hr">{{ trans.get('auth.login_social_or_email') }}</div>
+		
         <form @submit.prevent="submit">
-            <div>
-                <jet-label for="name" value="Name" />
-                <jet-input id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <c-input
+	                :label="trans.get('auth.first_name_label')"
+	                id="first_name"
+	                type="text"
+	                v-model="form.first_name"
+	                required
+	                autofocus
+	                autocomplete="first_name"
+                />
+	
+	            <c-input
+		            :label="trans.get('auth.last_name_label')"
+		            id="last_name"
+		            type="text"
+		            v-model="form.last_name"
+		            required
+		            autocomplete="last_name"
+	            />
             </div>
 
-            <div class="mt-4">
-                <jet-label for="email" value="Email" />
-                <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required />
+            <div class="mb-4">
+	            <c-input
+		            :label="trans.get('auth.email_label')"
+		            id="registration_email"
+		            type="email"
+		            v-model="form.email"
+		            required
+		            autocomplete="email"
+	            />
+            </div>
+	
+	        <div class="grid grid-cols-2 gap-4 mb-4">
+	            <c-input
+		            :label="trans.get('auth.password_label')"
+		            id="registration_password"
+		            type="password"
+		            v-model="form.password"
+		            required
+		            autocomplete="password"
+	            />
+		        <c-input
+			        :label="trans.get('auth.password_confirmation_label')"
+			        id="registration_password_confirmation"
+			        type="password"
+			        v-model="form.password_confirmation"
+			        required
+			        autocomplete="password_confirmation"
+		        />
             </div>
 
-            <div class="mt-4">
-                <jet-label for="password" value="Password" />
-                <jet-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="new-password" />
-            </div>
-
-            <div class="mt-4">
-                <jet-label for="password_confirmation" value="Confirm Password" />
-                <jet-input id="password_confirmation" type="password" class="mt-1 block w-full" v-model="form.password_confirmation" required autocomplete="new-password" />
-            </div>
-
-            <div class="mt-4" v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature">
+            <div class="mb-4" v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature">
                 <jet-label for="terms">
                     <div class="flex items-center">
                         <jet-checkbox name="terms" id="terms" v-model:checked="form.terms" />
@@ -39,17 +91,25 @@
                 </jet-label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <inertia-link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Already registered?
-                </inertia-link>
-
-                <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Register
-                </jet-button>
+            <div class="flex items-center justify-center my-4">
+                <c-btn
+	                :loading="form.processing"
+	                @click="submit"
+                >
+	                {{ trans.get('auth.register_btn') }}
+                </c-btn>
             </div>
+	        
+	        <div class="flex justify-end">
+		        <c-btn
+			        text
+			        navigate-to="/#login"
+			    >
+			        {{ trans.get('auth.already_registered_btn') }}
+		        </c-btn>
+	        </div>
         </form>
-    </jet-authentication-card>
+    </div>
 </template>
 
 <script>
@@ -75,7 +135,8 @@
         data() {
             return {
                 form: this.$inertia.form({
-                    name: '',
+                    first_name: '',
+                    last_name: '',
                     email: '',
                     password: '',
                     password_confirmation: '',
@@ -87,7 +148,10 @@
         methods: {
             submit() {
                 this.form.post(this.route('register'), {
-                    onFinish: () => this.form.reset('password', 'password_confirmation'),
+	                onFinish: () => {
+		                this.form.reset('password', 'password_confirmation');
+		                this.$emit('close');
+	                }
                 })
             }
         }

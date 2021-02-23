@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="bg">
 	    <site-header />
 	    
 	    <div class="siteContent">
