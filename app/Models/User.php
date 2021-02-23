@@ -61,10 +61,6 @@ class User extends Authenticatable
         'spoken_languages' => 'array',
     ];
 
-    protected $with = [
-        'extra'
-    ];
-
     /**
      * The accessors to append to the model's array form.
      *

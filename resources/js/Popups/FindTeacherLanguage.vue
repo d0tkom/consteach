@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import languages from '@/partials/languages';
+import languages from '@/Partials/languages';
 
 export default {
 	components: {

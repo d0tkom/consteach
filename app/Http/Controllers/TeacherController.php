@@ -82,4 +82,24 @@ class TeacherController extends Controller
     {
         //
     }
+
+    public function filter(Request $request)
+    {
+        $teachers = Teacher::whereBetween('one_hour_price', [request()->input('prices')[0], request()->input('prices')[1]])
+            ->with('user');
+
+        if (request()->input('language')) {
+            $teachers->where('teaching_languages', 'LIKE', '%"language": "'.request()->input('language').'"%');
+        }
+
+        if (request()->input('order_by') == 'one_hour_price') {
+            $teachers->orderBy(request()->input('order_by'), 'ASC');
+            $teachers = $teachers->get();
+        } else {
+            $teachers = $teachers->get();
+            $teachers->sortBy(request()->input('order_by'));
+        }
+
+        return response()->json(['teachers' => $teachers]);
+    }
 }

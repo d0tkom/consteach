@@ -23,7 +23,7 @@
                                                 <span v-if="false" class="material-icons mr-2 color-green-dark">
                                                     check_circle_outline
                                                 </span>
-                                                <span>{{ teacher.user.first_name }}</span>
+                                                <span>{{ teacher.user.first_name }}  {{ teacher.user.last_name[0] }}.</span>
                                                 <div class="flag ml-2">
                                                     <img :src="teacher.user.country" alt="flag">
                                                 </div>

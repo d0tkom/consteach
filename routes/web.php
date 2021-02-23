@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Route;
 use KgBot\LaravelLocalization\Classes\ExportLocalizations;
@@ -61,6 +62,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/teacher/{teacher_id}', fu
     return Inertia\Inertia::render('Teacher/View')->with(['teacher' => $teacher]);
 })->name('teacher.view');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/teachers', function () {
+    $teachers = Teacher::with('user')->orderBy('one_hour_price', 'ASC')->get();
+    return Inertia\Inertia::render('Teacher/List')->with(['all_teachers' => $teachers]);
+})->name('teachers');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/teachers/filter', [TeacherController::class, 'filter'])->name('teachers.filter');
+
 Route::middleware(['auth:sanctum', 'verified'])->post('/checkout/payment', [CheckoutController::class, 'store']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/checkout/{teacher_id}', function ($teacher_id) {
@@ -74,7 +82,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/settings', function () {
             return Inertia\Inertia::render('Student/Settings');
             break;
         case ('teacher'):
-            return Inertia\Inertia::render('Teacher/Settings');
+            $teacher = Teacher::where('user_id', Auth::user()->id)->first();
+            return Inertia\Inertia::render('Teacher/Settings')->with(['teacher' => $teacher]);
             break;
         case ('admin'):
             return Inertia\Inertia::render('Admin/Dashboard');

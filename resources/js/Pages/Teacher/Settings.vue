@@ -276,6 +276,9 @@
             DeleteProfile,
             AppLayout,
         },
+        props: {
+            teacher: Object
+        },
         data() {
             return {
                 countries,
@@ -302,15 +305,15 @@
                     email: this.$page.props.user.email,
                     country: this.$page.props.user.country,
                     spoken_languages: this.$page.props.user.spoken_languages ?? [{language: null, level: null}],
-                    teaching_languages: this.$page.props.user.extra.teaching_languages ?? [{language: null, level: null}],
+                    teaching_languages: this.teacher.teaching_languages ?? [{language: null, level: null}],
                     site_language: this.$page.props.user.site_language,
                     currency: this.$page.props.user.currency,
                     timezone: this.$page.props.user.timezone,
-                    about_me: this.$page.props.user.extra.about_me ?? [{locale: 'hu', text: ''}, {locale: 'en', text: ''}],
-                    video_url: this.$page.props.user.extra.video_url,
-                    one_hour_price: this.$page.props.user.extra.one_hour_price,
-                    five_hour_price: this.$page.props.user.extra.five_hour_price,
-                    ten_hour_price: this.$page.props.user.extra.ten_hour_price,
+                    about_me: this.teacher.about_me ?? [{locale: 'hu', text: ''}, {locale: 'en', text: ''}],
+                    video_url: this.teacher.video_url,
+                    one_hour_price: this.teacher.one_hour_price,
+                    five_hour_price: this.teacher.five_hour_price,
+                    ten_hour_price: this.teacher.ten_hour_price,
                 }, {
                     bag: 'updateUser',
                     resetOnSuccess: true,

@@ -1,9 +1,9 @@
 export default [
     {
         name: 'Magyar',
-        code: 'HU'
+        code: 'hu'
     }, {
-        name: 'English',
-        code: 'EN'
+        name: 'Arabic',
+        code: 'ae'
     },
 ];

@@ -649,6 +649,15 @@ body {
   border-top: 6px solid #BEDDF0;
 }
 
+.findTeacherContainer .actions {
+  max-width: 780px;
+  margin-top: 40px;
+}
+.findTeacherContainer .top {
+  max-width: 780px;
+  margin-right: auto;
+}
+
 .bookedEvent {
   padding: 10px;
   border-radius: 10px;
@@ -713,6 +722,51 @@ body {
 }
 .boughtEvent .profileImageWrapper {
   width: 70px;
+}
+
+.teacherProfileImage {
+  width: 90px;
+  height: 90px;
+}
+
+.teacherMorePanel {
+  position: absolute;
+  right: 0;
+  top: 0;
+  box-sizing: border-box;
+  width: 400px;
+  background: white;
+  border-radius: 10px;
+  z-index: 20;
+}
+
+.teacherWidgetMainCard {
+  max-width: 780px;
+  position: relative;
+  margin-left: 0;
+  box-sizing: border-box;
+}
+.teacherWidgetMainCard .favoriteBtn {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+}
+.teacherWidgetMainCard .actions {
+  width: 300px;
+  padding-left: 30px;
+}
+
+.fadeMoveIn-enter-active, .fadeMoveIn-leave-active {
+  transition: all 0.25s ease-in-out;
+}
+
+.fadeMoveIn-enter, .fadeMoveIn-leave-to {
+  opacity: 0;
+  top: 20px;
+}
+
+.fadeMoveIn-leave-to {
+  transition: all 0.1s;
 }
 
 body {
