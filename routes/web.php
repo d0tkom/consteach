@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Route;
 use KgBot\LaravelLocalization\Classes\ExportLocalizations;
 use App\Models\Teacher;
 use App\Models\Lesson;
-use App\Models\Student;
 use App\Models\Appointment;
 
 /*
@@ -22,8 +21,37 @@ use App\Models\Appointment;
 |
 */
 
+// AUTH REDIRECTS
+/* TODO:FIX
+Route::get('/login', function () {
+    return redirect('/#login');
+});
+Route::get('/register', function () {
+    return redirect('/#registration');
+});
+Route::get('/forgotten-password', function () {
+    return redirect('/#lost-password');
+});
+*/
+
 Route::get('/', function () {
-    return view('welcome');
+    $teachersAvailableLanguages = Teacher::select(['teaching_languages'])->get();
+
+    $availableLanguages = [];
+    foreach($teachersAvailableLanguages as $teacherAvailableLanguages) {
+        if (!is_array($teacherAvailableLanguages->teaching_languages)) {
+            continue;
+        }
+
+        foreach($teacherAvailableLanguages->teaching_languages as $teacherAvailableLanguage) {
+
+            if (!in_array($teacherAvailableLanguage['language'], $availableLanguages)) {
+                $availableLanguages[] = $teacherAvailableLanguage['language'];
+            }
+        }
+    }
+
+    return Inertia\Inertia::render('Landing')->with(['availableLanguages' => $availableLanguages]);
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -92,7 +120,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/settings', function () {
             return view('welcome');
             break;
     }
-    return Inertia\Inertia::render('Student/Settings');
 })->name('settings');
 
 Route::get('/get/local/data', function() {

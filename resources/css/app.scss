@@ -13,6 +13,8 @@
 @import 'components/thread';
 @import 'components/threads';
 
+@import 'components/auth';
+
 @import 'components/p_site-header';
 
 @import 'components/l_app-layout';
@@ -84,4 +86,26 @@ body {
 	img {
 		max-width: 100px;
 	}
+}
+
+.hr {
+  position: relative;
+  text-align: center;
+  margin: 20px 0;
+  opacity: .6;
+
+  &:after, &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    border-bottom: 1px solid gray;
+  }
+
+  &:after {
+    right: 0;
+  }
+  &:before {
+    left: 0;
+  }
 }

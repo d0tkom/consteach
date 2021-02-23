@@ -3,6 +3,10 @@
 		<label>
 			<div v-if="label" class="inputLabel">{{ label }}</div>
 			<input
+				:autocomplete="autocomplete"
+				v-bind:required="required"
+				v-bind:autofocus="autofocus"
+				:name="name"
 				:placeholder="placeholder"
 				:value="value"
 				@input="$emit('input', $event.target.value)"
@@ -40,7 +44,23 @@ export default {
 		type: {
 			type: String,
 			default: 'text'
-		}
+		},
+		autocomplete: {
+			type: String,
+			default: ''
+		},
+		name: {
+			type: String,
+			default: ''
+		},
+		required: {
+			type: Boolean,
+			default: false
+		},
+		autofocus: {
+			type: Boolean,
+			default: false
+		},
 	},
 }
 </script>

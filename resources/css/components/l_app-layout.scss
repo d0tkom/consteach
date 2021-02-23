@@ -1,6 +1,17 @@
 body {
 	color: $blue-dark;
 	font-family: 'Montserrat', sans-serif;
+	background: #DEEEF8;
+
+	.bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 900px;
+		background: url('/img/bg.svg') center center / cover;
+		background-repeat: no-repeat;
+	}
 }
 
 .color-green {
@@ -29,4 +40,5 @@ body {
 
 .siteContent {
 	margin-top: 80px;
+	padding-bottom: 40px;
 }

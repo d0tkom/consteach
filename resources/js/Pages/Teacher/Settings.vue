@@ -26,14 +26,14 @@
                         <div class="mb-4">
                             <cInput
                                 v-model="form.first_name"
-                                :error="$page.props.errors.first_name ? true : false"
+                                :error="!!$page.props.errors.first_name"
                                 label="Keresztnév"
                             ></cInput>
                         </div>
                         
                         <div class="mb-4">
                             <cInput
-                                :error="$page.props.errors.first_name ? true : false"
+                                :error="!!$page.props.errors.first_name"
                                 label="Családnév"
                                 v-model="form.last_name"
                             ></cInput>
@@ -42,7 +42,7 @@
                         <div class="mb-4">
                             <cInput
                                 label="Email cím"
-                                :error="$page.props.errors.email ? true : false"
+                                :error="!!$page.props.errors.email"
                                 v-model="form.email"
                             ></cInput>
                         </div>
@@ -181,7 +181,7 @@
                     class="mb-2"
                     type="text"
                     v-model="form.video_url"
-                    :error="$page.props.errors.video_url ? true : false"
+                    :error="!!$page.props.errors.video_url"
                     label="Youtube link"
                 />
                 <iframe width="100%" height="315" :src="form.video_url.replace('watch?v=', 'embed/')" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -254,8 +254,8 @@
                 </c-btn>
             </div>
         
-            <change-password v-model="changePasswordPopup"></change-password>
-            <delete-profile v-model="removeAccountPopup"></delete-profile>
+            <change-password v-model="changePasswordPopup" />
+            <delete-profile v-model="removeAccountPopup" />
         </div>
     </app-layout>
 </template>

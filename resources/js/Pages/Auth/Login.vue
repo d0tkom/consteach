@@ -1,66 +1,86 @@
 <template>
-    <jet-authentication-card>
-        <template #logo>
-            <jet-authentication-card-logo />
-        </template>
-
+	<div>
         <jet-validation-errors class="mb-4" />
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
         </div>
 
+		<div class="socialLogin">
+			<c-btn
+				class="mb-4"
+				full
+				color="facebook"
+				icon="facebook"
+				navigate-to="/login/facebook"
+			>{{ trans.get('auth.login_with_facebook_btn') }}</c-btn>
+			
+			<c-btn
+				full
+				outlined
+				navigate-to="/login/google?user_role=teacher"
+			>
+				<div class="flex items-center">
+					<div class="googleIconContainer mr-4">
+						<img src="/img/google_logo.svg" alt="Google logo">
+					</div>
+					<span>{{ trans.get('auth.login_with_google_btn') }}</span>
+				</div>
+			</c-btn>
+		</div>
+		
+		<div class="hr">{{ trans.get('auth.login_social_or_email') }}</div>
+		
         <form @submit.prevent="submit">
             <div>
-                <jet-label for="email" value="Email" />
-                <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus />
+                <c-input name="email" type="email" :label="trans.get('auth.email_label')" v-model="form.email" required autofocus />
             </div>
 
             <div class="mt-4">
-                <jet-label for="password" value="Password" />
-                <jet-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
+                <c-input :label="trans.get('auth.email_label')" name="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">
                 <label class="flex items-center">
-                    <jet-checkbox name="remember" v-model:checked="form.remember" />
-                    <span class="ml-2 text-sm text-gray-600">Remember me</span>
+	                <c-checkbox
+		                v-model="form.remember"
+	                >{{ trans.get('auth.remember_label') }}</c-checkbox>
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <inertia-link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Forgot your password?
-                </inertia-link>
-
-                <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Log in
-                </jet-button>
-
-                <a href="login/google?user_role=teacher" class="ml-4 btn-google">
-                    <strong>Google</strong>
-                </a>
-                <a href="login/facebook" class="ml-4 btn-facebook">
-                    <strong>Facebook</strong>
-                </a>
+            <div class="flex items-center justify-center my-4">
+	            <c-btn
+		            :loading="form.processing"
+	                @click="submit"
+	            >{{ trans.get('auth.login_btn') }}</c-btn>
             </div>
+	
+	        <div class="flex justify-between">
+		        <c-btn
+			        text
+			        navigate-to="/#lost-password"
+		        >
+			        {{ trans.get('auth.lost_password_btn') }}
+		        </c-btn>
+		        <c-btn
+			        text
+			        navigate-to="/#registration"
+		        >{{ trans.get('auth.create_new_account_btn') }}
+		        </c-btn>
+	        </div>
         </form>
-    </jet-authentication-card>
+	</div>
 </template>
 
 <script>
-    import JetAuthenticationCard from '@/Jetstream/AuthenticationCard'
-    import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo'
     import JetButton from '@/Jetstream/Button'
     import JetInput from '@/Jetstream/Input'
     import JetCheckbox from '@/Jetstream/Checkbox'
     import JetLabel from '@/Jetstream/Label'
     import JetValidationErrors from '@/Jetstream/ValidationErrors'
-
+    
     export default {
         components: {
-            JetAuthenticationCard,
-            JetAuthenticationCardLogo,
             JetButton,
             JetInput,
             JetCheckbox,
@@ -91,7 +111,10 @@
                         remember: this.form.remember ? 'on' : ''
                     }))
                     .post(this.route('login'), {
-                        onFinish: () => this.form.reset('password'),
+                        onFinish: () => {
+	                        this.form.reset('password');
+	                        this.$emit('close');
+                        }
                     })
             }
         }

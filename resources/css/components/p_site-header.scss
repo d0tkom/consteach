@@ -5,11 +5,16 @@ header {
 	right: 0;
 	background: rgba(white, .8);
 	z-index: $z-header;
-	
+	padding: 0 10px;
+
 	.headerContainer {
 		max-width: 1200px;
 		margin: auto;
 		height: 60px;
+
+		nav {
+			margin-right: 0;
+		}
 		
 		.profilePopupContainer {
 			.profilePopupWidget {
@@ -26,5 +31,11 @@ header {
 				}
 			}
 		}
+	}
+}
+
+body.scrollLock {
+	header {
+		padding-right: 27px;
 	}
 }

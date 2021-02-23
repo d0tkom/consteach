@@ -26,6 +26,12 @@ Vue.prototype.trans = new Lang({messages, locale: default_locale, fallback: fall
 const app = document.getElementById('app');
 
 new Vue({
+    mounted() {
+        this.$inertia.on('before', (event) => {
+            console.log('route changed');
+            document.body.classList.remove('scrollLock');
+        })
+    },
     render: (h) =>
         h(InertiaApp, {
             props: {
