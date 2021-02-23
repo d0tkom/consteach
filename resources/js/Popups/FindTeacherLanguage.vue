@@ -8,11 +8,11 @@
 			<div
 				class="flex flex-col items-center justify-center"
 				v-for="language in languages"
-				:key="language.code"
-				@click="optionClick(language.code)"
+				:key="language"
+				@click="optionClick(language)"
 			>
 				<img class="blue-border rounded-full overflow-hidden shadow-md" src="https://via.placeholder.com/80" alt="">
-				<div class="text-center mt-2">{{ language.name }}</div>
+				<div class="text-center mt-2">{{ languageList.getName(language, locale) }}</div>
 			</div>
 			
 			<c-btn
@@ -27,13 +27,18 @@
 </template>
 
 <script>
-import languages from '@/Partials/languages';
 
 export default {
-	components: {
-
-	},
 	props: {
+		locale: {
+			type: String
+		},
+		languageList: {
+			type: Object
+		},
+		languages: {
+			type: Array
+		},
 		active: {
 			type: Boolean,
 			default: false
@@ -48,11 +53,6 @@ export default {
 				return {};
 			}
 		}
-	},
-	data: function() {
-		return {
-			languages,
-		};
 	},
 	methods: {
 		optionClick(value) {

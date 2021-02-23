@@ -11,7 +11,7 @@
 		</div>
 		<vue-slider
 			:value="value"
-			:min="1500"
+			:min="0"
 			:max="15000"
 			:interval="100"
 			tooltip="none"

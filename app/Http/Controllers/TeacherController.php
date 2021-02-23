@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Teacher;
+use App\Helpers\CollectionHelper;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
@@ -99,6 +100,8 @@ class TeacherController extends Controller
             $teachers = $teachers->get();
             $teachers->sortBy(request()->input('order_by'));
         }
+
+        $teachers = CollectionHelper::paginate($teachers, 1);
 
         return response()->json(['teachers' => $teachers]);
     }

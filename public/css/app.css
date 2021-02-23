@@ -85,10 +85,10 @@
   padding: 10px 20px;
 }
 .btnContainer .cBtn.color-primary.text:hover {
-  background: rgba(24, 160, 251, 0.05);
+  background: rgba(24, 160, 251, 0.1);
 }
 .btnContainer .cBtn.color-primary.text:active {
-  background: rgba(24, 160, 251, 0.1);
+  background: rgba(24, 160, 251, 0.2);
 }
 .btnContainer .cBtn.color-primary.outlined {
   background: transparent;
@@ -102,6 +102,40 @@
 }
 .btnContainer .cBtn.color-primary.outlined:active {
   background: #4ab5fc;
+}
+.btnContainer .cBtn.color-facebook {
+  background: #3B5998;
+  color: white;
+}
+.btnContainer .cBtn.color-facebook:hover {
+  background: #4c70ba;
+}
+.btnContainer .cBtn.color-facebook:active {
+  background: #718dc8;
+}
+.btnContainer .cBtn.color-facebook.text {
+  background: transparent;
+  color: #3B5998;
+  padding: 10px 20px;
+}
+.btnContainer .cBtn.color-facebook.text:hover {
+  background: rgba(59, 89, 152, 0.05);
+}
+.btnContainer .cBtn.color-facebook.text:active {
+  background: rgba(59, 89, 152, 0.1);
+}
+.btnContainer .cBtn.color-facebook.outlined {
+  background: transparent;
+  color: #3B5998;
+  padding: 10px 20px;
+  border: 2px solid #3B5998;
+}
+.btnContainer .cBtn.color-facebook.outlined:hover {
+  background: #3B5998;
+  color: white;
+}
+.btnContainer .cBtn.color-facebook.outlined:active {
+  background: #4c70ba;
 }
 .btnContainer .cBtn.color-error {
   background: red;
@@ -183,7 +217,7 @@
   padding: 10px;
 }
 .btnContainer.iconOnly .btnIcon {
-  margin-right: 0;
+  margin-right: 0 !important;
 }
 .btnContainer.loading {
   pointer-events: none;
@@ -206,7 +240,7 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
-  color: #174696;
+  color: rgba(23, 70, 150, 0.5);
   transition: all 0.25s;
 }
 .checkboxContainer .checkbox {
@@ -264,6 +298,7 @@
 
 body.scrollLock {
   overflow: hidden;
+  padding-right: 17px;
 }
 
 .popUpContainer {
@@ -481,6 +516,17 @@ body.scrollLock {
   border-radius: 50%;
 }
 
+.googleIconContainer {
+  background: white;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
 header {
   position: fixed;
   top: 0;
@@ -488,11 +534,15 @@ header {
   right: 0;
   background: rgba(255, 255, 255, 0.8);
   z-index: 8;
+  padding: 0 10px;
 }
 header .headerContainer {
   max-width: 1200px;
   margin: auto;
   height: 60px;
+}
+header .headerContainer nav {
+  margin-right: 0;
 }
 header .headerContainer .profilePopupContainer .profilePopupWidget {
   top: 30px;
@@ -505,9 +555,23 @@ header .headerContainer .profilePopupContainer:hover .profilePopupWidget {
   top: 40px;
 }
 
+body.scrollLock header {
+  padding-right: 27px;
+}
+
 body {
   color: #174696;
   font-family: "Montserrat", sans-serif;
+  background: #DEEEF8;
+}
+body .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 900px;
+  background: url("/img/bg.svg") center center/cover;
+  background-repeat: no-repeat;
 }
 
 .color-green {
@@ -536,6 +600,7 @@ body {
 
 .siteContent {
   margin-top: 80px;
+  padding-bottom: 40px;
 }
 
 .eventContainer {
@@ -564,6 +629,10 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.studentSettingsContainer {
+  margin-top: 200px;
 }
 
 .color-primary {
@@ -595,12 +664,14 @@ body {
   position: relative;
 }
 .page .top .profileImg img {
+  width: 140px;
+  height: 140px;
   border-radius: 100%;
 }
 .page .top .profileImg .profileImageEditIcon {
   position: absolute;
   top: 0;
-  right: 40px;
+  right: 0;
 }
 
 .inputWrapper {
@@ -609,6 +680,10 @@ body {
 
 .walletIcon {
   font-size: 3rem;
+}
+
+.teacherSettingsContainer {
+  margin-top: 200px;
 }
 
 .color-primary {
@@ -631,12 +706,14 @@ body {
   position: relative;
 }
 .card .top .profileImg img {
+  width: 140px;
+  height: 140px;
   border-radius: 100%;
 }
 .card .top .profileImg .profileImageEditIcon {
   position: absolute;
   top: 0;
-  right: 40px;
+  right: 0;
 }
 
 .inputWrapper {
@@ -808,6 +885,26 @@ body {
 
 .teacherHubContainer img {
   max-width: 100px;
+}
+
+.hr {
+  position: relative;
+  text-align: center;
+  margin: 20px 0;
+  opacity: 0.6;
+}
+.hr:after, .hr:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  border-bottom: 1px solid gray;
+}
+.hr:after {
+  right: 0;
+}
+.hr:before {
+  left: 0;
 }
 /*! tailwindcss v2.0.3 | MIT License | https://tailwindcss.com */
 

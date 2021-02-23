@@ -91,6 +91,9 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="card p-sm">
+                            <FullCalendar :options="calendarOptions" />
+                        </div>
                     </div>
                     <div class="col-span-1">
                         <div class="card p-sm">
@@ -145,12 +148,15 @@
 </template>
 
 <script>
-    import AppLayout from '@/Layouts/AppLayout'
+    import AppLayout from '@/Layouts/AppLayout';
     import BookedEvent from "@/Widgets/BookedEvent";
     import ChangePassword from '@/Popups/ChangePassword'
     import DeleteProfile from "@/Popups/DeleteProfile";
     import BoughtEvent from "@/Widgets/BoughtEvent";
     import Teacher from "@/Widgets/Teacher";
+    import FullCalendar from '@fullcalendar/vue';
+    import timeGridPlugin from '@fullcalendar/timegrid';
+    import interactionPlugin from '@fullcalendar/interaction';
     
     export default {
         components: {
@@ -160,6 +166,7 @@
             BookedEvent,
             ChangePassword,
             DeleteProfile,
+            FullCalendar,
         },
         props: {
             teacher: Object
@@ -168,6 +175,32 @@
             return {
                 languageList: null,
                 locale: window.default_locale,
+                calendarOptions: {
+                    plugins: [ timeGridPlugin, interactionPlugin ],
+                    initialView: 'timeGridWeek',
+                    locale: window.default_locale,
+                    buttonText: {
+                        today:    'mai nap',
+                        month:    'hónap',
+                        week:     'hét',
+                        day:      'nap',
+                        list:     'lista'
+                    },
+                    allDayText: 'egész nap',
+                    firstDay: 1,
+                    slotDuration: '01:00:00',
+                    dayHeaderFormat: { 
+                        weekday: 'long' ,
+                        day: 'numeric',
+                        omitCommas: true
+                    },
+                    allDaySlot: false,
+                    slotLabelFormat: {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        meridiem: 'long'
+                    }
+                }
             };
         },
         created() {

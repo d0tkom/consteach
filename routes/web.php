@@ -3,8 +3,10 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TeacherController;
+use App\Helpers\CollectionHelper;
 use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use KgBot\LaravelLocalization\Classes\ExportLocalizations;
 use App\Models\Teacher;
 use App\Models\Lesson;
@@ -19,19 +21,6 @@ use App\Models\Appointment;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
-
-// AUTH REDIRECTS
-/* TODO:FIX
-Route::get('/login', function () {
-    return redirect('/#login');
-});
-Route::get('/register', function () {
-    return redirect('/#registration');
-});
-Route::get('/forgotten-password', function () {
-    return redirect('/#lost-password');
-});
 */
 
 Route::get('/', function () {
@@ -85,17 +74,36 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     }
 })->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/teacher/{teacher_id}', function ($teacher_id) {
+Route::get('/teacher/{teacher_id}', function ($teacher_id) {
     $teacher = Teacher::where('id', $teacher_id)->with('user')->first();
     return Inertia\Inertia::render('Teacher/View')->with(['teacher' => $teacher]);
 })->name('teacher.view');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/teachers', function () {
+Route::get('/teachers', function (Request $request) {
+    $teachersAvailableLanguages = Teacher::select(['teaching_languages'])->get();
+
+    $availableLanguages = [];
+    foreach($teachersAvailableLanguages as $teacherAvailableLanguages) {
+        if (!is_array($teacherAvailableLanguages->teaching_languages)) {
+            continue;
+        }
+
+        foreach($teacherAvailableLanguages->teaching_languages as $teacherAvailableLanguage) {
+
+            if (!in_array($teacherAvailableLanguage['language'], $availableLanguages)) {
+                $availableLanguages[] = $teacherAvailableLanguage['language'];
+            }
+        }
+    }
     $teachers = Teacher::with('user')->orderBy('one_hour_price', 'ASC')->get();
-    return Inertia\Inertia::render('Teacher/List')->with(['all_teachers' => $teachers]);
+    $teachers = CollectionHelper::paginate($teachers, 1);
+    if ($request->ajax()) {
+        return response()->json(['teachers' => $teachers]);
+    }
+    return Inertia\Inertia::render('Teacher/List')->with(['all_teachers' => $teachers, 'availableLanguages' => $availableLanguages]);
 })->name('teachers');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/teachers/filter', [TeacherController::class, 'filter'])->name('teachers.filter');
+Route::get('/teachers/filter', [TeacherController::class, 'filter'])->name('teachers.filter');
 
 Route::middleware(['auth:sanctum', 'verified'])->post('/checkout/payment', [CheckoutController::class, 'store']);
 

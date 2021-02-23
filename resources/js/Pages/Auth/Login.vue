@@ -13,7 +13,7 @@
 				color="facebook"
 				icon="facebook"
 				navigate-to="/login/facebook"
-			>{{ trans.get('auth.login_with_facebook_btn') }}</c-btn>
+			>{{ trans.choice('auth.login_with_facebook_btn', 1) }}</c-btn>
 			
 			<c-btn
 				full

@@ -7,7 +7,7 @@
 				<logo />
 			</inertia-link>
 			<nav class="hidden sm:flex items-center justify-between">
-				<div class="walletContainer relative mr-4" v-if="$page.props.user.role == 'teacher'">
+				<div class="walletContainer relative mr-4" v-if="$page.props.user != null && $page.props.user.role == 'teacher'">
 					<c-btn
 						lg
 						icon-only

@@ -38,5 +38,4 @@ return [
     'forgot_password_title' => 'Elfelejtetted a jelszavad?',
     'forgot_password_subtitle' => 'Semmi probléma. Add meg az email címedet és küldünk egy levelet, amiben megtalálod a teendőket a jelszavad megváltoztatásához',
 
-
 ];
