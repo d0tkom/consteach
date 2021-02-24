@@ -222,12 +222,10 @@
 </template>
 
 <script>
-import LandingHeader from "@/Pages/Landing/Header";
+
 
 export default {
-	components: {
-		LandingHeader,
-	},
+
 	props: {
 		availableLanguages: {
 			type: Array,
