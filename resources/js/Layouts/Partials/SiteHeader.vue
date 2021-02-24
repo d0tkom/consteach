@@ -118,7 +118,8 @@ export default {
 	},
 	computed: {
 		isLanding() {
-			return this.$inertia.page.url === '/' || this.$inertia.page.url === '/teacher-landing';
+			
+			return this.$page.props.user === null;
 		}
 	},
 	methods: {

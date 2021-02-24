@@ -83,7 +83,7 @@
                 @mouse-leave="id => mouseLeave(id)"
                 :active="activeTeacher === teacher.id"
             />
-            
+	        
             <div class="actions flex justify-center">
                 <c-btn
                     v-if="moreExists"

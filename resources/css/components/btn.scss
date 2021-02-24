@@ -82,7 +82,7 @@
 			&.outlined {
 				background: transparent;
 				color: $blue;
-				padding: 10px 20px;
+				//padding: 10px 20px;
 				border: 2px solid $blue;
 				
 				&:hover {
@@ -125,7 +125,7 @@
         &.outlined {
           background: transparent;
           color: #3B5998;
-          padding: 10px 20px;
+          //padding: 10px 20px;
           border: 2px solid #3B5998;
 
           &:hover {
@@ -169,7 +169,7 @@
 				background: transparent;
 				color: $error;
 				border: 2px solid $error;
-				padding: 10px 20px;
+				//padding: 10px 20px;
 				
 				&:hover {
 					background: $error;
