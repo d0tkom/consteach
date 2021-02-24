@@ -23,6 +23,20 @@ use App\Models\Appointment;
 |
 */
 
+// AUTH REDIRECTS
+Route::get('/login', function () {
+    return redirect('/#login');
+})->name('login');
+
+Route::get('/register', function () {
+    return redirect('/#registration');
+})->name('register');
+
+Route::get('/forgotten-password', function () {
+    return redirect('/#lost-password');
+})->name('forgotten-password');
+
+
 Route::get('/', function () {
     $teachersAvailableLanguages = Teacher::select(['teaching_languages'])->get();
 
@@ -41,7 +55,11 @@ Route::get('/', function () {
     }
 
     return Inertia\Inertia::render('Landing')->with(['availableLanguages' => $availableLanguages]);
-});
+})->name('landing');
+
+Route::get('/teacher-landing', function () {
+    return Inertia\Inertia::render('TeacherLanding');
+})->name('teacher-landing');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     switch (Auth::user()->role) {

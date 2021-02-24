@@ -1,6 +1,53 @@
 <template>
 	<header>
-		<div class="headerContainer flex justify-between items-center">
+		<nav v-if="isLanding">
+			<a href="#" class="logo">
+				<logo :width="180" :height="60" />
+			</a>
+			<button class="navbar-toggler">
+				<span class="line"></span>
+				<span class="line"></span>
+				<span class="line"></span>
+			</button>
+			<div class="nav-bar">
+				<div class="lang">
+					<a href="" class="active">HU</a>
+					<span class="separator"></span>
+					<a href="">EN</a>
+				</div>
+				<ul>
+					<li>
+						<a href="/find-teacher">Tanárt keresek</a>
+					</li>
+					<li>
+						<a href="">Jelentkezem tanárnak</a>
+					</li>
+					<li class="display-mode">
+						<a href="">Éjjeli mód</a>
+						<div class="switch-container">
+							<label class="switch">
+								<input type="checkbox">
+								<span class="slider round"></span>
+							</label>
+						</div>
+					</li>
+					<li>
+						<a href="">Segítség</a>
+					</li>
+				</ul>
+				<div class="flex items-center authBtns">
+					<c-btn
+						class="mr-4"
+						outlined
+						@click="$root.popup.login = true"
+					>Bejelentkezés</c-btn>
+					<c-btn
+						@click="$root.popup.registration = true"
+					>Regisztráció</c-btn>
+				</div>
+			</div>
+		</nav>
+		<div v-else class="headerContainer flex justify-between items-center">
 			<inertia-link
 				href="/"
 			>
@@ -49,7 +96,6 @@
 					<profile-popup />
 				</div>
 			</nav>
-			
 		</div>
 	</header>
 </template>
@@ -69,6 +115,11 @@ export default {
 		return {
 			walletOpened: false
 		};
+	},
+	computed: {
+		isLanding() {
+			return this.$inertia.page.url === '/' || this.$inertia.page.url === '/teacher-landing';
+		}
 	},
 	methods: {
 		walletClose() {

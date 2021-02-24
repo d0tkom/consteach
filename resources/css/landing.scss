@@ -456,10 +456,12 @@ body {
             }
             @media only screen and (min-width: $break-point1) {
               background-image: url('/img/GlobeAndBook2.png');
-              bottom: -50px;
+	            bottom: -160px;
+	            width: 270px;
             }
             @media screen and (min-width: $break-point2) {
-              bottom: 0;
+	            bottom: -180px;
+	            width: 30vw;
             }
           }
         }

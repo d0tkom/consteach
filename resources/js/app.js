@@ -9,8 +9,6 @@ import Lang from 'lang.js';
 import messages from './../assets/js/ll_messages';
 import { directive as onClickOutside } from 'vue-on-click-outside'
 
-
-
 window.Lang = Lang;
 
 Vue.mixin({ methods: { route } });
@@ -26,7 +24,26 @@ Vue.prototype.trans = new Lang({messages, locale: default_locale, fallback: fall
 const app = document.getElementById('app');
 
 new Vue({
+    data: {
+        popup: {
+            login: false,
+            registration: false,
+            lostPassword: false
+        }
+    },
     mounted() {
+        if (window.location.hash === '#login') {
+            this.popup.login = true;
+        }
+
+        if (window.location.hash === '#registration') {
+            this.popup.registration = true;
+        }
+
+        if (window.location.hash === '#lost-password') {
+            this.popup.lostPassword = true;
+        }
+
         this.$inertia.on('before', (event) => {
             console.log('route changed');
             document.body.classList.remove('scrollLock');

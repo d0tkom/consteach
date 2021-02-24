@@ -3,6 +3,13 @@
 		border-left: 10px solid $orange;
 		
 		.profileImageWrapper {
-			width: 70px
+			width: 70px;
+			height: 70px;
+
+			img {
+				width: 70px !important;
+				height: 70px !important;
+				object-fit: cover;
+			}
 		}
 	}

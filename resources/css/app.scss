@@ -83,8 +83,10 @@ body {
 }
 
 .teacherHubContainer {
-	img {
-		max-width: 100px;
+	.profileImg img, .profileImageWrapper img {
+		width: 100px;
+		height: 100px;
+		object-fit: cover;
 	}
 }
 
