@@ -45,7 +45,6 @@ new Vue({
         }
 
         this.$inertia.on('before', (event) => {
-            console.log('route changed');
             document.body.classList.remove('scrollLock');
         })
     },

@@ -1,13 +1,15 @@
 <template>
 	<div>
-		<landing-header />
+		<site-header />
 		<main>
 			<section class="top">
 				<div class="flex">
 					<div class="left flex flex-col justify-center ml-16">
 						<div class="title">Online, személyesen neked</div>
 						<p>Találj hozzád illő tanárt, tanulj anyanyelvi szinten, otthonod kényelméből</p>
-						<button class="button">INGYENES Próbaóra</button>
+						<c-btn
+							navigate-to="/teachers"
+						>INGYENES Próbaóra</c-btn>
 						<div class="globe-and-book"></div>
 					</div>
 					<div class="right">
@@ -31,7 +33,7 @@
 							<div class="flag">
 								<img src="/img/flag_GB.png" alt="flag_GB">
 							</div>
-							<div class="title">{{ language }}</div>
+							<div class="title capitalize">{{ languageList[language] }}</div>
 						</div>
 					</div>
 					<div class="lang-button-container">
@@ -77,7 +79,9 @@
 						<p>
 							Milyen tanárt keresel? Válaszd ki a preferenciáid és máris mutatjuk a hozzád illő tanárokat!
 						</p>
-						<a href="/find-teacher" class="button">Tanárkeresés</a>
+						<c-btn
+							navigate-to="/teachers"
+						>Tanárkeresés</c-btn>
 					</div>
 				</div>
 			</section>
@@ -92,7 +96,9 @@
 					</div>
 					<div class="container">
 						<div class="line">
-							<div class="icon"><img src="/img/level_up_1.png" alt="circle1"></div>
+							<div class="icon flex justify-center">
+								<img src="/img/level_up_1.png" alt="circle1">
+							</div>
 							<div class="content">
 								<div class="title">Gyors</div>
 								<p>Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből.</p>
@@ -103,10 +109,14 @@
 								<div class="title">Személyre szabott</div>
 								<p>Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből.</p>
 							</div>
-							<div class="icon"><img src="/img/level_up_2.png" alt="circle2"></div>
+							<div class="icon flex justify-center">
+								<img src="/img/level_up_2.png" alt="circle2">
+							</div>
 						</div>
 						<div class="line">
-							<div class="icon"><img src="/img/level_up_3.png" alt="circle3"></div>
+							<div class="icon flex justify-center">
+								<img src="/img/level_up_3.png" alt="circle3">
+							</div>
 							<div class="content">
 								<div class="title">Minőségi</div>
 								<p>Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből.</p>
@@ -114,7 +124,9 @@
 						</div>
 					</div>
 					<div class="button-container">
-						<a href="/register" class="button">Regisztrálok</a>
+						<c-btn
+							navigate-to="/#registration"
+						>Regisztrálok</c-btn>
 					</div>
 				</div>
 			</section>
@@ -157,7 +169,9 @@
 						</div>
 					</div>
 					<div class="button-container">
-						<button class="button">Jelentkezek tanárnak</button>
+						<c-btn
+							navigate-to="/teacher-landing"
+						>Jelentkezem tanárnak</c-btn>
 					</div>
 				</div>
 			</section>
@@ -176,57 +190,33 @@
 							<iframe loading="lazy" src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
 					</div>
-					<div class="button-container">
-						<a href="/register" class="button">Regisztrálok</a>
+					<div class="flex justify-center my-4">
+						<c-btn
+							navigate-to="/#registration"
+						>Regisztrálok</c-btn>
 					</div>
 				</div>
 			</section>
 		</main>
 		
-		<footer>
-			<div class="container">
-				<div class="column">
-					<div class="title">Weboldal</div>
-					<a href="#">Oldal nyelve</a>
-					<a href="#">Gyakori kérdések</a>
-					<a href="/register">Regisztráció</a>
-					<a href="#">Tanítani szeretnék</a>
-				</div>
-				<div class="column">
-					<div class="title">Consteach</div>
-					<a href="#">Rólunk</a>
-					<a href="#">Hírek</a>
-					<a href="#">Blog</a>
-					<a href="#">Közösség</a>
-				</div>
-				<div class="column">
-					<div class="title">Social</div>
-					<a href="#"><i class="fab fa-facebook"></i></a>
-					<a href="#"><i class="fab fa-instagram"></i></a>
-					<a href="#"><i class="fab fa-linkedin-in"></i></a>
-					<a href="#"><i class="fab fa-twitter"></i></a>
-				</div>
-				<div class="column">
-					<div class="title">Policies</div>
-					<a href="#">Privacy</a>
-					<a href="#">Terms of Use</a>
-					<a href="#">Site Map</a>
-				</div>
-				<div class="column only-screen">
-					<div class="title">Kapcsolat</div>
-					<a href="mailto:info@consteach.com">info@consteach.com</a>
-				</div>
-			</div>
-		</footer>
+		<login-popup v-model="$root.popup.login" />
+		<register-popup v-model="$root.popup.registration" />
+		<lost-password-popup v-model="$root.popup.lostPassword" />
 	</div>
 </template>
 
 <script>
-import LandingHeader from "@/Pages/Landing/Header";
+import SiteHeader from "@/Layouts/Partials/SiteHeader";
+import LoginPopup from "@/Pages/Landing/LoginPopup";
+import RegisterPopup from "@/Pages/Landing/RegisterPopup";
+import LostPasswordPopup from "@/Pages/Landing/LostPasswordPopup";
 
 export default {
 	components: {
-		LandingHeader,
+		LostPasswordPopup,
+		RegisterPopup,
+		LoginPopup,
+		SiteHeader,
 	},
 	props: {
 		availableLanguages: {
@@ -235,6 +225,20 @@ export default {
 				return [];
 			}
 		}
+	},
+	data() {
+		return {
+			languageList: [],
+			locale: window.default_locale,
+		}
+	},
+	created() {
+		this.languageList = require('@cospired/i18n-iso-languages');
+		this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/en.json'));
+		this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/hu.json'));
+		this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
+		
+		this.languageList = this.languageList.getNames(this.locale, {select: 'official'});
 	}
 }
 </script>
