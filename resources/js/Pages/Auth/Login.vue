@@ -110,10 +110,11 @@
                         ... data,
                         remember: this.form.remember ? 'on' : ''
                     }))
-                    .post(this.route('login'), {
+                    .post('/login', {
                         onFinish: () => {
 	                        this.form.reset('password');
 	                        this.$emit('close');
+	                        this.$root.popup.login = false;
                         }
                     })
             }

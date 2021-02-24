@@ -498,12 +498,14 @@ body main .top .flex .left .globe-and-book {
 @media only screen and (min-width: 769px) {
   body main .top .flex .left .globe-and-book {
     background-image: url("/img/GlobeAndBook2.png");
-    bottom: -50px;
+    bottom: -160px;
+    width: 270px;
   }
 }
 @media screen and (min-width: 1201px) {
   body main .top .flex .left .globe-and-book {
-    bottom: 0;
+    bottom: -180px;
+    width: 30vw;
   }
 }
 body main .top .flex .right {

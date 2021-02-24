@@ -15,7 +15,11 @@
                         <div class="flex items-center">
                             <div class="infoItem flex mx-4">
                                 <div class="mr-4">
-                                    <img src="https://via.placeholder.com/33x40" alt="Diák ikon">
+                                    <img
+	                                    height="40"
+	                                    src="/img/student_icon.svg"
+	                                    alt="Diák ikon"
+                                    >
                                 </div>
                                 <div class="text-center">
                                     <div class="color-primary-dark font-bold">
@@ -26,7 +30,11 @@
                             </div>
                             <div class="infoItem flex mx-4">
                                 <div  class="mr-4">
-                                    <img src="https://via.placeholder.com/33x40" alt="Diák ikon">
+                                    <img
+	                                    height="40"
+	                                    src="/img/sand_glass.svg"
+	                                    alt="Diák ikon"
+                                    >
                                 </div>
                                 <div class="text-center">
                                     <div class="color-primary-dark font-bold">

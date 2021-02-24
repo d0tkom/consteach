@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
+    'failed' => 'A megadott adatok alapján nem található a fiók.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
     'login_with_facebook_btn' => 'Folytatás Facebook fiókkal',

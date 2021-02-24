@@ -102,6 +102,8 @@ return [
     |
     */
 
+    'views' => false,
+
     'features' => [
         Features::registration(),
         Features::resetPasswords(),
