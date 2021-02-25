@@ -667,6 +667,8 @@ body .bg {
   width: 140px;
   height: 140px;
   border-radius: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .page .top .profileImg .profileImageEditIcon {
   position: absolute;
@@ -709,6 +711,8 @@ body .bg {
   width: 140px;
   height: 140px;
   border-radius: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .card .top .profileImg .profileImageEditIcon {
   position: absolute;
@@ -799,6 +803,13 @@ body .bg {
 }
 .boughtEvent .profileImageWrapper {
   width: 70px;
+  height: 70px;
+}
+.boughtEvent .profileImageWrapper img {
+  width: 70px !important;
+  height: 70px !important;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .teacherProfileImage {
@@ -883,8 +894,11 @@ body {
   max-width: 100px;
 }
 
-.teacherHubContainer img {
-  max-width: 100px;
+.teacherHubContainer .profileImg img, .teacherHubContainer .profileImageWrapper img {
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .hr {

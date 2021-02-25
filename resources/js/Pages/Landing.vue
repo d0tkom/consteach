@@ -205,6 +205,7 @@
 </template>
 
 <script>
+
 import SiteHeader from "@/Layouts/Partials/SiteHeader";
 import LoginPopup from "@/Pages/Landing/LoginPopup";
 import RegisterPopup from "@/Pages/Landing/RegisterPopup";

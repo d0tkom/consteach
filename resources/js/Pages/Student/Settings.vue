@@ -82,7 +82,10 @@
                         >
                             Nyelv hozzáadása
                         </c-btn>
-                        
+
+                        <update-password-form class="mt-10 sm:mt-0" />
+
+
                         <div class="formExtra mt-4 flex justify-between">
                             <c-btn
                                 outlined
@@ -163,12 +166,15 @@
     import levels from '@/Partials/levels'
     import ChangePassword from '@/Popups/ChangePassword'
     import DeleteProfile from "@/Popups/DeleteProfile"
+    import UpdatePasswordForm from '@/Pages/Profile/UpdatePasswordForm'
+
     
     export default {
         components: {
             AppLayout,
             ChangePassword,
             DeleteProfile,
+            UpdatePasswordForm,
         },
         data() {
             return {
