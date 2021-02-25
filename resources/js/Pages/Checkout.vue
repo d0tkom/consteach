@@ -1,97 +1,145 @@
 <template>
-    <app-layout>
-        <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ trans.get('titles.profile') }}
-            </h2>
-        </template>
-
-        <div class="p-4 max-w-md mx-auto blue-text-color bg-white rounded-xl shadow-md border border-blue-300 items-center relative">
-            <div class="flex ">
-                <span class="h-6  rounded-full w-6 border blue-border-color text-center text-md flex flex-col justify-center">1</span>
-                <span class="mx-2 flex flex-col justify-center text-md font-semibold ">Tanórák</span>
-            </div>
-            <div class="sm:my-4 sm:mx-8 m-2">
-                <div class="mb-2">Hány órát szeretnél vásárolni?</div>
-                <label for="e1" @click="selectProduct(1, teacher.one_hour_price, 'HUF')">
-                    <div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
-                        <input id="e1" class="mt-1 sm:mr-3" type="radio" name="lesson" />
-                        <div class="text-md font-semibold flex-1">1 Tanóra</div>
-                        <div class="text-green-500 text-md">{{ teacher.one_hour_price*1.2 }} HUF</div>
-                    </div>
-                </label>
-                <label for="e2" @click="selectProduct(5, teacher.five_hour_price, 'HUF')">
-                <div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
-                    <input id="e2" class="mt-1 sm:mr-3" type="radio" name="lesson" />
-                    <div class="text-md font-semibold flex-1">5 Tanóra</div>
-                    <div class="text-md text-gray-500 line-through mr-2">{{ teacher.one_hour_price*1.2*5 }} HUF</div>
-                    <div class="text-green-500 text-md">{{ teacher.five_hour_price*1.2 }} HUF</div>
-                </div>
-                </label>
-                <label for="e3" @click="selectProduct(10, teacher.ten_hour_price, 'HUF')">
-                <div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
-                    <input id="e3" class="mt-1 sm:mr-3" type="radio" name="lesson" />
-                    <div class="text-md font-semibold flex-1">10 Tanóra</div>
-                    <div class="text-md text-gray-500 line-through mr-2">{{ teacher.one_hour_price*1.2*10 }} HUF</div>
-                    <div class="text-green-500 text-md">{{ teacher.ten_hour_price*1.2 }} HUF</div>
-                </div>
-                </label>
-            </div>
-        </div>
-
-        <div class="p-4 max-w-md mx-auto blue-text-color bg-white rounded-xl shadow-md border border-blue-300 items-center relative">
-            <div class="flex ">
-                <span class="h-6  rounded-full w-6 border blue-border-color text-center text-md flex flex-col justify-center">2</span>
-                <span class="mx-2 flex flex-col justify-center text-md font-semibold ">Fizetés</span>
-            </div>
-
-            <div class="sm:my-4 sm:mx-8 m-2">
-                
-                <div class="mb-2">Fizetési adatok</div>
-                    <label for="f1">
-                        <div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
-                            <input id="f1" class="mt-1 sm:mr-3" type="text" name="address" placeholder="Address" v-model="billing.address" required/>
-                        </div>
-                    </label>
-                    <label for="f2">
-                        <div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
-                            <input id="f2" class="mt-1 sm:mr-3" type="text" name="city" placeholder="City" v-model="billing.city" required/>
-                        </div>
-                    </label>
-                    <label for="f3">
-                        <div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
-                            <input id="f3" class="mt-1 sm:mr-3" type="text" name="city" placeholder="State" v-model="billing.state" required/>
-                        </div>
-                    </label>
-                    <label for="f4">
-                        <div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
-                            <input id="f4" class="mt-1 sm:mr-3" type="text" name="postal" placeholder="Postal" v-model="billing.postal" required/>
-                        </div>
-                    </label>
-                    <div id="card-element"></div>
-                    
-
-                    <button id="card-button" @click="processPayment()" :disables="paymentProcessing" v-text="paymentProcessing ? 'Processing' : 'Pay Now'">
-                        Process Payment
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <h1>Összefoglaló</h1>
-                    <div v-show="product">
-                        <p>{{ product.lesson_number }} Tanóra (60 perc)</p>
-                        <p>Összeg: {{ (product.amount-product.fee)/100 }} {{ product.currency }}</p>
-                        <p>Illeték: {{ product.fee/100 }} {{ product.currency }}</p>
-                        <p>Teljes összeg: {{ product.amount/100 }} {{ product.currency }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </app-layout>
+	<app-layout>
+		<div class="checkoutContainer m-auto flex justify-center max-w-xl">
+			<div class="checkoutCol flex flex-col justify-center">
+				<div class="p-4 m-4 blue-text-color bg-white rounded-xl shadow-md border border-blue-300 items-center relative">
+					<div class="flex ">
+						<span class="h-6 rounded-full w-6 border blue-border-color text-center text-md flex flex-col justify-center">1</span>
+						<span class="mx-2 flex flex-col justify-center text-md font-semibold ">Tanórák</span>
+					</div>
+					<div class="sm:my-4 sm:mx-8 m-2">
+						<div class="mb-2">Hány órát szeretnél vásárolni?</div>
+						<label for="e1" @click="selectProduct(1, teacher.one_hour_price, 'HUF')">
+							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
+								<input id="e1" class="mt-1 sm:mr-3" type="radio" name="lesson" />
+								<div class="text-md font-semibold flex-1 mr-4">1 Tanóra</div>
+								<div class="text-green-500 text-md">{{ teacher.one_hour_price*1.2 }} HUF</div>
+							</div>
+						</label>
+						<label for="e2" @click="selectProduct(5, teacher.five_hour_price, 'HUF')">
+							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
+								<input id="e2" class="mt-1 sm:mr-3" type="radio" name="lesson" />
+								<div class="text-md font-semibold flex-1 mr-4">5 Tanóra</div>
+								<div class="text-md text-gray-500 line-through mr-2">{{ teacher.one_hour_price*1.2*5 }} HUF</div>
+								<div class="text-green-500 text-md">{{ teacher.five_hour_price*1.2 }} HUF</div>
+							</div>
+						</label>
+						<label for="e3" @click="selectProduct(10, teacher.ten_hour_price, 'HUF')">
+							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
+								<input id="e3" class="mt-1 sm:mr-3" type="radio" name="lesson" />
+								<div class="text-md font-semibold flex-1 mr-4">10 Tanóra</div>
+								<div class="text-md text-gray-500 line-through mr-2">{{ teacher.one_hour_price*1.2*10 }} HUF</div>
+								<div class="text-green-500 text-md">{{ teacher.ten_hour_price*1.2 }} HUF</div>
+							</div>
+						</label>
+					</div>
+				</div>
+				
+				<div class="p-4 m-4 blue-text-color bg-white rounded-xl shadow-md border border-blue-300 items-center relative">
+					<div class="flex ">
+						<span class="h-6  rounded-full w-6 border blue-border-color text-center text-md flex flex-col justify-center">2</span>
+						<span class="mx-2 flex flex-col justify-center text-md font-semibold ">Fizetés</span>
+					</div>
+					
+					<div class="sm:my-4 sm:mx-8 m-2">
+						
+						<div class="mb-2">Fizetési adatok</div>
+						<c-input
+							class="mb-4"
+							type="text"
+							name="address"
+							label="Address"
+							v-model="billing.address"
+							required
+						/>
+						<c-input
+							class="mb-4"
+							type="text"
+							name="city"
+							label="City"
+							v-model="billing.city"
+							required
+						/>
+						
+						<c-input
+							class="mb-4"
+							type="text"
+							name="state"
+							label="State"
+							v-model="billing.state"
+							required
+						/>
+						
+						<c-input
+							class="mb-4"
+							type="text"
+							name="postal"
+							label="Postal"
+							v-model="billing.postal"
+							required
+						/>
+						
+						<div id="card-element"></div>
+						
+						<button id="card-button" @click="processPayment()" :disables="paymentProcessing" v-text="paymentProcessing ? 'Processing' : 'Pay Now'">
+							Process Payment
+						</button>
+					</div>
+				</div>
+			</div>
+			
+			<div class="checkoutCol max-w-md m-4">
+				<div class="p-4 blue-text-color bg-white rounded-xl shadow-md border border-blue-300 items-center relative">
+					<div class="flex">
+						<span class="h-6  rounded-full w-6 border blue-border-color text-center text-md flex flex-col justify-center">3</span>
+						<span class="mx-2 flex flex-col justify-center text-md font-semibold">Fizetés befejezése</span>
+					</div>
+					
+					<div class="m-4 text-center">
+						<img class="object-cover mx-auto h-14 w-14 rounded-full m-auto" :src="'/storage/'+teacher.user.profile_photo_path" alt="Tanár profilképe">
+						<span class="mx-2 font-semibold">{{ teacher.user.first_name }} {{ teacher.user.last_name }}</span>
+					</div>
+					
+					<div class="mx-2">
+						<div class="flex">
+							<span class="text-md flex-1">Termék neve</span>
+							<span class="text-md">Összeg</span>
+						</div>
+						<hr class="my-1">
+						<div><span class="font-semibold">{{ product.lesson_number }} Tanóra</span> (1x60 perc, Angol nyelv)</div>
+						<hr class="mb-2 mt-4">
+						<div class="flex justify-end mb-8">
+							<div class="flex">
+								<div class="w-28 sm:w-32">
+									<div class="text-green-500 text-md">Összeg:</div>
+									<div class="text-gray-500 text-xs">Illeték</div>
+									<div class="text-green-500 text-md font-semibold mt-2">Teljes összeg:</div>
+								</div>
+								<div>
+									<div class="text-green-500 text-md text-right">{{ (product.amount-product.fee)/100 }} {{ product.currency }}</div>
+									<div class="text-gray-500 text-xs text-right">{{ product.fee/100 }} {{ product.currency }}</div>
+									<div class="text-green-500 text-md font-semibold mt-2 text-right">{{ product.amount/100 }} {{ product.currency }}</div>
+								</div>
+							</div>
+						</div>
+						<div class="flex sm:justify-end justify-center mb-2">
+							<c-btn
+								@click="processPayment"
+								:loading="paymentProcessing"
+							>
+								Fizetés
+							</c-btn>
+						</div>
+					</div>
+				</div>
+				<div class="p-4 items-center relative">
+					<p class="text-xs blue-text-color">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+					</p>
+				</div>
+			</div>
+		</div>
+	</app-layout>
 </template>
 
 <script>
@@ -130,7 +178,7 @@
         },
         computed : {
             fee: function () {
-                return this.product.amount * 0,8;
+                return this.product.amount * 0.8;
             }
         }, 
         async mounted() {

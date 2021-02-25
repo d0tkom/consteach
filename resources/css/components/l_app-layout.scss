@@ -2,6 +2,8 @@ body {
 	color: $blue-dark;
 	font-family: 'Montserrat', sans-serif;
 	background: #DEEEF8;
+	width: 100vw;
+	overflow-x: hidden;
 
 	.bg {
 		position: absolute;

@@ -46,6 +46,7 @@
         "moment": "^2.29.1",
         "moment-range": "^4.0.2",
         "vue": "^2.6.12",
+        "vue-country-flag": "^2.0.3",
         "vue-date-fns": "^2.0.1",
         "vue-moment": "^4.1.0",
         "vue-on-click-outside": "^1.0.3",

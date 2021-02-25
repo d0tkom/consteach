@@ -31,7 +31,10 @@
 							class="lang show-mobile"
 						>
 							<div class="flag">
-								<img src="/img/flag_GB.png" alt="flag_GB">
+								<img
+									:src="'/img/flags/flag_'+language+'.svg'"
+									:alt="language+' Flag'"
+								>
 							</div>
 							<div class="title capitalize">{{ languageList[language] }}</div>
 						</div>
@@ -52,25 +55,25 @@
 					<div class="container">
 						<div class="line">
 							<div class="icon">
-								<img src="/img/circle1.png" alt="circle1">
+								<img src="/img/circle1.svg" alt="circle1">
 							</div>
 							<div class="title">Válassz a nyelvek közül</div>
 						</div>
 						<div class="line">
 							<div class="icon">
-								<img src="/img/circle2.png" alt="circle2">
+								<img src="/img/circle2.svg" alt="circle2">
 							</div>
 							<div class="title">Válassz tanárt magadnak</div>
 						</div>
 						<div class="line">
 							<div class="icon">
-								<img src="/img/circle3.png" alt="circle3">
+								<img src="/img/circle3.svg" alt="circle3">
 							</div>
 							<div class="title">Foglalj időpontot</div>
 						</div>
 						<div class="line">
 							<div class="icon">
-								<img src="/img/circle4.png" alt="circle4">
+								<img src="/img/circle4.svg" alt="circle4">
 							</div>
 							<div class="title">Csatlakozz a videóhíváshoz és kezdődhet a tanulás!</div>
 						</div>
@@ -198,10 +201,6 @@
 				</div>
 			</section>
 		</main>
-		
-		<login-popup v-model="$root.popup.login" />
-		<register-popup v-model="$root.popup.registration" />
-		<lost-password-popup v-model="$root.popup.lostPassword" />
 	</div>
 </template>
 

@@ -1,0 +1,13 @@
+.checkoutContainer {
+	min-width: 1000px;
+
+	.checkoutCol {
+		width: 50%;
+	}
+}
+
+@media all and (max-width: 1000px) {
+	.checkoutContainer {
+		flex-direction: column;
+	}
+}

@@ -18,10 +18,12 @@
 						<span v-if="false" class="material-icons mr-2 color-green-dark">
 							check_circle_outline
 						</span>
-						<span>{{ data.user.first_name }} {{ data.user.last_name[0] }}.</span>
-						<div class="flag ml-2">
-                            <img :src="data.user.country" alt="flag">
-                        </div>
+						<span
+							class="capitalize mr-4"
+						>{{ data.user.first_name }} {{ data.user.last_name[0] }}.</span>
+						<country-flag
+							:country="data.user.country"
+						/>
 					</div>
 					<div class="price font-bold color-green-dark text-lg">
 						{{ data.one_hour_price }} HUF / óra
@@ -29,17 +31,20 @@
 				</div>
 				<div class="flex">
 					<div>
-						<div 
-                            v-for="(language, l) in data.teaching_languages"
-                            :key="l"
-                        >
-                            {{ languageList.getName(language.language, locale) }}
-                            <c-tag
-                                class="ml-4"
-                                type="success"
-                                small
-                            >{{ language.level }}</c-tag>  
-                        </div>
+						<div class="flex items-center mb-2">
+							<div
+								class="mr-6"
+								v-for="(language, l) in data.teaching_languages"
+								:key="l"
+							>
+								<span class="capitalize">{{ languageList.getName(language.language, locale) }}</span>
+								<c-tag
+									class="ml-2"
+									type="success"
+									small
+								>{{ language.level }}</c-tag>
+							</div>
+						</div>
 						<div class="text-lg font-bold color-primary-dark mb-2 flex items-center">
 							<span class="material-icons mr-2">person</span>
 							{{ data.student_count }} diák · {{ data.appointment_count }} óra

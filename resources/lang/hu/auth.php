@@ -38,4 +38,10 @@ return [
     'forgot_password_title' => 'Elfelejtetted a jelszavad?',
     'forgot_password_subtitle' => 'Semmi probléma. Add meg az email címedet és küldünk egy levelet, amiben megtalálod a teendőket a jelszavad megváltoztatásához',
 
+
+    'current_password_label' => 'Jelenlegi jelszó',
+    'new_password_label' => 'Új jelszó',
+    'new_password_confirmation_label' => 'Új jelszó ismét',
+
+    'password_update_save_btn' => 'Mentés',
 ];

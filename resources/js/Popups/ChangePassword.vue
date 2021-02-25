@@ -4,7 +4,9 @@
 		@close="$emit('input', false)"
 		title="Add meg régi és új jelszavad a változtatáshoz!"
 	>
-		<update-password-form></update-password-form>
+		<update-password-form
+			@close="$emit('input', false)"
+		/>
 	</c-pop-up>
 </template>
 
