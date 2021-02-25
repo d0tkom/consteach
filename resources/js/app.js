@@ -16,6 +16,10 @@ Vue.directive('on-click-outside', onClickOutside)
 Vue.use(InertiaPlugin);
 Vue.use(PortalVue);
 
+import CountryFlag from 'vue-country-flag'
+
+Vue.component('country-flag', CountryFlag)
+
 const default_locale = window.default_locale;
 const fallback_locale = window.fallback_locale;
 

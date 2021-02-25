@@ -30,27 +30,31 @@
                                                 <span v-if="false" class="material-icons mr-2 color-green-dark">
                                                     check_circle_outline
                                                 </span>
-                                                <span>{{ teacher.user.first_name }}  {{ teacher.user.last_name[0] }}.</span>
-                                                <div class="flag ml-2">
-                                                    <img :src="teacher.user.country" alt="flag">
-                                                </div>
+                                                <span class="capitalize mr-4">{{ teacher.user.first_name }}  {{ teacher.user.last_name[0] }}.</span>
+	                                            <country-flag
+		                                            :country="teacher.user.country"
+	                                            />
                                             </div>
                                         </div>
                                         <div>
                                             <div class="text-lg font-bold color-primary-dark flex items-center mb-3">
                                                 <span class="material-icons mr-2">school</span>
-                                                <div 
-                                                    v-for="(language, l) in teacher.teaching_languages"
-                                                    :key="l"
-                                                >
-                                                    {{ languageList.getName(language.language, locale) }}
-                                                    <c-tag
-                                                        class="ml-4"
-                                                        type="success"
-                                                        small
-                                                    >{{ language.level }}</c-tag>  
+                                                <div class="flex items-center">
+	                                                <div
+		                                                v-for="(language, l) in teacher.teaching_languages"
+		                                                :key="l"
+		                                                class="mr-4"
+	                                                >
+		                                                <span
+		                                                    class="capitalize"
+		                                                >{{ languageList.getName(language.language, locale) }}</span>
+		                                                <c-tag
+			                                                class="ml-4"
+			                                                type="success"
+			                                                small
+		                                                >{{ language.level }}</c-tag>
+	                                                </div>
                                                 </div>
-                                                
                                             </div>
                                             <div class="text-lg font-bold color-primary-dark mb-2 flex items-center">
                                                 <span class="material-icons mr-2">person</span>

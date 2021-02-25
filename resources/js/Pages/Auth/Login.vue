@@ -37,7 +37,7 @@
             </div>
 
             <div class="mt-4">
-                <c-input :label="trans.get('auth.email_label')" name="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
+                <c-input :label="trans.get('auth.password_label')" name="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">

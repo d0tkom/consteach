@@ -1,6 +1,7 @@
 .teacherProfileImage {
 	width: 90px;
 	height: 90px;
+	object-fit: cover;
 }
 
 .teacherMorePanel {
@@ -17,7 +18,7 @@
 .teacherWidgetMainCard {
 	max-width: 780px;
 	position: relative;
-	margin-left: 0;
+	margin-left: 0 !important;
 	box-sizing: border-box;
 	
 	.favoriteBtn {

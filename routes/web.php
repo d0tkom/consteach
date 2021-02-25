@@ -129,7 +129,8 @@ Route::get('/teachers/filter', [TeacherController::class, 'filter'])->name('teac
 Route::middleware(['auth:sanctum', 'verified'])->post('/checkout/payment', [CheckoutController::class, 'store']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/checkout/{teacher_id}', function ($teacher_id) {
-    $teacher = Teacher::find($teacher_id);
+    $teacher = Teacher::with('user')->find($teacher_id);
+
     return Inertia\Inertia::render('Checkout')->with(['teacher' => $teacher]);
 })->name('checkout');
 
