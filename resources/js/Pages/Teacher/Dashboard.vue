@@ -68,6 +68,9 @@
                             />
                         </div>
                     </div>
+                    <div class="col-span-2 card p-sm">
+                        <FullCalendar :options="calendarOptions" />
+                    </div>
                     <!-- Sidebar -->
                     <div class="col-span-1">
                         <div class="card p-sm">
@@ -90,16 +93,78 @@
     import AppLayout from '@/Layouts/AppLayout'
     import BookedEvent from "@/Widgets/BookedEvent";
     import BoughtEvent from "@/Widgets/BoughtEvent";
+    import FullCalendar from '@fullcalendar/vue';
+    import timeGridPlugin from '@fullcalendar/timegrid';
+    import interactionPlugin from '@fullcalendar/interaction';
     
     export default {
         components: {
             BoughtEvent,
             AppLayout,
             BookedEvent,
+            FullCalendar,
         },
         props: {
             lessons: Array,
             appointments: Array,
         },
+        data() {
+            return {
+                languageList: null,
+                locale: window.default_locale,
+                calendarOptions: {
+                    plugins: [ timeGridPlugin, interactionPlugin ],
+                    initialView: 'timeGridWeek',
+                    locale: window.default_locale,
+                    buttonText: {
+                        today:    'mai nap',
+                        month:    'hónap',
+                        week:     'hét',
+                        day:      'nap',
+                        list:     'lista'
+                    },
+                    allDayText: 'egész nap',
+                    firstDay: 1,
+                    slotDuration: '01:00:00',
+                    dayHeaderFormat: { 
+                        weekday: 'long' ,
+                        day: 'numeric',
+                        omitCommas: true
+                    },
+                    allDaySlot: false,
+                    slotLabelFormat: {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        meridiem: 'long'
+                    },
+                    headerToolbar: {
+                        left: 'prev',
+                        center: 'title',
+                        right: 'next'
+                    },
+                    events: [],
+                    selectable: true,
+                    selectOverlap: false,
+                    select: function (selectionInfo) {
+                        console.log(selectionInfo);
+                        axios.put('/availability', {params: {
+                            start: selectionInfo.startStr,
+                            end: selectionInfo.endStr
+                        }})
+                            .then(function (response) {
+                                console.log(response);
+                            })
+                            .catch(function (error) {
+                                console.log(error);
+                            });
+                    },
+                }
+            };
+        },
+        created() {
+            this.calendarOptions.timeZone = this.$page.props.user === null ? 'local' : this.$page.props.user.timezone;
+        },
+        methods: {
+        }
     }
 </script>

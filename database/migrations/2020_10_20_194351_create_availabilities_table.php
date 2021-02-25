@@ -16,9 +16,10 @@ class CreateAvailabilitiesTable extends Migration
         Schema::create('availabilities', function (Blueprint $table) {
             $table->id();
             $table->foreignId('teacher_id')->constrained('users');
-            $table->dateTime('from');
-            $table->dateTime('to');
+            $table->dateTimeTz('from');
+            $table->dateTimeTz('to');
             $table->boolean('is_open');
+            $table->integer('weekday');
             $table->timestamps();
         });
     }

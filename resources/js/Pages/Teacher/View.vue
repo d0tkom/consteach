@@ -207,7 +207,15 @@
                         hour: '2-digit',
                         minute: '2-digit',
                         meridiem: 'long'
-                    }
+                    },
+                    headerToolbar: {
+                        left: 'prev',
+                        center: 'title',
+                        right: 'next'
+                    },
+                    selectable: true,
+                    selectOverlap: false,
+                    
                 }
             };
         },

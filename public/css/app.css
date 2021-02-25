@@ -93,7 +93,6 @@
 .btnContainer .cBtn.color-primary.outlined {
   background: transparent;
   color: #18A0FB;
-  padding: 10px 20px;
   border: 2px solid #18A0FB;
 }
 .btnContainer .cBtn.color-primary.outlined:hover {
@@ -127,7 +126,6 @@
 .btnContainer .cBtn.color-facebook.outlined {
   background: transparent;
   color: #3B5998;
-  padding: 10px 20px;
   border: 2px solid #3B5998;
 }
 .btnContainer .cBtn.color-facebook.outlined:hover {
@@ -162,7 +160,6 @@
   background: transparent;
   color: red;
   border: 2px solid red;
-  padding: 10px 20px;
 }
 .btnContainer .cBtn.color-error.outlined:hover {
   background: red;

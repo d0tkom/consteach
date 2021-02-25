@@ -19,8 +19,8 @@ class CreateAppointmentsTable extends Migration
             $table->foreignId('teacher_id')->constrained('users');
             $table->string('language');
             $table->string('type');
-            $table->dateTime('from');
-            $table->dateTime('to');
+            $table->dateTimeTz('from');
+            $table->dateTimeTz('to');
             $table->boolean('student_approved');
             $table->boolean('teacher_approved');
             $table->timestamps();

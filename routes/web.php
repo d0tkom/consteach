@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\AvailabilityController;
 use App\Helpers\CollectionHelper;
 use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Route;
@@ -96,6 +97,8 @@ Route::get('/teacher/{teacher_id}', function ($teacher_id) {
     $teacher = Teacher::where('id', $teacher_id)->with('user')->first();
     return Inertia\Inertia::render('Teacher/View')->with(['teacher' => $teacher]);
 })->name('teacher.view');
+
+Route::put('/availability', [AvailabilityController::class, 'store'])->name('availability.save');
 
 Route::get('/teachers', function (Request $request) {
     $teachersAvailableLanguages = Teacher::select(['teaching_languages'])->get();

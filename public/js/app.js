@@ -19564,6 +19564,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Layouts_Partials_SiteHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/Partials/SiteHeader */ "./resources/js/Layouts/Partials/SiteHeader.vue");
+/* harmony import */ var _Layouts_Partials_SiteFooter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Layouts/Partials/SiteFooter */ "./resources/js/Layouts/Partials/SiteFooter.vue");
+//
+//
 //
 //
 //
@@ -19575,8 +19578,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
+    SiteFooter: _Layouts_Partials_SiteFooter__WEBPACK_IMPORTED_MODULE_1__.default,
     SiteHeader: _Layouts_Partials_SiteHeader__WEBPACK_IMPORTED_MODULE_0__.default
   }
 });
@@ -19614,6 +19619,59 @@ __webpack_require__.r(__webpack_exports__);
     }
   }
 });
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Layouts/Partials/SiteFooter.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Layouts/Partials/SiteFooter.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
 
@@ -19749,7 +19807,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     isLanding: function isLanding() {
-      return this.$inertia.page.url === '/' || this.$inertia.page.url === '/teacher-landing';
+      return this.$page.props.user === null;
     }
   },
   methods: {
@@ -21123,6 +21181,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _Layouts_Partials_SiteHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/Partials/SiteHeader */ "./resources/js/Layouts/Partials/SiteHeader.vue");
+/* harmony import */ var _Pages_Landing_LoginPopup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Pages/Landing/LoginPopup */ "./resources/js/Pages/Landing/LoginPopup.vue");
+/* harmony import */ var _Pages_Landing_RegisterPopup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Pages/Landing/RegisterPopup */ "./resources/js/Pages/Landing/RegisterPopup.vue");
+/* harmony import */ var _Pages_Landing_LostPasswordPopup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Pages/Landing/LostPasswordPopup */ "./resources/js/Pages/Landing/LostPasswordPopup.vue");
 //
 //
 //
@@ -21330,23 +21392,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    LostPasswordPopup: _Pages_Landing_LostPasswordPopup__WEBPACK_IMPORTED_MODULE_3__.default,
+    RegisterPopup: _Pages_Landing_RegisterPopup__WEBPACK_IMPORTED_MODULE_2__.default,
+    LoginPopup: _Pages_Landing_LoginPopup__WEBPACK_IMPORTED_MODULE_1__.default,
+    SiteHeader: _Layouts_Partials_SiteHeader__WEBPACK_IMPORTED_MODULE_0__.default
+  },
   props: {
     availableLanguages: {
       type: Array,
@@ -21354,6 +21410,21 @@ __webpack_require__.r(__webpack_exports__);
         return [];
       }
     }
+  },
+  data: function data() {
+    return {
+      languageList: [],
+      locale: window.default_locale
+    };
+  },
+  created: function created() {
+    this.languageList = __webpack_require__(/*! @cospired/i18n-iso-languages */ "./node_modules/@cospired/i18n-iso-languages/index.js");
+    this.languageList.registerLocale(__webpack_require__(/*! @cospired/i18n-iso-languages/langs/en.json */ "./node_modules/@cospired/i18n-iso-languages/langs/en.json"));
+    this.languageList.registerLocale(__webpack_require__(/*! @cospired/i18n-iso-languages/langs/hu.json */ "./node_modules/@cospired/i18n-iso-languages/langs/hu.json"));
+    this.languageList.registerLocale(__webpack_require__(/*! @cospired/i18n-iso-languages/langs/de.json */ "./node_modules/@cospired/i18n-iso-languages/langs/de.json"));
+    this.languageList = this.languageList.getNames(this.locale, {
+      select: 'official'
+    });
   }
 });
 
@@ -22030,14 +22101,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Jetstream/Input */ "./resources/js/Jetstream/Input.vue");
 /* harmony import */ var _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Jetstream/InputError */ "./resources/js/Jetstream/InputError.vue");
 /* harmony import */ var _Jetstream_Label__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Jetstream/Label */ "./resources/js/Jetstream/Label.vue");
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -22864,6 +22927,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _Widgets_BookedEvent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Widgets/BookedEvent */ "./resources/js/Widgets/BookedEvent.vue");
 /* harmony import */ var _Widgets_BoughtEvent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Widgets/BoughtEvent */ "./resources/js/Widgets/BoughtEvent.vue");
+/* harmony import */ var _fullcalendar_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fullcalendar/vue */ "./node_modules/@fullcalendar/vue/dist/main.js");
+/* harmony import */ var _fullcalendar_timegrid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fullcalendar/timegrid */ "./node_modules/@fullcalendar/timegrid/main.js");
+/* harmony import */ var _fullcalendar_interaction__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fullcalendar/interaction */ "./node_modules/@fullcalendar/interaction/main.js");
 //
 //
 //
@@ -22952,6 +23018,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+
+
+
 
 
 
@@ -22959,12 +23031,70 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     BoughtEvent: _Widgets_BoughtEvent__WEBPACK_IMPORTED_MODULE_2__.default,
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__.default,
-    BookedEvent: _Widgets_BookedEvent__WEBPACK_IMPORTED_MODULE_1__.default
+    BookedEvent: _Widgets_BookedEvent__WEBPACK_IMPORTED_MODULE_1__.default,
+    FullCalendar: _fullcalendar_vue__WEBPACK_IMPORTED_MODULE_3__.default
   },
   props: {
     lessons: Array,
     appointments: Array
-  }
+  },
+  data: function data() {
+    return {
+      languageList: null,
+      locale: window.default_locale,
+      calendarOptions: {
+        plugins: [_fullcalendar_timegrid__WEBPACK_IMPORTED_MODULE_4__.default, _fullcalendar_interaction__WEBPACK_IMPORTED_MODULE_5__.default],
+        initialView: 'timeGridWeek',
+        locale: window.default_locale,
+        buttonText: {
+          today: 'mai nap',
+          month: 'hónap',
+          week: 'hét',
+          day: 'nap',
+          list: 'lista'
+        },
+        allDayText: 'egész nap',
+        firstDay: 1,
+        slotDuration: '01:00:00',
+        dayHeaderFormat: {
+          weekday: 'long',
+          day: 'numeric',
+          omitCommas: true
+        },
+        allDaySlot: false,
+        slotLabelFormat: {
+          hour: '2-digit',
+          minute: '2-digit',
+          meridiem: 'long'
+        },
+        headerToolbar: {
+          left: 'prev',
+          center: 'title',
+          right: 'next'
+        },
+        events: [],
+        selectable: true,
+        selectOverlap: false,
+        select: function select(selectionInfo) {
+          console.log(selectionInfo);
+          axios.put('/availability', {
+            params: {
+              start: selectionInfo.startStr,
+              end: selectionInfo.endStr
+            }
+          }).then(function (response) {
+            console.log(response);
+          })["catch"](function (error) {
+            console.log(error);
+          });
+        }
+      }
+    };
+  },
+  created: function created() {
+    this.calendarOptions.timeZone = this.$page.props.user === null ? 'local' : this.$page.props.user.timezone;
+  },
+  methods: {}
 });
 
 /***/ }),
@@ -23845,7 +23975,14 @@ __webpack_require__.r(__webpack_exports__);
           hour: '2-digit',
           minute: '2-digit',
           meridiem: 'long'
-        }
+        },
+        headerToolbar: {
+          left: 'prev',
+          center: 'title',
+          right: 'next'
+        },
+        selectable: true,
+        selectOverlap: false
       }
     };
   },
@@ -25320,9 +25457,9 @@ __webpack_require__.r(__webpack_exports__);
     "attributes": []
   },
   "hu.auth": {
-    "failed": "These credentials do not match our records.",
+    "failed": "A megadott adatok alapj\xE1n nem tal\xE1lhat\xF3 a fi\xF3k.",
     "throttle": "Too many login attempts. Please try again in :seconds seconds.",
-    "login_with_facebook_btn": "Folytat\xE1s Facebook fi\xF3kkal|Folytat\xE1s Facebook fi\xF3kokkal",
+    "login_with_facebook_btn": "Folytat\xE1s Facebook fi\xF3kkal",
     "login_with_google_btn": "Folytat\xE1s Google fi\xF3kkal",
     "login_social_or_email": "vagy",
     "first_name_label": "Vezet\xE9kn\xE9v",
@@ -26386,7 +26523,6 @@ new vue__WEBPACK_IMPORTED_MODULE_5__.default({
     }
 
     this.$inertia.on('before', function (event) {
-      console.log('route changed');
       document.body.classList.remove('scrollLock');
     });
   },
@@ -64485,6 +64621,45 @@ component.options.__file = "resources/js/Layouts/Partials/Logo.vue"
 
 /***/ }),
 
+/***/ "./resources/js/Layouts/Partials/SiteFooter.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/Layouts/Partials/SiteFooter.vue ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _SiteFooter_vue_vue_type_template_id_069e2eab___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SiteFooter.vue?vue&type=template&id=069e2eab& */ "./resources/js/Layouts/Partials/SiteFooter.vue?vue&type=template&id=069e2eab&");
+/* harmony import */ var _SiteFooter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SiteFooter.vue?vue&type=script&lang=js& */ "./resources/js/Layouts/Partials/SiteFooter.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _SiteFooter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _SiteFooter_vue_vue_type_template_id_069e2eab___WEBPACK_IMPORTED_MODULE_0__.render,
+  _SiteFooter_vue_vue_type_template_id_069e2eab___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Layouts/Partials/SiteFooter.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/Layouts/Partials/SiteHeader.vue":
 /*!******************************************************!*\
   !*** ./resources/js/Layouts/Partials/SiteHeader.vue ***!
@@ -66555,6 +66730,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Layouts/Partials/SiteFooter.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/Layouts/Partials/SiteFooter.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SiteFooter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SiteFooter.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Layouts/Partials/SiteFooter.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SiteFooter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/Layouts/Partials/SiteHeader.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************!*\
   !*** ./resources/js/Layouts/Partials/SiteHeader.vue?vue&type=script&lang=js& ***!
@@ -67767,6 +67958,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Logo_vue_vue_type_template_id_5519b8d4___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Logo_vue_vue_type_template_id_5519b8d4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Logo.vue?vue&type=template&id=5519b8d4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Layouts/Partials/Logo.vue?vue&type=template&id=5519b8d4&");
+
+
+/***/ }),
+
+/***/ "./resources/js/Layouts/Partials/SiteFooter.vue?vue&type=template&id=069e2eab&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/Layouts/Partials/SiteFooter.vue?vue&type=template&id=069e2eab& ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SiteFooter_vue_vue_type_template_id_069e2eab___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SiteFooter_vue_vue_type_template_id_069e2eab___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SiteFooter_vue_vue_type_template_id_069e2eab___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SiteFooter.vue?vue&type=template&id=069e2eab& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Layouts/Partials/SiteFooter.vue?vue&type=template&id=069e2eab&");
 
 
 /***/ }),
@@ -70535,7 +70743,9 @@ var render = function() {
     [
       _c("site-header"),
       _vm._v(" "),
-      _c("div", { staticClass: "siteContent" }, [_vm._t("default")], 2)
+      _c("div", { staticClass: "siteContent" }, [_vm._t("default")], 2),
+      _vm._v(" "),
+      _c("site-footer")
     ],
     1
   )
@@ -70602,6 +70812,106 @@ var render = function() {
   )
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Layouts/Partials/SiteFooter.vue?vue&type=template&id=069e2eab&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Layouts/Partials/SiteFooter.vue?vue&type=template&id=069e2eab& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "column" }, [
+          _c("div", { staticClass: "title font-bold color-primary-dark" }, [
+            _vm._v("Weboldal")
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Oldal nyelve")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Gyakori kérdések")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/#registration" } }, [
+            _vm._v("Regisztráció")
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Tanítani szeretnék")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "column" }, [
+          _c("div", { staticClass: "title font-bold" }, [_vm._v("Consteach")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Rólunk")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Hírek")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Blog")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Közösség")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "column" }, [
+          _c("div", { staticClass: "title font-bold" }, [_vm._v("Social")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", { staticClass: "fab fa-facebook" })
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", { staticClass: "fab fa-instagram" })
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", { staticClass: "fab fa-linkedin-in" })
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", { staticClass: "fab fa-twitter" })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "column" }, [
+          _c("div", { staticClass: "title font-bold" }, [_vm._v("Policies")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Privacy")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Terms of Use")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Site Map")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "column only-screen" }, [
+          _c("div", { staticClass: "title font-bold" }, [_vm._v("Kapcsolat")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "mailto:info@consteach.com" } }, [
+            _vm._v("info@consteach.com")
+          ])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -73214,10 +73524,39 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("landing-header"),
+      _c("site-header"),
       _vm._v(" "),
       _c("main", [
-        _vm._m(0),
+        _c("section", { staticClass: "top" }, [
+          _c("div", { staticClass: "flex" }, [
+            _c(
+              "div",
+              { staticClass: "left flex flex-col justify-center ml-16" },
+              [
+                _c("div", { staticClass: "title" }, [
+                  _vm._v("Online, személyesen neked")
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Találj hozzád illő tanárt, tanulj anyanyelvi szinten, otthonod kényelméből"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("c-btn", { attrs: { "navigate-to": "/teachers" } }, [
+                  _vm._v("INGYENES Próbaóra")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "globe-and-book" })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm._m(0)
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "bottom-img" })
+        ]),
         _vm._v(" "),
         _c("section", { staticClass: "choose-a-language" }, [
           _c("div", { staticClass: "section-content" }, [
@@ -73234,8 +73573,8 @@ var render = function() {
                 return _c("div", { staticClass: "lang show-mobile" }, [
                   _vm._m(1, true),
                   _vm._v(" "),
-                  _c("div", { staticClass: "title" }, [
-                    _vm._v(_vm._s(language))
+                  _c("div", { staticClass: "title capitalize" }, [
+                    _vm._v(_vm._s(_vm.languageList[language]))
                   ])
                 ])
               }),
@@ -73246,15 +73585,84 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(3),
+        _c("section", { staticClass: "language-learning" }, [
+          _c("div", { staticClass: "section-content" }, [
+            _c("div", { staticClass: "base-line" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "base-title" }, [
+              _vm._v("\n\t\t\t\t\tNyelvtanulás egyszerűen\n\t\t\t\t")
+            ]),
+            _vm._v(" "),
+            _vm._m(3),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "button-container" },
+              [
+                _c("p", [
+                  _vm._v(
+                    "\n\t\t\t\t\t\tMilyen tanárt keresel? Válaszd ki a preferenciáid és máris mutatjuk a hozzád illő tanárokat!\n\t\t\t\t\t"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("c-btn", { attrs: { "navigate-to": "/teachers" } }, [
+                  _vm._v("Tanárkeresés")
+                ])
+              ],
+              1
+            )
+          ])
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "wave wave-1" }),
         _vm._v(" "),
-        _vm._m(4),
+        _c("section", { staticClass: "next-level" }, [
+          _c("div", { staticClass: "section-content" }, [
+            _c("div", { staticClass: "base-line" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "base-title" }, [
+              _vm._v("\n\t\t\t\t\tLépj a következő szintre\n\t\t\t\t")
+            ]),
+            _vm._v(" "),
+            _vm._m(4),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "button-container" },
+              [
+                _c("c-btn", { attrs: { "navigate-to": "/#registration" } }, [
+                  _vm._v("Regisztrálok")
+                ])
+              ],
+              1
+            )
+          ])
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "wave wave-2" }),
         _vm._v(" "),
-        _vm._m(5),
+        _c("section", { staticClass: "teach-with-us" }, [
+          _c("div", { staticClass: "section-content" }, [
+            _c("div", { staticClass: "base-line" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "base-title" }, [
+              _vm._v("\n\t\t\t\t\tTaníts nálunk\n\t\t\t\t")
+            ]),
+            _vm._v(" "),
+            _vm._m(5),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "button-container" },
+              [
+                _c("c-btn", { attrs: { "navigate-to": "/teacher-landing" } }, [
+                  _vm._v("Jelentkezem tanárnak")
+                ])
+              ],
+              1
+            )
+          ])
+        ]),
         _vm._v(" "),
         _c("section", { staticClass: "join-us" }, [
           _c("div", { staticClass: "svg" }, [
@@ -73304,11 +73712,58 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _vm._m(6)
+          _c("div", { staticClass: "section-content" }, [
+            _c("div", { staticClass: "base-line" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "base-title" }, [
+              _vm._v("\n\t\t\t\t\tCsatlakozz hozzánk\n\t\t\t\t")
+            ]),
+            _vm._v(" "),
+            _vm._m(6),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "flex justify-center my-4" },
+              [
+                _c("c-btn", { attrs: { "navigate-to": "/#registration" } }, [
+                  _vm._v("Regisztrálok")
+                ])
+              ],
+              1
+            )
+          ])
         ])
       ]),
       _vm._v(" "),
-      _vm._m(7)
+      _c("login-popup", {
+        model: {
+          value: _vm.$root.popup.login,
+          callback: function($$v) {
+            _vm.$set(_vm.$root.popup, "login", $$v)
+          },
+          expression: "$root.popup.login"
+        }
+      }),
+      _vm._v(" "),
+      _c("register-popup", {
+        model: {
+          value: _vm.$root.popup.registration,
+          callback: function($$v) {
+            _vm.$set(_vm.$root.popup, "registration", $$v)
+          },
+          expression: "$root.popup.registration"
+        }
+      }),
+      _vm._v(" "),
+      _c("lost-password-popup", {
+        model: {
+          value: _vm.$root.popup.lostPassword,
+          callback: function($$v) {
+            _vm.$set(_vm.$root.popup, "lostPassword", $$v)
+          },
+          expression: "$root.popup.lostPassword"
+        }
+      })
     ],
     1
   )
@@ -73318,37 +73773,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "top" }, [
-      _c("div", { staticClass: "flex" }, [
-        _c("div", { staticClass: "left flex flex-col justify-center ml-16" }, [
-          _c("div", { staticClass: "title" }, [
-            _vm._v("Online, személyesen neked")
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "Találj hozzád illő tanárt, tanulj anyanyelvi szinten, otthonod kényelméből"
-            )
-          ]),
-          _vm._v(" "),
-          _c("button", { staticClass: "button" }, [
-            _vm._v("INGYENES Próbaóra")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "globe-and-book" })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "right" }, [
-          _c("img", {
-            attrs: {
-              src: "/img/girl_light.svg",
-              alt: "Nyelvtanuló nő laptoppal"
-            }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "bottom-img" })
+    return _c("div", { staticClass: "right" }, [
+      _c("img", {
+        attrs: { src: "/img/girl_light.svg", alt: "Nyelvtanuló nő laptoppal" }
+      })
     ])
   },
   function() {
@@ -73379,245 +73807,92 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "language-learning" }, [
-      _c("div", { staticClass: "section-content" }, [
-        _c("div", { staticClass: "base-line" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "base-title" }, [
-          _vm._v("\n\t\t\t\t\tNyelvtanulás egyszerűen\n\t\t\t\t")
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "line" }, [
+        _c("div", { staticClass: "icon" }, [
+          _c("img", { attrs: { src: "/img/circle1.png", alt: "circle1" } })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "line" }, [
-            _c("div", { staticClass: "icon" }, [
-              _c("img", { attrs: { src: "/img/circle1.png", alt: "circle1" } })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "title" }, [
-              _vm._v("Válassz a nyelvek közül")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "line" }, [
-            _c("div", { staticClass: "icon" }, [
-              _c("img", { attrs: { src: "/img/circle2.png", alt: "circle2" } })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "title" }, [
-              _vm._v("Válassz tanárt magadnak")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "line" }, [
-            _c("div", { staticClass: "icon" }, [
-              _c("img", { attrs: { src: "/img/circle3.png", alt: "circle3" } })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "title" }, [_vm._v("Foglalj időpontot")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "line" }, [
-            _c("div", { staticClass: "icon" }, [
-              _c("img", { attrs: { src: "/img/circle4.png", alt: "circle4" } })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "title" }, [
-              _vm._v("Csatlakozz a videóhíváshoz és kezdődhet a tanulás!")
-            ])
-          ])
+        _c("div", { staticClass: "title" }, [_vm._v("Válassz a nyelvek közül")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "line" }, [
+        _c("div", { staticClass: "icon" }, [
+          _c("img", { attrs: { src: "/img/circle2.png", alt: "circle2" } })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "button-container" }, [
+        _c("div", { staticClass: "title" }, [_vm._v("Válassz tanárt magadnak")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "line" }, [
+        _c("div", { staticClass: "icon" }, [
+          _c("img", { attrs: { src: "/img/circle3.png", alt: "circle3" } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "title" }, [_vm._v("Foglalj időpontot")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "line" }, [
+        _c("div", { staticClass: "icon" }, [
+          _c("img", { attrs: { src: "/img/circle4.png", alt: "circle4" } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "title" }, [
+          _vm._v("Csatlakozz a videóhíváshoz és kezdődhet a tanulás!")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "line" }, [
+        _c("div", { staticClass: "icon flex justify-center" }, [
+          _c("img", { attrs: { src: "/img/level_up_1.png", alt: "circle1" } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "content" }, [
+          _c("div", { staticClass: "title" }, [_vm._v("Gyors")]),
+          _vm._v(" "),
           _c("p", [
             _vm._v(
-              "\n\t\t\t\t\t\tMilyen tanárt keresel? Válaszd ki a preferenciáid és máris mutatjuk a hozzád illő tanárokat!\n\t\t\t\t\t"
+              "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
             )
-          ]),
-          _vm._v(" "),
-          _c("a", { staticClass: "button", attrs: { href: "/find-teacher" } }, [
-            _vm._v("Tanárkeresés")
           ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "next-level" }, [
-      _c("div", { staticClass: "section-content" }, [
-        _c("div", { staticClass: "base-line" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "base-title" }, [
-          _vm._v("\n\t\t\t\t\tLépj a következő szintre\n\t\t\t\t")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "line" }, [
-            _c("div", { staticClass: "icon" }, [
-              _c("img", {
-                attrs: { src: "/img/level_up_1.png", alt: "circle1" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "content" }, [
-              _c("div", { staticClass: "title" }, [_vm._v("Gyors")]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "line text-align-right" }, [
-            _c("div", { staticClass: "content" }, [
-              _c("div", { staticClass: "title" }, [
-                _vm._v("Személyre szabott")
-              ]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "icon" }, [
-              _c("img", {
-                attrs: { src: "/img/level_up_2.png", alt: "circle2" }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "line" }, [
-            _c("div", { staticClass: "icon" }, [
-              _c("img", {
-                attrs: { src: "/img/level_up_3.png", alt: "circle3" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "content" }, [
-              _c("div", { staticClass: "title" }, [_vm._v("Minőségi")]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
-                )
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "button-container" }, [
-          _c("a", { staticClass: "button", attrs: { href: "/register" } }, [
-            _vm._v("Regisztrálok")
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "teach-with-us" }, [
-      _c("div", { staticClass: "section-content" }, [
-        _c("div", { staticClass: "base-line" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "base-title" }, [
-          _vm._v("\n\t\t\t\t\tTaníts nálunk\n\t\t\t\t")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "line" }, [
-            _c("div", { staticClass: "icon" }, [
-              _c("img", { attrs: { src: "/img/circle5.png", alt: "circle5" } })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "content" }, [
-              _c("div", { staticClass: "title" }, [_vm._v("Karrier")]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "line" }, [
-            _c("div", { staticClass: "icon" }, [
-              _c("img", { attrs: { src: "/img/circle6.png", alt: "circle6" } })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "content" }, [
-              _c("div", { staticClass: "title" }, [_vm._v("Fejlődés")]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "line" }, [
-            _c("div", { staticClass: "icon" }, [
-              _c("img", { attrs: { src: "/img/circle7.png", alt: "circle7" } })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "content" }, [
-              _c("div", { staticClass: "title" }, [_vm._v("Tapasztalat")]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
-                )
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "button-container" }, [
-          _c("button", { staticClass: "button" }, [
-            _vm._v("Jelentkezek tanárnak")
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "section-content" }, [
-      _c("div", { staticClass: "base-line" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "base-title" }, [
-        _vm._v("\n\t\t\t\t\tCsatlakozz hozzánk\n\t\t\t\t")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "videoWrapper" }, [
-          _c("iframe", {
-            attrs: {
-              loading: "lazy",
-              src: "https://www.youtube.com/embed/9bZkp7q19f0",
-              frameborder: "0",
-              allow:
-                "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
-              allowfullscreen: ""
-            }
-          })
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "button-container" }, [
-        _c("a", { staticClass: "button", attrs: { href: "/register" } }, [
-          _vm._v("Regisztrálok")
+      _c("div", { staticClass: "line text-align-right" }, [
+        _c("div", { staticClass: "content" }, [
+          _c("div", { staticClass: "title" }, [_vm._v("Személyre szabott")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "icon flex justify-center" }, [
+          _c("img", { attrs: { src: "/img/level_up_2.png", alt: "circle2" } })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "line" }, [
+        _c("div", { staticClass: "icon flex justify-center" }, [
+          _c("img", { attrs: { src: "/img/level_up_3.png", alt: "circle3" } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "content" }, [
+          _c("div", { staticClass: "title" }, [_vm._v("Minőségi")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
+            )
+          ])
         ])
       ])
     ])
@@ -73626,69 +73901,72 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("footer", [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "column" }, [
-          _c("div", { staticClass: "title" }, [_vm._v("Weboldal")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Oldal nyelve")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Gyakori kérdések")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/register" } }, [_vm._v("Regisztráció")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Tanítani szeretnék")])
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "line" }, [
+        _c("div", { staticClass: "icon" }, [
+          _c("img", { attrs: { src: "/img/circle5.png", alt: "circle5" } })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "column" }, [
-          _c("div", { staticClass: "title" }, [_vm._v("Consteach")]),
+        _c("div", { staticClass: "content" }, [
+          _c("div", { staticClass: "title" }, [_vm._v("Karrier")]),
           _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Rólunk")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Hírek")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Blog")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Közösség")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "column" }, [
-          _c("div", { staticClass: "title" }, [_vm._v("Social")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [
-            _c("i", { staticClass: "fab fa-facebook" })
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [
-            _c("i", { staticClass: "fab fa-instagram" })
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [
-            _c("i", { staticClass: "fab fa-linkedin-in" })
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [
-            _c("i", { staticClass: "fab fa-twitter" })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "column" }, [
-          _c("div", { staticClass: "title" }, [_vm._v("Policies")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Privacy")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Terms of Use")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Site Map")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "column only-screen" }, [
-          _c("div", { staticClass: "title" }, [_vm._v("Kapcsolat")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "mailto:info@consteach.com" } }, [
-            _vm._v("info@consteach.com")
+          _c("p", [
+            _vm._v(
+              "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
+            )
           ])
         ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "line" }, [
+        _c("div", { staticClass: "icon" }, [
+          _c("img", { attrs: { src: "/img/circle6.png", alt: "circle6" } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "content" }, [
+          _c("div", { staticClass: "title" }, [_vm._v("Fejlődés")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "line" }, [
+        _c("div", { staticClass: "icon" }, [
+          _c("img", { attrs: { src: "/img/circle7.png", alt: "circle7" } })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "content" }, [
+          _c("div", { staticClass: "title" }, [_vm._v("Tapasztalat")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
+            )
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "videoWrapper" }, [
+        _c("iframe", {
+          attrs: {
+            loading: "lazy",
+            src: "https://www.youtube.com/embed/9bZkp7q19f0",
+            frameborder: "0",
+            allow:
+              "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+            allowfullscreen: ""
+          }
+        })
       ])
     ])
   }
@@ -74685,24 +74963,6 @@ var render = function() {
     on: { submitted: _vm.updatePassword },
     scopedSlots: _vm._u([
       {
-        key: "title",
-        fn: function() {
-          return [_vm._v("\n        Update Password\n    ")]
-        },
-        proxy: true
-      },
-      {
-        key: "description",
-        fn: function() {
-          return [
-            _vm._v(
-              "\n        Ensure your account is using a long, random password to stay secure.\n    "
-            )
-          ]
-        },
-        proxy: true
-      },
-      {
         key: "form",
         fn: function() {
           return [
@@ -74820,7 +75080,7 @@ var render = function() {
                 staticClass: "mr-3",
                 attrs: { on: _vm.form.recentlySuccessful }
               },
-              [_vm._v("\n            Saved.\n        ")]
+              [_vm._v("\n\t\t\tSaved.\n\t\t")]
             ),
             _vm._v(" "),
             _c(
@@ -74829,7 +75089,7 @@ var render = function() {
                 class: { "opacity-25": _vm.form.processing },
                 attrs: { disabled: _vm.form.processing }
               },
-              [_vm._v("\n            Save\n        ")]
+              [_vm._v("\n\t\t\tSave\n\t\t")]
             )
           ]
         },
@@ -76135,6 +76395,13 @@ var render = function() {
               1
             )
           ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-span-2 card p-sm" },
+            [_c("FullCalendar", { attrs: { options: _vm.calendarOptions } })],
+            1
+          ),
           _vm._v(" "),
           _c("div", { staticClass: "col-span-1" }, [
             _c(
