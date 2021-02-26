@@ -22,6 +22,7 @@ class Teacher extends Model
     protected $fillable = [
     	'user_id',
     	'about_me',
+        'country',
         'teaching_languages',
         'video_url',
         'one_hour_price',

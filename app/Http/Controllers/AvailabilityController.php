@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Availability;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AvailabilityController extends Controller
 {
@@ -35,7 +36,17 @@ class AvailabilityController extends Controller
      */
     public function store(Request $request)
     {
-        dd(request()->input());
+        $availability = Availability::create(
+                [
+                    'teacher_id' => auth()->user()->extra->id,
+                    'start' => $request->input('params')['start'],
+                    'end' => $request->input('params')['end'],
+                    'is_open' => true,
+                    'weekday' => Carbon::create($request->input('params')['start'])->weekday(),
+                ]
+            );
+
+        return $availability;
     }
 
     /**

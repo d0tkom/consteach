@@ -88,43 +88,8 @@
 					</div>
 				</div>
 			</section>
+			<site-footer />
 		</main>
-		
-		<footer>
-			<div class="container">
-				<div class="column">
-					<div class="title">Weboldal</div>
-					<a href="#">Oldal nyelve</a>
-					<a href="#">Gyakori kérdések</a>
-					<a href="/register">Regisztráció</a>
-					<a href="#">Tanítani szeretnék</a>
-				</div>
-				<div class="column">
-					<div class="title">Consteach</div>
-					<a href="#">Rólunk</a>
-					<a href="#">Hírek</a>
-					<a href="#">Blog</a>
-					<a href="#">Közösség</a>
-				</div>
-				<div class="column">
-					<div class="title">Social</div>
-					<a href="#"><i class="fab fa-facebook"></i></a>
-					<a href="#"><i class="fab fa-instagram"></i></a>
-					<a href="#"><i class="fab fa-linkedin-in"></i></a>
-					<a href="#"><i class="fab fa-twitter"></i></a>
-				</div>
-				<div class="column">
-					<div class="title">Policies</div>
-					<a href="#">Privacy</a>
-					<a href="#">Terms of Use</a>
-					<a href="#">Site Map</a>
-				</div>
-				<div class="column only-screen">
-					<div class="title">Kapcsolat</div>
-					<a href="mailto:info@consteach.com">info@consteach.com</a>
-				</div>
-			</div>
-		</footer>
 		<login-popup v-model="$root.popup.login" />
 		<register-popup v-model="$root.popup.registration" />
 		<lost-password-popup v-model="$root.popup.lostPassword" />
@@ -136,6 +101,7 @@ import LoginPopup from "@/Pages/Landing/LoginPopup";
 import RegisterPopup from "@/Pages/Landing/RegisterPopup";
 import LostPasswordPopup from "@/Pages/Landing/LostPasswordPopup";
 import SiteHeader from '@/Layouts/Partials/SiteHeader';
+import SiteFooter from "@/Layouts/Partials/SiteFooter";
 
 export default {
 	components: {
@@ -143,6 +109,7 @@ export default {
 		RegisterPopup,
 		LoginPopup,
 		SiteHeader,
+		SiteFooter,
 	},
 	props: {
 		availableLanguages: {

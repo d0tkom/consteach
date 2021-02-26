@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AppointmentController extends Controller
 {
@@ -35,7 +36,19 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $appointment = Appointment::create(
+                [
+                    'teacher_id' => $request->input('params')['teacher_id'],
+                    'student_id' => auth()->user()->extra->id,
+                    'start' => $request->input('params')['start'],
+                    'end' => $request->input('params')['end'],
+                    'type' => '??',
+                    'student_approved' => false,
+                    'teacher_approved' => false,
+                ]
+            );
+
+        return $appointment;
     }
 
     /**

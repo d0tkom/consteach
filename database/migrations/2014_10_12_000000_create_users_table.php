@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('provider_id')->nullable();
             $table->string('role')->default('student');
-            $table->string('country');
             $table->string('timezone');
             $table->json('spoken_languages')->nullable();
             $table->string('site_language')->nullable();

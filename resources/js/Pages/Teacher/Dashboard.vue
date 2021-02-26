@@ -107,6 +107,7 @@
         props: {
             lessons: Array,
             appointments: Array,
+            availabilities: Array,
         },
         data() {
             return {
@@ -143,28 +144,52 @@
                         right: 'next'
                     },
                     events: [],
+                    displayEventTime: false,
                     selectable: true,
                     selectOverlap: false,
-                    select: function (selectionInfo) {
-                        console.log(selectionInfo);
-                        axios.put('/availability', {params: {
-                            start: selectionInfo.startStr,
-                            end: selectionInfo.endStr
-                        }})
-                            .then(function (response) {
-                                console.log(response);
-                            })
-                            .catch(function (error) {
-                                console.log(error);
-                            });
+                    select: this.addAvailability,
+                    eventClick: this.deleteAvailability,
+                    selectAllow: function(selectInfo) { 
+                        //TODO: a 22:00 miafaszért nemjó?
+                        console.log(moment(selectInfo.startStr).isSame(moment(selectInfo.endStr), 'date'));
+                        return moment(selectInfo.startStr).isSame(moment(selectInfo.endStr), 'date');
                     },
                 }
             };
         },
         created() {
+            Object.values(this.availabilities).forEach(availability => {
+                let event = {
+                    start: availability.from,
+                    end: availability.to,
+                };
+                this.calendarOptions.events.push(event);
+            });
+            
             this.calendarOptions.timeZone = this.$page.props.user === null ? 'local' : this.$page.props.user.timezone;
         },
         methods: {
+            addAvailability: function (selectionInfo) {
+                let self = this;
+                axios.put('/availability', {params: {
+                    start: selectionInfo.startStr,
+                    end: selectionInfo.endStr
+                }})
+                    .then(function (response) {
+                        let event = {
+                            start: response.data.from,
+                            end: response.data.to
+                        }
+                        self.calendarOptions.events.push(event);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+            deleteAvailability: function (eventClickInfo) {
+                console.log(eventClickInfo);
+                //TODO: delete popup
+            }
         }
     }
 </script>

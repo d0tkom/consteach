@@ -201,6 +201,7 @@
 				</div>
 			</section>
 		</main>
+		<site-footer />
 	</div>
 </template>
 
@@ -210,6 +211,7 @@ import SiteHeader from "@/Layouts/Partials/SiteHeader";
 import LoginPopup from "@/Pages/Landing/LoginPopup";
 import RegisterPopup from "@/Pages/Landing/RegisterPopup";
 import LostPasswordPopup from "@/Pages/Landing/LostPasswordPopup";
+import SiteFooter from "@/Layouts/Partials/SiteFooter";
 
 export default {
 	components: {
@@ -217,6 +219,7 @@ export default {
 		RegisterPopup,
 		LoginPopup,
 		SiteHeader,
+		SiteFooter,
 	},
 	props: {
 		availableLanguages: {
