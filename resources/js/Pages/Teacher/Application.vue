@@ -60,6 +60,7 @@
 								:data="timezones"
 								label-key="name"
 								value-key="code"
+								v-model="form.timezone"
 							/>
 						</div>
 						
@@ -73,10 +74,10 @@
 							>
 								<div>
 									<c-select
-										:data="[{label: 'Angol'}, {label: 'Magyar'}]"
+										:data="languageList"
 										label="Nyelv"
-										labelKey="label"
-										valueKey="label"
+										labelKey="name"
+										valueKey="code"
 										v-model="language.language"
 									/>
 								</div>
@@ -112,10 +113,10 @@
 							>
 								<div>
 									<c-select
-										:data="[{label: 'Angol'}, {label: 'Magyar'}]"
+										:data="languageList"
 										label="Nyelv"
-										labelKey="label"
-										valueKey="label"
+										labelKey="name"
+										valueKey="code"
 										v-model="language.language"
 									/>
 								</div>
@@ -350,6 +351,12 @@ export default {
 		AppLayout,
 		FullCalendar
 	},
+	mounted() {
+		const local_data = localStorage.getItem('teacher-application');
+		if (local_data) {
+			this.form = this.$inertia.form(JSON.parse(local_data));
+		}
+	},
 	created() {
 		this.countries = require('i18n-iso-countries');
 		this.countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
@@ -458,15 +465,23 @@ export default {
 						start: selectionInfo.startStr,
 						end: selectionInfo.endStr
 					}})
-						.then(function (response) {
-							console.log(response);
-						})
-						.catch(function (error) {
-							console.log(error);
-						});
+					.then(function (response) {
+						console.log(response);
+					})
+					.catch(function (error) {
+						console.log(error);
+					});
 				},
 			}
 		};
+	},
+	watch: {
+		form: {
+			handler(form) {
+				localStorage.setItem('teacher-application', JSON.stringify(form));
+			},
+			deep: true
+		}
 	},
 	methods: {
 		addNewSpokenLanguage() {

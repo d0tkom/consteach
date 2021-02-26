@@ -18523,6 +18523,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     label: {
@@ -18541,8 +18552,15 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       "default": 'code'
     },
-    selected: {
-      type: String
+    value: {
+      type: String,
+      "default": null
+    }
+  },
+  methods: {
+    input: function input(event) {
+      console.log(event);
+      this.$emit('input', event.target.value);
     }
   }
 });
@@ -23177,6 +23195,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -23190,6 +23209,13 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__.default,
     FullCalendar: _fullcalendar_vue__WEBPACK_IMPORTED_MODULE_6__.default
+  },
+  mounted: function mounted() {
+    var local_data = localStorage.getItem('teacher-application');
+
+    if (local_data) {
+      this.form = this.$inertia.form(JSON.parse(local_data));
+    }
   },
   created: function created() {
     this.countries = __webpack_require__(/*! i18n-iso-countries */ "./node_modules/i18n-iso-countries/index.js");
@@ -23313,6 +23339,14 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
     };
+  },
+  watch: {
+    form: {
+      handler: function handler(form) {
+        localStorage.setItem('teacher-application', JSON.stringify(form));
+      },
+      deep: true
+    }
   },
   methods: {
     addNewSpokenLanguage: function addNewSpokenLanguage() {
@@ -69714,25 +69748,31 @@ var render = function() {
         {
           staticClass: "w-full",
           on: {
-            input: function($event) {
-              return _vm.$emit("input", $event.target.value)
+            input: function(event) {
+              return _vm.input(event)
             }
           }
         },
-        _vm._l(_vm.data, function(item, i_) {
-          return _c(
-            "option",
-            {
-              key: i_,
-              domProps: {
-                selected: _vm.selected == item[_vm.valueKey],
-                value: item[_vm.valueKey]
-              }
-            },
-            [_vm._v("\n\t\t\t\t" + _vm._s(item[_vm.labelKey]) + "\n\t\t\t")]
-          )
-        }),
-        0
+        [
+          _c("option", { domProps: { selected: !_vm.value } }, [
+            _vm._v("Válassz")
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.data, function(item, i_) {
+            return _c(
+              "option",
+              {
+                key: i_,
+                domProps: {
+                  selected: _vm.value == item[_vm.valueKey],
+                  value: item[_vm.valueKey]
+                }
+              },
+              [_vm._v("\n\t\t\t\t" + _vm._s(item[_vm.labelKey]) + "\n\t\t\t")]
+            )
+          })
+        ],
+        2
       )
     ])
   ])
@@ -76784,6 +76824,13 @@ var render = function() {
                           data: _vm.timezones,
                           "label-key": "name",
                           "value-key": "code"
+                        },
+                        model: {
+                          value: _vm.form.timezone,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "timezone", $$v)
+                          },
+                          expression: "form.timezone"
                         }
                       })
                     ],
@@ -76815,13 +76862,10 @@ var render = function() {
                               [
                                 _c("c-select", {
                                   attrs: {
-                                    data: [
-                                      { label: "Angol" },
-                                      { label: "Magyar" }
-                                    ],
+                                    data: _vm.languageList,
                                     label: "Nyelv",
-                                    labelKey: "label",
-                                    valueKey: "label"
+                                    labelKey: "name",
+                                    valueKey: "code"
                                   },
                                   model: {
                                     value: language.language,
@@ -76902,13 +76946,10 @@ var render = function() {
                               [
                                 _c("c-select", {
                                   attrs: {
-                                    data: [
-                                      { label: "Angol" },
-                                      { label: "Magyar" }
-                                    ],
+                                    data: _vm.languageList,
                                     label: "Nyelv",
-                                    labelKey: "label",
-                                    valueKey: "label"
+                                    labelKey: "name",
+                                    valueKey: "code"
                                   },
                                   model: {
                                     value: language.language,
