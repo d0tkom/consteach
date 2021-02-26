@@ -16,7 +16,8 @@ class CreateTeachersTable extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
             $table->json('teaching_languages')->nullable();
-            $table->text('about_me');
+            $table->json('about_me');
+            $table->string('country');
             $table->string('video_url');
             $table->float('one_hour_price');
             $table->float('five_hour_price');

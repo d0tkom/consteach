@@ -15,8 +15,6 @@ class Student extends Model
     protected $fillable = [
     	'user_id',
     	'wanted_language',
-        'language',
-        'is_night',
     ];
 
     public function user()

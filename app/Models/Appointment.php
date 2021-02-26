@@ -11,6 +11,16 @@ class Appointment extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'student_id',
+        'teacher_id',
+        'type',
+        'start',
+        'end',
+        'student_approved',
+        'teacher_approved',
+    ];
+
     protected $appends = ['length'];
 
     public function teacher()

@@ -86,6 +86,7 @@
                         </div>
                         <div class="card p-sm">
                             <div class="text-md font-bold color-blue-dark">{{ trans.get('teacher_profile.time_table') }}</div>
+                            <FullCalendar :options="calendarOptions" />
                         </div>
                         <div class="card p-sm">
                             <div class="text-md font-bold color-blue-dark">{{ trans.get('teacher_profile.resume') }}</div>
@@ -102,9 +103,6 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card p-sm">
-                            <FullCalendar :options="calendarOptions" />
                         </div>
                     </div>
                     <div class="col-span-1">
@@ -181,7 +179,9 @@
             FullCalendar,
         },
         props: {
-            teacher: Object
+            teacher: Object,
+            appointments: Array,
+            availabilities: Array,
         },
         data() {
             return {
@@ -217,17 +217,73 @@
                         center: 'title',
                         right: 'next'
                     },
-                    selectable: true,
+                    events: [],
+                    displayEventTime: false,
+                    selectable: false,
                     selectOverlap: false,
-                    
+                    eventClick: this.addAppointment,
+                    selectAllow: function(selectInfo) { 
+                        //TODO: a 22:00 miafaszért nemjó?
+                        console.log(moment(selectInfo.startStr).isSame(moment(selectInfo.endStr), 'date'));
+                        return moment(selectInfo.startStr).isSame(moment(selectInfo.endStr), 'date');
+                    },
                 }
             };
         },
         created() {
+            let self = this;
+
+            let availabilities = [];
+
+            Object.values(this.availabilities).forEach(availability => {
+                let event = {
+                    start: availability.from,
+                    end: availability.to,
+                    available: true,
+                    backgroundColor: 'blue'
+                };
+                availabilities.push(event);
+            });
+
+            let appointments = [];
+
+            Object.values(this.appointments).forEach(appointment => {
+                let event = {
+                    start: appointment.from,
+                    end: appointment.to,
+                    available: false,
+                    backgroundColor: 'red'
+                };
+                appointments.push(event);
+            });
+
+            this.calendarOptions.events = availabilities.filter(a => !appointments.find(b => b.start === a.start && b.end === a.end));
+            
+            this.calendarOptions.timeZone = this.$page.props.user === null ? 'local' : this.$page.props.user.timezone;
+
             this.languageList = require('@cospired/i18n-iso-languages');
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/en.json'));
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/hu.json'));
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
+        },
+        methods: {
+            addAppointment: function (eventClickInfo) {
+                let self = this;
+                if (!eventClickInfo.event.extendedProps.available || this.$page.props.user.role != 'student') {
+                    return false;
+                }
+                axios.put('/appointment', {params: {
+                    start: eventClickInfo.event.startStr,
+                    end: eventClickInfo.event.endStr,
+                    teacher_id: self.teacher.id
+                }})
+                    .then(function (response) {
+                        eventClickInfo.event.setExtendedProp( 'available', false );
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            }
         }
     }
 </script>

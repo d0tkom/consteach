@@ -21277,261 +21277,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /*!*********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Landing.vue?vue&type=script&lang=js& ***!
   \*********************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _Layouts_Partials_SiteHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/Partials/SiteHeader */ "./resources/js/Layouts/Partials/SiteHeader.vue");
-/* harmony import */ var _Pages_Landing_LoginPopup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Pages/Landing/LoginPopup */ "./resources/js/Pages/Landing/LoginPopup.vue");
-/* harmony import */ var _Pages_Landing_RegisterPopup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Pages/Landing/RegisterPopup */ "./resources/js/Pages/Landing/RegisterPopup.vue");
-/* harmony import */ var _Pages_Landing_LostPasswordPopup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Pages/Landing/LostPasswordPopup */ "./resources/js/Pages/Landing/LostPasswordPopup.vue");
-/* harmony import */ var _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Layouts/AppLayout.vue */ "./resources/js/Layouts/AppLayout.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  components: {
-    LostPasswordPopup: _Pages_Landing_LostPasswordPopup__WEBPACK_IMPORTED_MODULE_3__.default,
-    RegisterPopup: _Pages_Landing_RegisterPopup__WEBPACK_IMPORTED_MODULE_2__.default,
-    LoginPopup: _Pages_Landing_LoginPopup__WEBPACK_IMPORTED_MODULE_1__.default,
-    SiteHeader: _Layouts_Partials_SiteHeader__WEBPACK_IMPORTED_MODULE_0__.default,
-    AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_4__.default
-  },
-  props: {
-    availableLanguages: {
-      type: Array,
-      "default": function _default() {
-        return [];
-      }
-    }
-  },
-  data: function data() {
-    return {
-      languageList: [],
-      locale: window.default_locale
-    };
-  },
-  created: function created() {
-    this.languageList = __webpack_require__(/*! @cospired/i18n-iso-languages */ "./node_modules/@cospired/i18n-iso-languages/index.js");
-    this.languageList.registerLocale(__webpack_require__(/*! @cospired/i18n-iso-languages/langs/en.json */ "./node_modules/@cospired/i18n-iso-languages/langs/en.json"));
-    this.languageList.registerLocale(__webpack_require__(/*! @cospired/i18n-iso-languages/langs/hu.json */ "./node_modules/@cospired/i18n-iso-languages/langs/hu.json"));
-    this.languageList.registerLocale(__webpack_require__(/*! @cospired/i18n-iso-languages/langs/de.json */ "./node_modules/@cospired/i18n-iso-languages/langs/de.json"));
-    this.languageList = this.languageList.getNames(this.locale, {
-      select: 'official'
-    });
-  }
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /var/www/html/consteach/resources/js/Pages/Landing.vue: Unexpected token (218:0)\n\n\u001b[0m \u001b[90m 216 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mRegisterPopup\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m\"@/Pages/Landing/RegisterPopup\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 217 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mLostPasswordPopup\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m\"@/Pages/Landing/LostPasswordPopup\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 218 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 219 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mAppLayout\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m'../Layouts/AppLayout.vue'\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 220 |\u001b[39m \u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 221 |\u001b[39m \u001b[36mimport\u001b[39m \u001b[33mSiteFooter\u001b[39m \u001b[36mfrom\u001b[39m \u001b[32m\"@/Layouts/Partials/SiteFooter\"\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n    at Parser._raise (/var/www/html/consteach/node_modules/@babel/parser/lib/index.js:776:17)\n    at Parser.raiseWithData (/var/www/html/consteach/node_modules/@babel/parser/lib/index.js:769:17)\n    at Parser.raise (/var/www/html/consteach/node_modules/@babel/parser/lib/index.js:737:17)\n    at Parser.unexpected (/var/www/html/consteach/node_modules/@babel/parser/lib/index.js:9264:16)\n    at Parser.parseExprAtom (/var/www/html/consteach/node_modules/@babel/parser/lib/index.js:10754:20)\n    at Parser.parseExprSubscripts (/var/www/html/consteach/node_modules/@babel/parser/lib/index.js:10329:23)\n    at Parser.parseUpdate (/var/www/html/consteach/node_modules/@babel/parser/lib/index.js:10309:21)\n    at Parser.parseMaybeUnary (/var/www/html/consteach/node_modules/@babel/parser/lib/index.js:10287:23)\n    at Parser.parseExprOps (/var/www/html/consteach/node_modules/@babel/parser/lib/index.js:10152:23)\n    at Parser.parseMaybeConditional (/var/www/html/consteach/node_modules/@babel/parser/lib/index.js:10126:23)\n    at Parser.parseMaybeAssign (/var/www/html/consteach/node_modules/@babel/parser/lib/index.js:10089:21)\n    at Parser.parseExpressionBase (/var/www/html/consteach/node_modules/@babel/parser/lib/index.js:10034:23)\n    at /var/www/html/consteach/node_modules/@babel/parser/lib/index.js:10028:39\n    at Parser.allowInAnd (/var/www/html/consteach/node_modules/@babel/parser/lib/index.js:11722:16)\n    at Parser.parseExpression (/var/www/html/consteach/node_modules/@babel/parser/lib/index.js:10028:17)\n    at Parser.parseStatementContent (/var/www/html/consteach/node_modules/@babel/parser/lib/index.js:11988:23)");
 
 /***/ }),
 
@@ -23476,7 +23224,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     lessons: Array,
-    appointments: Array
+    appointments: Array,
+    availabilities: Array
   },
   data: function data() {
     return {
@@ -23513,28 +23262,54 @@ __webpack_require__.r(__webpack_exports__);
           right: 'next'
         },
         events: [],
+        displayEventTime: false,
         selectable: true,
         selectOverlap: false,
-        select: function select(selectionInfo) {
-          console.log(selectionInfo);
-          axios.put('/availability', {
-            params: {
-              start: selectionInfo.startStr,
-              end: selectionInfo.endStr
-            }
-          }).then(function (response) {
-            console.log(response);
-          })["catch"](function (error) {
-            console.log(error);
-          });
+        select: this.addAvailability,
+        eventClick: this.deleteAvailability,
+        selectAllow: function selectAllow(selectInfo) {
+          //TODO: a 22:00 miafaszért nemjó?
+          console.log(moment(selectInfo.startStr).isSame(moment(selectInfo.endStr), 'date'));
+          return moment(selectInfo.startStr).isSame(moment(selectInfo.endStr), 'date');
         }
       }
     };
   },
   created: function created() {
+    var _this = this;
+
+    Object.values(this.availabilities).forEach(function (availability) {
+      var event = {
+        start: availability.from,
+        end: availability.to
+      };
+
+      _this.calendarOptions.events.push(event);
+    });
     this.calendarOptions.timeZone = this.$page.props.user === null ? 'local' : this.$page.props.user.timezone;
   },
-  methods: {}
+  methods: {
+    addAvailability: function addAvailability(selectionInfo) {
+      var self = this;
+      axios.put('/availability', {
+        params: {
+          start: selectionInfo.startStr,
+          end: selectionInfo.endStr
+        }
+      }).then(function (response) {
+        var event = {
+          start: response.data.from,
+          end: response.data.to
+        };
+        self.calendarOptions.events.push(event);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    deleteAvailability: function deleteAvailability(eventClickInfo) {
+      console.log(eventClickInfo); //TODO: delete popup
+    }
+  }
 });
 
 /***/ }),
@@ -23677,6 +23452,7 @@ __webpack_require__.r(__webpack_exports__);
       teachers: this.all_teachers.data,
       moreExists: this.all_teachers.current_page < this.all_teachers.last_page,
       languageList: null,
+      total: this.all_teachers.total,
       locale: window.default_locale,
       next_page_url: this.all_teachers.next_page_url,
       filters: {
@@ -23779,6 +23555,7 @@ __webpack_require__.r(__webpack_exports__);
 
         self.teachers = response.data.teachers.data;
         self.next_page_url = response.data.teachers.next_page_url;
+        self.total = response.data.teachers.total;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -24367,8 +24144,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -24389,7 +24164,9 @@ __webpack_require__.r(__webpack_exports__);
     FullCalendar: _fullcalendar_vue__WEBPACK_IMPORTED_MODULE_6__.default
   },
   props: {
-    teacher: Object
+    teacher: Object,
+    appointments: Array,
+    availabilities: Array
   },
   data: function data() {
     return {
@@ -24425,16 +24202,72 @@ __webpack_require__.r(__webpack_exports__);
           center: 'title',
           right: 'next'
         },
-        selectable: true,
-        selectOverlap: false
+        events: [],
+        displayEventTime: false,
+        selectable: false,
+        selectOverlap: false,
+        eventClick: this.addAppointment,
+        selectAllow: function selectAllow(selectInfo) {
+          //TODO: a 22:00 miafaszért nemjó?
+          console.log(moment(selectInfo.startStr).isSame(moment(selectInfo.endStr), 'date'));
+          return moment(selectInfo.startStr).isSame(moment(selectInfo.endStr), 'date');
+        }
       }
     };
   },
   created: function created() {
+    var self = this;
+    var availabilities = [];
+    Object.values(this.availabilities).forEach(function (availability) {
+      var event = {
+        start: availability.from,
+        end: availability.to,
+        available: true,
+        backgroundColor: 'blue'
+      };
+      availabilities.push(event);
+    });
+    var appointments = [];
+    Object.values(this.appointments).forEach(function (appointment) {
+      var event = {
+        start: appointment.from,
+        end: appointment.to,
+        available: false,
+        backgroundColor: 'red'
+      };
+      appointments.push(event);
+    });
+    this.calendarOptions.events = availabilities.filter(function (a) {
+      return !appointments.find(function (b) {
+        return b.start === a.start && b.end === a.end;
+      });
+    });
+    this.calendarOptions.timeZone = this.$page.props.user === null ? 'local' : this.$page.props.user.timezone;
     this.languageList = __webpack_require__(/*! @cospired/i18n-iso-languages */ "./node_modules/@cospired/i18n-iso-languages/index.js");
     this.languageList.registerLocale(__webpack_require__(/*! @cospired/i18n-iso-languages/langs/en.json */ "./node_modules/@cospired/i18n-iso-languages/langs/en.json"));
     this.languageList.registerLocale(__webpack_require__(/*! @cospired/i18n-iso-languages/langs/hu.json */ "./node_modules/@cospired/i18n-iso-languages/langs/hu.json"));
     this.languageList.registerLocale(__webpack_require__(/*! @cospired/i18n-iso-languages/langs/de.json */ "./node_modules/@cospired/i18n-iso-languages/langs/de.json"));
+  },
+  methods: {
+    addAppointment: function addAppointment(eventClickInfo) {
+      var self = this;
+
+      if (!eventClickInfo.event.extendedProps.available || this.$page.props.user.role != 'student') {
+        return false;
+      }
+
+      axios.put('/appointment', {
+        params: {
+          start: eventClickInfo.event.startStr,
+          end: eventClickInfo.event.endStr,
+          teacher_id: self.teacher.id
+        }
+      }).then(function (response) {
+        eventClickInfo.event.setExtendedProp('available', false);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
   }
 });
 
@@ -24455,6 +24288,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Pages_Landing_RegisterPopup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Pages/Landing/RegisterPopup */ "./resources/js/Pages/Landing/RegisterPopup.vue");
 /* harmony import */ var _Pages_Landing_LostPasswordPopup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Pages/Landing/LostPasswordPopup */ "./resources/js/Pages/Landing/LostPasswordPopup.vue");
 /* harmony import */ var _Layouts_Partials_SiteHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Layouts/Partials/SiteHeader */ "./resources/js/Layouts/Partials/SiteHeader.vue");
+/* harmony import */ var _Layouts_Partials_SiteFooter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Layouts/Partials/SiteFooter */ "./resources/js/Layouts/Partials/SiteFooter.vue");
 //
 //
 //
@@ -24553,41 +24387,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 
@@ -24597,7 +24397,8 @@ __webpack_require__.r(__webpack_exports__);
     LostPasswordPopup: _Pages_Landing_LostPasswordPopup__WEBPACK_IMPORTED_MODULE_2__.default,
     RegisterPopup: _Pages_Landing_RegisterPopup__WEBPACK_IMPORTED_MODULE_1__.default,
     LoginPopup: _Pages_Landing_LoginPopup__WEBPACK_IMPORTED_MODULE_0__.default,
-    SiteHeader: _Layouts_Partials_SiteHeader__WEBPACK_IMPORTED_MODULE_3__.default
+    SiteHeader: _Layouts_Partials_SiteHeader__WEBPACK_IMPORTED_MODULE_3__.default,
+    SiteFooter: _Layouts_Partials_SiteFooter__WEBPACK_IMPORTED_MODULE_4__.default
   },
   props: {
     availableLanguages: {
@@ -74373,420 +74174,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("app-layout", [
-    _c("main", [
-      _c("section", { staticClass: "top" }, [
-        _c("div", { staticClass: "flex" }, [
-          _c(
-            "div",
-            { staticClass: "left flex flex-col justify-center ml-16" },
-            [
-              _c("div", { staticClass: "title" }, [
-                _vm._v("Online, személyesen neked")
-              ]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "Találj hozzád illő tanárt, tanulj anyanyelvi szinten, otthonod kényelméből"
-                )
-              ]),
-              _vm._v(" "),
-              _c("c-btn", { attrs: { "navigate-to": "/teachers" } }, [
-                _vm._v("INGYENES Próbaóra")
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "globe-and-book" })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "right" }, [
-            _c("img", {
-              attrs: {
-                src: "/img/girl_light.svg",
-                alt: "Nyelvtanuló nő laptoppal"
-              }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "bottom-img" })
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "choose-a-language" }, [
-        _c("div", { staticClass: "section-content" }, [
-          _c("div", { staticClass: "base-line" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "base-title" }, [
-            _vm._v("\n\t\t\t\t\tVálassz nyelvet!\n\t\t\t\t")
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "container" },
-            _vm._l(_vm.$page.props.availableLanguages, function(language) {
-              return _c(
-                "div",
-                { key: language, staticClass: "lang show-mobile" },
-                [
-                  _c("div", { staticClass: "flag" }, [
-                    _c("img", {
-                      attrs: {
-                        src: "/img/flags/flag_" + language + ".svg",
-                        alt: language + " Flag"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "title capitalize" }, [
-                    _vm._v(_vm._s(_vm.languageList[language]))
-                  ])
-                ]
-              )
-            }),
-            0
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "lang-button-container" }, [
-            _c("div", { staticClass: "open" }, [
-              _vm._v("Még több nyelv "),
-              _c("span", { staticClass: "down-arrow" })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "close" }, [
-              _vm._v("Kevesebb nyelv "),
-              _c("span", { staticClass: "up-arrow" })
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "language-learning" }, [
-        _c("div", { staticClass: "section-content" }, [
-          _c("div", { staticClass: "base-line" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "base-title" }, [
-            _vm._v("\n\t\t\t\t\tNyelvtanulás egyszerűen\n\t\t\t\t")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "container" }, [
-            _c("div", { staticClass: "line" }, [
-              _c("div", { staticClass: "icon" }, [
-                _c("img", {
-                  attrs: { src: "/img/circle1.svg", alt: "circle1" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "title" }, [
-                _vm._v("Válassz a nyelvek közül")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "line" }, [
-              _c("div", { staticClass: "icon" }, [
-                _c("img", {
-                  attrs: { src: "/img/circle2.svg", alt: "circle2" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "title" }, [
-                _vm._v("Válassz tanárt magadnak")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "line" }, [
-              _c("div", { staticClass: "icon" }, [
-                _c("img", {
-                  attrs: { src: "/img/circle3.svg", alt: "circle3" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "title" }, [_vm._v("Foglalj időpontot")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "line" }, [
-              _c("div", { staticClass: "icon" }, [
-                _c("img", {
-                  attrs: { src: "/img/circle4.svg", alt: "circle4" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "title" }, [
-                _vm._v("Csatlakozz a videóhíváshoz és kezdődhet a tanulás!")
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "button-container" },
-            [
-              _c("p", [
-                _vm._v(
-                  "\n\t\t\t\t\t\tMilyen tanárt keresel? Válaszd ki a preferenciáid és máris mutatjuk a hozzád illő tanárokat!\n\t\t\t\t\t"
-                )
-              ]),
-              _vm._v(" "),
-              _c("c-btn", { attrs: { "navigate-to": "/teachers" } }, [
-                _vm._v("Tanárkeresés")
-              ])
-            ],
-            1
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "wave wave-1" }),
-      _vm._v(" "),
-      _c("section", { staticClass: "next-level" }, [
-        _c("div", { staticClass: "section-content" }, [
-          _c("div", { staticClass: "base-line" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "base-title" }, [
-            _vm._v("\n\t\t\t\t\tLépj a következő szintre\n\t\t\t\t")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "container" }, [
-            _c("div", { staticClass: "line" }, [
-              _c("div", { staticClass: "icon flex justify-center" }, [
-                _c("img", {
-                  attrs: { src: "/img/level_up_1.png", alt: "circle1" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "content" }, [
-                _c("div", { staticClass: "title" }, [_vm._v("Gyors")]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "line text-align-right" }, [
-              _c("div", { staticClass: "content" }, [
-                _c("div", { staticClass: "title" }, [
-                  _vm._v("Személyre szabott")
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "icon flex justify-center" }, [
-                _c("img", {
-                  attrs: { src: "/img/level_up_2.png", alt: "circle2" }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "line" }, [
-              _c("div", { staticClass: "icon flex justify-center" }, [
-                _c("img", {
-                  attrs: { src: "/img/level_up_3.png", alt: "circle3" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "content" }, [
-                _c("div", { staticClass: "title" }, [_vm._v("Minőségi")]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
-                  )
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "button-container" },
-            [
-              _c("c-btn", { attrs: { "navigate-to": "/#registration" } }, [
-                _vm._v("Regisztrálok")
-              ])
-            ],
-            1
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "wave wave-2" }),
-      _vm._v(" "),
-      _c("section", { staticClass: "teach-with-us" }, [
-        _c("div", { staticClass: "section-content" }, [
-          _c("div", { staticClass: "base-line" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "base-title" }, [
-            _vm._v("\n\t\t\t\t\tTaníts nálunk\n\t\t\t\t")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "container" }, [
-            _c("div", { staticClass: "line" }, [
-              _c("div", { staticClass: "icon" }, [
-                _c("img", {
-                  attrs: { src: "/img/circle5.svg", alt: "circle5" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "content" }, [
-                _c("div", { staticClass: "title" }, [_vm._v("Karrier")]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "line" }, [
-              _c("div", { staticClass: "icon" }, [
-                _c("img", {
-                  attrs: { src: "/img/circle6.svg", alt: "circle6" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "content" }, [
-                _c("div", { staticClass: "title" }, [_vm._v("Fejlődés")]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "line" }, [
-              _c("div", { staticClass: "icon" }, [
-                _c("img", {
-                  attrs: { src: "/img/circle7.svg", alt: "circle7" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "content" }, [
-                _c("div", { staticClass: "title" }, [_vm._v("Tapasztalat")]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
-                  )
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "button-container" },
-            [
-              _c("c-btn", { attrs: { "navigate-to": "/teacher-landing" } }, [
-                _vm._v("Jelentkezem tanárnak")
-              ])
-            ],
-            1
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "join-us" }, [
-        _c("div", { staticClass: "svg" }, [
-          _c(
-            "svg",
-            {
-              attrs: {
-                preserveAspectRatio: "none",
-                width: "100",
-                height: "60",
-                xmlns: "http://www.w3.org/2000/svg",
-                viewBox: "0 0 875 863"
-              }
-            },
-            [
-              _c("defs"),
-              _c("g", { attrs: { id: "Layer_2", "data-name": "Layer 2" } }, [
-                _c(
-                  "g",
-                  { attrs: { id: "Layer_1-2", "data-name": "Layer 1" } },
-                  [
-                    _c("rect", {
-                      staticClass: "cls-1",
-                      attrs: { fill: "#d3eeff", width: "875", height: "863" }
-                    }),
-                    _c("path", {
-                      staticClass: "cls-2",
-                      staticStyle: { opacity: "0.7" },
-                      attrs: {
-                        fill: "#a8cbec",
-                        d: "M0,863H875V824.27c-211-170.66-875,32-875,32Z"
-                      }
-                    }),
-                    _c("path", {
-                      staticClass: "cls-3",
-                      staticStyle: { opacity: "0.7" },
-                      attrs: {
-                        fill: "#e8f3fa",
-                        d:
-                          "M0,189.7v449S358.67,943,875,824.7V27.7S334.73-92.23,0,189.7Z"
-                      }
-                    })
-                  ]
-                )
-              ])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "section-content" }, [
-          _c("div", { staticClass: "base-line" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "base-title" }, [
-            _vm._v("\n\t\t\t\t\tCsatlakozz hozzánk\n\t\t\t\t")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "container" }, [
-            _c("div", { staticClass: "videoWrapper" }, [
-              _c("iframe", {
-                attrs: {
-                  loading: "lazy",
-                  src: "https://www.youtube.com/embed/9bZkp7q19f0",
-                  frameborder: "0",
-                  allow:
-                    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
-                  allowfullscreen: ""
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "flex justify-center my-4" },
-            [
-              _c("c-btn", { attrs: { "navigate-to": "/#registration" } }, [
-                _vm._v("Regisztrálok")
-              ])
-            ],
-            1
-          )
-        ])
-      ])
-    ])
-  ])
-}
+var render = function () {}
 var staticRenderFns = []
-render._withStripped = true
 
 
 
@@ -77712,7 +77101,7 @@ var render = function() {
           _c("div", { staticClass: "color-gray font-bold text-md mb-4" }, [
             _vm._v(
               "\n                Tanárok ebben a szűrésben (" +
-                _vm._s(_vm.teachers.length) +
+                _vm._s(_vm.total) +
                 ")\n            "
             )
           ]),
@@ -78826,11 +78215,20 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "card p-sm" }, [
-              _c("div", { staticClass: "text-md font-bold color-blue-dark" }, [
-                _vm._v(_vm._s(_vm.trans.get("teacher_profile.time_table")))
-              ])
-            ]),
+            _c(
+              "div",
+              { staticClass: "card p-sm" },
+              [
+                _c(
+                  "div",
+                  { staticClass: "text-md font-bold color-blue-dark" },
+                  [_vm._v(_vm._s(_vm.trans.get("teacher_profile.time_table")))]
+                ),
+                _vm._v(" "),
+                _c("FullCalendar", { attrs: { options: _vm.calendarOptions } })
+              ],
+              1
+            ),
             _vm._v(" "),
             _c("div", { staticClass: "card p-sm" }, [
               _c("div", { staticClass: "text-md font-bold color-blue-dark" }, [
@@ -78866,14 +78264,7 @@ var render = function() {
                   ])
                 ])
               ])
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "card p-sm" },
-              [_c("FullCalendar", { attrs: { options: _vm.calendarOptions } })],
-              1
-            )
+            ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-span-1" }, [
@@ -79045,123 +78436,139 @@ var render = function() {
     [
       _c("site-header"),
       _vm._v(" "),
-      _c("main", [
-        _c("section", { staticClass: "top" }, [
-          _c("div", { staticClass: "flex" }, [
-            _c(
-              "div",
-              { staticClass: "left flex flex-col justify-center ml-16" },
-              [
-                _c("div", { staticClass: "title" }, [_vm._v("Taníts nálunk!")]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "Ha kimagaslóan beszélsz egy nyelvet és szeretnél nyelvet oktatni nálunk a helyed!"
-                  )
-                ]),
-                _vm._v(" "),
-                _c("c-btn", { attrs: { "navigate-to": "/" } }, [
-                  _vm._v("\n\t\t\t\t\t\tJelentkezés\n\t\t\t\t\t")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "globe-and-book" })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _vm._m(0)
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "bottom-img" })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "wave wave-1" }),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _c("div", { staticClass: "wave wave-2" }),
-        _vm._v(" "),
-        _c("section", { staticClass: "join-us" }, [
-          _c("div", { staticClass: "svg" }, [
-            _c(
-              "svg",
-              {
-                attrs: {
-                  preserveAspectRatio: "none",
-                  width: "100",
-                  height: "60",
-                  xmlns: "http://www.w3.org/2000/svg",
-                  viewBox: "0 0 875 863"
-                }
-              },
-              [
-                _c("defs"),
-                _c("g", { attrs: { id: "Layer_2", "data-name": "Layer 2" } }, [
-                  _c(
-                    "g",
-                    { attrs: { id: "Layer_1-2", "data-name": "Layer 1" } },
-                    [
-                      _c("rect", {
-                        staticClass: "cls-1",
-                        attrs: { fill: "#d3eeff", width: "875", height: "863" }
-                      }),
-                      _c("path", {
-                        staticClass: "cls-2",
-                        staticStyle: { opacity: "0.7" },
-                        attrs: {
-                          fill: "#a8cbec",
-                          d: "M0,863H875V824.27c-211-170.66-875,32-875,32Z"
-                        }
-                      }),
-                      _c("path", {
-                        staticClass: "cls-3",
-                        staticStyle: { opacity: "0.7" },
-                        attrs: {
-                          fill: "#e8f3fa",
-                          d:
-                            "M0,189.7v449S358.67,943,875,824.7V27.7S334.73-92.23,0,189.7Z"
-                        }
-                      })
-                    ]
-                  )
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "section-content" }, [
-            _c("div", { staticClass: "base-line" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-center mb-8 text-2xl font-bold" }, [
-              _vm._v("\n\t\t\t\t\tMilyen nálunk tanítani?\n\t\t\t\t")
+      _c(
+        "main",
+        [
+          _c("section", { staticClass: "top" }, [
+            _c("div", { staticClass: "flex" }, [
+              _c(
+                "div",
+                { staticClass: "left flex flex-col justify-center ml-16" },
+                [
+                  _c("div", { staticClass: "title" }, [
+                    _vm._v("Taníts nálunk!")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "Ha kimagaslóan beszélsz egy nyelvet és szeretnél nyelvet oktatni nálunk a helyed!"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("c-btn", { attrs: { "navigate-to": "/" } }, [
+                    _vm._v("\n\t\t\t\t\t\tJelentkezés\n\t\t\t\t\t")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "globe-and-book" })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._m(0)
             ]),
             _vm._v(" "),
-            _vm._m(2),
+            _c("div", { staticClass: "bottom-img" })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "wave wave-1" }),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _c("div", { staticClass: "wave wave-2" }),
+          _vm._v(" "),
+          _c("section", { staticClass: "join-us" }, [
+            _c("div", { staticClass: "svg" }, [
+              _c(
+                "svg",
+                {
+                  attrs: {
+                    preserveAspectRatio: "none",
+                    width: "100",
+                    height: "60",
+                    xmlns: "http://www.w3.org/2000/svg",
+                    viewBox: "0 0 875 863"
+                  }
+                },
+                [
+                  _c("defs"),
+                  _c(
+                    "g",
+                    { attrs: { id: "Layer_2", "data-name": "Layer 2" } },
+                    [
+                      _c(
+                        "g",
+                        { attrs: { id: "Layer_1-2", "data-name": "Layer 1" } },
+                        [
+                          _c("rect", {
+                            staticClass: "cls-1",
+                            attrs: {
+                              fill: "#d3eeff",
+                              width: "875",
+                              height: "863"
+                            }
+                          }),
+                          _c("path", {
+                            staticClass: "cls-2",
+                            staticStyle: { opacity: "0.7" },
+                            attrs: {
+                              fill: "#a8cbec",
+                              d: "M0,863H875V824.27c-211-170.66-875,32-875,32Z"
+                            }
+                          }),
+                          _c("path", {
+                            staticClass: "cls-3",
+                            staticStyle: { opacity: "0.7" },
+                            attrs: {
+                              fill: "#e8f3fa",
+                              d:
+                                "M0,189.7v449S358.67,943,875,824.7V27.7S334.73-92.23,0,189.7Z"
+                            }
+                          })
+                        ]
+                      )
+                    ]
+                  )
+                ]
+              )
+            ]),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "flex justify-center" },
-              [
-                _c(
-                  "c-btn",
-                  {
-                    attrs: { "navigate-to": "/#registration" },
-                    on: {
-                      click: function($event) {
-                        _vm.$root.popup.registration = true
+            _c("div", { staticClass: "section-content" }, [
+              _c("div", { staticClass: "base-line" }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "text-center mb-8 text-2xl font-bold" },
+                [_vm._v("\n\t\t\t\t\tMilyen nálunk tanítani?\n\t\t\t\t")]
+              ),
+              _vm._v(" "),
+              _vm._m(2),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "flex justify-center" },
+                [
+                  _c(
+                    "c-btn",
+                    {
+                      attrs: { "navigate-to": "/#registration" },
+                      on: {
+                        click: function($event) {
+                          _vm.$root.popup.registration = true
+                        }
                       }
-                    }
-                  },
-                  [_vm._v("\n\t\t\t\t\t\tRegisztrálok\n\t\t\t\t\t")]
-                )
-              ],
-              1
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _vm._m(3),
+                    },
+                    [_vm._v("\n\t\t\t\t\t\tRegisztrálok\n\t\t\t\t\t")]
+                  )
+                ],
+                1
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("site-footer")
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("login-popup", {
         model: {
@@ -79297,76 +78704,6 @@ var staticRenderFns = [
             allowfullscreen: ""
           }
         })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("footer", [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "column" }, [
-          _c("div", { staticClass: "title" }, [_vm._v("Weboldal")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Oldal nyelve")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Gyakori kérdések")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/register" } }, [_vm._v("Regisztráció")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Tanítani szeretnék")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "column" }, [
-          _c("div", { staticClass: "title" }, [_vm._v("Consteach")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Rólunk")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Hírek")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Blog")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Közösség")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "column" }, [
-          _c("div", { staticClass: "title" }, [_vm._v("Social")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [
-            _c("i", { staticClass: "fab fa-facebook" })
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [
-            _c("i", { staticClass: "fab fa-instagram" })
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [
-            _c("i", { staticClass: "fab fa-linkedin-in" })
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [
-            _c("i", { staticClass: "fab fa-twitter" })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "column" }, [
-          _c("div", { staticClass: "title" }, [_vm._v("Policies")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Privacy")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Terms of Use")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "#" } }, [_vm._v("Site Map")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "column only-screen" }, [
-          _c("div", { staticClass: "title" }, [_vm._v("Kapcsolat")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "mailto:info@consteach.com" } }, [
-            _vm._v("info@consteach.com")
-          ])
-        ])
       ])
     ])
   }

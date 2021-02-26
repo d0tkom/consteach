@@ -82,7 +82,6 @@ class UserController extends Controller
         $user->first_name = request()->input('first_name');
         $user->last_name = request()->input('last_name');
         $user->email = request()->input('email');
-        $user->country = request()->input('country') ?? '';
         $user->timezone = request()->input('timezone');
         $user->spoken_languages = request()->input('spoken_languages');
         $user->site_language = request()->input('site_language');
@@ -95,6 +94,7 @@ class UserController extends Controller
 
             $teacher->teaching_languages = request()->input('teaching_languages');
             $teacher->about_me = request()->input('about_me');
+            $teacher->country = request()->input('country') ?? 'hu';
             $teacher->video_url = request()->input('video_url');
             $teacher->one_hour_price = request()->input('one_hour_price');
             $teacher->five_hour_price = request()->input('five_hour_price');

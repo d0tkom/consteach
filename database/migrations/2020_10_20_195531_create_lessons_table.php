@@ -20,8 +20,6 @@ class CreateLessonsTable extends Migration
             $table->smallInteger('finished');
             $table->tinyInteger('booked');
             $table->smallInteger('available');
-            $table->string('language');
-            $table->string('level');
             $table->timestamps();
         });
     }

@@ -3,7 +3,7 @@
         <div class="findTeacherContainer card lg flat pb-8">
             <div class="top mb-4">
                 <div class="color-gray font-bold text-md mb-4">
-                    Tanárok ebben a szűrésben ({{ teachers.length }})
+                    Tanárok ebben a szűrésben ({{ total }})
                 </div>
                 <div class="flex items-center">
                     <div>
@@ -121,6 +121,7 @@
                 teachers: this.all_teachers.data,
                 moreExists: this.all_teachers.current_page < this.all_teachers.last_page,
                 languageList: null,
+                total: this.all_teachers.total,
                 locale: window.default_locale,
                 next_page_url: this.all_teachers.next_page_url,
                 filters: {
@@ -218,6 +219,7 @@
                         }
                         self.teachers = response.data.teachers.data;
                         self.next_page_url = response.data.teachers.next_page_url;
+                        self.total = response.data.teachers.total;
                     })
                     .catch(function (error) {
                         console.log(error);

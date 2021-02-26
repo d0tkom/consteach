@@ -17,9 +17,9 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('transaction_id');
             $table->integer('total');
-            $table->foreignId('teacher_id');
+            $table->foreignId('teacher_id')->constrained();
             $table->integer('lesson_number');
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

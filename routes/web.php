@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\AvailabilityController;
+use App\Http\Controllers\AppointmentController;
 use App\Helpers\CollectionHelper;
 use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Route;
@@ -12,7 +13,9 @@ use KgBot\LaravelLocalization\Classes\ExportLocalizations;
 use App\Models\Teacher;
 use App\Models\Lesson;
 use App\Models\Appointment;
+use App\Models\Availability;
 use Inertia\Inertia;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,11 +66,17 @@ Route::get('/teacher-landing', function () {
 })->name('teacher-landing');
 
 Route::get('/teacher/{teacher_id}', function ($teacher_id) {
+    $appointments = Appointment::where('teacher_id', $teacher_id)->get();
+
+    $availabilities = Availability::where('teacher_id', $teacher_id)->get();
+
     $teacher = Teacher::where('id', $teacher_id)->with('user')->first();
-    return Inertia::render('Teacher/View')->with(['teacher' => $teacher]);
+
+    return Inertia\Inertia::render('Teacher/View')->with(['teacher' => $teacher, 'appointments' => $appointments, 'availabilities' => $availabilities]);
 })->name('teacher.view');
 
-Route::put('/availability', [AvailabilityController::class, 'store'])->name('availability.save');
+Route::put('/availability', [AvailabilityController::class, 'store'])->name('availability.store');
+Route::put('/appointment', [AppointmentController::class, 'store'])->name('appointment.store');
 
 Route::get('/teachers', function (Request $request) {
     $teachersAvailableLanguages = Teacher::select(['teaching_languages'])->get();
@@ -98,33 +107,39 @@ Route::get('/teachers/filter', [TeacherController::class, 'filter'])->name('teac
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         switch (Auth::user()->role) {
-            case ('student'):
-                $lessons = Lesson::where('student_id', Auth::user()->extra->id)
-                    ->with('teacher')
-                    ->get()
-                    ->sortBy(function($lesson, $key) {
-                        return $lesson->teacher->user->first_name;
-                    });
-                $appointments = Appointment::where('student_id', Auth::user()->extra->id)->where('student_approved', 0)->where('teacher_approved', 0)->with(['teacher', 'teacher.user', 'student', 'student.user'])->get();
-                return Inertia::render('Student/Dashboard')->with(['appointments' => $appointments, 'lessons' => $lessons]);
-                break;
-            case ('teacher'):
-                $lessons = Lesson::where('teacher_id', Auth::user()->extra->id)
-                    ->with('student')
-                    ->get()
-                    ->sortBy(function($lesson, $key) {
-                        return $lesson->student->user->first_name;
-                    });
-                $appointments = Appointment::where('teacher_id', Auth::user()->extra->id)->where('student_approved', 0)->where('teacher_approved', 0)->with(['teacher', 'teacher.user', 'student', 'student.user'])->get();
-                return Inertia::render('Teacher/Dashboard')->with(['appointments' => $appointments, 'lessons' => $lessons]);
-                break;
-            case ('admin'):
-                return Inertia::render('Admin/Dashboard');
-                break;
-            default:
-                return view('welcome');
-                break;
-        }
+        case ('student'):
+            $lessons = Lesson::where('student_id', Auth::user()->extra->id)
+                ->with('teacher') 
+                ->get()
+                ->sortBy(function($lesson, $key) {
+                    return $lesson->teacher->user->first_name;
+                });
+
+            $appointments = Appointment::where('student_id', Auth::user()->extra->id)->where('student_approved', 0)->where('teacher_approved', 0)->with(['teacher', 'teacher.user', 'student', 'student.user'])->get();
+
+            return Inertia\Inertia::render('Student/Dashboard')->with(['appointments' => $appointments, 'lessons' => $lessons]);
+            break;
+        case ('teacher'):
+            $lessons = Lesson::where('teacher_id', Auth::user()->extra->id)
+                ->with('student') 
+                ->get()
+                ->sortBy(function($lesson, $key) {
+                    return
+                     $lesson->student->user->first_name;
+                });
+            $appointments = Appointment::where('teacher_id', Auth::user()->extra->id)->where('student_approved', 0)->where('teacher_approved', 0)->with(['teacher', 'teacher.user', 'student', 'student.user'])->get();
+
+            $availabilities = Availability::where('teacher_id', Auth::user()->extra->id)->get();
+
+            return Inertia\Inertia::render('Teacher/Dashboard')->with(['appointments' => $appointments, 'lessons' => $lessons, 'availabilities' => $availabilities]);
+            break;
+        case ('admin'):
+            return Inertia\Inertia::render('Admin/Dashboard');
+            break;
+        default:
+            return view('welcome');
+            break;
+    }
     })->name('dashboard');
 
     Route::get('/teacher-application', function () {

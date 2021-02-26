@@ -17,8 +17,6 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->string('wanted_language')->nullable();
-            $table->string('language')->nullable();
-            $table->boolean('is_night')->nullable();
             $table->string('address')->nullable();
             $table->string('postal')->nullable();
             $table->string('city')->nullable();
