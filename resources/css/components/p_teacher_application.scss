@@ -1,0 +1,15 @@
+.teacherApplicationContainer {
+	.tabs {
+		.tabItem {
+			&.past {
+				opacity: .4;
+			}
+		}
+		.tabNumber {
+			&.activeTab {
+				background: $blue-dark;
+				color: white;
+			}
+		}
+	}
+}

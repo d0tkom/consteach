@@ -18,7 +18,7 @@
                             ></c-btn>
                         </c-input>
                     </div>
-                    <div class="userName title text-center color-primary text-2xl mt-4">András</div>
+                    <div class="userName title text-center color-primary text-2xl mt-4">{{ $page.props.user.last_name }}</div>
                 </div>
                 <div class="content">
                     <form>

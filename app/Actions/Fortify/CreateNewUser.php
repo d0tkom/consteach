@@ -28,7 +28,7 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
-        
+        $role = $input['teacher'] ? 'teacher' : 'student';
 
         $user =  User::create([
             'first_name' => $input['first_name'],
@@ -37,7 +37,7 @@ class CreateNewUser implements CreatesNewUsers
             'country' => 'HU',
             'timezone' => 'UTC+0',
             'profile_photo_path' => '',
-            'role' => isset($input['teacher']) ? 'teacher' : 'student',
+            'role' => $role,
             'password' => Hash::make($input['password']),
         ]);
 

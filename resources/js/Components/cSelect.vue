@@ -2,8 +2,19 @@
 	<div class="inputContainer">
 		<label>
 			<div v-if="label" class="selectLabel">{{ label }}</div>
-			<select class="w-full" @input="$emit('input', $event.target.value)">
-				<option :selected="selected == item[valueKey]" :value="item[valueKey]" v-for="(item, i_) in data" :key="i_">
+			<select
+				class="w-full"
+				@input="event => input(event)"
+			>
+				<option
+					:selected="!value"
+				>Válassz</option>
+				<option
+					:selected="value == item[valueKey]"
+					:value="item[valueKey]"
+					v-for="(item, i_) in data"
+					:key="i_"
+				>
 					{{ item[labelKey] }}
 				</option>
 			</select>
@@ -31,9 +42,16 @@ export default {
 			type: String,
 			default: 'code'
 		},
-		selected: {
-			type: String
+		value: {
+			type: String,
+			default: null
 		}
 	},
+	methods: {
+		input(event) {
+			console.log(event)
+			this.$emit('input', event.target.value);
+		}
+	}
 }
 </script>

@@ -169,6 +169,7 @@ body {
 		}
 	}
 	header {
+		z-index: 30;
 		height: 40px;
 		background-color: #fff;
 		@at-root {
@@ -259,7 +260,7 @@ body {
 				right: 15px;
 				top: 45px;
 				padding: 15px;
-				z-index: 99;
+				z-index: 30;
 
 				.authBtns {
 					order: 3;
