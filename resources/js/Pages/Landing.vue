@@ -28,6 +28,7 @@
 					<div class="container">
 						<div
 							v-for="language in $page.props.availableLanguages"
+							:key="language"
 							class="lang show-mobile"
 						>
 							<div class="flag">
@@ -145,7 +146,7 @@
 					<div class="container">
 						<div class="line">
 							<div class="icon">
-								<img src="/img/circle5.png" alt="circle5">
+								<img src="/img/circle5.svg" alt="circle5">
 							</div>
 							<div class="content">
 								<div class="title">Karrier</div>
@@ -154,7 +155,7 @@
 						</div>
 						<div class="line">
 							<div class="icon">
-								<img src="/img/circle6.png" alt="circle6">
+								<img src="/img/circle6.svg" alt="circle6">
 							</div>
 							<div class="content">
 								<div class="title">Fejlődés</div>
@@ -163,7 +164,7 @@
 						</div>
 						<div class="line">
 							<div class="icon">
-								<img src="/img/circle7.png" alt="circle7">
+								<img src="/img/circle7.svg" alt="circle7">
 							</div>
 							<div class="content">
 								<div class="title">Tapasztalat</div>

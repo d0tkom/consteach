@@ -21471,6 +21471,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -74361,20 +74362,24 @@ var render = function() {
               "div",
               { staticClass: "container" },
               _vm._l(_vm.$page.props.availableLanguages, function(language) {
-                return _c("div", { staticClass: "lang show-mobile" }, [
-                  _c("div", { staticClass: "flag" }, [
-                    _c("img", {
-                      attrs: {
-                        src: "/img/flags/flag_" + language + ".svg",
-                        alt: language + " Flag"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "title capitalize" }, [
-                    _vm._v(_vm._s(_vm.languageList[language]))
-                  ])
-                ])
+                return _c(
+                  "div",
+                  { key: language, staticClass: "lang show-mobile" },
+                  [
+                    _c("div", { staticClass: "flag" }, [
+                      _c("img", {
+                        attrs: {
+                          src: "/img/flags/flag_" + language + ".svg",
+                          alt: language + " Flag"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "title capitalize" }, [
+                      _vm._v(_vm._s(_vm.languageList[language]))
+                    ])
+                  ]
+                )
               }),
               0
             ),
@@ -74664,7 +74669,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "container" }, [
       _c("div", { staticClass: "line" }, [
         _c("div", { staticClass: "icon" }, [
-          _c("img", { attrs: { src: "/img/circle5.png", alt: "circle5" } })
+          _c("img", { attrs: { src: "/img/circle5.svg", alt: "circle5" } })
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "content" }, [
@@ -74680,7 +74685,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "line" }, [
         _c("div", { staticClass: "icon" }, [
-          _c("img", { attrs: { src: "/img/circle6.png", alt: "circle6" } })
+          _c("img", { attrs: { src: "/img/circle6.svg", alt: "circle6" } })
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "content" }, [
@@ -74696,7 +74701,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "line" }, [
         _c("div", { staticClass: "icon" }, [
-          _c("img", { attrs: { src: "/img/circle7.png", alt: "circle7" } })
+          _c("img", { attrs: { src: "/img/circle7.svg", alt: "circle7" } })
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "content" }, [
