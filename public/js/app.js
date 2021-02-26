@@ -23285,7 +23285,8 @@ __webpack_require__.r(__webpack_exports__);
         email: this.$page.props.user.email,
         country: null,
         timezone: null,
-        about_me: null,
+        about_me_hu: null,
+        about_me_en: null,
         video_url: null,
         teaching_languages: [],
         spoken_languages: [],
@@ -77414,11 +77415,11 @@ var render = function() {
                       label: "Bemutatkozás magyarul"
                     },
                     model: {
-                      value: _vm.form.description_hu,
+                      value: _vm.form.about_me_hu,
                       callback: function($$v) {
-                        _vm.$set(_vm.form, "description_hu", $$v)
+                        _vm.$set(_vm.form, "about_me_hu", $$v)
                       },
-                      expression: "form.description_hu"
+                      expression: "form.about_me_hu"
                     }
                   }),
                   _vm._v(" "),
@@ -77429,11 +77430,11 @@ var render = function() {
                       label: "Bemutatkozás angolul"
                     },
                     model: {
-                      value: _vm.form.description_hu,
+                      value: _vm.form.about_me_en,
                       callback: function($$v) {
-                        _vm.$set(_vm.form, "description_hu", $$v)
+                        _vm.$set(_vm.form, "about_me_en", $$v)
                       },
-                      expression: "form.description_hu"
+                      expression: "form.about_me_en"
                     }
                   })
                 ],

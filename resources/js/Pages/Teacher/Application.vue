@@ -277,13 +277,13 @@
                             :max="2000"
 							class="mb-4"
 							label="Bemutatkozás magyarul"
-							v-model="form.description_hu"
+							v-model="form.about_me_hu"
 						/>
 						<c-text-area
 							hint="Minimum 250 karakter"
                             :max="2000"
 							label="Bemutatkozás angolul"
-							v-model="form.description_hu"
+							v-model="form.about_me_en"
 						/>
 					</form>
 				</div>
@@ -420,11 +420,12 @@ export default {
 				email: this.$page.props.user.email,
 				country: null,
 				timezone: null,
-				about_me: null,
+				about_me_hu: null,
+				about_me_en: null,
 				video_url: null,
 				teaching_languages: [],
 				spoken_languages: [],
-				adult: false
+				adult: false,
 			}),
 			calendarOptions: {
 				plugins: [ timeGridPlugin, interactionPlugin ],
