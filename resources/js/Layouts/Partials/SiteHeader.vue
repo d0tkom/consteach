@@ -128,7 +128,6 @@ export default {
 	},
 	computed: {
 		isLanding() {
-			
 			return this.$page.props.user === null;
 		}
 	},

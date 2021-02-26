@@ -1,12 +1,12 @@
 <template>
-    <div class="bg">
-	    <site-header />
+    <div class="bg mainSiteContainer" :class="{isLanding}">
+	    <siteHeader />
 	    
 	    <div class="siteContent">
 		    <slot></slot>
 	    </div>
 	
-	    <site-footer />
+	    <siteFooter />
     </div>
 </template>
 
@@ -19,5 +19,10 @@
 	        SiteFooter,
 	        SiteHeader,
         },
+		computed: {
+			isLanding() {
+				return this.$inertia.page.component === 'Landing' || this.$inertia.page.component === 'TeacherLanding';
+			}
+		}
     }
 </script>

@@ -19606,6 +19606,11 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     SiteFooter: _Layouts_Partials_SiteFooter__WEBPACK_IMPORTED_MODULE_1__.default,
     SiteHeader: _Layouts_Partials_SiteHeader__WEBPACK_IMPORTED_MODULE_0__.default
+  },
+  computed: {
+    isLanding: function isLanding() {
+      return this.$inertia.page.component === 'Landing' || this.$inertia.page.component === 'TeacherLanding';
+    }
   }
 });
 
@@ -21283,6 +21288,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Pages_Landing_LoginPopup__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Pages/Landing/LoginPopup */ "./resources/js/Pages/Landing/LoginPopup.vue");
 /* harmony import */ var _Pages_Landing_RegisterPopup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Pages/Landing/RegisterPopup */ "./resources/js/Pages/Landing/RegisterPopup.vue");
 /* harmony import */ var _Pages_Landing_LostPasswordPopup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Pages/Landing/LostPasswordPopup */ "./resources/js/Pages/Landing/LostPasswordPopup.vue");
+/* harmony import */ var _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Layouts/AppLayout.vue */ "./resources/js/Layouts/AppLayout.vue");
 //
 //
 //
@@ -21489,7 +21495,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
+
 
 
 
@@ -21499,7 +21505,8 @@ __webpack_require__.r(__webpack_exports__);
     LostPasswordPopup: _Pages_Landing_LostPasswordPopup__WEBPACK_IMPORTED_MODULE_3__.default,
     RegisterPopup: _Pages_Landing_RegisterPopup__WEBPACK_IMPORTED_MODULE_2__.default,
     LoginPopup: _Pages_Landing_LoginPopup__WEBPACK_IMPORTED_MODULE_1__.default,
-    SiteHeader: _Layouts_Partials_SiteHeader__WEBPACK_IMPORTED_MODULE_0__.default
+    SiteHeader: _Layouts_Partials_SiteHeader__WEBPACK_IMPORTED_MODULE_0__.default,
+    AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_4__.default
   },
   props: {
     availableLanguages: {
@@ -21649,12 +21656,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Jetstream_ActionSection__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Jetstream/ActionSection */ "./resources/js/Jetstream/ActionSection.vue");
-/* harmony import */ var _Jetstream_DialogModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Jetstream/DialogModal */ "./resources/js/Jetstream/DialogModal.vue");
-/* harmony import */ var _Jetstream_DangerButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Jetstream/DangerButton */ "./resources/js/Jetstream/DangerButton.vue");
-/* harmony import */ var _Jetstream_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Jetstream/Input */ "./resources/js/Jetstream/Input.vue");
-/* harmony import */ var _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Jetstream/InputError */ "./resources/js/Jetstream/InputError.vue");
-/* harmony import */ var _Jetstream_SecondaryButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Jetstream/SecondaryButton */ "./resources/js/Jetstream/SecondaryButton.vue");
+/* harmony import */ var _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Jetstream/InputError */ "./resources/js/Jetstream/InputError.vue");
 //
 //
 //
@@ -21686,43 +21688,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    JetActionSection: _Jetstream_ActionSection__WEBPACK_IMPORTED_MODULE_0__.default,
-    JetDangerButton: _Jetstream_DangerButton__WEBPACK_IMPORTED_MODULE_2__.default,
-    JetDialogModal: _Jetstream_DialogModal__WEBPACK_IMPORTED_MODULE_1__.default,
-    JetInput: _Jetstream_Input__WEBPACK_IMPORTED_MODULE_3__.default,
-    JetInputError: _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_4__.default,
-    JetSecondaryButton: _Jetstream_SecondaryButton__WEBPACK_IMPORTED_MODULE_5__.default
+    JetInputError: _Jetstream_InputError__WEBPACK_IMPORTED_MODULE_0__.default
   },
   data: function data() {
     return {
@@ -21744,7 +21713,7 @@ __webpack_require__.r(__webpack_exports__);
     deleteUser: function deleteUser() {
       var _this2 = this;
 
-      this.form["delete"](route('current-user.destroy'), {
+      this.form["delete"]('/user', {
         preserveScroll: true,
         onSuccess: function onSuccess() {
           return _this2.closeModal();
@@ -21760,6 +21729,7 @@ __webpack_require__.r(__webpack_exports__);
     closeModal: function closeModal() {
       this.confirmingUserDeletion = false;
       this.form.reset();
+      this.$emit('close');
     }
   }
 });
@@ -22461,6 +22431,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Popups_DeleteProfile__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Popups/DeleteProfile */ "./resources/js/Popups/DeleteProfile.vue");
 /* harmony import */ var _Widgets_BoughtEvent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Widgets/BoughtEvent */ "./resources/js/Widgets/BoughtEvent.vue");
 /* harmony import */ var _Widgets_Teacher__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Widgets/Teacher */ "./resources/js/Widgets/Teacher.vue");
+//
+//
+//
+//
+//
 //
 //
 //
@@ -24795,6 +24770,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _Pages_Profile_DeleteUserForm_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Pages/Profile/DeleteUserForm.vue */ "./resources/js/Pages/Profile/DeleteUserForm.vue");
 //
 //
 //
@@ -24805,16 +24781,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  components: {},
+  components: {
+    DeleteUserForm: _Pages_Profile_DeleteUserForm_vue__WEBPACK_IMPORTED_MODULE_0__.default
+  },
   props: {
     value: {
       type: Boolean,
@@ -24827,17 +24798,7 @@ __webpack_require__.r(__webpack_exports__);
       loading: false
     };
   },
-  methods: {
-    deleteProfile: function deleteProfile() {
-      var _this = this;
-
-      console.warn('TODO:Remove user...');
-      this.loading = true;
-      setTimeout(function () {
-        _this.loading = false;
-      }, 2000);
-    }
-  }
+  methods: {}
 });
 
 /***/ }),
@@ -26122,7 +26083,23 @@ __webpack_require__.r(__webpack_exports__);
     "already_registered_btn": "Van fi\xF3kom",
     "password_reset_link_btn": "Vissza\xE1ll\xEDt\xF3 link k\xFCld\xE9se",
     "forgot_password_title": "Elfelejtetted a jelszavad?",
-    "forgot_password_subtitle": "Semmi probl\xE9ma. Add meg az email c\xEDmedet \xE9s k\xFCld\xFCnk egy levelet, amiben megtal\xE1lod a teend\u0151ket a jelszavad megv\xE1ltoztat\xE1s\xE1hoz"
+    "forgot_password_subtitle": "Semmi probl\xE9ma. Add meg az email c\xEDmedet \xE9s k\xFCld\xFCnk egy levelet, amiben megtal\xE1lod a teend\u0151ket a jelszavad megv\xE1ltoztat\xE1s\xE1hoz",
+    "current_password_label": "Jelenlegi jelsz\xF3",
+    "new_password_label": "\xDAj jelsz\xF3",
+    "new_password_confirmation_label": "\xDAj jelsz\xF3 ism\xE9t",
+    "password_update_save_btn": "Ment\xE9s"
+  },
+  "hu.dashboard": {
+    "mother_tongue": "Anyanyelv",
+    "spoken_languages": "Besz\xE9lt nyelvek",
+    "booked_lessons": "Lefoglalt \xF3r\xE1im",
+    "teachers": "Tan\xE1raim",
+    "find_new_teacher_btn": "\xDAj tan\xE1rt keresek",
+    "bought_lessons": "Megv\xE1s\xE1rolt \xF3r\xE1im",
+    "student": "Di\xE1k",
+    "lesson": "\xD3ra",
+    "balance": "Egyenleg",
+    "my_students": "Di\xE1kjaim"
   },
   "hu.pagination": {
     "previous": "&laquo; Previous",
@@ -26134,6 +26111,49 @@ __webpack_require__.r(__webpack_exports__);
     "throttled": "Please wait before retrying.",
     "token": "This password reset token is invalid.",
     "user": "We can't find a user with that email address."
+  },
+  "hu.settings": {
+    "profile_informations": "Felhaszn\xE1l\xF3i adatok",
+    "first_name_label": "Keresztn\xE9v",
+    "last_name_label": "Csal\xE1dn\xE9v",
+    "email_label": "Email c\xEDm",
+    "spoken_languages": "Besz\xE9lt nyelv",
+    "language_level": "Szint",
+    "country_label": "Sz\xE1rmaz\xE1si hely",
+    "teaching_languages": "Tan\xEDtott nyelv",
+    "timezone": "Id\u0151z\xF3na",
+    "currency": "P\xE9nznem",
+    "site_language": "Oldal nyelve",
+    "add_language_btn": "Nyelv hozz\xE1ad\xE1sa",
+    "change_password_btn": "Jelsz\xF3 v\xE1ltoztat\xE1sa",
+    "delete_account_btn": "Fi\xF3k t\xF6rl\xE9se",
+    "website_settings": "Weboldal be\xE1ll\xEDt\xE1sok",
+    "save_btn": "V\xE1ltoztat\xE1sok ment\xE9se",
+    "about_me": "Bemutatkoz\xE1s",
+    "min_character": "Minimum :num karakter",
+    "video": "Vide\xF3",
+    "hour": "\xF3ra",
+    "hours": "\xF3ra",
+    "hourly_rates": "\xD3rad\xEDjak",
+    "video_url": "Youtube link"
+  },
+  "hu.teacher_profile": {
+    "page_title": "Az oktat\xF3r\xF3l",
+    "private_lessons": "Mag\xE1n\xF3r\xE1k",
+    "event": "alkalom",
+    "spoken_languages": "Besz\xE9lt nyelvek",
+    "introduction": "Bemutatkoz\xE1s",
+    "time_table": "\xD3rarend",
+    "resume": "Resum\xE9",
+    "studies": "Tanulm\xE1nyok",
+    "student": "di\xE1k",
+    "lessons": "\xF3ra",
+    "hour": "\xF3ra",
+    "hours": "\xF3r\xE1k",
+    "minutes": "perc",
+    "buy_btn": "Csomag v\xE1s\xE1rl\xE1s",
+    "message_btn": "\xDCzenet",
+    "more_btn": "Tov\xE1bb"
   },
   "hu.titles": {
     "profile": "Profil",
@@ -71484,13 +71504,16 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "bg" },
+    {
+      staticClass: "bg mainSiteContainer",
+      class: { isLanding: _vm.isLanding }
+    },
     [
-      _c("site-header"),
+      _c("siteHeader"),
       _vm._v(" "),
       _c("div", { staticClass: "siteContent" }, [_vm._t("default")], 2),
       _vm._v(" "),
-      _c("site-footer")
+      _c("siteFooter")
     ],
     1
   )
@@ -74354,429 +74377,415 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("site-header"),
+  return _c("app-layout", [
+    _c("main", [
+      _c("section", { staticClass: "top" }, [
+        _c("div", { staticClass: "flex" }, [
+          _c(
+            "div",
+            { staticClass: "left flex flex-col justify-center ml-16" },
+            [
+              _c("div", { staticClass: "title" }, [
+                _vm._v("Online, személyesen neked")
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Találj hozzád illő tanárt, tanulj anyanyelvi szinten, otthonod kényelméből"
+                )
+              ]),
+              _vm._v(" "),
+              _c("c-btn", { attrs: { "navigate-to": "/teachers" } }, [
+                _vm._v("INGYENES Próbaóra")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "globe-and-book" })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "right" }, [
+            _c("img", {
+              attrs: {
+                src: "/img/girl_light.svg",
+                alt: "Nyelvtanuló nő laptoppal"
+              }
+            })
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "bottom-img" })
+      ]),
       _vm._v(" "),
-      _c("main", [
-        _c("section", { staticClass: "top" }, [
-          _c("div", { staticClass: "flex" }, [
-            _c(
-              "div",
-              { staticClass: "left flex flex-col justify-center ml-16" },
-              [
+      _c("section", { staticClass: "choose-a-language" }, [
+        _c("div", { staticClass: "section-content" }, [
+          _c("div", { staticClass: "base-line" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "base-title" }, [
+            _vm._v("\n\t\t\t\t\tVálassz nyelvet!\n\t\t\t\t")
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "container" },
+            _vm._l(_vm.$page.props.availableLanguages, function(language) {
+              return _c(
+                "div",
+                { key: language, staticClass: "lang show-mobile" },
+                [
+                  _c("div", { staticClass: "flag" }, [
+                    _c("img", {
+                      attrs: {
+                        src: "/img/flags/flag_" + language + ".svg",
+                        alt: language + " Flag"
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "title capitalize" }, [
+                    _vm._v(_vm._s(_vm.languageList[language]))
+                  ])
+                ]
+              )
+            }),
+            0
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "lang-button-container" }, [
+            _c("div", { staticClass: "open" }, [
+              _vm._v("Még több nyelv "),
+              _c("span", { staticClass: "down-arrow" })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "close" }, [
+              _vm._v("Kevesebb nyelv "),
+              _c("span", { staticClass: "up-arrow" })
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "language-learning" }, [
+        _c("div", { staticClass: "section-content" }, [
+          _c("div", { staticClass: "base-line" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "base-title" }, [
+            _vm._v("\n\t\t\t\t\tNyelvtanulás egyszerűen\n\t\t\t\t")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "line" }, [
+              _c("div", { staticClass: "icon" }, [
+                _c("img", {
+                  attrs: { src: "/img/circle1.svg", alt: "circle1" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "title" }, [
+                _vm._v("Válassz a nyelvek közül")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "line" }, [
+              _c("div", { staticClass: "icon" }, [
+                _c("img", {
+                  attrs: { src: "/img/circle2.svg", alt: "circle2" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "title" }, [
+                _vm._v("Válassz tanárt magadnak")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "line" }, [
+              _c("div", { staticClass: "icon" }, [
+                _c("img", {
+                  attrs: { src: "/img/circle3.svg", alt: "circle3" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "title" }, [_vm._v("Foglalj időpontot")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "line" }, [
+              _c("div", { staticClass: "icon" }, [
+                _c("img", {
+                  attrs: { src: "/img/circle4.svg", alt: "circle4" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "title" }, [
+                _vm._v("Csatlakozz a videóhíváshoz és kezdődhet a tanulás!")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "button-container" },
+            [
+              _c("p", [
+                _vm._v(
+                  "\n\t\t\t\t\t\tMilyen tanárt keresel? Válaszd ki a preferenciáid és máris mutatjuk a hozzád illő tanárokat!\n\t\t\t\t\t"
+                )
+              ]),
+              _vm._v(" "),
+              _c("c-btn", { attrs: { "navigate-to": "/teachers" } }, [
+                _vm._v("Tanárkeresés")
+              ])
+            ],
+            1
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "wave wave-1" }),
+      _vm._v(" "),
+      _c("section", { staticClass: "next-level" }, [
+        _c("div", { staticClass: "section-content" }, [
+          _c("div", { staticClass: "base-line" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "base-title" }, [
+            _vm._v("\n\t\t\t\t\tLépj a következő szintre\n\t\t\t\t")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "line" }, [
+              _c("div", { staticClass: "icon flex justify-center" }, [
+                _c("img", {
+                  attrs: { src: "/img/level_up_1.png", alt: "circle1" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "content" }, [
+                _c("div", { staticClass: "title" }, [_vm._v("Gyors")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "line text-align-right" }, [
+              _c("div", { staticClass: "content" }, [
                 _c("div", { staticClass: "title" }, [
-                  _vm._v("Online, személyesen neked")
+                  _vm._v("Személyre szabott")
                 ]),
                 _vm._v(" "),
                 _c("p", [
                   _vm._v(
-                    "Találj hozzád illő tanárt, tanulj anyanyelvi szinten, otthonod kényelméből"
+                    "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
                   )
-                ]),
-                _vm._v(" "),
-                _c("c-btn", { attrs: { "navigate-to": "/teachers" } }, [
-                  _vm._v("INGYENES Próbaóra")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "globe-and-book" })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _vm._m(0)
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "bottom-img" })
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "choose-a-language" }, [
-          _c("div", { staticClass: "section-content" }, [
-            _c("div", { staticClass: "base-line" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "base-title" }, [
-              _vm._v("\n\t\t\t\t\tVálassz nyelvet!\n\t\t\t\t")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "icon flex justify-center" }, [
+                _c("img", {
+                  attrs: { src: "/img/level_up_2.png", alt: "circle2" }
+                })
+              ])
             ]),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "container" },
-              _vm._l(_vm.$page.props.availableLanguages, function(language) {
-                return _c(
-                  "div",
-                  { key: language, staticClass: "lang show-mobile" },
+            _c("div", { staticClass: "line" }, [
+              _c("div", { staticClass: "icon flex justify-center" }, [
+                _c("img", {
+                  attrs: { src: "/img/level_up_3.png", alt: "circle3" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "content" }, [
+                _c("div", { staticClass: "title" }, [_vm._v("Minőségi")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "button-container" },
+            [
+              _c("c-btn", { attrs: { "navigate-to": "/#registration" } }, [
+                _vm._v("Regisztrálok")
+              ])
+            ],
+            1
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "wave wave-2" }),
+      _vm._v(" "),
+      _c("section", { staticClass: "teach-with-us" }, [
+        _c("div", { staticClass: "section-content" }, [
+          _c("div", { staticClass: "base-line" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "base-title" }, [
+            _vm._v("\n\t\t\t\t\tTaníts nálunk\n\t\t\t\t")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "line" }, [
+              _c("div", { staticClass: "icon" }, [
+                _c("img", {
+                  attrs: { src: "/img/circle5.svg", alt: "circle5" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "content" }, [
+                _c("div", { staticClass: "title" }, [_vm._v("Karrier")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "line" }, [
+              _c("div", { staticClass: "icon" }, [
+                _c("img", {
+                  attrs: { src: "/img/circle6.svg", alt: "circle6" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "content" }, [
+                _c("div", { staticClass: "title" }, [_vm._v("Fejlődés")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "line" }, [
+              _c("div", { staticClass: "icon" }, [
+                _c("img", {
+                  attrs: { src: "/img/circle7.svg", alt: "circle7" }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "content" }, [
+                _c("div", { staticClass: "title" }, [_vm._v("Tapasztalat")]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
+                  )
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "button-container" },
+            [
+              _c("c-btn", { attrs: { "navigate-to": "/teacher-landing" } }, [
+                _vm._v("Jelentkezem tanárnak")
+              ])
+            ],
+            1
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "join-us" }, [
+        _c("div", { staticClass: "svg" }, [
+          _c(
+            "svg",
+            {
+              attrs: {
+                preserveAspectRatio: "none",
+                width: "100",
+                height: "60",
+                xmlns: "http://www.w3.org/2000/svg",
+                viewBox: "0 0 875 863"
+              }
+            },
+            [
+              _c("defs"),
+              _c("g", { attrs: { id: "Layer_2", "data-name": "Layer 2" } }, [
+                _c(
+                  "g",
+                  { attrs: { id: "Layer_1-2", "data-name": "Layer 1" } },
                   [
-                    _c("div", { staticClass: "flag" }, [
-                      _c("img", {
-                        attrs: {
-                          src: "/img/flags/flag_" + language + ".svg",
-                          alt: language + " Flag"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "title capitalize" }, [
-                      _vm._v(_vm._s(_vm.languageList[language]))
-                    ])
+                    _c("rect", {
+                      staticClass: "cls-1",
+                      attrs: { fill: "#d3eeff", width: "875", height: "863" }
+                    }),
+                    _c("path", {
+                      staticClass: "cls-2",
+                      staticStyle: { opacity: "0.7" },
+                      attrs: {
+                        fill: "#a8cbec",
+                        d: "M0,863H875V824.27c-211-170.66-875,32-875,32Z"
+                      }
+                    }),
+                    _c("path", {
+                      staticClass: "cls-3",
+                      staticStyle: { opacity: "0.7" },
+                      attrs: {
+                        fill: "#e8f3fa",
+                        d:
+                          "M0,189.7v449S358.67,943,875,824.7V27.7S334.73-92.23,0,189.7Z"
+                      }
+                    })
                   ]
                 )
-              }),
-              0
-            ),
-            _vm._v(" "),
-            _vm._m(1)
-          ])
+              ])
+            ]
+          )
         ]),
         _vm._v(" "),
-        _c("section", { staticClass: "language-learning" }, [
-          _c("div", { staticClass: "section-content" }, [
-            _c("div", { staticClass: "base-line" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "base-title" }, [
-              _vm._v("\n\t\t\t\t\tNyelvtanulás egyszerűen\n\t\t\t\t")
-            ]),
-            _vm._v(" "),
-            _vm._m(2),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "button-container" },
-              [
-                _c("p", [
-                  _vm._v(
-                    "\n\t\t\t\t\t\tMilyen tanárt keresel? Válaszd ki a preferenciáid és máris mutatjuk a hozzád illő tanárokat!\n\t\t\t\t\t"
-                  )
-                ]),
-                _vm._v(" "),
-                _c("c-btn", { attrs: { "navigate-to": "/teachers" } }, [
-                  _vm._v("Tanárkeresés")
-                ])
-              ],
-              1
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "wave wave-1" }),
-        _vm._v(" "),
-        _c("section", { staticClass: "next-level" }, [
-          _c("div", { staticClass: "section-content" }, [
-            _c("div", { staticClass: "base-line" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "base-title" }, [
-              _vm._v("\n\t\t\t\t\tLépj a következő szintre\n\t\t\t\t")
-            ]),
-            _vm._v(" "),
-            _vm._m(3),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "button-container" },
-              [
-                _c("c-btn", { attrs: { "navigate-to": "/#registration" } }, [
-                  _vm._v("Regisztrálok")
-                ])
-              ],
-              1
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "wave wave-2" }),
-        _vm._v(" "),
-        _c("section", { staticClass: "teach-with-us" }, [
-          _c("div", { staticClass: "section-content" }, [
-            _c("div", { staticClass: "base-line" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "base-title" }, [
-              _vm._v("\n\t\t\t\t\tTaníts nálunk\n\t\t\t\t")
-            ]),
-            _vm._v(" "),
-            _vm._m(4),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "button-container" },
-              [
-                _c("c-btn", { attrs: { "navigate-to": "/teacher-landing" } }, [
-                  _vm._v("Jelentkezem tanárnak")
-                ])
-              ],
-              1
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "join-us" }, [
-          _c("div", { staticClass: "svg" }, [
-            _c(
-              "svg",
-              {
-                attrs: {
-                  preserveAspectRatio: "none",
-                  width: "100",
-                  height: "60",
-                  xmlns: "http://www.w3.org/2000/svg",
-                  viewBox: "0 0 875 863"
-                }
-              },
-              [
-                _c("defs"),
-                _c("g", { attrs: { id: "Layer_2", "data-name": "Layer 2" } }, [
-                  _c(
-                    "g",
-                    { attrs: { id: "Layer_1-2", "data-name": "Layer 1" } },
-                    [
-                      _c("rect", {
-                        staticClass: "cls-1",
-                        attrs: { fill: "#d3eeff", width: "875", height: "863" }
-                      }),
-                      _c("path", {
-                        staticClass: "cls-2",
-                        staticStyle: { opacity: "0.7" },
-                        attrs: {
-                          fill: "#a8cbec",
-                          d: "M0,863H875V824.27c-211-170.66-875,32-875,32Z"
-                        }
-                      }),
-                      _c("path", {
-                        staticClass: "cls-3",
-                        staticStyle: { opacity: "0.7" },
-                        attrs: {
-                          fill: "#e8f3fa",
-                          d:
-                            "M0,189.7v449S358.67,943,875,824.7V27.7S334.73-92.23,0,189.7Z"
-                        }
-                      })
-                    ]
-                  )
-                ])
-              ]
-            )
+        _c("div", { staticClass: "section-content" }, [
+          _c("div", { staticClass: "base-line" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "base-title" }, [
+            _vm._v("\n\t\t\t\t\tCsatlakozz hozzánk\n\t\t\t\t")
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "section-content" }, [
-            _c("div", { staticClass: "base-line" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "base-title" }, [
-              _vm._v("\n\t\t\t\t\tCsatlakozz hozzánk\n\t\t\t\t")
-            ]),
-            _vm._v(" "),
-            _vm._m(5),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "flex justify-center my-4" },
-              [
-                _c("c-btn", { attrs: { "navigate-to": "/#registration" } }, [
-                  _vm._v("Regisztrálok")
-                ])
-              ],
-              1
-            )
-          ])
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "videoWrapper" }, [
+              _c("iframe", {
+                attrs: {
+                  loading: "lazy",
+                  src: "https://www.youtube.com/embed/9bZkp7q19f0",
+                  frameborder: "0",
+                  allow:
+                    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+                  allowfullscreen: ""
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "flex justify-center my-4" },
+            [
+              _c("c-btn", { attrs: { "navigate-to": "/#registration" } }, [
+                _vm._v("Regisztrálok")
+              ])
+            ],
+            1
+          )
         ])
       ])
-    ],
-    1
-  )
+    ])
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "right" }, [
-      _c("img", {
-        attrs: { src: "/img/girl_light.svg", alt: "Nyelvtanuló nő laptoppal" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "lang-button-container" }, [
-      _c("div", { staticClass: "open" }, [
-        _vm._v("Még több nyelv "),
-        _c("span", { staticClass: "down-arrow" })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "close" }, [
-        _vm._v("Kevesebb nyelv "),
-        _c("span", { staticClass: "up-arrow" })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "line" }, [
-        _c("div", { staticClass: "icon" }, [
-          _c("img", { attrs: { src: "/img/circle1.svg", alt: "circle1" } })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "title" }, [_vm._v("Válassz a nyelvek közül")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "line" }, [
-        _c("div", { staticClass: "icon" }, [
-          _c("img", { attrs: { src: "/img/circle2.svg", alt: "circle2" } })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "title" }, [_vm._v("Válassz tanárt magadnak")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "line" }, [
-        _c("div", { staticClass: "icon" }, [
-          _c("img", { attrs: { src: "/img/circle3.svg", alt: "circle3" } })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "title" }, [_vm._v("Foglalj időpontot")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "line" }, [
-        _c("div", { staticClass: "icon" }, [
-          _c("img", { attrs: { src: "/img/circle4.svg", alt: "circle4" } })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "title" }, [
-          _vm._v("Csatlakozz a videóhíváshoz és kezdődhet a tanulás!")
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "line" }, [
-        _c("div", { staticClass: "icon flex justify-center" }, [
-          _c("img", { attrs: { src: "/img/level_up_1.png", alt: "circle1" } })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "content" }, [
-          _c("div", { staticClass: "title" }, [_vm._v("Gyors")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "line text-align-right" }, [
-        _c("div", { staticClass: "content" }, [
-          _c("div", { staticClass: "title" }, [_vm._v("Személyre szabott")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "icon flex justify-center" }, [
-          _c("img", { attrs: { src: "/img/level_up_2.png", alt: "circle2" } })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "line" }, [
-        _c("div", { staticClass: "icon flex justify-center" }, [
-          _c("img", { attrs: { src: "/img/level_up_3.png", alt: "circle3" } })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "content" }, [
-          _c("div", { staticClass: "title" }, [_vm._v("Minőségi")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
-            )
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "line" }, [
-        _c("div", { staticClass: "icon" }, [
-          _c("img", { attrs: { src: "/img/circle5.svg", alt: "circle5" } })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "content" }, [
-          _c("div", { staticClass: "title" }, [_vm._v("Karrier")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "line" }, [
-        _c("div", { staticClass: "icon" }, [
-          _c("img", { attrs: { src: "/img/circle6.svg", alt: "circle6" } })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "content" }, [
-          _c("div", { staticClass: "title" }, [_vm._v("Fejlődés")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "line" }, [
-        _c("div", { staticClass: "icon" }, [
-          _c("img", { attrs: { src: "/img/circle7.svg", alt: "circle7" } })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "content" }, [
-          _c("div", { staticClass: "title" }, [_vm._v("Tapasztalat")]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből."
-            )
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "videoWrapper" }, [
-        _c("iframe", {
-          attrs: {
-            loading: "lazy",
-            src: "https://www.youtube.com/embed/9bZkp7q19f0",
-            frameborder: "0",
-            allow:
-              "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
-            allowfullscreen: ""
-          }
-        })
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -74941,169 +74950,65 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("jet-action-section", {
-    scopedSlots: _vm._u([
-      {
-        key: "title",
-        fn: function() {
-          return [_vm._v("\n        Delete Account\n    ")]
-        },
-        proxy: true
-      },
-      {
-        key: "description",
-        fn: function() {
-          return [_vm._v("\n        Permanently delete your account.\n    ")]
-        },
-        proxy: true
-      },
-      {
-        key: "content",
-        fn: function() {
-          return [
-            _c("div", { staticClass: "max-w-xl text-sm text-gray-600" }, [
-              _vm._v(
-                "\n            Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.\n        "
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "mt-5" },
-              [
-                _c(
-                  "jet-danger-button",
-                  {
-                    nativeOn: {
-                      click: function($event) {
-                        return _vm.confirmUserDeletion($event)
-                      }
-                    }
-                  },
-                  [_vm._v("\n                Delete Account\n            ")]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("jet-dialog-modal", {
-              attrs: { show: _vm.confirmingUserDeletion },
-              on: { close: _vm.closeModal },
-              scopedSlots: _vm._u([
-                {
-                  key: "title",
-                  fn: function() {
-                    return [
-                      _vm._v("\n                Delete Account\n            ")
-                    ]
-                  },
-                  proxy: true
-                },
-                {
-                  key: "content",
-                  fn: function() {
-                    return [
-                      _vm._v(
-                        "\n                Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.\n\n                "
-                      ),
-                      _c(
-                        "div",
-                        { staticClass: "mt-4" },
-                        [
-                          _c("jet-input", {
-                            ref: "password",
-                            staticClass: "mt-1 block w-3/4",
-                            attrs: {
-                              type: "password",
-                              placeholder: "Password"
-                            },
-                            nativeOn: {
-                              keyup: function($event) {
-                                if (
-                                  !$event.type.indexOf("key") &&
-                                  _vm._k(
-                                    $event.keyCode,
-                                    "enter",
-                                    13,
-                                    $event.key,
-                                    "Enter"
-                                  )
-                                ) {
-                                  return null
-                                }
-                                return _vm.deleteUser($event)
-                              }
-                            },
-                            model: {
-                              value: _vm.form.password,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "password", $$v)
-                              },
-                              expression: "form.password"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("jet-input-error", {
-                            staticClass: "mt-2",
-                            attrs: { message: _vm.form.errors.password }
-                          })
-                        ],
-                        1
-                      )
-                    ]
-                  },
-                  proxy: true
-                },
-                {
-                  key: "footer",
-                  fn: function() {
-                    return [
-                      _c(
-                        "jet-secondary-button",
-                        {
-                          nativeOn: {
-                            click: function($event) {
-                              return _vm.closeModal($event)
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                    Nevermind\n                "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "jet-danger-button",
-                        {
-                          staticClass: "ml-2",
-                          class: { "opacity-25": _vm.form.processing },
-                          attrs: { disabled: _vm.form.processing },
-                          nativeOn: {
-                            click: function($event) {
-                              return _vm.deleteUser($event)
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                    Delete Account\n                "
-                          )
-                        ]
-                      )
-                    ]
-                  },
-                  proxy: true
+  return _c("div", [
+    _c("div", [
+      _c(
+        "div",
+        { staticClass: "mt-4" },
+        [
+          _c("cInput", {
+            ref: "remove-user-password",
+            staticClass: "mt-1 block w-3/4",
+            attrs: { type: "password", placeholder: "Jelszó" },
+            on: {
+              keyup: function($event) {
+                if (
+                  !$event.type.indexOf("key") &&
+                  _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                ) {
+                  return null
                 }
-              ])
-            })
-          ]
-        },
-        proxy: true
-      }
-    ])
-  })
+                return _vm.deleteUser($event)
+              }
+            },
+            model: {
+              value: _vm.form.password,
+              callback: function($$v) {
+                _vm.$set(_vm.form, "password", $$v)
+              },
+              expression: "form.password"
+            }
+          }),
+          _vm._v(" "),
+          _c("jet-input-error", {
+            staticClass: "mt-2",
+            attrs: { message: _vm.form.errors.password }
+          })
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "flex justify-between" },
+      [
+        _c("cBtn", { attrs: { outlined: "" }, on: { click: _vm.closeModal } }, [
+          _vm._v("Mégsem")
+        ]),
+        _vm._v(" "),
+        _c(
+          "cBtn",
+          {
+            attrs: { loading: _vm.form.processing },
+            on: { click: _vm.deleteUser }
+          },
+          [_vm._v("Fiók törlése")]
+        )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -76174,7 +76079,7 @@ var render = function() {
               _vm._v(" "),
               _c("div", [
                 _c("b", { staticClass: "color-primary-dark text-md" }, [
-                  _vm._v("Anyanyelv:")
+                  _vm._v(_vm._s(_vm.trans.get("dashboard.mother_tongue")) + ":")
                 ]),
                 _vm._v(
                   " " +
@@ -76188,13 +76093,16 @@ var render = function() {
                 { staticClass: "text-md" },
                 [
                   _c("b", { staticClass: "color-primary-dark" }, [
-                    _vm._v("Beszélt nyelvek:")
+                    _vm._v(
+                      _vm._s(_vm.trans.get("dashboard.spoken_languages")) + ":"
+                    )
                   ]),
                   _vm._v(" "),
                   _vm._l(_vm.$page.props.user.spoken_languages, function(
-                    language
+                    language,
+                    l
                   ) {
-                    return _c("span", [
+                    return _c("span", { key: l }, [
                       _vm._v(
                         "\n                                " +
                           _vm._s(language.language) +
@@ -76218,7 +76126,7 @@ var render = function() {
                 _c(
                   "div",
                   { staticClass: "color-primary-dark text-lg font-bold" },
-                  [_vm._v("Lefoglalt óráim")]
+                  [_vm._v(_vm._s(_vm.trans.get("dashboard.booked_lessons")))]
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "color-gray" }, [
@@ -76248,7 +76156,7 @@ var render = function() {
                 _c(
                   "div",
                   { staticClass: "color-primary-dark text-lg font-bold mb-4" },
-                  [_vm._v("Tanáraim")]
+                  [_vm._v(_vm._s(_vm.trans.get("dashboard.teachers")))]
                 ),
                 _vm._v(" "),
                 _vm._l(_vm.lessons, function(lesson, l) {
@@ -76261,7 +76169,11 @@ var render = function() {
                   [
                     _c("c-btn", { attrs: { icon: "search" } }, [
                       _vm._v(
-                        "\n                                Új tanárt keresek\n                            "
+                        "\n                                " +
+                          _vm._s(
+                            _vm.trans.get("dashboard.find_new_teacher_btn")
+                          ) +
+                          "\n                            "
                       )
                     ])
                   ],
@@ -76278,7 +76190,7 @@ var render = function() {
                 _c(
                   "div",
                   { staticClass: "color-primary-dark text-lg font-bold mb-4" },
-                  [_vm._v("Megvásárolt óráim")]
+                  [_vm._v(_vm._s(_vm.trans.get("dashboard.bought_lessons")))]
                 ),
                 _vm._v(" "),
                 _vm._l(_vm.lessons, function(lesson, l) {
@@ -76357,7 +76269,7 @@ var render = function() {
                 staticClass:
                   "userName title text-center color-primary text-2xl mt-4"
               },
-              [_vm._v("András")]
+              [_vm._v(_vm._s(_vm.$page.propr.user.last_name))]
             )
           ]),
           _vm._v(" "),
@@ -76368,7 +76280,7 @@ var render = function() {
                 _c(
                   "h2",
                   { staticClass: "title text-lg color-primary-dark mb-4" },
-                  [_vm._v("Felhasználói adatok")]
+                  [_vm._v(_vm._s(_vm.trans.get("dashboard.student")))]
                 ),
                 _vm._v(" "),
                 _c(
@@ -76378,7 +76290,7 @@ var render = function() {
                     _c("cInput", {
                       attrs: {
                         error: _vm.$page.props.errors.first_name ? true : false,
-                        label: "Keresztnév"
+                        label: _vm.trans.get("settings.first_name_label")
                       },
                       model: {
                         value: _vm.form.first_name,
@@ -76399,7 +76311,7 @@ var render = function() {
                     _c("cInput", {
                       attrs: {
                         error: _vm.$page.props.errors.last_name ? true : false,
-                        label: "Családnév"
+                        label: _vm.trans.get("settings.last_name_label")
                       },
                       model: {
                         value: _vm.form.last_name,
@@ -76420,7 +76332,7 @@ var render = function() {
                     _c("cInput", {
                       attrs: {
                         error: _vm.$page.props.errors.email ? true : false,
-                        label: "Email cím"
+                        label: _vm.trans.get("settings.email_label")
                       },
                       model: {
                         value: _vm.form.email,
@@ -76451,7 +76363,7 @@ var render = function() {
                           _c("c-select", {
                             attrs: {
                               data: _vm.languageList,
-                              label: "Beszélt nyelv",
+                              label: _vm.trans.get("settings.spoken_language"),
                               labelKey: "name",
                               valueKey: "code",
                               selected: language.language
@@ -76474,7 +76386,7 @@ var render = function() {
                           _c("c-select", {
                             attrs: {
                               data: _vm.levels,
-                              label: "Szint",
+                              label: _vm.trans.get("settings.language_level"),
                               labelKey: "label",
                               valueKey: "code",
                               selected: language.level
@@ -76502,7 +76414,9 @@ var render = function() {
                   },
                   [
                     _vm._v(
-                      "\n                        Nyelv hozzáadása\n                    "
+                      "\n                        " +
+                        _vm._s(_vm.trans.get("settings.add_language_btn")) +
+                        "\n                    "
                     )
                   ]
                 ),
@@ -76525,7 +76439,11 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                            Jelszó változtatása\n                        "
+                          "\n                            " +
+                            _vm._s(
+                              _vm.trans.get("settings.change_password_btn")
+                            ) +
+                            "\n                        "
                         )
                       ]
                     ),
@@ -76542,7 +76460,11 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                            Fiók törlése\n                        "
+                          "\n                            " +
+                            _vm._s(
+                              _vm.trans.get("settings.delete_account_btn")
+                            ) +
+                            "\n                        "
                         )
                       ]
                     )
@@ -76560,13 +76482,13 @@ var render = function() {
           { staticClass: "page shadow-lg" },
           [
             _c("h2", { staticClass: "title text-lg color-primary-dark mb-4" }, [
-              _vm._v("Weboldal beállítások")
+              _vm._v(_vm._s(_vm.trans.get("settings.website_settings")))
             ]),
             _vm._v(" "),
             _c("c-select", {
               staticClass: "mb-4",
               attrs: {
-                label: "Oldal nyelve",
+                label: _vm.trans.get("settings.site_language"),
                 data: _vm.languages,
                 "label-key": "name",
                 "value-key": "code",
@@ -76584,7 +76506,7 @@ var render = function() {
             _c("c-select", {
               staticClass: "mb-4",
               attrs: {
-                label: "Pénznem",
+                label: _vm.trans.get("settings.currency"),
                 data: _vm.currencies,
                 "label-key": "name",
                 "value-key": "code",
@@ -76602,7 +76524,7 @@ var render = function() {
             _c("c-select", {
               staticClass: "mb-4",
               attrs: {
-                label: "Időzóna",
+                label: _vm.trans.get("settings.timezone"),
                 data: _vm.timezones,
                 "label-key": "name",
                 "value-key": "code",
@@ -76630,7 +76552,13 @@ var render = function() {
                 attrs: { icon: "save", loading: _vm.saving, type: "submit" },
                 on: { click: _vm.submit }
               },
-              [_vm._v("\n                Változtatások mentése\n            ")]
+              [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.trans.get("settings.save_btn")) +
+                    "\n            "
+                )
+              ]
             )
           ],
           1
@@ -77635,7 +77563,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "color-gray font-bold" }, [
-                    _vm._v("Diák")
+                    _vm._v(_vm._s(_vm.trans.get("dashboard.student")))
                   ])
                 ])
               ]),
@@ -77661,7 +77589,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "color-gray font-bold" }, [
-                    _vm._v("Óra")
+                    _vm._v(_vm._s(_vm.trans.get("dashboard.lesson")))
                   ])
                 ])
               ])
@@ -77685,7 +77613,9 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "text-right" }, [_vm._v("Egyenleg")])
+              _c("div", { staticClass: "text-right" }, [
+                _vm._v(_vm._s(_vm.trans.get("dashboard.balance")))
+              ])
             ])
           ])
         ]),
@@ -77696,7 +77626,7 @@ var render = function() {
               _c(
                 "div",
                 { staticClass: "color-primary-dark text-lg font-bold" },
-                [_vm._v("Lefoglalt óráim")]
+                [_vm._v(_vm._s(_vm.trans.get("dashboard.booked_lessons")))]
               ),
               _vm._v(" "),
               _c("div", { staticClass: "color-gray" }, [
@@ -77732,7 +77662,7 @@ var render = function() {
                 _c(
                   "div",
                   { staticClass: "color-primary-dark text-lg font-bold mb-4" },
-                  [_vm._v("Diákjaim")]
+                  [_vm._v(_vm._s(_vm.trans.get("dashboard.my_students")))]
                 ),
                 _vm._v(" "),
                 _vm._l(_vm.lessons, function(lesson, l) {
@@ -78057,7 +77987,11 @@ var render = function() {
                 _c(
                   "h2",
                   { staticClass: "title text-lg color-primary-dark mb-4" },
-                  [_vm._v("Felhasználói adatok")]
+                  [
+                    _vm._v(
+                      _vm._s(_vm.trans.get("settings.profile_informations"))
+                    )
+                  ]
                 ),
                 _vm._v(" "),
                 _c(
@@ -78067,7 +78001,7 @@ var render = function() {
                     _c("cInput", {
                       attrs: {
                         error: !!_vm.$page.props.errors.first_name,
-                        label: "Keresztnév"
+                        label: _vm.trans.get("settings.first_name_label")
                       },
                       model: {
                         value: _vm.form.first_name,
@@ -78088,7 +78022,7 @@ var render = function() {
                     _c("cInput", {
                       attrs: {
                         error: !!_vm.$page.props.errors.first_name,
-                        label: "Családnév"
+                        label: _vm.trans.get("settings.last_name_label")
                       },
                       model: {
                         value: _vm.form.last_name,
@@ -78108,7 +78042,7 @@ var render = function() {
                   [
                     _c("cInput", {
                       attrs: {
-                        label: "Email cím",
+                        label: _vm.trans.get("settings.email_label"),
                         error: !!_vm.$page.props.errors.email
                       },
                       model: {
@@ -78130,7 +78064,7 @@ var render = function() {
                     _c("c-select", {
                       attrs: {
                         data: _vm.countries,
-                        label: "Származási hely",
+                        label: _vm.trans.get("settings.country_label"),
                         labelKey: "name",
                         valueKey: "code",
                         selected: _vm.form.country
@@ -78169,7 +78103,9 @@ var render = function() {
                               _c("c-select", {
                                 attrs: {
                                   data: _vm.languageList,
-                                  label: "Tanított nyelv",
+                                  label: _vm.trans.get(
+                                    "settings.teaching_language"
+                                  ),
                                   labelKey: "name",
                                   valueKey: "code",
                                   selected: language.language
@@ -78192,7 +78128,9 @@ var render = function() {
                               _c("c-select", {
                                 attrs: {
                                   data: _vm.levels,
-                                  label: "Szint",
+                                  label: _vm.trans.get(
+                                    "settings.language_level"
+                                  ),
                                   labelKey: "label",
                                   valueKey: "code",
                                   selected: language.level
@@ -78220,7 +78158,9 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                            Nyelv hozzáadása\n                        "
+                          "\n                            " +
+                            _vm._s(_vm.trans.get("settings.add_language_btn")) +
+                            "\n                        "
                         )
                       ]
                     )
@@ -78251,7 +78191,9 @@ var render = function() {
                               _c("c-select", {
                                 attrs: {
                                   data: _vm.languageList,
-                                  label: "Beszélt nyelv",
+                                  label: _vm.trans.get(
+                                    "settings.spoken_languages"
+                                  ),
                                   labelKey: "name",
                                   valueKey: "code",
                                   selected: language.language
@@ -78274,7 +78216,9 @@ var render = function() {
                               _c("c-select", {
                                 attrs: {
                                   data: _vm.levels,
-                                  label: "Szint",
+                                  label: _vm.trans.get(
+                                    "settings.language_level"
+                                  ),
                                   labelKey: "label",
                                   valueKey: "code",
                                   selected: language.level
@@ -78302,7 +78246,9 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                            Nyelv hozzáadása\n                        "
+                          "\n                            " +
+                            _vm._s(_vm.trans.get("settings.add_language_btn")) +
+                            "\n                        "
                         )
                       ]
                     )
@@ -78326,7 +78272,11 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                            Jelszó változtatása\n                        "
+                          "\n                            " +
+                            _vm._s(
+                              _vm.trans.get("settings.change_password_btn")
+                            ) +
+                            "\n                        "
                         )
                       ]
                     ),
@@ -78343,7 +78293,11 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                            Fiók törlése\n                        "
+                          "\n                            " +
+                            _vm._s(
+                              _vm.trans.get("settings.delete_account_btn")
+                            ) +
+                            "\n                        "
                         )
                       ]
                     )
@@ -78362,11 +78316,22 @@ var render = function() {
                   _c(
                     "h2",
                     { staticClass: "title text-lg color-primary-dark mb-4" },
-                    [_vm._v("Bemutatkozás " + _vm._s(about_me.locale))]
+                    [
+                      _vm._v(
+                        _vm._s(_vm.trans.get("settings.about_me")) +
+                          " " +
+                          _vm._s(about_me.locale)
+                      )
+                    ]
                   ),
                   _vm._v(" "),
                   _c("c-text-area", {
-                    attrs: { hint: "Minimum 250 karakter", max: 2000 },
+                    attrs: {
+                      hint: _vm.trans.get("settings.min_character", {
+                        num: 250
+                      }),
+                      max: 2000
+                    },
                     model: {
                       value: about_me.text,
                       callback: function($$v) {
@@ -78389,7 +78354,7 @@ var render = function() {
         { staticClass: "card md" },
         [
           _c("h2", { staticClass: "title text-lg color-primary-dark mb-4" }, [
-            _vm._v("Videó")
+            _vm._v(_vm._s(_vm.trans.get("settings.video")))
           ]),
           _vm._v(" "),
           _c("c-input", {
@@ -78397,7 +78362,7 @@ var render = function() {
             attrs: {
               type: "text",
               error: !!_vm.$page.props.errors.video_url,
-              label: "Youtube link"
+              label: _vm.trans.get("settings.video_url")
             },
             model: {
               value: _vm.form.video_url,
@@ -78433,7 +78398,10 @@ var render = function() {
           _vm._v(" "),
           _c("c-slider", {
             staticClass: "mb-2",
-            attrs: { label: "1 óra", max: 200000 },
+            attrs: {
+              label: "1 " + _vm.trans.get("settings.hour"),
+              max: 200000
+            },
             model: {
               value: _vm.form.one_hour_price,
               callback: function($$v) {
@@ -78445,7 +78413,10 @@ var render = function() {
           _vm._v(" "),
           _c("c-slider", {
             staticClass: "mb-2",
-            attrs: { label: "5 óra", max: 200000 },
+            attrs: {
+              label: "5 " + _vm.trans.get("settings.hours"),
+              max: 200000
+            },
             model: {
               value: _vm.form.five_hour_price,
               callback: function($$v) {
@@ -78457,7 +78428,10 @@ var render = function() {
           _vm._v(" "),
           _c("c-slider", {
             staticClass: "mb-2",
-            attrs: { label: "10 óra", max: 200000 },
+            attrs: {
+              label: "10 " + _vm.trans.get("settings.hours"),
+              max: 200000
+            },
             model: {
               value: _vm.form.ten_hour_price,
               callback: function($$v) {
@@ -78475,13 +78449,13 @@ var render = function() {
         { staticClass: "card md" },
         [
           _c("h2", { staticClass: "title text-lg color-primary-dark mb-4" }, [
-            _vm._v("Weboldal beállítások")
+            _vm._v(_vm._s(_vm.trans.get("settings.website_settings")))
           ]),
           _vm._v(" "),
           _c("c-select", {
             staticClass: "mb-4",
             attrs: {
-              label: "Oldal nyelve",
+              label: _vm.trans.get("settings.site_language"),
               data: _vm.languages,
               "label-key": "name",
               "value-key": "code",
@@ -78499,7 +78473,7 @@ var render = function() {
           _c("c-select", {
             staticClass: "mb-4",
             attrs: {
-              label: "Pénznem",
+              label: _vm.trans.get("settings.currency"),
               data: _vm.currencies,
               "label-key": "name",
               "value-key": "code",
@@ -78517,7 +78491,7 @@ var render = function() {
           _c("c-select", {
             staticClass: "mb-4",
             attrs: {
-              label: "Időzóna",
+              label: _vm.trans.get("settings.timezone"),
               data: _vm.timezones,
               "label-key": "name",
               "value-key": "code",
@@ -78545,7 +78519,13 @@ var render = function() {
               attrs: { type: "submit", icon: "save", loading: _vm.saving },
               on: { click: _vm.submit }
             },
-            [_vm._v("\n                Változtatások mentése\n            ")]
+            [
+              _vm._v(
+                "\n                " +
+                  _vm._s(_vm.trans.get("settings.save_btn")) +
+                  "\n            "
+              )
+            ]
           )
         ],
         1
@@ -79243,7 +79223,7 @@ var staticRenderFns = [
           _c("div", { staticClass: "line" }, [
             _c("div", { staticClass: "icon flex justify-center" }, [
               _c("img", {
-                attrs: { src: "/img/level_up_1.png", alt: "circle1" }
+                attrs: { src: "/img/circle5_light.svg", alt: "circle1" }
               })
             ]),
             _vm._v(" "),
@@ -79273,7 +79253,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("div", { staticClass: "icon flex justify-center" }, [
               _c("img", {
-                attrs: { src: "/img/level_up_2.png", alt: "circle2" }
+                attrs: { src: "/img/circle6_light.svg", alt: "circle2" }
               })
             ])
           ]),
@@ -79281,7 +79261,7 @@ var staticRenderFns = [
           _c("div", { staticClass: "line" }, [
             _c("div", { staticClass: "icon flex justify-center" }, [
               _c("img", {
-                attrs: { src: "/img/level_up_3.png", alt: "circle3" }
+                attrs: { src: "/img/circle7_light.svg", alt: "circle3" }
               })
             ]),
             _vm._v(" "),
@@ -79580,7 +79560,8 @@ var render = function() {
     {
       attrs: {
         value: _vm.value,
-        title: "Biztosan törölni szeretnéd a fiókodat?"
+        title:
+          "Biztosan törölni szeretnéd a fiókodat? A törléshez add meg a jelszavadat!"
       },
       on: {
         close: function($event) {
@@ -79588,28 +79569,8 @@ var render = function() {
         }
       }
     },
-    [
-      _c(
-        "div",
-        { staticClass: "actions flex justify-center" },
-        [
-          _c(
-            "c-btn",
-            {
-              attrs: {
-                color: "error",
-                outlined: "",
-                icon: "delete",
-                loading: _vm.loading
-              },
-              on: { click: _vm.deleteProfile }
-            },
-            [_vm._v("Törlés")]
-          )
-        ],
-        1
-      )
-    ]
+    [_c("delete-user-form")],
+    1
   )
 }
 var staticRenderFns = []

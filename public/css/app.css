@@ -632,7 +632,7 @@ body {
   width: 100vw;
   overflow-x: hidden;
 }
-body .bg {
+body .mainSiteContainer.bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -640,6 +640,12 @@ body .bg {
   height: 900px;
   background: url("/img/bg.svg") center center/cover;
   background-repeat: no-repeat;
+}
+body .mainSiteContainer.isLanding {
+  background: none !important;
+}
+body .mainSiteContainer.isLanding .siteContent {
+  margin-top: 40px !important;
 }
 
 .color-green {

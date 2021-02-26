@@ -25,7 +25,7 @@
                                     <div class="color-primary-dark font-bold">
                                         {{ $page.props.user.extra.student_count }}
                                     </div>
-                                    <div class="color-gray font-bold">Diák</div>
+                                    <div class="color-gray font-bold">{{ trans.get('dashboard.student') }}</div>
                                 </div>
                             </div>
                             <div class="infoItem flex mx-4">
@@ -40,7 +40,7 @@
                                     <div class="color-primary-dark font-bold">
                                         {{ $page.props.user.extra.appointment_count }}
                                     </div>
-                                    <div class="color-gray font-bold">Óra</div>
+                                    <div class="color-gray font-bold">{{ trans.get('dashboard.lesson') }}</div>
                                 </div>
                             </div>
                         </div>
@@ -49,14 +49,14 @@
                                 <span class="walletIcon material-icons mr-2 text-2xl color-primary-dark">account_balance_wallet</span>
                                 <span class="font-bold text-2xl color-green-dark">15,000 HUF</span>
                             </div>
-                            <div class="text-right">Egyenleg</div>
+                            <div class="text-right">{{ trans.get('dashboard.balance') }}</div>
                         </div>
                     </div>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
                     <div class="col-span-2 card p-sm">
                         <div class="flex justify-between mb-4">
-                            <div class="color-primary-dark text-lg font-bold">Lefoglalt óráim</div>
+                            <div class="color-primary-dark text-lg font-bold">{{ trans.get('dashboard.booked_lessons') }}</div>
                             <div class="color-gray">2020. január 21.</div>
                         </div>
                         <div class="events">
@@ -74,7 +74,7 @@
                     <!-- Sidebar -->
                     <div class="col-span-1">
                         <div class="card p-sm">
-                            <div class="color-primary-dark text-lg font-bold mb-4">Diákjaim</div>
+                            <div class="color-primary-dark text-lg font-bold mb-4">{{ trans.get('dashboard.my_students') }}</div>
                             <bought-event
                                 v-for="(lesson, l) in lessons"
                                 :key="l"

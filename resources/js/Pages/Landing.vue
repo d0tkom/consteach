@@ -1,6 +1,5 @@
 <template>
-	<div>
-		<site-header />
+	<app-layout>
 		<main>
 			<section class="top">
 				<div class="flex">
@@ -202,7 +201,7 @@
 				</div>
 			</section>
 		</main>
-	</div>
+	</app-layout>
 </template>
 
 <script>
@@ -211,6 +210,7 @@ import SiteHeader from "@/Layouts/Partials/SiteHeader";
 import LoginPopup from "@/Pages/Landing/LoginPopup";
 import RegisterPopup from "@/Pages/Landing/RegisterPopup";
 import LostPasswordPopup from "@/Pages/Landing/LostPasswordPopup";
+import AppLayout from '../Layouts/AppLayout.vue';
 
 export default {
 	components: {
@@ -218,6 +218,7 @@ export default {
 		RegisterPopup,
 		LoginPopup,
 		SiteHeader,
+		AppLayout,
 	},
 	props: {
 		availableLanguages: {
