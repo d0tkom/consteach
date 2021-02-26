@@ -2,6 +2,19 @@
 	<div>
         <jet-validation-errors class="mb-4" />
 		
+		<div class="roleSelect grid grid-cols-2 gap-4 mb-8">
+			<c-btn
+				full
+				:outlined="form.teacher"
+				@click="form.teacher = false"
+			>Regisztráció diákként</c-btn>
+			<c-btn
+				full
+				:outlined="!form.teacher"
+				@click="form.teacher = true"
+			>Regisztráció tanárként</c-btn>
+		</div>
+		
 		<div class="socialLogin">
 			<c-btn
 				class="mb-4"
@@ -135,6 +148,7 @@
         data() {
             return {
                 form: this.$inertia.form({
+	                teacher: false,
                     first_name: '',
                     last_name: '',
                     email: '',

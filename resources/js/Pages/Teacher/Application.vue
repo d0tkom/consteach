@@ -23,7 +23,7 @@
 					<form>
 						<div class="mb-4">
 							<cInput
-								v-model="form.firstName"
+								v-model="form.first_name"
 								label="Keresztnév"
 							></cInput>
 						</div>
@@ -31,12 +31,13 @@
 						<div class="mb-4">
 							<cInput
 								label="Családnév"
-								v-model="form.lastName"
+								v-model="form.last_name"
 							></cInput>
 						</div>
 						
 						<div class="mb-4">
 							<cInput
+								readonly
 								label="Email cím"
 								v-model="form.email"
 							></cInput>
@@ -64,15 +65,16 @@
 						
 						<!-- Tanított nyelvek -->
 						<div class="mb-4">
+							<div class="title color-gray mb-2">Tanított nyelvek</div>
 							<div
 								class="grid md:grid-cols-2 grid-cols-1 gap-4 mb-4"
-								v-for="(language, languageIndex) in form.languagesToTeach"
+								v-for="(language, languageIndex) in form.teaching_languages"
 								:key="languageIndex"
 							>
 								<div>
 									<c-select
 										:data="[{label: 'Angol'}, {label: 'Magyar'}]"
-										label="Tanított nyelv"
+										label="Nyelv"
 										labelKey="label"
 										valueKey="label"
 										v-model="language.language"
@@ -92,7 +94,7 @@
 							<c-btn
 								text
 								icon="add"
-								@click="addNewLanguage"
+								@click="addNewTeachingLanguage"
 							>
 								Nyelv hozzáadása
 							</c-btn>
@@ -102,15 +104,16 @@
 						
 						<!-- Beszélt nyelvek -->
 						<div>
+							<div class="title color-gray mb-2">Beszélt nyelvek</div>
 							<div
 								class="grid md:grid-cols-2 grid-cols-1 gap-4 mb-4"
-								v-for="(language, languageIndex) in form.languages"
+								v-for="(language, languageIndex) in form.spoken_languages"
 								:key="'ltn-'+languageIndex"
 							>
 								<div>
 									<c-select
 										:data="[{label: 'Angol'}, {label: 'Magyar'}]"
-										label="Beszélt nyelv"
+										label="Nyelv"
 										labelKey="label"
 										valueKey="label"
 										v-model="language.language"
@@ -131,7 +134,7 @@
 							<c-btn
 								text
 								icon="add"
-								@click="addNewLanguage"
+								@click="addNewSpokenLanguage"
 							>
 								Nyelv hozzáadása
 							</c-btn>
@@ -144,10 +147,124 @@
 				</div>
 			</div>
 			<div class="card" v-if="activeTab === 1">
-				2
+				<div class="sm:flex">
+					<div class="sm:w-7/12 w-full mr-8">
+						<h2 class="title text-lg color-primary-dark mb-4 font-bold">Profilkép</h2>
+						<p class="mb-3 text-md">
+							Készíts egy jól megvilágított, jókedvű fotót. A jó profilkép fél siker, több hallgatót érhetsz el vele.
+						</p>
+						<div class="flex items-center mb-4">
+							<c-input
+								type="file"
+								only-slot
+								class=""
+							>
+								<c-btn
+									icon="add_photo_alternate"
+								>Fotó feltöltése</c-btn>
+							</c-input>
+							<span class="text-xs text-gray-500 ml-4">JPG vagy PNG<br/>Max.: 5MB</span>
+						</div>
+						<div class="text-center">
+							<img class="block mb-2 w-full" src="/img/profile_img_test.jpg" alt="Man">
+							<span class="text-gray-500 text-xs">Példa</span>
+						</div>
+					</div>
+					<div class="sm:w-5/12 w-full">
+						<span class="block text-md font-semibold mb-6">Tippek</span>
+						<div class="flex mb-5">
+							<img class="block mx-auto h-20 sm:h-16 rounded-full m-auto" src="/img/profile_photo_tip_1.png" alt="Woman's Face">
+							<img class="block mx-auto h-20 sm:h-16 rounded-full m-auto" src="/img/profile_photo_tip_2.png" alt="Woman's Face">
+							<img class="block mx-auto h-20 sm:h-16 rounded-full m-auto" src="/img/profile_photo_tip_3.png" alt="Woman's Face">
+						</div>
+
+						<div class="flex items-center my-2">
+							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
+							<span class="text-md justify-center">Mosolyogj és nézz a kamerába</span>
+						</div>
+						<div class="flex items-center my-2">
+							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
+							<span class="text-md justify-center">Legyen az arcod fókuszban</span>
+						</div>
+						<div class="flex items-center my-2">
+							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
+							<span class="text-md justify-center">Használj semleges hátteret és világítást</span>
+						</div>
+						<div class="flex items-center my-2">
+							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
+							<span class="text-md justify-center">Kerüld a logókat és a brand jelzéseket</span>
+						</div>
+						<div class="flex items-center my-2">
+							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
+							<span class="text-md justify-center">Szerepelj csak te a fotón</span>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="card" v-if="activeTab === 2">
-				3
+				<div class="sm:flex">
+					<div class="sm:w-7/12 w-full mr-8">
+						<h2 class="title text-lg color-primary-dark mb-4 font-bold">Bemutatkozó videó</h2>
+						<p class="mb-3 text-md">
+							Illeszd be a bemutatkozó videód linkjét. Videó feltöltése nem kötelező, de egy magabiztos videó megosztása sokban segíthet új diákokat szerezni. Később még könnyedén tölthetsz fel bemutatkozó videót!
+						</p>
+						<div class="flex flex-col mb-4">
+							<c-input
+								class="mb-2"
+								type="text"
+								v-model="form.video_url"
+								:error="!!$page.props.errors.video_url"
+								label="Youtube link"
+							/>
+							<iframe v-if="form.video_url" width="100%" height="200" :src="form.video_url.replace('watch?v=', 'embed/')" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+					</div>
+					<div class="sm:w-5/12 w-full">
+						<span class="block text-md font-semibold mb-6">Tippek</span>
+						<div class="flex mb-5">
+							<img class="block mx-auto h-20 sm:h-16 rounded-full m-auto" src="/img/profile_photo_tip_1.png" alt="Woman's Face">
+							<img class="block mx-auto h-20 sm:h-16 rounded-full m-auto" src="/img/profile_photo_tip_2.png" alt="Woman's Face">
+							<img class="block mx-auto h-20 sm:h-16 rounded-full m-auto" src="/img/profile_photo_tip_3.png" alt="Woman's Face">
+						</div>
+
+						<div class="flex items-center my-2">
+							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
+							<span class="text-md justify-center">Maximum 2 perces videót ossz meg</span>
+						</div>
+						<div class="flex items-center my-2">
+							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
+							<span class="text-md justify-center">Horizontális módban vedd fel</span>
+						</div>
+						<div class="flex items-center my-2">
+							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
+							<span class="text-md justify-center">Az arcod legyen fókuszban</span>
+						</div>
+						<div class="flex items-center my-2">
+							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
+							<span class="text-md justify-center">Semleges hátteret és fényeket használj</span>
+						</div>
+						<div class="flex items-center my-2">
+							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
+							<span class="text-md justify-center">Kerüld a logókat és brand jelzéseket</span>
+						</div>
+						<div class="flex items-center my-2">
+							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
+							<span class="text-md justify-center">Csak te szerepelj a videón</span>
+						</div>
+						<div class="flex items-center my-2">
+							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
+							<span class="text-md justify-center">Köszöntsd leendő diákjaidat</span>
+						</div>
+						<div class="flex items-center my-2">
+							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
+							<span class="text-md justify-center">Bátorítsd a diákokat prbóaóra foglalására</span>
+						</div>
+						<div class="flex items-center my-2">
+							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
+							<span class="text-md justify-center">Beszélj korábbi munkatapasztalataidról</span>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="card" v-if="activeTab === 3">
 				<h2 class="title text-lg color-primary-dark font-bold">Bemutatkozás</h2>
@@ -155,11 +272,15 @@
 				<div class="content mt-4">
 					<form>
 						<c-text-area
+							hint="Minimum 250 karakter"
+                            :max="2000"
 							class="mb-4"
 							label="Bemutatkozás magyarul"
 							v-model="form.description_hu"
 						/>
 						<c-text-area
+							hint="Minimum 250 karakter"
+                            :max="2000"
 							label="Bemutatkozás angolul"
 							v-model="form.description_hu"
 						/>
@@ -168,6 +289,7 @@
 			</div>
 			<div class="card" v-if="activeTab === 4">
 				<h2 class="title text-lg color-primary-dark mb-4 font-bold">Elérhetőség</h2>
+				<FullCalendar :options="calendarOptions" />
 			</div>
 			<div class="card" v-if="activeTab === 5">
 				<h2 class="title text-lg color-primary-dark font-bold">Verifikáció</h2>
@@ -186,24 +308,24 @@
 			</div>
 			<div class="actions flex justify-center">
 				<c-btn
-					:loading="saving"
+					:loading="form.processing"
 					class="mr-2"
-					v-show="activeTab > 0 && !saving"
+					v-show="activeTab > 0 && !form.processing"
 					@click="prevTab"
 					icon="keyboard_arrow_left"
 				>Vissza</c-btn>
 				<c-btn
 					v-if="activeTab !== tabs.length"
-					:loading="saving"
+					:loading="form.processing"
 					class="ml-2"
 					@click="nextTab"
 					icon-right="keyboard_arrow_right"
 				>Tovább</c-btn>
 				<c-btn
 					v-if="activeTab === tabs.length"
-					:loading="saving"
+					:loading="form.processing"
 					class="ml-2"
-					@click="saveApplication"
+					@click="submitaddNewLanguage"
 					icon="done"
 				>Jelentkezés véglegesítése</c-btn>
 			</div>
@@ -219,10 +341,14 @@ import currencies from '@/Partials/currencies'
 import timezones from '@/Partials/timezones'
 import levels from '@/Partials/levels'
 
+import FullCalendar from '@fullcalendar/vue';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
+
 export default {
 	components: {
 		AppLayout,
-		
+		FullCalendar
 	},
 	created() {
 		this.countries = require('i18n-iso-countries');
@@ -257,7 +383,11 @@ export default {
 			levels,
 			locale: window.default_locale,
 			
-			saving: false,
+			languageTemplate: {
+				language: null,
+				level: null
+			},
+			
 			activeTab: 0,
 			tabs: [
 				{
@@ -277,38 +407,78 @@ export default {
 					id: 4,
 				},
 			],
-			form: {
-				firstName: 'Janos',
-				lastName: '',
-				email: '',
+			form: this.$inertia.form({
+				first_name: this.$page.props.user.first_name,
+				last_name: this.$page.props.user.last_name,
+				email: this.$page.props.user.email,
 				country: null,
-				youtube: null,
-				adult: false,
-				languagesToTeach: [
-					{
-						language: 'Magyar',
-						level: 'C2'
-					}, {
-						language: 'Angol',
-						level: 'Anyanyelvi szint'
-					}
-				],
-				languages: [
-					{
-						language: 'Magyar',
-						level: 'C2'
-					}, {
-						language: 'Angol',
-						level: 'Anyanyelvi szint'
-					}
-				]
+				timezone: null,
+				about_me: null,
+				video_url: null,
+				teaching_languages: [],
+				spoken_languages: [],
+				adult: false
+			}),
+			calendarOptions: {
+				plugins: [ timeGridPlugin, interactionPlugin ],
+				initialView: 'timeGridWeek',
+				locale: window.default_locale,
+				buttonText: {
+					today:    'mai nap',
+					month:    'hónap',
+					week:     'hét',
+					day:      'nap',
+					list:     'lista'
+				},
+				allDayText: 'egész nap',
+				firstDay: 1,
+				slotDuration: '01:00:00',
+				dayHeaderFormat: { 
+					weekday: 'long' ,
+					day: 'numeric',
+					omitCommas: true
+				},
+				allDaySlot: false,
+				slotLabelFormat: {
+					hour: '2-digit',
+					minute: '2-digit',
+					meridiem: 'long'
+				},
+				headerToolbar: {
+					left: 'prev',
+					center: 'title',
+					right: 'next'
+				},
+				events: [],
+				selectable: true,
+				selectOverlap: false,
+				select: function (selectionInfo) {
+					console.log(selectionInfo);
+					axios.put('/availability', {params: {
+						start: selectionInfo.startStr,
+						end: selectionInfo.endStr
+					}})
+						.then(function (response) {
+							console.log(response);
+						})
+						.catch(function (error) {
+							console.log(error);
+						});
+				},
 			}
 		};
 	},
 	methods: {
-		addNewLanguage() {
+		addNewSpokenLanguage() {
 			const languageTemplate = JSON.parse(JSON.stringify(this.languageTemplate));
-			this.form.languages.push(languageTemplate);
+			this.form.spoken_languages.push(languageTemplate);
+		},
+		addNewTeachingLanguage() {
+			const languageTemplate = JSON.parse(JSON.stringify(this.languageTemplate));
+			this.form.teaching_languages.push(languageTemplate);
+		},
+		submit() {
+			this.form.post('/api/teacher-application', { preserveScroll: true });
 		},
 		nextTab() {
 			if (this.activeTab < this.tabs.length) {
@@ -320,14 +490,6 @@ export default {
 				this.activeTab --;
 			}
 		},
-		saveApplication() {
-			this.saving = true;
-			
-			setTimeout(() => {
-				console.warn('TODO: save application form');
-				this.saving = false;
-			}, 2400);
-		}
 	}
 }
 </script>

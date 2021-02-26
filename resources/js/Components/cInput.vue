@@ -3,6 +3,7 @@
 		<label>
 			<div v-if="label" class="inputLabel">{{ label }}</div>
 			<input
+				:readonly="readonly"
 				:autocomplete="autocomplete"
 				v-bind:required="required"
 				v-bind:autofocus="autofocus"
@@ -54,6 +55,10 @@ export default {
 			default: ''
 		},
 		required: {
+			type: Boolean,
+			default: false
+		},
+		readonly: {
 			type: Boolean,
 			default: false
 		},
