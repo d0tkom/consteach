@@ -26,11 +26,11 @@
 					</div>
 					<div class="container">
 						<div
-							v-for="language in $page.props.availableLanguages"
+							v-for="language in availableLanguagesFiltered"
 							:key="language"
-							class="lang show-mobile"
+							class="flex flex-col lang show-mobile"
 						>
-							<div class="flag">
+							<div class="flagImg">
 								<img
 									:src="'/img/flags/flag_'+language+'.svg'"
 									:alt="language+' Flag'"
@@ -40,8 +40,10 @@
 						</div>
 					</div>
 					<div class="lang-button-container">
-						<div class="open">Még több nyelv <span class="down-arrow"></span></div>
-						<div class="close">Kevesebb nyelv <span class="up-arrow"></span></div>
+						<c-btn
+							outlined
+							@click="moreLanguages = !moreLanguages"
+						>{{ !moreLanguages ? 'Összes nyelv' : 'Kevesebb nyelv'}}</c-btn>
 					</div>
 				</div>
 			</section>
@@ -230,6 +232,7 @@ export default {
 	},
 	data() {
 		return {
+			moreLanguages: false,
 			languageList: [],
 			locale: window.default_locale,
 		}
@@ -241,6 +244,15 @@ export default {
 		this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
 		
 		this.languageList = this.languageList.getNames(this.locale, {select: 'official'});
+	},
+	computed: {
+		availableLanguagesFiltered() {
+			if (this.moreLanguages) {
+				return this.$page.props.availableLanguages;
+			}
+			
+			return this.$page.props.availableLanguages.slice(0, 3);
+		}
 	}
 }
 </script>

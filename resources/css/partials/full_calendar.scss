@@ -13,6 +13,27 @@ body {
     }
 
     .fc-theme-standard td, .fc-theme-standard th {
-        //border: none;
+        border: none;
+    }
+
+    .fc .fc-timegrid-slot {
+        background: url('/img/calendar_empty_slot.svg');
+        background-size: 98px 25px;
+    }
+
+    .fc-theme-standard .fc-scrollgrid {
+        border: none !important;
+    }
+
+    .fc .fc-scroller {
+        overflow: hidden;
+    }
+
+    .fc-direction-ltr .fc-timegrid-slot-label-frame {
+        background: white;
+    }
+
+    .fc-v-event {
+        background: #18A0FB;
     }
 }
