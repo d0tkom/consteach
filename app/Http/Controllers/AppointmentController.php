@@ -48,16 +48,18 @@ class AppointmentController extends Controller
                 ]
             );
 
+        //TODO: Notification
+
         return $appointment;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Appointment  $appointments
+     * @param  \App\Models\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function show(Appointment $appointments)
+    public function show(Appointment $appointment)
     {
         //
     }
@@ -65,10 +67,10 @@ class AppointmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Appointment  $appointments
+     * @param  \App\Models\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Appointment $appointments)
+    public function edit(Appointment $appointment)
     {
         //
     }
@@ -77,10 +79,10 @@ class AppointmentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Appointment  $appointments
+     * @param  \App\Models\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Appointment $appointments)
+    public function update(Request $request, Appointment $appointment)
     {
         //
     }
@@ -88,11 +90,13 @@ class AppointmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Appointment  $appointments
+     * @param  \App\Models\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Appointment $appointments)
+    public function destroy(Appointment $appointment)
     {
-        //
+        $appointment->delete();
+
+        //TODO: Notification
     }
 }

@@ -42,6 +42,10 @@ Route::get('/forgotten-password', function () {
 
 
 Route::get('/', function () {
+    if (Auth::check()) {
+        return redirect('/dashboard');
+    }
+
     $teachersAvailableLanguages = Teacher::select(['teaching_languages'])->get();
 
     $availableLanguages = [];
@@ -76,7 +80,9 @@ Route::get('/teacher/{teacher_id}', function ($teacher_id) {
 })->name('teacher.view');
 
 Route::put('/availability', [AvailabilityController::class, 'store'])->name('availability.store');
+Route::delete('/availability/{availability}', [AvailabilityController::class, 'destroy'])->name('availability.destroy');
 Route::put('/appointment', [AppointmentController::class, 'store'])->name('appointment.store');
+Route::delete('/appointment/{appointment}', [AvailabilityController::class, 'destroy'])->name('appointment.destroy');
 
 Route::get('/teachers', function (Request $request) {
     $teachersAvailableLanguages = Teacher::select(['teaching_languages'])->get();
@@ -127,7 +133,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                     return
                      $lesson->student->user->first_name;
                 });
-            $appointments = Appointment::where('teacher_id', Auth::user()->extra->id)->where('student_approved', 0)->where('teacher_approved', 0)->with(['teacher', 'teacher.user', 'student', 'student.user'])->get();
+            $appointments = Appointment::where('teacher_id', Auth::user()->extra->id)->where('student_approved', 0)->where('teacher_approved', 0)->with(['teacher', 'teacher.user', 'student', 'student.user'])->orderBy('start', 'ASC')->get();
 
             $availabilities = Availability::where('teacher_id', Auth::user()->extra->id)->get();
 

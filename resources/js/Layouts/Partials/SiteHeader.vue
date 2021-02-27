@@ -11,16 +11,16 @@
 			</button>
 			<div class="nav-bar">
 				<div class="lang">
-					<a href="" class="active">HU</a>
+					<a :href="route(home)" class="active">HU</a>
 					<span class="separator"></span>
-					<a href="">EN</a>
+					<a :href="route(home)">EN</a>
 				</div>
 				<ul>
 					<li>
-						<a href="/find-teacher">Tanárt keresek</a>
+						<a href="/teachers">Tanárt keresek</a>
 					</li>
 					<li>
-						<a href="">Jelentkezem tanárnak</a>
+						<a href="/teacher-landing">Jelentkezem tanárnak</a>
 					</li>
 					<li class="display-mode">
 						<a href="">Éjjeli mód</a>
@@ -32,7 +32,7 @@
 						</div>
 					</li>
 					<li>
-						<a href="">Segítség</a>
+						<a href="/faq">Segítség</a>
 					</li>
 				</ul>
 				<div class="flex items-center authBtns">

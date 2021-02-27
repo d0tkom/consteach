@@ -14,20 +14,20 @@
 			<div>
 				<c-date
 					with-day
-					:value="data.from"
+					:value="data.start"
 				/>
 			</div>
 			<c-date
 				class="text-2xl font-bold color-primary-dark"
 				only-time
-				:value="data.from"
+				:value="data.start"
 			/>
 		</div>
 		<div class="actions flex flex-col justify-between items-center">
 			<div v-if="isEventLive" class="text-center mb-2 color-green-dark">Az óra elkezdődött</div>
 			<c-date
 				class="text-center mb-2 color-gray"
-				:value="data.from"
+				:value="data.start"
 				lesson-start
 				v-else
 			/>
@@ -100,14 +100,14 @@ export default {
 	},
 	computed: {
 		isEventInPast() {
-			let dateMoment = this.$moment(this.data.from).add(this.data.length, 'minutes');
+			let dateMoment = this.$moment(this.data.start).add(this.data.length, 'minutes');
 			let dDiff = this.$moment().diff(dateMoment);
 			
 			return dDiff > 0;
 		},
 		isEventLive() {
-			const startDate = this.$moment(this.data.from, 'YYYY-MM-DD HH:mm:ss');
-			const endDate = this.$moment(this.data.from, 'YYYY-MM-DD HH:mm:ss').add(this.data.length, 'minutes');
+			const startDate = this.$moment(this.data.start, 'YYYY-MM-DD HH:mm:ss');
+			const endDate = this.$moment(this.data.start, 'YYYY-MM-DD HH:mm:ss').add(this.data.length, 'minutes');
 			
 			const range = this.$moment.range(startDate, endDate);
 			

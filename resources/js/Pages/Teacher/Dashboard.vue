@@ -57,7 +57,6 @@
                     <div class="col-span-2 card p-sm">
                         <div class="flex justify-between mb-4">
                             <div class="color-primary-dark text-lg font-bold">{{ trans.get('dashboard.booked_lessons') }}</div>
-                            <div class="color-gray">2020. január 21.</div>
                         </div>
                         <div class="events">
                             <booked-event
@@ -148,7 +147,7 @@
                     selectable: true,
                     selectOverlap: false,
                     select: this.addAvailability,
-                    eventClick: this.deleteAvailability,
+                    eventClick: this.checkEvent,
                     selectAllow: function(selectInfo) { 
                         //TODO: a 22:00 miafaszért nemjó?
                         return moment(selectInfo.startStr).isSame(moment(selectInfo.endStr), 'date');
@@ -171,6 +170,7 @@
                     booked: false,
                     student: false,
                     backgroundColor: 'blue',
+                    db_id: availability.id
                 };
                 availabilities.push(event);
             });
@@ -184,6 +184,7 @@
                     booked: true,
                     student: appointment.student,
                     backgroundColor: 'green',
+                    db_id: appointment.id
                 };
                 appointments.push(event);
             });
@@ -198,6 +199,13 @@
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
         },
         methods: {
+            checkEvent: function (eventClickInfo) {
+                if (eventClickInfo.event.extendedProps.booked == true) {
+                    this.deleteAppointment(eventClickInfo);
+                } else {
+                    this.deleteAvailability(eventClickInfo);
+                }
+            },
             addAvailability: function (selectionInfo) {
                 let self = this;
 
@@ -222,7 +230,8 @@
                                 booked: false,
                                 student: false,
                                 backgroundColor: 'blue',
-                            }
+                                db_id: response.data.id
+                            };
                             self.calendarOptions.events.push(event);
                         })
                         .catch(function (error) {
@@ -231,8 +240,52 @@
                 });
             },
             deleteAvailability: function (eventClickInfo) {
-                console.log(eventClickInfo);
+                let self = this;
+
+                axios.delete('/availability/' + eventClickInfo.event.extendedProps.db_id)
+                    .then(function (response) {
+                        let event = self.calendarOptions.events.find(x => x.db_id === eventClickInfo.event.extendedProps.db_id);
+                        let index = self.calendarOptions.events.indexOf(event);
+                        if (index > -1) {
+                            self.calendarOptions.events.splice(index, 1);
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+                
+            },
+            deleteAppointment: function (eventClickInfo) {
+                let self = this;
                 //TODO: popup jöjjön fel, onnan lehet megerősíteni a törlést. adatok a popupnak: diák neve, dátum (figma: https://www.figma.com/file/meMgrHV1dQpzXXipNRrWof/Consteach_final?node-id=1582%3A2578)
+
+                axios.delete('/appointment/' + eventClickInfo.event.extendedProps.db_id)
+                    .then(function (response) {
+                        let event = self.calendarOptions.events.find(event => event.db_id === eventClickInfo.event.extendedProps.db_id);
+                        let index = self.calendarOptions.events.indexOf(event);
+                        if (index > -1) {
+                            self.calendarOptions.events.splice(index, 1);
+                        }
+
+                        let availability = self.availabilities.find(availability => 
+                            moment.utc(availability.start).tz(self.calendarOptions.timeZone).format() == eventClickInfo.event.startStr &&
+                            moment.utc(availability.end).tz(self.calendarOptions.timeZone).format() == eventClickInfo.event.endStr
+                        );
+
+                        event = {
+                            start: moment.utc(availability.start).tz(self.calendarOptions.timeZone).format(),
+                            end: moment.utc(availability.end).tz(self.calendarOptions.timeZone).format(),
+                            booked: false,
+                            student: false,
+                            backgroundColor: 'blue',
+                            db_id: availability.id
+                        };
+
+                        self.calendarOptions.events.push(event);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             }
         }
     }

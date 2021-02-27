@@ -90,6 +90,6 @@ class AvailabilityController extends Controller
      */
     public function destroy(Availability $availability)
     {
-        //
+        $availability->delete();
     }
 }
