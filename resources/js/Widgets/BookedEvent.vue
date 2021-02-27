@@ -79,8 +79,14 @@ export default {
 			default: false
 		},
 	},
+	created() {
+		if (this.$page.props.user) {
+			this.timeZone = this.$page.props.user.timezone;
+		}
+	},
 	data() {
 		return {
+			timeZone: 'local',
 			cancelLessonPopup: false,
 			eventNotReadyPopup: false
 		};
@@ -100,14 +106,14 @@ export default {
 	},
 	computed: {
 		isEventInPast() {
-			let dateMoment = this.$moment(this.data.start).add(this.data.length, 'minutes');
+			let dateMoment = this.$moment.utc(this.data.start).tz(this.timeZone).add(this.data.length, 'minutes');
 			let dDiff = this.$moment().diff(dateMoment);
 			
 			return dDiff > 0;
 		},
 		isEventLive() {
-			const startDate = this.$moment(this.data.start, 'YYYY-MM-DD HH:mm:ss');
-			const endDate = this.$moment(this.data.start, 'YYYY-MM-DD HH:mm:ss').add(this.data.length, 'minutes');
+			const startDate = this.$moment.utc(this.data.start, 'YYYY-MM-DD HH:mm:ss').tz(this.timeZone);
+			const endDate = this.$moment.utc(this.data.start, 'YYYY-MM-DD HH:mm:ss').tz(this.timeZone).add(this.data.length, 'minutes');
 			
 			const range = this.$moment.range(startDate, endDate);
 			

@@ -148,15 +148,11 @@
                     selectOverlap: false,
                     select: this.addAvailability,
                     eventClick: this.checkEvent,
-                    selectAllow: function(selectInfo) { 
-                        //TODO: a 22:00 miafaszért nemjó?
-                        return moment(selectInfo.startStr).isSame(moment(selectInfo.endStr), 'date');
-                    },
+                    selectAllow: this.selectAllow,
                 }
             };
         },
         created() {
-
             this.calendarOptions.timeZone = this.$page.props.user === null ? 'local' : this.$page.props.user.timezone;
 
             let self = this;
@@ -199,6 +195,14 @@
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
         },
         methods: {
+            selectAllow: function(selectInfo) { 
+                return this.$moment
+                    .utc(selectInfo.startStr)
+                    .tz(this.calendarOptions.timeZone)
+                    .isSame(this.$moment
+                        .utc(selectInfo.endStr)
+                        .tz(this.calendarOptions.timeZone), 'date');
+            },
             checkEvent: function (eventClickInfo) {
                 if (eventClickInfo.event.extendedProps.booked == true) {
                     this.deleteAppointment(eventClickInfo);

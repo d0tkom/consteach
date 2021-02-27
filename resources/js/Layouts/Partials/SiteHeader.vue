@@ -11,9 +11,9 @@
 			</button>
 			<div class="nav-bar">
 				<div class="lang">
-					<a :href="route(home)" class="active">HU</a>
+					<a href="#" class="active">HU</a>
 					<span class="separator"></span>
-					<a :href="route(home)">EN</a>
+					<a href="#">EN</a>
 				</div>
 				<ul>
 					<li>
