@@ -513,6 +513,17 @@ body.scrollLock {
   border-radius: 50%;
 }
 
+body .fc .fc-button-primary {
+  border: 1px solid #18A0FB;
+  background: transparent;
+  transition: all 0.25s;
+  color: #18A0FB;
+}
+body .fc .fc-button-primary:hover {
+  background: #18A0FB;
+  color: white;
+  border: 1px solid #18A0FB;
+}
 .googleIconContainer {
   background: white;
   border-radius: 50%;

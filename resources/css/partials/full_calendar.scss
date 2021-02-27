@@ -1,0 +1,18 @@
+body {
+    .fc .fc-button-primary {
+        border: 1px solid $blue;
+        background: transparent;
+        transition: all .25s;
+        color: $blue;
+
+        &:hover {
+            background: $blue;
+            color: white;
+            border: 1px solid $blue;
+        }
+    }
+
+    .fc-theme-standard td, .fc-theme-standard th {
+        //border: none;
+    }
+}
