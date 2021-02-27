@@ -1,6 +1,5 @@
 <template>
-	<div>
-		<site-header />
+	<app-layout>
 		<main>
 			<section class="top">
 				<div class="flex">
@@ -202,8 +201,12 @@
 				</div>
 			</section>
 		</main>
+<<<<<<< HEAD
+	</app-layout>
+=======
 		<site-footer />
 	</div>
+>>>>>>> 7c733fd1bb489cc29b69d88fc5bffb7aec38de44
 </template>
 
 <script>
@@ -212,7 +215,11 @@ import SiteHeader from "@/Layouts/Partials/SiteHeader";
 import LoginPopup from "@/Pages/Landing/LoginPopup";
 import RegisterPopup from "@/Pages/Landing/RegisterPopup";
 import LostPasswordPopup from "@/Pages/Landing/LostPasswordPopup";
+<<<<<<< HEAD
+import AppLayout from '../Layouts/AppLayout.vue';
+=======
 import SiteFooter from "@/Layouts/Partials/SiteFooter";
+>>>>>>> 7c733fd1bb489cc29b69d88fc5bffb7aec38de44
 
 export default {
 	components: {
@@ -220,7 +227,11 @@ export default {
 		RegisterPopup,
 		LoginPopup,
 		SiteHeader,
+<<<<<<< HEAD
+		AppLayout,
+=======
 		SiteFooter,
+>>>>>>> 7c733fd1bb489cc29b69d88fc5bffb7aec38de44
 	},
 	props: {
 		availableLanguages: {

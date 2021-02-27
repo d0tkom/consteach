@@ -32,7 +32,7 @@
 					<div class="container pt-6">
 						<div class="line">
 							<div class="icon flex justify-center">
-								<img src="/img/level_up_1.png" alt="circle1">
+								<img src="/img/circle5_light.svg" alt="circle1">
 							</div>
 							<div class="content">
 								<div class="title text-2xl font-bold mb-4">Rugalmas </div>
@@ -45,12 +45,12 @@
 								<p>Szerezz tapasztalatot a tanításban, gyakorld magad oktatóként!</p>
 							</div>
 							<div class="icon flex justify-center">
-								<img src="/img/level_up_2.png" alt="circle2">
+								<img src="/img/circle6_light.svg" alt="circle2">
 							</div>
 						</div>
 						<div class="line">
 							<div class="icon flex justify-center">
-								<img src="/img/level_up_3.png" alt="circle3">
+								<img src="/img/circle7_light.svg" alt="circle3">
 							</div>
 							<div class="content">
 								<div class="title text-2xl font-bold mb-4">Kedvező feltételek</div>

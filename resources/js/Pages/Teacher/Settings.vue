@@ -22,26 +22,26 @@
                 </div>
                 <div class="content">
                     <form>
-                        <h2 class="title text-lg color-primary-dark mb-4">Felhasználói adatok</h2>
+                        <h2 class="title text-lg color-primary-dark mb-4">{{ trans.get('settings.profile_informations') }}</h2>
                         <div class="mb-4">
                             <cInput
                                 v-model="form.first_name"
                                 :error="!!$page.props.errors.first_name"
-                                label="Keresztnév"
+                                :label="trans.get('settings.first_name_label')"
                             ></cInput>
                         </div>
                         
                         <div class="mb-4">
                             <cInput
                                 :error="!!$page.props.errors.first_name"
-                                label="Családnév"
+                                :label="trans.get('settings.last_name_label')"
                                 v-model="form.last_name"
                             ></cInput>
                         </div>
                         
                         <div class="mb-4">
                             <cInput
-                                label="Email cím"
+                                :label="trans.get('settings.email_label')"
                                 :error="!!$page.props.errors.email"
                                 v-model="form.email"
                             ></cInput>
@@ -50,7 +50,7 @@
                         <div class="mb-4">
                             <c-select
                                 :data="countries"
-                                label="Származási hely"
+                                :label="trans.get('settings.country_label')"
                                 labelKey="name"
                                 valueKey="code"
                                 :selected="form.country"
@@ -68,7 +68,7 @@
                                 <div>
                                     <c-select
                                         :data="languageList"
-                                        label="Tanított nyelv"
+                                        :label="trans.get('settings.teaching_language')"
                                         labelKey="name"
                                         valueKey="code"
                                         :selected="language.language"
@@ -79,7 +79,7 @@
                                 <div>
                                     <c-select
                                         :data="levels"
-                                        label="Szint"
+                                        :label="trans.get('settings.language_level')"
                                         labelKey="label"
                                         valueKey="code"
                                         :selected="language.level"
@@ -92,7 +92,7 @@
                                 icon="add"
                                 @click="addNewTeachingLanguage"
                             >
-                                Nyelv hozzáadása
+                                {{ trans.get('settings.add_language_btn') }}
                             </c-btn>
                         </div>
                         
@@ -108,7 +108,7 @@
                                 <div>
                                     <c-select
                                         :data="languageList"
-                                        label="Beszélt nyelv"
+                                        :label="trans.get('settings.spoken_languages')"
                                         labelKey="name"
                                         valueKey="code"
                                         :selected="language.language"
@@ -119,7 +119,7 @@
                                 <div>
                                     <c-select
                                         :data="levels"
-                                        label="Szint"
+                                        :label="trans.get('settings.language_level')"
                                         labelKey="label"
                                         valueKey="code"
                                         :selected="language.level"
@@ -133,7 +133,7 @@
                                 icon="add"
                                 @click="addNewSpokenLanguage"
                             >
-                                Nyelv hozzáadása
+                                {{ trans.get('settings.add_language_btn') }}
                             </c-btn>
                         </div>
                         
@@ -143,7 +143,7 @@
                                 icon="change_circle"
                                 @click="changePasswordPopup = true"
                             >
-                                Jelszó változtatása
+                                {{ trans.get('settings.change_password_btn') }}
                             </c-btn>
                             <c-btn
                                 outlined
@@ -151,7 +151,7 @@
                                 icon="delete"
                                 @click="removeAccountPopup = true"
                             >
-                                Fiók törlése
+                                {{ trans.get('settings.delete_account_btn') }}
                             </c-btn>
                         </div>
                     </form>
@@ -164,9 +164,9 @@
                 :key="'abtm-'+ a"
             >
                     <div>
-                        <h2 class="title text-lg color-primary-dark mb-4">Bemutatkozás {{ about_me.locale }}</h2>
+                        <h2 class="title text-lg color-primary-dark mb-4">{{ trans.get('settings.about_me') }} {{ about_me.locale }}</h2>
                         <c-text-area
-                            hint="Minimum 250 karakter"
+                            :hint="trans.get('settings.min_character', {num: 250})"
                             :max="2000"
                             v-model="about_me.text"
                         />
@@ -176,13 +176,13 @@
             </div>
         
             <div class="card md">
-                <h2 class="title text-lg color-primary-dark mb-4">Videó</h2>
+                <h2 class="title text-lg color-primary-dark mb-4">{{ trans.get('settings.video') }}</h2>
                 <c-input
                     class="mb-2"
                     type="text"
                     v-model="form.video_url"
                     :error="!!$page.props.errors.video_url"
-                    label="Youtube link"
+                    :label="trans.get('settings.video_url')"
                 />
                 <iframe width="100%" height="315" :src="form.video_url.replace('watch?v=', 'embed/')" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
@@ -191,19 +191,19 @@
                 <h2 class="title text-lg color-primary-dark mb-4">Óradíjak</h2>
                 <c-slider
                     class="mb-2"
-                    label="1 óra"
+                    :label="'1 '+trans.get('settings.hour')"
                     v-model="form.one_hour_price"
                     :max="200000"
                 />
                 <c-slider
                     class="mb-2"
-                    label="5 óra"
+                    :label="'5 '+trans.get('settings.hours')"
                     v-model="form.five_hour_price"
                     :max="200000"
                 />
                 <c-slider
                     class="mb-2"
-                    label="10 óra"
+                    :label="'10 '+trans.get('settings.hours')"
                     v-model="form.ten_hour_price"
                     :max="200000"
                 />
@@ -211,11 +211,11 @@
             
             <!-- Beállítások -->
             <div class="card md">
-                <h2 class="title text-lg color-primary-dark mb-4">Weboldal beállítások</h2>
+                <h2 class="title text-lg color-primary-dark mb-4">{{ trans.get('settings.website_settings') }}</h2>
 
                 <c-select
                     class="mb-4"
-                    label="Oldal nyelve"
+                    :label="trans.get('settings.site_language')"
                     :data="languages"
                     label-key="name"
                     value-key="code"
@@ -224,7 +224,7 @@
                 />
                 <c-select
                     class="mb-4"
-                    label="Pénznem"
+                    :label="trans.get('settings.currency')"
                     :data="currencies"
                     label-key="name"
                     value-key="code"
@@ -234,7 +234,7 @@
 
                 <c-select
                     class="mb-4"
-                    label="Időzóna"
+                    :label="trans.get('settings.timezone')"
                     :data="timezones"
                     label-key="name"
                     value-key="code"
@@ -250,7 +250,7 @@
                     icon="save"
                     :loading="saving"
                 >
-                    Változtatások mentése
+                    {{ trans.get('settings.save_btn') }}
                 </c-btn>
             </div>
         

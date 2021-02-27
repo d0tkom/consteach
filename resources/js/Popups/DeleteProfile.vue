@@ -2,25 +2,18 @@
 	<c-pop-up
 		:value="value"
 		@close="$emit('input', false)"
-		title="Biztosan törölni szeretnéd a fiókodat?"
+		title="Biztosan törölni szeretnéd a fiókodat? A törléshez add meg a jelszavadat!"
 	>
-		<div class="actions flex justify-center">
-			<c-btn
-				color="error"
-				outlined
-				@click="deleteProfile"
-				icon="delete"
-				:loading="loading"
-			>Törlés</c-btn>
-		</div>
+		<delete-user-form />
 	</c-pop-up>
 </template>
 
 <script>
+import DeleteUserForm from '../Pages/Profile/DeleteUserForm.vue';
 
 export default {
 	components: {
-
+		DeleteUserForm
 	},
 	props: {
 		value: {
@@ -35,14 +28,7 @@ export default {
 		};
 	},
 	methods: {
-		deleteProfile() {
-			console.warn('TODO:Remove user...');
-			this.loading = true;
-			
-			setTimeout(() => {
-				this.loading = false;
-			}, 2000);
-		}
+
 	}
 }
 </script>

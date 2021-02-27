@@ -12,11 +12,14 @@
                                 {{ $page.props.user.first_name }}
                             </div>
                             <div>
-                                <b class="color-primary-dark text-md">Anyanyelv:</b> {{ $page.props.user.country }}
+                                <b class="color-primary-dark text-md">{{ trans.get('dashboard.mother_tongue') }}:</b> {{ $page.props.user.country }}
                             </div>
                             <div class="text-md">
-                                <b class="color-primary-dark">Beszélt nyelvek:</b>
-                                <span v-for="language in $page.props.user.spoken_languages">
+                                <b class="color-primary-dark">{{ trans.get('dashboard.spoken_languages') }}:</b>
+                                <span
+                                    v-for="(language, l) in $page.props.user.spoken_languages"
+                                    :key="l"
+                                >
                                     {{ language.language }}({{ language.level }})
                                 </span>
                             </div>
@@ -27,18 +30,21 @@
                     <div class="col-span-2">
                         <div class="card p-sm">
                             <div class="flex justify-between mb-4">
-                                <div class="color-primary-dark text-lg font-bold">Lefoglalt óráim</div>
+                                <div class="color-primary-dark text-lg font-bold">{{ trans.get('dashboard.booked_lessons') }}</div>
                                 <div class="color-gray">2020. január 21.</div>
                             </div>
                             <div class="events">
-                                <booked-event v-for="(appointment, a) in appointments" :key="a" :data="appointment"
+                                <booked-event
+                                    v-for="(appointment, a) in appointments"
+                                    :key="a"
+                                    :data="appointment"
                                 />
                             </div>
                         </div>
                     </div>
                     <div class="col-span-1">
                         <div class="card p-sm">
-                            <div class="color-primary-dark text-lg font-bold mb-4">Tanáraim</div>
+                            <div class="color-primary-dark text-lg font-bold mb-4">{{ trans.get('dashboard.teachers') }}</div>
                             <teacher
                                 v-for="(lesson, l) in lessons"
                                 :key="l"
@@ -48,16 +54,15 @@
                                 <c-btn
                                     icon="search"
                                 >
-                                    Új tanárt keresek
+                                    {{ trans.get('dashboard.find_new_teacher_btn') }}
                                 </c-btn>
                             </div>
                         </div>
                         <div class="card p-sm">
-                            <div class="color-primary-dark text-lg font-bold mb-4">Megvásárolt óráim</div>
+                            <div class="color-primary-dark text-lg font-bold mb-4">{{ trans.get('dashboard.bought_lessons') }}</div>
                             <bought-event
                                 v-for="(lesson, l) in lessons"
                                 :key="l"
-                                
                                 :data="lesson"
                             />
                         </div>
