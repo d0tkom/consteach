@@ -72,7 +72,7 @@ Route::get('/teacher/{teacher_id}', function ($teacher_id) {
 
     $teacher = Teacher::where('id', $teacher_id)->with('user')->first();
 
-    return Inertia\Inertia::render('Teacher/View')->with(['teacher' => $teacher, 'appointments' => $appointments, 'availabilities' => $availabilities]);
+    return Inertia::render('Teacher/View')->with(['teacher' => $teacher, 'appointments' => $appointments, 'availabilities' => $availabilities]);
 })->name('teacher.view');
 
 Route::put('/availability', [AvailabilityController::class, 'store'])->name('availability.store');
@@ -95,7 +95,7 @@ Route::get('/teachers', function (Request $request) {
         }
     }
     $teachers = Teacher::with('user')->orderBy('one_hour_price', 'ASC')->get();
-    $teachers = CollectionHelper::paginate($teachers, 1);
+    $teachers = CollectionHelper::paginate($teachers, 5);
     if ($request->ajax()) {
         return response()->json(['teachers' => $teachers]);
     }
@@ -117,7 +117,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
             $appointments = Appointment::where('student_id', Auth::user()->extra->id)->where('student_approved', 0)->where('teacher_approved', 0)->with(['teacher', 'teacher.user', 'student', 'student.user'])->get();
 
-            return Inertia\Inertia::render('Student/Dashboard')->with(['appointments' => $appointments, 'lessons' => $lessons]);
+            return Inertia::render('Student/Dashboard')->with(['appointments' => $appointments, 'lessons' => $lessons]);
             break;
         case ('teacher'):
             $lessons = Lesson::where('teacher_id', Auth::user()->extra->id)
@@ -131,10 +131,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
             $availabilities = Availability::where('teacher_id', Auth::user()->extra->id)->get();
 
-            return Inertia\Inertia::render('Teacher/Dashboard')->with(['appointments' => $appointments, 'lessons' => $lessons, 'availabilities' => $availabilities]);
+            return Inertia::render('Teacher/Dashboard')->with(['appointments' => $appointments, 'lessons' => $lessons, 'availabilities' => $availabilities]);
             break;
         case ('admin'):
-            return Inertia\Inertia::render('Admin/Dashboard');
+            return Inertia::render('Admin/Dashboard');
             break;
         default:
             return view('welcome');

@@ -39,10 +39,9 @@ class AvailabilityController extends Controller
         $availability = Availability::create(
                 [
                     'teacher_id' => auth()->user()->extra->id,
-                    'start' => $request->input('params')['start'],
-                    'end' => $request->input('params')['end'],
-                    'is_open' => true,
-                    'weekday' => Carbon::create($request->input('params')['start'])->weekday(),
+                    'start' => Carbon::create($request->input('params')['start'])->tz('UTC'),
+                    'end' => Carbon::create($request->input('params')['end'])->tz('UTC'),
+                    'weekday' => Carbon::create($request->input('params')['start'])->tz('UTC')->weekday(),
                 ]
             );
 

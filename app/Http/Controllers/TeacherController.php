@@ -101,7 +101,7 @@ class TeacherController extends Controller
             $teachers->sortBy(request()->input('order_by'));
         }
 
-        $teachers = CollectionHelper::paginate($teachers, 1);
+        $teachers = CollectionHelper::paginate($teachers, 5);
 
         return response()->json(['teachers' => $teachers]);
     }

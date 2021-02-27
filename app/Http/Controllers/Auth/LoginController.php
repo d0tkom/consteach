@@ -49,8 +49,7 @@ class LoginController extends Controller
                 'username' => $socialite_user->getNickname(),
                 'provider_id' => $socialite_user->getId(),
                 'role' => session('user_role'),
-                'country' => 'HU',
-                'timezone' => 'UTC+2'
+                'timezone' => 'Europe/Budapest'
                 //'token' => $user->token
             ]);
         }

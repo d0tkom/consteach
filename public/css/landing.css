@@ -165,10 +165,7 @@ body.dark .wave.wave-2 {
   }
 }
 body header {
-<<<<<<< HEAD
-=======
   z-index: 30;
->>>>>>> 47d430d2a48bbcf89a2c6f113b9898b40ee2f548
   height: 40px;
   background-color: #fff;
 }
@@ -268,11 +265,7 @@ body header nav .nav-bar {
   right: 15px;
   top: 45px;
   padding: 15px;
-<<<<<<< HEAD
-  z-index: 99;
-=======
   z-index: 30;
->>>>>>> 47d430d2a48bbcf89a2c6f113b9898b40ee2f548
 }
 body header nav .nav-bar .authBtns {
   order: 3;

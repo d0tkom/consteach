@@ -29,7 +29,7 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'role' => $this->faker->randomElement(array('student', 'teacher')),
             'currency' => $this->faker->randomElement(array('HUF', 'USD', 'EUR')),
-            'timezone' => $this->faker->randomElement(array('UTC+1', 'UTC+2', 'UTC+3')),
+            'timezone' => $this->faker->timezone(),
             'spoken_languages' => $this->makeLangs(),
             'site_language' => $this->faker->randomElement(array('hu', 'en')),
             'is_night' => false,

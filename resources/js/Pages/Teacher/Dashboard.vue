@@ -151,44 +151,88 @@
                     eventClick: this.deleteAvailability,
                     selectAllow: function(selectInfo) { 
                         //TODO: a 22:00 miafaszért nemjó?
-                        console.log(moment(selectInfo.startStr).isSame(moment(selectInfo.endStr), 'date'));
                         return moment(selectInfo.startStr).isSame(moment(selectInfo.endStr), 'date');
                     },
                 }
             };
         },
         created() {
+
+            this.calendarOptions.timeZone = this.$page.props.user === null ? 'local' : this.$page.props.user.timezone;
+
+            let self = this;
+
+            let availabilities = [];
+
             Object.values(this.availabilities).forEach(availability => {
                 let event = {
-                    start: availability.from,
-                    end: availability.to,
+                    start: moment.utc(availability.start).tz(self.calendarOptions.timeZone).format(),
+                    end: moment.utc(availability.end).tz(self.calendarOptions.timeZone).format(),
+                    booked: false,
+                    student: false,
+                    backgroundColor: 'blue',
                 };
-                this.calendarOptions.events.push(event);
+                availabilities.push(event);
             });
-            
-            this.calendarOptions.timeZone = this.$page.props.user === null ? 'local' : this.$page.props.user.timezone;
+
+            let appointments = [];
+
+            Object.values(this.appointments).forEach(appointment => {
+                let event = {
+                    start: moment.utc(appointment.start).tz(self.calendarOptions.timeZone).format(),
+                    end: moment.utc(appointment.end).tz(self.calendarOptions.timeZone).format(),
+                    booked: true,
+                    student: appointment.student,
+                    backgroundColor: 'green',
+                };
+                appointments.push(event);
+            });
+
+            availabilities = availabilities.filter(a => !appointments.find(b => b.start === a.start && b.end === a.end));
+
+            this.calendarOptions.events = [...appointments, ...availabilities];
+
+            this.languageList = require('@cospired/i18n-iso-languages');
+            this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/en.json'));
+            this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/hu.json'));
+            this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
         },
         methods: {
             addAvailability: function (selectionInfo) {
                 let self = this;
-                axios.put('/availability', {params: {
-                    start: selectionInfo.startStr,
-                    end: selectionInfo.endStr
-                }})
-                    .then(function (response) {
-                        let event = {
-                            start: response.data.from,
-                            end: response.data.to
-                        }
-                        self.calendarOptions.events.push(event);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
+
+                let slotArray = Array.from(moment.range(selectionInfo.startStr, selectionInfo.endStr).by('minutes', { step: 60 }));
+
+                slotArray.pop();
+
+                slotArray = slotArray.map(m => ({
+                    'startStr': m.tz(self.calendarOptions.timeZone, true).format(),
+                    'endStr': m.tz(self.calendarOptions.timeZone, true).add(60, 'm').format()
+                }));
+
+                slotArray.forEach(slot => {
+                    axios.put('/availability', {params: {
+                        start: slot.startStr,
+                        end: slot.endStr
+                    }})
+                        .then(function (response) {
+                            let event = {
+                                start: moment.utc(response.data.start).tz(self.calendarOptions.timeZone).format(),
+                                end: moment.utc(response.data.end).tz(self.calendarOptions.timeZone).format(),
+                                booked: false,
+                                student: false,
+                                backgroundColor: 'blue',
+                            }
+                            self.calendarOptions.events.push(event);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                });
             },
             deleteAvailability: function (eventClickInfo) {
                 console.log(eventClickInfo);
-                //TODO: delete popup
+                //TODO: popup jöjjön fel, onnan lehet megerősíteni a törlést. adatok a popupnak: diák neve, dátum (figma: https://www.figma.com/file/meMgrHV1dQpzXXipNRrWof/Consteach_final?node-id=1582%3A2578)
             }
         }
     }

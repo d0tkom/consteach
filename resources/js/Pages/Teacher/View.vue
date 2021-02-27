@@ -32,7 +32,7 @@
                                                 </span>
                                                 <span class="capitalize mr-4">{{ teacher.user.first_name }}  {{ teacher.user.last_name[0] }}.</span>
 	                                            <country-flag
-		                                            :country="teacher.user.country"
+		                                            :country="teacher.country"
 	                                            />
                                             </div>
                                         </div>
@@ -221,26 +221,22 @@
                     displayEventTime: false,
                     selectable: false,
                     selectOverlap: false,
-                    eventClick: this.addAppointment,
-                    selectAllow: function(selectInfo) { 
-                        //TODO: a 22:00 miafaszért nemjó?
-                        console.log(moment(selectInfo.startStr).isSame(moment(selectInfo.endStr), 'date'));
-                        return moment(selectInfo.startStr).isSame(moment(selectInfo.endStr), 'date');
-                    },
+                    eventClick: this.addAppointment
                 }
             };
         },
         created() {
+
+            this.calendarOptions.timeZone = this.$page.props.user === null ? 'local' : this.$page.props.user.timezone;
+
             let self = this;
 
             let availabilities = [];
 
             Object.values(this.availabilities).forEach(availability => {
                 let event = {
-                    start: availability.from,
-                    end: availability.to,
-                    available: true,
-                    backgroundColor: 'blue'
+                    start: moment.utc(availability.start).tz(self.calendarOptions.timeZone).format(),
+                    end: moment.utc(availability.end).tz(self.calendarOptions.timeZone).format(),
                 };
                 availabilities.push(event);
             });
@@ -249,17 +245,13 @@
 
             Object.values(this.appointments).forEach(appointment => {
                 let event = {
-                    start: appointment.from,
-                    end: appointment.to,
-                    available: false,
-                    backgroundColor: 'red'
+                    start: moment.utc(appointment.start).tz(self.calendarOptions.timeZone).format(),
+                    end: moment.utc(appointment.end).tz(self.calendarOptions.timeZone).format(),
                 };
                 appointments.push(event);
             });
 
             this.calendarOptions.events = availabilities.filter(a => !appointments.find(b => b.start === a.start && b.end === a.end));
-            
-            this.calendarOptions.timeZone = this.$page.props.user === null ? 'local' : this.$page.props.user.timezone;
 
             this.languageList = require('@cospired/i18n-iso-languages');
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/en.json'));
@@ -269,20 +261,29 @@
         methods: {
             addAppointment: function (eventClickInfo) {
                 let self = this;
-                if (!eventClickInfo.event.extendedProps.available || this.$page.props.user.role != 'student') {
+                if (this.$page.props.user.role != 'student') {
                     return false;
                 }
+
+                //TODO: ha van óra vásárolva a tanárhoz:
+
+                //TODO: popup jöjjön fel, onnan lehet rámenni, hogy foglalok. adatok a popupnak: tanár neve, dátum (figma: https://www.figma.com/file/meMgrHV1dQpzXXipNRrWof/Consteach_final?node-id=221%3A1148)
+
                 axios.put('/appointment', {params: {
                     start: eventClickInfo.event.startStr,
                     end: eventClickInfo.event.endStr,
                     teacher_id: self.teacher.id
                 }})
                     .then(function (response) {
-                        eventClickInfo.event.setExtendedProp( 'available', false );
+                        eventClickInfo.event.remove();
                     })
                     .catch(function (error) {
                         console.log(error);
                     });
+
+                //TODO: ha nincs óra vásárolva a tanárhoz:
+
+                //TODO: továbbdobni a fizetési oldalra, a foglalási adatokkal
             }
         }
     }
