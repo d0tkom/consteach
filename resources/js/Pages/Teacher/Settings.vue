@@ -256,7 +256,6 @@
         
             <change-password v-model="changePasswordPopup" />
             <delete-profile v-model="removeAccountPopup" />
-        </div>
     </app-layout>
 </template>
 
