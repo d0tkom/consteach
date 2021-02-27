@@ -40,12 +40,6 @@ Route::get('/forgotten-password', function () {
     return redirect('/#lost-password');
 })->name('forgotten-password');
 
-// DEV - remove in prod
-Route::get('/dev/login/{id}', function($id) {
-    $user = App\Models\User::find($id);
-    Auth::login($user);
-});
-
 Route::get('/', function () {
     if (Auth::check()) {
         return redirect('/dashboard');

@@ -5,7 +5,7 @@ return [
     'first_name_label' => 'Keresztnév',
     'last_name_label' => 'Családnév',
     'email_label' => 'Email cím',
-    'spoken_languages' => 'Beszélt nyelv',
+    'spoken_language' => 'Beszélt nyelv',
     'language_level' => 'Szint',
     'country_label' => 'Származási hely',
     'teaching_languages' => 'Tanított nyelv',
