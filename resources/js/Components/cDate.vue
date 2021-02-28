@@ -30,8 +30,14 @@ export default {
 			default: 30
 		},
 	},
+	created() {
+		if (this.$page.props.user) {
+			this.timeZone = this.$page.props.user.timezone;
+		}
+	},
 	data: function() {
 		return {
+			timeZone: 'local',
 			default: {
 				basic: 'MMMM DD, YYYY',
 				withDay: 'MMMM DD, YYYY [(]dddd[)]',
@@ -57,10 +63,10 @@ export default {
 		},
 		dateComputed() {
 			if (this.lessonStart) {
-				return this.$moment(this.value).fromNow();
+				return this.$moment.utc(this.value).tz(this.timeZone).fromNow();
 			}
 			
-			return this.$moment(this.value).format(this.formatComputed);
+			return this.$moment.utc(this.value).tz(this.timeZone).format(this.formatComputed)
 		}
 	},
 	methods: {

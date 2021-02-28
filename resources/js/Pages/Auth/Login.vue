@@ -113,8 +113,14 @@
                     .post('/login', {
                         onFinish: () => {
 	                        this.form.reset('password');
-	                        this.$emit('close');
+	                        
+                        },
+                        onSuccess: () => {
+                            this.$emit('close');
 	                        this.$root.popup.login = false;
+                        },
+                        onError: () => {
+
                         }
                     })
             }

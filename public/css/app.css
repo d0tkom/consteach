@@ -513,6 +513,37 @@ body.scrollLock {
   border-radius: 50%;
 }
 
+body .fc .fc-button-primary {
+  border: 1px solid #18A0FB;
+  background: transparent;
+  transition: all 0.25s;
+  color: #18A0FB;
+}
+body .fc .fc-button-primary:hover {
+  background: #18A0FB;
+  color: white;
+  border: 1px solid #18A0FB;
+}
+body .fc-theme-standard td, body .fc-theme-standard th {
+  border: none;
+}
+body .fc .fc-timegrid-slot {
+  background: url("/img/calendar_empty_slot.svg");
+  background-size: 98px 25px;
+}
+body .fc-theme-standard .fc-scrollgrid {
+  border: none !important;
+}
+body .fc .fc-scroller {
+  overflow: hidden;
+}
+body .fc-direction-ltr .fc-timegrid-slot-label-frame {
+  background: white;
+}
+body .fc-v-event {
+  background: #18A0FB;
+}
+
 .googleIconContainer {
   background: white;
   border-radius: 50%;

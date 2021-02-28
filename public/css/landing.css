@@ -694,7 +694,7 @@ body main .choose-a-language .container .lang.show-mobile {
     display: block;
   }
 }
-body main .choose-a-language .container .lang .flag {
+body main .choose-a-language .container .lang .flagImg {
   max-width: 80px;
   margin: 0 auto;
 }

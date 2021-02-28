@@ -40,7 +40,6 @@ Route::get('/forgotten-password', function () {
     return redirect('/#lost-password');
 })->name('forgotten-password');
 
-
 Route::get('/', function () {
     if (Auth::check()) {
         return redirect('/dashboard');

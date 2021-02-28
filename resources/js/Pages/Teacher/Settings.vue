@@ -108,7 +108,7 @@
                                 <div>
                                     <c-select
                                         :data="languageList"
-                                        :label="trans.get('settings.spoken_languages')"
+                                        :label="trans.get('settings.spoken_language')"
                                         labelKey="name"
                                         valueKey="code"
                                         :selected="language.language"
@@ -256,7 +256,6 @@
         
             <change-password v-model="changePasswordPopup" />
             <delete-profile v-model="removeAccountPopup" />
-        </div>
     </app-layout>
 </template>
 

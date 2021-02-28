@@ -154,6 +154,12 @@
                 </div>
             </div>
         </div>
+        <BookAppointment
+            v-model="appointmentPopup.open"
+            :data="appointmentPopup.data"
+            @submit="submitAppointment"
+            :time-zone="calendarOptions.timeZone"
+        />
     </app-layout>
 </template>
 
@@ -167,6 +173,7 @@
     import FullCalendar from '@fullcalendar/vue';
     import timeGridPlugin from '@fullcalendar/timegrid';
     import interactionPlugin from '@fullcalendar/interaction';
+    import BookAppointment from '@/Popups/BookAppointment';
     
     export default {
         components: {
@@ -177,6 +184,7 @@
             ChangePassword,
             DeleteProfile,
             FullCalendar,
+            BookAppointment
         },
         props: {
             teacher: Object,
@@ -187,6 +195,15 @@
             return {
                 languageList: null,
                 locale: window.default_locale,
+                appointmentPopup: {
+                    open: false,
+                    data: {
+                        teacher_name: null,
+                        date_start: null,
+                        date_end: null,
+                        eventClickInfo: null
+                    }
+                },
                 calendarOptions: {
                     plugins: [ timeGridPlugin, interactionPlugin ],
                     initialView: 'timeGridWeek',
@@ -220,12 +237,11 @@
                     displayEventTime: false,
                     selectable: false,
                     selectOverlap: false,
-                    eventClick: this.addAppointment
+                    eventClick: this.addAppointment,
                 }
             };
         },
         created() {
-
             this.calendarOptions.timeZone = this.$page.props.user === null ? 'local' : this.$page.props.user.timezone;
 
             let self = this;
@@ -258,31 +274,59 @@
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
         },
         methods: {
+            submitAppointment() {
+                axios.put('/appointment', {
+                    params: {
+                        start: this.appointmentPopup.data.date_start,
+                        end: this.appointmentPopup.data.date_end,
+                        teacher_id: this.teacher.id
+                    }
+                })
+                .then(response => {
+                    this.appointmentPopup.data.eventClickInfo.event.remove();
+                    this.appointmentPopup.open = false;
+
+                    // TODO: Success notification
+
+                    setTimeout(() => {
+                        this.appointmentPopup.data = {
+                            teacher_name: null,
+                            date_start: null,
+                            date_end: null,
+                            eventClickInfo: null
+                        };
+                    }, 500);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+            },
             addAppointment: function (eventClickInfo) {
                 let self = this;
+
+                if (!this.$page.props.user) {
+                    this.$inertia.visit('/#login');
+                }
+
                 if (this.$page.props.user.role != 'student') {
                     return false;
                 }
 
-                //TODO: ha van óra vásárolva a tanárhoz:
+                // TODO Check user credit
+                let hasCredit = true;
 
-                //TODO: popup jöjjön fel, onnan lehet rámenni, hogy foglalok. adatok a popupnak: tanár neve, dátum (figma: https://www.figma.com/file/meMgrHV1dQpzXXipNRrWof/Consteach_final?node-id=221%3A1148)
+                if (!hasCredit) {
+                    this.$inertia.visit('/checkout/'+this.teacher.id);
+                }
 
-                axios.put('/appointment', {params: {
-                    start: eventClickInfo.event.startStr,
-                    end: eventClickInfo.event.endStr,
-                    teacher_id: self.teacher.id
-                }})
-                    .then(function (response) {
-                        eventClickInfo.event.remove();
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
+                this.appointmentPopup.data = {
+                    teacher_name: this.teacher.user.first_name + ' ' + this.teacher.user.last_name,
+                    date_start: eventClickInfo.event.startStr,
+                    date_end: eventClickInfo.event.endStr,
+                    eventClickInfo
+                };
 
-                //TODO: ha nincs óra vásárolva a tanárhoz:
-
-                //TODO: továbbdobni a fizetési oldalra, a foglalási adatokkal
+                this.appointmentPopup.open = true;
             }
         }
     }

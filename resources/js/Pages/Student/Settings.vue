@@ -83,9 +83,6 @@
                             {{ trans.get('settings.add_language_btn') }}
                         </c-btn>
 
-                        <update-password-form class="mt-10 sm:mt-0" />
-
-
                         <div class="formExtra mt-4 flex justify-between">
                             <c-btn
                                 outlined
