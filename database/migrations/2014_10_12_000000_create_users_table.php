@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->rememberToken();
-            $table->boolean('is_night');
+            $table->boolean('is_night')->default(false);
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path')->nullable();
             $table->timestamps();

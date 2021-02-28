@@ -265,7 +265,6 @@
     import countries from '@/Partials/countries'
     import languages from '@/Partials/languages'
     import currencies from '@/Partials/currencies'
-    import timezones from '@/Partials/timezones'
     import levels from '@/Partials/levels'
     import ChangePassword from '@/Popups/ChangePassword'
     import DeleteProfile from "@/Popups/DeleteProfile";
@@ -277,7 +276,8 @@
             AppLayout,
         },
         props: {
-            teacher: Object
+            teacher: Object,
+            timezoneList: Array,
         },
         data() {
             return {
@@ -285,7 +285,7 @@
                 languages,
                 languageList: null,
                 currencies,
-                timezones,
+                timezones: [],
                 levels,
                 locale: window.default_locale,
                 
@@ -328,6 +328,10 @@
 
             this.countries = Object.entries(this.countries.getNames(this.locale, {select: 'official'})).map(array => {
                 return {code: array[0], name: array[1]};
+            });
+
+            this.timezones =  this.$page.props.timezoneList.map(value => {
+                return {code: value, name: value};
             });
 
             this.languageList = require('@cospired/i18n-iso-languages');

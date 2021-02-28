@@ -96,7 +96,7 @@
 					</div>
 					
 					<div class="m-4 text-center">
-						<img class="object-cover mx-auto h-14 w-14 rounded-full m-auto" :src="'/storage/'+teacher.user.profile_photo_path" alt="Tanár profilképe">
+						<img class="object-cover mx-auto h-14 w-14 rounded-full m-auto" :src="teacher.user.profile_photo_url" alt="Tanár profilképe">
 						<span class="mx-2 font-semibold">{{ teacher.user.first_name }} {{ teacher.user.last_name }}</span>
 					</div>
 					
@@ -106,7 +106,7 @@
 							<span class="text-md">Összeg</span>
 						</div>
 						<hr class="my-1">
-						<div><span class="font-semibold">{{ product.lesson_number }} Tanóra</span> (1x60 perc, Angol nyelv)</div>
+						<div><span class="font-semibold">{{ product.lesson_number }} Tanóra</span> 60 perc</div>
 						<hr class="mb-2 mt-4">
 						<div class="flex justify-end mb-8">
 							<div class="flex">

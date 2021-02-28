@@ -22,6 +22,8 @@ class CreateTeachersTable extends Migration
             $table->float('one_hour_price');
             $table->float('five_hour_price');
             $table->float('ten_hour_price');
+            $table->boolean('complete')->default(false);
+            $table->boolean('validated')->default(false);
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

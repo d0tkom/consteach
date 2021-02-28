@@ -111,7 +111,7 @@ Route::get('/teachers', function (Request $request) {
 Route::get('/teachers/filter', [TeacherController::class, 'filter'])->name('teachers.filter');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('/dashboard', function () {
+    Route::middleware(['teacher.registered'])->get('/dashboard', function () {
         switch (Auth::user()->role) {
         case ('student'):
             $lessons = Lesson::where('student_id', Auth::user()->extra->id)
@@ -160,14 +160,16 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         return Inertia::render('Checkout')->with(['teacher' => $teacher]);
     })->name('checkout');
 
-    Route::get('/settings', function () {
+    Route::middleware(['teacher.registered'])->get('/settings', function () {
         switch (Auth::user()->role) {
             case ('student'):
-                return Inertia::render('Student/Settings');
+                $timezones = timezone_identifiers_list();
+                return Inertia::render('Student/Settings')->with(['timezoneList' => $timezones]);
                 break;
             case ('teacher'):
+                $timezones = timezone_identifiers_list();
                 $teacher = Teacher::where('user_id', Auth::user()->id)->first();
-                return Inertia::render('Teacher/Settings')->with(['teacher' => $teacher]);
+                return Inertia::render('Teacher/Settings')->with(['teacher' => $teacher, 'timezoneList' => $timezones]);
                 break;
             case ('admin'):
                 return Inertia::render('Admin/Dashboard');
@@ -186,4 +188,4 @@ Route::get('/get/local/data', function() {
 Route::resource('/users', UserController::class);
 
 Route::get('login/{provider}', [LoginController::class, 'redirectToProvider'])->name('google.login');
-Route::get('login/{provider}/callback', [LoginController::class, 'handleProviderCallback'])->name('facebook.login');
+Route::get('login/{provider}/callback', [LoginController::class, 'handleProviderCallback']);

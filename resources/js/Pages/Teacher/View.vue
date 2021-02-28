@@ -198,7 +198,6 @@
                         day:      'nap',
                         list:     'lista'
                     },
-                    allDayText: 'egész nap',
                     firstDay: 1,
                     slotDuration: '01:00:00',
                     dayHeaderFormat: { 

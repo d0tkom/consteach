@@ -21,13 +21,13 @@
 				full
 				color="facebook"
 				icon="facebook"
-				navigate-to="/login/facebook"
+				:navigate-to="'/login/facebook/?user_role=' + form.teacher ? 'student' : 'teacher'"
 			>{{ trans.get('auth.login_with_facebook_btn') }}</c-btn>
 			
 			<c-btn
 				full
 				outlined
-				navigate-to="/login/google?user_role=teacher"
+				:navigate-to="'/login/google/?user_role=' + form.teacher ? 'student' : 'teacher'"
 			>
 				<div class="flex items-center">
 					<div class="googleIconContainer mr-4">

@@ -34,17 +34,19 @@ class CreateNewUser implements CreatesNewUsers
             'first_name' => $input['first_name'],
             'last_name' => $input['last_name'],
             'email' => $input['email'],
-            'country' => 'HU',
-            'timezone' => 'UTC+0',
+            'currency' => 'HUF',
+            'timezone' => 'Europe/Budapest',
+            'site_language' => 'hu',
             'profile_photo_path' => '',
             'role' => $role,
             'password' => Hash::make($input['password']),
         ]);
 
-        if (isset($input['teacher'])) {
+        if ($role == 'teacher') {
             Teacher::create([
                 'user_id' => $user->id,
-                'about_me' => '',
+                'about_me' => json_encode(array()),
+                'country' => 'HU',
                 'teaching_languages' => json_encode(array()),
                 'video_url' => '',
                 'one_hour_price' => 0,
@@ -54,9 +56,7 @@ class CreateNewUser implements CreatesNewUsers
         } else {
             Student::create([
                 'user_id' => $user->id,
-                'wanted_language' => 'HU',
-                'language' => 'HU',
-                'is_night' => 0,
+                'wanted_language' => 'hu',
             ]);
         }
 

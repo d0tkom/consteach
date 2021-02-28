@@ -25,8 +25,8 @@ class LoginController extends Controller
      */
     public function redirectToProvider($provider)
     {
-        session(['user_role' => request('user_role')]);
-        return Socialite::driver($provider)->with(['teszt' => 'example.com'])->redirect();
+        session(['user_role' => request('teacher') ? 'teacher' : 'student']);
+        return Socialite::driver($provider)->redirect();
     }
 
     /**
@@ -46,7 +46,6 @@ class LoginController extends Controller
                 'email' => $socialite_user->getEmail(),
                 'first_name' => explode(' ', $socialite_user->getName())[0],
                 'last_name' => explode(' ', $socialite_user->getName())[1],
-                'username' => $socialite_user->getNickname(),
                 'provider_id' => $socialite_user->getId(),
                 'role' => session('user_role'),
                 'timezone' => 'Europe/Budapest'

@@ -25,7 +25,7 @@ class TeacherFactory extends Factory
         return [
             'about_me' => [['locale' => 'hu', 'text' => $this->faker->text($maxNbChars = 500)], ['locale' => 'en', 'text' => $this->faker->text($maxNbChars = 500)]],
             'teaching_languages' => $this->makeLangs(),
-            'country' => 'hu',
+            'country' => 'HU',
             'video_url' => 'https://www.youtube.com/embed/hGIW2fDb0jg',
             'one_hour_price' => $this->faker->numberBetween($min = 1000, $max = 9000),
             'five_hour_price' => $this->faker->numberBetween($min = 5000, $max = 45000),
