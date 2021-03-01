@@ -50,4 +50,19 @@
 			border-color: red;
 		}
 	}
+
+	&.readonly {
+		input {
+			border: 1px solid rgba(23, 70, 150, 0.1);
+			cursor: not-allowed;
+
+			&:hover {
+				border: 1px solid rgba(23, 70, 150, 0.1);
+			}
+
+			&:hover {
+				border: 1px solid rgba(23, 70, 150, 0.1);
+			}
+		}
+	}
 }

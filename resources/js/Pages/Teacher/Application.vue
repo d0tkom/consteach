@@ -48,6 +48,7 @@
 						
 						<div class="mb-4">
 							<c-select
+								capitalize
 								:data="countries"
 								label="Származási hely"
 								labelKey="name"
@@ -80,6 +81,7 @@
 							>
 								<div>
 									<c-select
+										capitalize
 										:data="languageList"
 										label="Nyelv"
 										labelKey="name"
@@ -121,6 +123,7 @@
 							>
 								<div>
 									<c-select
+										capitalize
 										:data="languageList"
 										label="Nyelv"
 										labelKey="name"
@@ -349,14 +352,9 @@
 	import currencies from '@/Partials/currencies'
 	import levels from '@/Partials/levels'
 
-	import FullCalendar from '@fullcalendar/vue';
-	import timeGridPlugin from '@fullcalendar/timegrid';
-	import interactionPlugin from '@fullcalendar/interaction';
-
 export default {
 	components: {
 		AppLayout,
-		FullCalendar,
 	},
 	props: {
 		timezoneList: Array,
@@ -460,7 +458,12 @@ export default {
 			this.form.teaching_languages.push(languageTemplate);
 		},
 		submit() {
-			this.form.put('/users/' + this.$page.props.user.id, { preserveScroll: true });
+			this.form.put('/users/' + this.$page.props.user.id, { 
+				preserveScroll: true, 
+				onSuccess: () => {
+					this.$toast.success('Sikeres mentés');
+				} 
+			});
 		},
 		nextTab() {
 			this.form.step = this.activeTab;

@@ -1,8 +1,9 @@
 <template>
-	<div class="inputContainer" :class="{error, onlySlot}">
+	<div class="inputContainer" :class="{error, onlySlot, readonly}">
 		<label>
 			<div v-if="label" class="inputLabel">{{ label }}</div>
 			<input
+				:id="inputId"
 				:readonly="readonly"
 				:autocomplete="autocomplete"
 				v-bind:required="required"
@@ -11,11 +12,17 @@
 				:placeholder="placeholder"
 				:value="value"
 				@input="$emit('input', $event.target.value)"
+				@change="$emit('change', $event.target.value)"
+				@keyup="$emit('keyup', $event.target.value)"
 				class="w-full"
 				:type="type"
 			>
 			<slot></slot>
 		</label>
+		<div
+			v-if="hint"
+			class="flex w-full justify-end items-center color-gray"
+		>{{ hint }}</div>
 	</div>
 </template>
 
@@ -23,6 +30,10 @@
 
 export default {
 	props: {
+		inputId: {
+			type: String,
+			default: null
+		},
 		value: {
 			default: ''
 		},
@@ -66,6 +77,10 @@ export default {
 			type: Boolean,
 			default: false
 		},
+		hint: {
+			type: String,
+			default: null
+		}
 	},
 }
 </script>

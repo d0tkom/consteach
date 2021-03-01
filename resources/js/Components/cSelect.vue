@@ -4,13 +4,15 @@
 			<div v-if="label" class="selectLabel">{{ label }}</div>
 			<select
 				class="w-full"
+				:class="{capitalize}"
 				@input="event => input(event)"
 			>
 				<option
+					v-if="!notNullable"
 					:selected="!value"
 				>Válassz</option>
 				<option
-					:selected="value == item[valueKey]"
+					:selected="value === item[valueKey]"
 					:value="item[valueKey]"
 					v-for="(item, i_) in data"
 					:key="i_"
@@ -26,6 +28,14 @@
 
 export default {
 	props: {
+		notNullable: {
+			type: Boolean,
+			default: false
+		},
+		capitalize: {
+			type: Boolean,
+			default: false
+		},
 		label: {
 			type: String,
 			default: null
@@ -49,7 +59,6 @@ export default {
 	},
 	methods: {
 		input(event) {
-			console.log(event)
 			this.$emit('input', event.target.value);
 		}
 	}

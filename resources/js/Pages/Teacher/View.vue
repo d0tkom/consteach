@@ -244,14 +244,14 @@
         created() {
             this.calendarOptions.timeZone = this.$page.props.user === null ? 'local' : this.$page.props.user.timezone;
 
-            let self = this;
-
             let availabilities = [];
 
             Object.values(this.availabilities).forEach(availability => {
                 let event = {
-                    start: moment.utc(availability.start).tz(self.calendarOptions.timeZone).format(),
-                    end: moment.utc(availability.end).tz(self.calendarOptions.timeZone).format(),
+                	title: 'Foglalható',
+	                backgroundColor: '#18A0FB',
+                    start: moment.utc(availability.start).tz(this.calendarOptions.timeZone).format(),
+                    end: moment.utc(availability.end).tz(this.calendarOptions.timeZone).format(),
                 };
                 availabilities.push(event);
             });
@@ -260,8 +260,8 @@
 
             Object.values(this.appointments).forEach(appointment => {
                 let event = {
-                    start: moment.utc(appointment.start).tz(self.calendarOptions.timeZone).format(),
-                    end: moment.utc(appointment.end).tz(self.calendarOptions.timeZone).format(),
+                    start: moment.utc(appointment.start).tz(this.calendarOptions.timeZone).format(),
+                    end: moment.utc(appointment.end).tz(this.calendarOptions.timeZone).format(),
                 };
                 appointments.push(event);
             });
@@ -286,7 +286,7 @@
                     this.appointmentPopup.data.eventClickInfo.event.remove();
                     this.appointmentPopup.open = false;
 
-                    // TODO: Success notification
+                    this.$toast.success('Időpont lefoglalva');
 
                     setTimeout(() => {
                         this.appointmentPopup.data = {
@@ -299,16 +299,18 @@
                 })
                 .catch(error => {
                     console.error(error);
+	                this.$toast.error('Időpont foglalása sikertelen');
                 });
             },
             addAppointment: function (eventClickInfo) {
                 let self = this;
 
                 if (!this.$page.props.user) {
+	                this.$toast.info('A foglaláshoz jelentkezz be vagy regisztrálj!');
                     this.$inertia.visit('/#login');
                 }
 
-                if (this.$page.props.user.role != 'student') {
+                if (this.$page.props.user.role !== 'student') {
                     return false;
                 }
 
@@ -316,6 +318,7 @@
                 let hasCredit = true;
 
                 if (!hasCredit) {
+	                this.$toast.info('A foglaláshoz vásárolj kreditet a tanárhoz!');
                     this.$inertia.visit('/checkout/'+this.teacher.id);
                 }
 

@@ -52,12 +52,17 @@
 
                 setTimeout(() => this.$refs.password.focus(), 250)
             },
-
             deleteUser() {
                 this.form.delete('/user', {
                     preserveScroll: true,
-                    onSuccess: () => this.closeModal(),
-                    onError: () => this.$refs.password.focus(),
+                    onSuccess: () => {
+                    	this.closeModal();
+	                    this.$toast.success('Sikeres törlés');
+                    },
+                    onError: () => {
+                    	this.$refs.password.focus();
+	                    this.$toast.error('Sikertelen törlés');
+                    },
                     onFinish: () => this.form.reset(),
                 })
             },

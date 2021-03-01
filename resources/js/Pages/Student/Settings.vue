@@ -54,6 +54,7 @@
                         >
                             <div>
                                 <c-select
+	                                capitalize
                                     :data="languageList"
                                     :label="trans.get('settings.spoken_language')"
                                     labelKey="name"
@@ -109,6 +110,7 @@
                 <h2 class="title text-lg color-primary-dark mb-4">{{ trans.get('settings.website_settings') }}</h2>
                 
                 <c-select
+	                capitalize
                     class="mb-4"
                     :label="trans.get('settings.site_language')"
                     :data="languages"
@@ -219,8 +221,11 @@
             this.countries = Object.entries(this.countries.getNames(this.locale, {select: 'official'})).map(array => {
                 return {code: array[0], name: array[1]};
             });
-
-            this.timezones =  this.$page.props.timezoneList.map(value => {
+	
+	        this.countries.sort(this.$root.sortAlphabetByName);
+	
+	
+	        this.timezones =  this.$page.props.timezoneList.map(value => {
                 return {code: value, name: value};
             });
 
@@ -232,6 +237,8 @@
             this.languageList = Object.entries(this.languageList.getNames(this.locale, {select: 'official'})).map(array => {
                 return {code: array[0], name: array[1]};
             });
+	
+	        this.languageList.sort(this.$root.sortAlphabetByName);
 
             this.currencies = this.currencies.map(code => {
                 return {code: code, name: code};
@@ -242,16 +249,17 @@
                 const languageTemplate = JSON.parse(JSON.stringify(this.languageTemplate));
                 this.form.spoken_languages.push(languageTemplate);
             },
-            save() {
-                console.warn('TODO:Saving settings...');
-                this.saving = true;
-                
-                setTimeout(() => {
-                    this.saving = false;
-                }, 2000);
-            },
             submit() {
-                this.form.put('/users/' + this.$page.props.user.id, { preserveScroll: true });
+                this.form.put('/users/' + this.$page.props.user.id, {
+                	preserveScroll: true,
+	                onSuccess: () => {
+		                this.$toast.success('Sikeres mentés');
+	                },
+	                onError: error => {
+                		console.error(error);
+		                this.$toast.success('Sikertelen mentés');
+	                }
+                });
             }
         }
     }

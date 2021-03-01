@@ -11,6 +11,10 @@ return [
     'lesson' => 'Óra',
     'balance' => 'Egyenleg',
     'my_students' => 'Diákjaim',
+
+    'notification' => [
+        'appointment_deleted' => 'Foglalás törölve'
+    ]
 ];
 
 ?>

@@ -38,6 +38,7 @@ class User extends Authenticatable
         'role',
         'spoken_languages',
         'site_language',
+        'profile_photo_path'
     ];
 
     /**

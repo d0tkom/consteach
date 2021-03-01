@@ -52,14 +52,7 @@ export default {
 		};
 	},
 	methods: {
-		deleteProfile() {
-			console.warn('TODO:Remove user...');
-			this.loading = true;
-			
-			setTimeout(() => {
-				this.loading = false;
-			}, 2000);
-		}
+
 	}
 }
 </script>

@@ -8,7 +8,7 @@ return [
     'spoken_language' => 'Beszélt nyelv',
     'language_level' => 'Szint',
     'country_label' => 'Származási hely',
-    'teaching_languages' => 'Tanított nyelv',
+    'teaching_language' => 'Tanított nyelv',
     'timezone' => 'Időzóna',
     'currency' => 'Pénznem',
     'site_language' => 'Oldal nyelve',
@@ -22,8 +22,22 @@ return [
     'video' => 'Videó',
     'hour' => 'óra',
     'hours' => 'óra',
-    'hourly_rates' => 'Óradíjak',
+    'hourly_rates' => 'Óradíjam',
     'video_url' => 'Youtube link',
+
+    'one_hour_net' => '60 perc - nettó',
+    'one_hour_gross' => '60 perc - bruttó',
+
+    'bulk_prices' => 'Csomagkedvezményes óradíjaim',
+
+    'five_hours_net' => '5 óra - nettó',
+    'five_hours_gross' => '5 óra - bruttó',
+
+    'ten_hours_net' => '10 óra - nettó',
+    'ten_hours_gross' => '10 óra - bruttó',
+
+    'twenty_hours_net' => '20 óra - nettó',
+    'twenty_hours_gross' => '20 óra - bruttó',
 ];
 
 ?>

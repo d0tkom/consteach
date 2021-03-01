@@ -1,5 +1,9 @@
 body {
-    .fc .fc-button-primary {
+	.fc .fc-timegrid-col.fc-day-today {
+		background-color: #1746960d;
+	}
+
+	.fc .fc-button-primary {
         border: 1px solid $blue;
         background: transparent;
         transition: all .25s;
@@ -13,12 +17,37 @@ body {
     }
 
     .fc-theme-standard td, .fc-theme-standard th {
-        border: none;
+	    border-color: #e4e4e4 !important;
     }
 
+	.fc .fc-timegrid-slot {
+		height: 1.8em;
+	}
+
+	.fc-timegrid-event .fc-event-main {
+		padding: 0;
+	}
+
+	.fc-media-screen .fc-timegrid-event {
+		top: 4px !important;
+		bottom: 4px !important;
+		left: 4px !important;
+		right: 4px !important;
+		cursor: pointer;
+		transition: all .25s;
+
+		&:hover {
+			top: 2px !important;
+			bottom: 2px !important;
+			left: 2px !important;
+			right: 2px !important;
+			box-shadow: 0 2px 8px rgba(black, .3);
+		}
+	}
+
     .fc .fc-timegrid-slot {
-        background: url('/img/calendar_empty_slot.svg');
-        background-size: 98px 25px;
+        //background: url('/img/calendar_empty_slot.svg');
+        //background-size: 98px 25px;
     }
 
     .fc-theme-standard .fc-scrollgrid {
@@ -33,7 +62,15 @@ body {
         background: white;
     }
 
+	.fc-timegrid-event-condensed .fc-event-title {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 2px;
+	}
+
     .fc-v-event {
-        background: #18A0FB;
+        background: transparent;
+	    border: none !important;
     }
 }

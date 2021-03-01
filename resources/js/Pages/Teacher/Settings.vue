@@ -5,10 +5,15 @@
             <div class="card md userSettings">
                 <div class="top mb-4">
                     <div class="profileImg">
-                        <img :src="$page.props.user.profile_photo_url" alt="Diák profilkép">
+                        <img v-if="!photoPreview" :src="$page.props.user.profile_photo_url" alt="Diák profilkép">
+                        <img v-else :src="photoPreview" alt="Diák profilkép">
                         <c-input
+	                        @change="updatePhotoPreview"
+	                        input-id="photo-input"
+	                        ref="photo"
                             type="file"
                             only-slot
+                            v-model="form.photo"
                             class="profileImageEditIcon"
                         >
                             <c-btn
@@ -18,6 +23,7 @@
                             ></c-btn>
                         </c-input>
                     </div>
+	                
                     <div class="userName title text-center color-primary text-2xl mt-4">{{ $page.props.user.last_name }}</div>
                 </div>
                 <div class="content">
@@ -49,6 +55,7 @@
 
                         <div class="mb-4">
                             <c-select
+	                            capitalize
                                 :data="countries"
                                 :label="trans.get('settings.country_label')"
                                 labelKey="name"
@@ -67,6 +74,7 @@
                             >
                                 <div>
                                     <c-select
+	                                    capitalize
                                         :data="languageList"
                                         :label="trans.get('settings.teaching_language')"
                                         labelKey="name"
@@ -107,6 +115,7 @@
                             >
                                 <div>
                                     <c-select
+	                                    capitalize
                                         :data="languageList"
                                         :label="trans.get('settings.spoken_language')"
                                         labelKey="name"
@@ -158,6 +167,7 @@
                 </div>
             </div>
 
+	        <!-- About me -->
             <div
                 class="card md"
                 v-for="(about_me, a) in form.about_me"
@@ -175,6 +185,7 @@
                 </div>
             </div>
         
+	        <!-- Video -->
             <div class="card md">
                 <h2 class="title text-lg color-primary-dark mb-4">{{ trans.get('settings.video') }}</h2>
                 <c-input
@@ -187,26 +198,49 @@
                 <iframe width="100%" height="315" :src="form.video_url.replace('watch?v=', 'embed/')" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         
+	        <!-- Óradíjak -->
             <div class="card md">
-                <h2 class="title text-lg color-primary-dark mb-4">Óradíjak</h2>
-                <c-slider
-                    class="mb-2"
-                    :label="'1 '+trans.get('settings.hour')"
-                    v-model="form.one_hour_price"
-                    :max="200000"
-                />
-                <c-slider
-                    class="mb-2"
-                    :label="'5 '+trans.get('settings.hours')"
-                    v-model="form.five_hour_price"
-                    :max="200000"
-                />
-                <c-slider
-                    class="mb-2"
-                    :label="'10 '+trans.get('settings.hours')"
-                    v-model="form.ten_hour_price"
-                    :max="200000"
-                />
+                <h2 class="title text-lg font-bold color-primary-dark mb-4">{{ trans.get('settings.hourly_rates') }}</h2>
+                <div class="grid grid-cols-2 gap-4">
+	                <c-input
+		                :label="trans.get('settings.one_hour_net')"
+	                    v-model="form.one_hour_price"
+	                />
+	                <c-input
+		                readonly
+		                :label="trans.get('settings.one_hour_gross')"
+		                :value="calculateGrossPrice(form.one_hour_price)"
+	                />
+                </div>
+	            <h2 class="title text-lg font-bold color-primary-dark mt-8 mb-4">{{ trans.get('settings.bulk_prices') }}</h2>
+	            <div class="grid grid-cols-2 gap-4 mb-4">
+		            <c-input
+			            hint="/óra"
+			            :label="trans.get('settings.five_hours_net')"
+			            :value="calculateHourPrice(form.five_hour_price, 5, true)"
+						@keyup="value => bulkPriceInput(value, 'five_hour_price', 5, true)"
+		            />
+		            <c-input
+			            hint="/óra"
+			            readonly
+			            :label="trans.get('settings.five_hours_gross')"
+			            :value="calculateGrossPrice(calculateHourPrice(form.five_hour_price, 5, false))"
+		            />
+	            </div>
+	            <div class="grid grid-cols-2 gap-4">
+		            <c-input
+			            hint="/óra"
+			            :label="trans.get('settings.ten_hours_net')"
+			            :value="calculateHourPrice(form.ten_hour_price, 10, true)"
+			            @keyup="value => bulkPriceInput(value, 'ten_hour_price', 10, true)"
+		            />
+		            <c-input
+			            hint="/óra"
+			            readonly
+			            :label="trans.get('settings.ten_hours_gross')"
+			            :value="calculateHourPrice(form.ten_hour_price, 10, false)"
+		            />
+	            </div>
             </div>
             
             <!-- Beállítások -->
@@ -214,6 +248,7 @@
                 <h2 class="title text-lg color-primary-dark mb-4">{{ trans.get('settings.website_settings') }}</h2>
 
                 <c-select
+	                capitalize
                     class="mb-4"
                     :label="trans.get('settings.site_language')"
                     :data="languages"
@@ -223,6 +258,7 @@
                     v-model="form.site_language"
                 />
                 <c-select
+	                capitalize
                     class="mb-4"
                     :label="trans.get('settings.currency')"
                     :data="currencies"
@@ -233,6 +269,7 @@
                 />
 
                 <c-select
+	                capitalize
                     class="mb-4"
                     :label="trans.get('settings.timezone')"
                     :data="timezones"
@@ -267,9 +304,11 @@
     import levels from '@/Partials/levels'
     import ChangePassword from '@/Popups/ChangePassword'
     import DeleteProfile from "@/Popups/DeleteProfile";
+    import UpdateProfileInformationForm from "@/Pages/Profile/UpdateProfileInformationForm";
     
     export default {
         components: {
+	        UpdateProfileInformationForm,
             ChangePassword,
             DeleteProfile,
             AppLayout,
@@ -287,7 +326,9 @@
                 timezones: [],
                 levels,
                 locale: window.default_locale,
-                
+	
+	            photoPreview: null,
+	            
                 saving: false,
                 
                 removeAccountPopup: false,
@@ -299,6 +340,7 @@
                 },
 
                 form: this.$inertia.form({
+	                photo: null,
                     first_name: this.$page.props.user.first_name,
                     last_name: this.$page.props.user.last_name,
                     email: this.$page.props.user.email,
@@ -328,6 +370,8 @@
             this.countries = Object.entries(this.countries.getNames(this.locale, {select: 'official'})).map(array => {
                 return {code: array[0], name: array[1]};
             });
+	
+	        this.countries.sort(this.$root.sortAlphabetByName);
 
             this.timezones =  this.$page.props.timezoneList.map(value => {
                 return {code: value, name: value};
@@ -341,12 +385,47 @@
             this.languageList = Object.entries(this.languageList.getNames(this.locale, {select: 'official'})).map(array => {
                 return {code: array[0], name: array[1]};
             });
+	
+	        this.languageList.sort(this.$root.sortAlphabetByName);
 
             this.currencies = this.currencies.map(code => {
                 return {code: code, name: code};
             });
         },
         methods: {
+	        calculateHourPrice(form_item, hours = 1, net) {
+	        	let value = form_item / hours;
+		        
+	        	if (!net) {
+	        		value *= 1.27;
+		        }
+	        	
+	        	return Math.floor(value);
+	        },
+	        bulkPriceInput(value, form_item, hours = 1, net = true) {
+	        	let valueCalculated = value * hours;
+		        
+		        if (!net) {
+			        valueCalculated /= 1.27;
+		        }
+
+		        this.$set(this.form, form_item, valueCalculated);
+	        },
+	        calculateGrossPrice(value) {
+	        	return Math.floor(value * 1.27);
+	        },
+	        grossPriceInput(formItem, value) {
+		        formItem = value / 1.27;
+	        },
+	        updatePhotoPreview() {
+		        const reader = new FileReader();
+		
+		        reader.onload = (e) => {
+			        this.photoPreview = e.target.result;
+		        };
+		
+		        reader.readAsDataURL(document.getElementById('photo-input').files[0]);
+	        },
             addNewSpokenLanguage() {
                 const languageTemplate = JSON.parse(JSON.stringify(this.languageTemplate));
                 this.form.spoken_languages.push(languageTemplate);
@@ -356,7 +435,16 @@
                 this.form.teaching_languages.push(languageTemplate);
             },
             submit() {
-                this.form.put('/users/' + this.$page.props.user.id, { preserveScroll: true });
+            	//this.form.photo = document.querySelector('#photo-input').files[0];
+                this.form.put('/users/' + this.$page.props.user.id, {
+                	preserveScroll: true,
+	                onSuccess: () => {
+                		this.$toast.success('Sikeresen mentve');
+	                },
+	                onError: () => {
+		                this.$toast.error('Mentés sikertelen');
+	                }
+                });
             },
         }
     }
