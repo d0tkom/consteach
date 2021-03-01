@@ -45,6 +45,7 @@
 						
 						<div class="mb-4">
 							<c-select
+								capitalize
 								:data="countries"
 								label="Származási hely"
 								labelKey="name"
@@ -74,6 +75,7 @@
 							>
 								<div>
 									<c-select
+										capitalize
 										:data="languageList"
 										label="Nyelv"
 										labelKey="name"
@@ -113,6 +115,7 @@
 							>
 								<div>
 									<c-select
+										capitalize
 										:data="languageList"
 										label="Nyelv"
 										labelKey="name"
@@ -367,6 +370,8 @@ export default {
 			return {code: array[0], name: array[1]};
 		});
 		
+		this.countries.sort(this.$root.sortAlphabetByName);
+		
 		this.languageList = require('@cospired/i18n-iso-languages');
 		this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/en.json'));
 		this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/hu.json'));
@@ -375,6 +380,8 @@ export default {
 		this.languageList = Object.entries(this.languageList.getNames(this.locale, {select: 'official'})).map(array => {
 			return {code: array[0], name: array[1]};
 		});
+		
+		this.languageList.sort(this.$root.sortAlphabetByName);
 		
 		this.currencies = this.currencies.map(code => {
 			return {code: code, name: code};
@@ -494,7 +501,12 @@ export default {
 			this.form.teaching_languages.push(languageTemplate);
 		},
 		submit() {
-			this.form.post('/api/teacher-application', { preserveScroll: true });
+			this.form.post('/api/teacher-application', {
+				preserveScroll: true,
+				onSuccess: () => {
+					this.$toast.success('Sikeres mentés');
+				}
+			});
 		},
 		nextTab() {
 			if (this.activeTab < this.tabs.length) {

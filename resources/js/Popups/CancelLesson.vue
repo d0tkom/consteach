@@ -38,7 +38,7 @@
 			<c-btn
 				color="error"
 				outlined
-				@click="cancelLesson"
+
 				icon="cancel"
 				:loading="loading"
 			>Óra lemondása</c-btn>
@@ -78,16 +78,6 @@ export default {
 			active: this.value,
 			loading: false,
 		};
-	},
-	methods: {
-		cancelLesson() {
-			console.warn('TODO:Cancel lesson...');
-			this.loading = true;
-			
-			setTimeout(() => {
-				this.loading = false;
-			}, 2000);
-		}
 	}
 }
 </script>

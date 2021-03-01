@@ -72,6 +72,7 @@ export default {
 				onSuccess: () => {
 					this.form.reset();
 					this.$emit('close');
+					this.$toast.success('Sikeres mentés');
 				},
 				onError: () => {
 					if (this.form.errors.password) {
@@ -83,6 +84,8 @@ export default {
 						this.form.reset('current_password')
 						this.$refs.current_password.focus()
 					}
+					
+					this.$toast.error('Sikertelen mentés');
 				}
 			})
 		},

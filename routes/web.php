@@ -81,7 +81,7 @@ Route::get('/teacher/{teacher_id}', function ($teacher_id) {
 Route::put('/availability', [AvailabilityController::class, 'store'])->name('availability.store');
 Route::delete('/availability/{availability}', [AvailabilityController::class, 'destroy'])->name('availability.destroy');
 Route::put('/appointment', [AppointmentController::class, 'store'])->name('appointment.store');
-Route::delete('/appointment/{appointment}', [AvailabilityController::class, 'destroy'])->name('appointment.destroy');
+Route::delete('/appointment/{appointment}', [AppointmentController::class, 'destroy'])->name('appointment.destroy');
 
 Route::get('/teachers', function (Request $request) {
     $teachersAvailableLanguages = Teacher::select(['teaching_languages'])->get();

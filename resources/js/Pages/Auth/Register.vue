@@ -168,9 +168,11 @@
 					onSuccess: () => {
 						this.$emit('close');
 						this.$root.popup.registration = false;
+						this.$toast.success('Sikeres regisztráció');
 					},
-					onError: () => {
-
+					onError: error => {
+						console.error(error);
+						this.$toast.error('Sikertelen regisztráció');
 					}
                 })
             }

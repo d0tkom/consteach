@@ -33,7 +33,6 @@ export default {
 			type: Object,
 			default() {
 				return {
-					time_zone: null,
 					teacher_name: null,
 					date: null
 				}

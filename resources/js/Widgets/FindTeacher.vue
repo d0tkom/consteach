@@ -14,7 +14,7 @@
 			</div>
 			<div class="w-full flex flex-col">
 				<div class="flex items-center justify-between mb-4">
-					<div class="name text-lg font-bold color-primary-dark flex items-center">
+					<div v-if="data.user" class="name text-lg font-bold color-primary-dark flex items-center">
 						<span v-if="false" class="material-icons mr-2 color-green-dark">
 							check_circle_outline
 						</span>
@@ -22,6 +22,7 @@
 							class="capitalize mr-4"
 						>{{ data.user.first_name }} {{ data.user.last_name[0] }}.</span>
 						<country-flag
+							v-if="data.user.countrx"
 							:country="data.user.country"
 						/>
 					</div>

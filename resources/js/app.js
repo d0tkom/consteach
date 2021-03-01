@@ -1,6 +1,7 @@
 require('@/bootstrap');
 require('@/dateFilters');
 require('@/globalComponents')
+require('@/notification')
 
 import { App as InertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-vue';
 import Vue from 'vue';
@@ -51,6 +52,11 @@ new Vue({
         this.$inertia.on('before', (event) => {
             document.body.classList.remove('scrollLock');
         })
+    },
+    methods: {
+        sortAlphabetByName(a, b) {
+            return a.name.localeCompare(b.name);
+        }
     },
     render: (h) =>
         h(InertiaApp, {

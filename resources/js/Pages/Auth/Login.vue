@@ -113,14 +113,15 @@
                     .post('/login', {
                         onFinish: () => {
 	                        this.form.reset('password');
-	                        
                         },
                         onSuccess: () => {
                             this.$emit('close');
 	                        this.$root.popup.login = false;
+	                        this.$toast.success('Bejelentkezve');
                         },
-                        onError: () => {
-
+                        onError: error => {
+                        	console.error(error);
+	                        this.$toast.error('Sikertelen bejelentkezés');
                         }
                     })
             }

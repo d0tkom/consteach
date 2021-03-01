@@ -41,19 +41,6 @@
                 <jet-input-error :message="form.errors.photo" class="mt-2" />
             </div>
 
-            <!-- Name -->
-            <div class="col-span-6 sm:col-span-4">
-                <jet-label for="name" value="Name" />
-                <jet-input id="name" type="text" class="mt-1 block w-full" v-model="form.name" autocomplete="name" />
-                <jet-input-error :message="form.errors.name" class="mt-2" />
-            </div>
-
-            <!-- Email -->
-            <div class="col-span-6 sm:col-span-4">
-                <jet-label for="email" value="Email" />
-                <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" />
-                <jet-input-error :message="form.errors.email" class="mt-2" />
-            </div>
         </template>
 
         <template #actions>
@@ -94,8 +81,6 @@
             return {
                 form: this.$inertia.form({
                     _method: 'PUT',
-                    name: this.user.name,
-                    email: this.user.email,
                     photo: null,
                 }),
 
@@ -109,7 +94,7 @@
                     this.form.photo = this.$refs.photo.files[0]
                 }
 
-                this.form.post(route('user-profile-information.update'), {
+                this.form.put('/user/profile-information', {
                     errorBag: 'updateProfileInformation',
                     preserveScroll: true
                 });

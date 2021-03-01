@@ -51,6 +51,7 @@
         "vue-date-fns": "^2.0.1",
         "vue-moment": "^4.1.0",
         "vue-on-click-outside": "^1.0.3",
-        "vue-slider-component": "^3.2.11"
+        "vue-slider-component": "^3.2.11",
+        "vue-toast-notification": "^0.6.1"
     }
 }

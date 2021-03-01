@@ -69,6 +69,26 @@
                     </div>
                     <div class="col-span-2 card p-sm">
                         <FullCalendar :options="calendarOptions" />
+	                    
+	                    <div class="flex items-center justify-end mt-4">
+		                    <div class="mr-6">Szűrés napszakra</div>
+		                    <c-select
+			                    not-nullable
+			                    value-key="value"
+			                    label-key="label"
+			                    class="mr-4 w-28"
+			                    :data="filterCalendarTime.options"
+			                    v-model="filterCalendarTime.start"
+		                    />
+		                    <c-select
+			                    not-nullable
+			                    class="w-28"
+			                    value-key="value"
+			                    label-key="label"
+			                    :data="filterCalendarTime.options"
+			                    v-model="filterCalendarTime.end"
+		                    />
+	                    </div>
                     </div>
                     <!-- Sidebar -->
                     <div class="col-span-1">
@@ -85,6 +105,14 @@
                 </div>
             </div>
         </div>
+	
+	    <studentAppointment
+	        v-model="appointmentPopup.open"
+	        :data="appointmentPopup.data"
+	        :time-zone="calendarOptions.timeZone"
+	        @submit="deleteAppointment"
+	    />
+	    
     </app-layout>
 </template>
 
@@ -95,9 +123,11 @@
     import FullCalendar from '@fullcalendar/vue';
     import timeGridPlugin from '@fullcalendar/timegrid';
     import interactionPlugin from '@fullcalendar/interaction';
+    import StudentAppointment from "@/Popups/StudentAppointment";
     
     export default {
         components: {
+	        StudentAppointment,
             BoughtEvent,
             AppLayout,
             BookedEvent,
@@ -110,9 +140,95 @@
         },
         data() {
             return {
+	            filterCalendarTime: {
+	                start: '06:00:00',
+		            end: '18:00:00',
+		            options: [
+			            {
+			            	label: '00:00',
+			            	value: '00:00:00'
+			            }, {
+				            label: '01:00',
+				            value: '01:00:00'
+			            }, {
+				            label: '02:00',
+				            value: '02:00:00'
+			            }, {
+				            label: '03:00',
+				            value: '03:00:00'
+			            }, {
+				            label: '04:00',
+				            value: '04:00:00'
+			            }, {
+				            label: '05:00',
+				            value: '05:00:00'
+			            }, {
+				            label: '06:00',
+				            value: '06:00:00'
+			            }, {
+				            label: '07:00',
+				            value: '07:00:00'
+			            }, {
+				            label: '08:00',
+				            value: '08:00:00'
+			            }, {
+				            label: '09:00',
+				            value: '09:00:00'
+			            }, {
+				            label: '10:00',
+				            value: '10:00:00'
+			            }, {
+				            label: '11:00',
+				            value: '11:00:00'
+			            }, {
+				            label: '12:00',
+				            value: '12:00:00'
+			            }, {
+				            label: '13:00',
+				            value: '13:00:00'
+			            }, {
+				            label: '14:00',
+				            value: '14:00:00'
+			            }, {
+				            label: '15:00',
+				            value: '15:00:00'
+			            }, {
+				            label: '16:00',
+				            value: '16:00:00'
+			            }, {
+				            label: '17:00',
+				            value: '17:00:00'
+			            }, {
+				            label: '18:00',
+				            value: '18:00:00'
+			            }, {
+				            label: '19:00',
+				            value: '19:00:00'
+			            }, {
+				            label: '20:00',
+				            value: '20:00:00'
+			            }, {
+				            label: '21:00',
+				            value: '21:00:00'
+			            }, {
+				            label: '22:00',
+				            value: '22:00:00'
+			            }, {
+				            label: '23:00',
+				            value: '23:00:00'
+			            }
+		            ]
+	            },
+            	appointmentPopup: {
+            		open: false,
+		            data: {},
+		            index: null
+	            },
                 languageList: null,
                 locale: window.default_locale,
                 calendarOptions: {
+	                slotMinTime: '06:00:00',
+	                slotMaxTime: '18:00:00',
                     plugins: [ timeGridPlugin, interactionPlugin ],
                     initialView: 'timeGridWeek',
                     locale: window.default_locale,
@@ -142,6 +258,7 @@
                         center: 'title',
                         right: 'next'
                     },
+	                height: 'auto',
                     events: [],
                     displayEventTime: false,
                     selectable: true,
@@ -161,11 +278,12 @@
 
             Object.values(this.availabilities).forEach(availability => {
                 let event = {
-                    start: moment.utc(availability.start).tz(self.calendarOptions.timeZone).format(),
-                    end: moment.utc(availability.end).tz(self.calendarOptions.timeZone).format(),
+                	title: 'Foglalható',
+                    start: moment.utc(availability.start).tz(this.calendarOptions.timeZone).format(),
+                    end: moment.utc(availability.end).tz(this.calendarOptions.timeZone).format(),
                     booked: false,
                     student: false,
-                    backgroundColor: 'blue',
+                    backgroundColor: '#18A0FB',
                     db_id: availability.id
                 };
                 availabilities.push(event);
@@ -175,11 +293,12 @@
 
             Object.values(this.appointments).forEach(appointment => {
                 let event = {
+	                title: appointment.student.user.first_name,
                     start: moment.utc(appointment.start).tz(self.calendarOptions.timeZone).format(),
                     end: moment.utc(appointment.end).tz(self.calendarOptions.timeZone).format(),
                     booked: true,
                     student: appointment.student,
-                    backgroundColor: 'green',
+                    backgroundColor: '#10bf1e',
                     db_id: appointment.id
                 };
                 appointments.push(event);
@@ -193,9 +312,32 @@
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/en.json'));
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/hu.json'));
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
+	
+            let localStorage_calendarFilter = localStorage.getItem('calendarFilter');
+            
+            if (localStorage_calendarFilter) {
+	            localStorage_calendarFilter = JSON.parse(localStorage_calendarFilter);
+	            this.calendarOptions.slotMinTime = this.filterCalendarTime.start = localStorage_calendarFilter.start;
+	            this.calendarOptions.slotMaxTime = this.filterCalendarTime.end = localStorage_calendarFilter.end;
+            }
         },
+	    watch: {
+        	filterCalendarTime: {
+		        handler(calendarTime) {
+		        	let data = JSON.stringify({
+				        start: calendarTime.start,
+				        end: calendarTime.end
+			        });
+		        	
+		        	localStorage.setItem('calendarFilter', data);
+		        	
+			        this.calendarOptions.slotMinTime = calendarTime.start;
+			        this.calendarOptions.slotMaxTime = calendarTime.end;
+		        }, deep: true
+	        }
+	    },
         methods: {
-            selectAllow: function(selectInfo) { 
+            selectAllow(selectInfo) {
                 return this.$moment
                     .utc(selectInfo.startStr)
                     .tz(this.calendarOptions.timeZone)
@@ -203,23 +345,52 @@
                         .utc(selectInfo.endStr)
                         .tz(this.calendarOptions.timeZone), 'date');
             },
-            checkEvent: function (eventClickInfo) {
-                if (eventClickInfo.event.extendedProps.booked == true) {
-                    this.deleteAppointment(eventClickInfo);
+            checkEvent(eventClickInfo) {
+                if (eventClickInfo.event.extendedProps.booked === true) {
+                	this.openAppointmentPopup(eventClickInfo);
                 } else {
                     this.deleteAvailability(eventClickInfo);
                 }
             },
-            addAvailability: function (selectionInfo) {
-                let self = this;
-
+	        openAppointmentPopup(eventClickInfo) {
+		        let event = this.calendarOptions.events.find(event => event.db_id === eventClickInfo.event.extendedProps.db_id);
+		        let index = this.calendarOptions.events.indexOf(event);
+		
+		        this.appointmentPopup.index = index;
+		        this.appointmentPopup.data = this.calendarOptions.events[index];
+		        this.appointmentPopup.open = true;
+		        /*
+		        if (index > -1) {
+			        this.calendarOptions.events.splice(index, 1);
+		        }
+		*/
+		        
+		        /*
+		        let availability = this.availabilities.find(availability =>
+			        moment.utc(availability.start).tz(this.calendarOptions.timeZone).format() === eventClickInfo.event.startStr &&
+			        moment.utc(availability.end).tz(this.calendarOptions.timeZone).format() === eventClickInfo.event.endStr
+		        );
+		
+		        event = {
+			        start: moment.utc(availability.start).tz(this.calendarOptions.timeZone).format(),
+			        end: moment.utc(availability.end).tz(this.calendarOptions.timeZone).format(),
+			        booked: false,
+			        student: false,
+			        backgroundColor: 'blue',
+			        db_id: availability.id
+		        };
+          */
+		        
+		       
+	        },
+            addAvailability(selectionInfo) {
                 let slotArray = Array.from(moment.range(selectionInfo.startStr, selectionInfo.endStr).by('minutes', { step: 60 }));
 
                 slotArray.pop();
 
                 slotArray = slotArray.map(m => ({
-                    'startStr': m.tz(self.calendarOptions.timeZone, true).format(),
-                    'endStr': m.tz(self.calendarOptions.timeZone, true).add(60, 'm').format()
+                    'startStr': m.tz(this.calendarOptions.timeZone, true).format(),
+                    'endStr': m.tz(this.calendarOptions.timeZone, true).add(60, 'm').format()
                 }));
 
                 slotArray.forEach(slot => {
@@ -227,69 +398,54 @@
                         start: slot.startStr,
                         end: slot.endStr
                     }})
-                        .then(function (response) {
-                            let event = {
-                                start: moment.utc(response.data.start).tz(self.calendarOptions.timeZone).format(),
-                                end: moment.utc(response.data.end).tz(self.calendarOptions.timeZone).format(),
-                                booked: false,
-                                student: false,
-                                backgroundColor: 'blue',
-                                db_id: response.data.id
-                            };
-                            self.calendarOptions.events.push(event);
-                        })
-                        .catch(function (error) {
-                            console.log(error);
-                        });
-                });
-            },
-            deleteAvailability: function (eventClickInfo) {
-                let self = this;
-
-                axios.delete('/availability/' + eventClickInfo.event.extendedProps.db_id)
-                    .then(function (response) {
-                        let event = self.calendarOptions.events.find(x => x.db_id === eventClickInfo.event.extendedProps.db_id);
-                        let index = self.calendarOptions.events.indexOf(event);
-                        if (index > -1) {
-                            self.calendarOptions.events.splice(index, 1);
-                        }
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-                
-            },
-            deleteAppointment: function (eventClickInfo) {
-                let self = this;
-                //TODO: popup jöjjön fel, onnan lehet megerősíteni a törlést. adatok a popupnak: diák neve, dátum (figma: https://www.figma.com/file/meMgrHV1dQpzXXipNRrWof/Consteach_final?node-id=1582%3A2578)
-
-                axios.delete('/appointment/' + eventClickInfo.event.extendedProps.db_id)
-                    .then(function (response) {
-                        let event = self.calendarOptions.events.find(event => event.db_id === eventClickInfo.event.extendedProps.db_id);
-                        let index = self.calendarOptions.events.indexOf(event);
-                        if (index > -1) {
-                            self.calendarOptions.events.splice(index, 1);
-                        }
-
-                        let availability = self.availabilities.find(availability => 
-                            moment.utc(availability.start).tz(self.calendarOptions.timeZone).format() == eventClickInfo.event.startStr &&
-                            moment.utc(availability.end).tz(self.calendarOptions.timeZone).format() == eventClickInfo.event.endStr
-                        );
-
-                        event = {
-                            start: moment.utc(availability.start).tz(self.calendarOptions.timeZone).format(),
-                            end: moment.utc(availability.end).tz(self.calendarOptions.timeZone).format(),
+                    .then(response => {
+                        let event = {
+                        	title: 'Foglalható',
+                            start: moment.utc(response.data.start).tz(this.calendarOptions.timeZone).format(),
+                            end: moment.utc(response.data.end).tz(this.calendarOptions.timeZone).format(),
                             booked: false,
                             student: false,
-                            backgroundColor: 'blue',
-                            db_id: availability.id
+	                        backgroundColor: '#18A0FB',
+                            db_id: response.data.id
                         };
-
-                        self.calendarOptions.events.push(event);
+	                    this.calendarOptions.events.push(event);
+	
+	                    this.$toast.success('Foglalható időpont hozzáadva');
                     })
-                    .catch(function (error) {
-                        console.log(error);
+                    .catch(error => {
+                        console.error(error);
+	                    this.$toast.success('Foglalható időpont hozzáadása sikertelen');
                     });
+                });
+            },
+            deleteAvailability(eventClickInfo) {
+                axios.delete('/availability/' + eventClickInfo.event.extendedProps.db_id)
+                .then(response => {
+                    let event = this.calendarOptions.events.find(x => x.db_id === eventClickInfo.event.extendedProps.db_id);
+                    let index = this.calendarOptions.events.indexOf(event);
+                    if (index > -1) {
+                        this.calendarOptions.events.splice(index, 1);
+                    }
+	
+	                this.$toast.success('Foglalható időpont törölve');
+                })
+                .catch(error => {
+                    console.error(error);
+	                this.$toast.error('Foglalható időpont törlése sikertelen');
+                });
+            },
+            deleteAppointment() {
+                axios.delete('/appointment/' + this.appointmentPopup.data.db_id)
+                .then(response => {
+                	this.appointmentPopup.open = false;
+	                this.$delete(this.calendarOptions.events, this.appointmentPopup.index);
+					
+	                this.$toast.success('Foglalás törölve');
+                })
+                .catch(error => {
+                    console.error(error);
+	                this.$toast.error('Foglalás törlése sikertelen');
+                });
             }
         }
     }

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Teacher;
+use GuzzleHttp\Psr7\UploadedFile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -61,12 +63,11 @@ class UserController extends Controller
         //
     }
 
+
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, $id)
     {
@@ -74,10 +75,19 @@ class UserController extends Controller
         $validatedData = $request->validate([
             'first_name' => ['bail', 'required', 'min:2', 'max:50'],
             'last_name' => ['bail', 'required', 'min:2', 'max:50'],
-            'email' => ['bail', 'required', 'min:2', 'max:50', 'email']
+            'email' => ['bail', 'required', 'min:2', 'max:50', 'email'],
+            'photo' => ['nullable', 'image', 'max:2048'],
         ]);
 
         $user = User::find($id);
+
+        if (!$user) {
+            return response()->json(['error' => 'user_not_found'], 404);
+        }
+
+        if (request()->input('photo')) {
+            $this->uploadProfilePhoto(request()->input('photo'));
+        }
 
         $user->first_name = request()->input('first_name');
         $user->last_name = request()->input('last_name');
@@ -104,6 +114,29 @@ class UserController extends Controller
         }
 
         return redirect(route('settings'));
+    }
+
+    private function uploadProfilePhoto(UploadedFile $photo) {
+        tap($this->profile_photo_path, function ($previous) use ($photo) {
+            $this->forceFill([
+                'profile_photo_path' => $photo->storePublicly(
+                    'profile-photos', ['disk' => $this->profilePhotoDisk()]
+                ),
+            ])->save();
+
+            if ($previous) {
+                Storage::disk($this->profilePhotoDisk())->delete($previous);
+            }
+        });
+    }
+
+    /**
+     * Get the disk that profile photos should be stored on.
+     *
+     * @return string
+     */
+    protected function profilePhotoDisk() {
+        return isset($_ENV['VAPOR_ARTIFACT_NAME']) ? 's3' : config('jetstream.profile_photo_disk', 'public');
     }
 
     /**

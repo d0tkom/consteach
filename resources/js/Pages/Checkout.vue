@@ -162,7 +162,7 @@
                     amount: null,
                     currency : null,
                     teacher_id: null,
-                    paymnet_method: null,
+                    payment_method: null,
                     fee: null,
                 },
                 billing: {
@@ -188,7 +188,34 @@
                 hidePostalCode: true,
                 classes: {
                     base: 'mt-1 sm:mr-3',
-                }
+                },
+	            style: {
+		            paymentRequestButton: {
+		                color: 'red'
+		            },
+		            base: {
+			            paymentRequestButton: {
+				            color: 'red'
+			            },
+		            	padding: '20px',
+			            iconColor: '#c4f0ff',
+			            color: 'black',
+			            fontWeight: '500',
+			            fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
+			            fontSize: '16px',
+			            fontSmoothing: 'antialiased',
+			            ':-webkit-autofill': {
+				            color: '#fce883',
+			            },
+			            '::placeholder': {
+				            color: '#87BBFD',
+			            },
+		            },
+		            invalid: {
+			            iconColor: '#FFC7EE',
+			            color: '#FFC7EE',
+		            },
+	            },
             });
             this.cardElement.mount('#card-element');
         },
@@ -229,11 +256,13 @@
                     axios.post('payment', {billing: this.billing, product: this.product})
                         .then((response) => {
                             this.paymentProcessing = false;
+	                        this.$toast.success('Sikeres tranzakció');
                             //redirect here
                         })
                         .catch((error) => {
                             this.paymentProcessing = false;
-                            alert(error);
+                            console.error(error);
+	                        this.$toast.error('Sikertelen tranzakció');
                         });
                 }
             }

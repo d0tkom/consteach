@@ -8,7 +8,7 @@
         url(/fonts/Montserrat_300_normal.woff2?6a8d2ba63c0dae00c009f9739e768fee) format('woff2'), 
         url(/fonts/Montserrat_300_normal.woff?9b4b3b99a863c8e80006435ddb1a2e19) format('woff'), 
         url(/fonts/Montserrat_300_normal.ttf?1f5a58b470293107a9bd738234ee3502) format('truetype'), 
-        url(/fonts/Montserrat_300_normal.svg?2063da5e2bc2212a4cf7c2d1388dd6c6#Montserrat_300_normal) format('svg'); /* http://fonts.gstatic.com/l/font?kit=JTURjIg1_i6t8kCHKm45_cJD7gw&skey=1ce67628c9aa416a&v=v15#Montserrat */
+        url(/fonts/Montserrat_300_normal.svg?0c3783781c48cfcea845562c50927569#Montserrat_300_normal) format('svg'); /* http://fonts.gstatic.com/l/font?kit=JTURjIg1_i6t8kCHKm45_cJD7gw&skey=1ce67628c9aa416a&v=v15#Montserrat */
 }
 
 .btnContainer .cBtn {
@@ -292,6 +292,16 @@
 .inputContainer.error input {
   border-color: red;
 }
+.inputContainer.readonly input {
+  border: 1px solid rgba(23, 70, 150, 0.1);
+  cursor: not-allowed;
+}
+.inputContainer.readonly input:hover {
+  border: 1px solid rgba(23, 70, 150, 0.1);
+}
+.inputContainer.readonly input:hover {
+  border: 1px solid rgba(23, 70, 150, 0.1);
+}
 
 body.scrollLock {
   overflow: hidden;
@@ -513,6 +523,9 @@ body.scrollLock {
   border-radius: 50%;
 }
 
+body .fc .fc-timegrid-col.fc-day-today {
+  background-color: #1746960d;
+}
 body .fc .fc-button-primary {
   border: 1px solid #18A0FB;
   background: transparent;
@@ -525,11 +538,28 @@ body .fc .fc-button-primary:hover {
   border: 1px solid #18A0FB;
 }
 body .fc-theme-standard td, body .fc-theme-standard th {
-  border: none;
+  border-color: #e4e4e4 !important;
 }
 body .fc .fc-timegrid-slot {
-  background: url("/img/calendar_empty_slot.svg");
-  background-size: 98px 25px;
+  height: 1.8em;
+}
+body .fc-timegrid-event .fc-event-main {
+  padding: 0;
+}
+body .fc-media-screen .fc-timegrid-event {
+  top: 4px !important;
+  bottom: 4px !important;
+  left: 4px !important;
+  right: 4px !important;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+body .fc-media-screen .fc-timegrid-event:hover {
+  top: 2px !important;
+  bottom: 2px !important;
+  left: 2px !important;
+  right: 2px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 body .fc-theme-standard .fc-scrollgrid {
   border: none !important;
@@ -540,8 +570,15 @@ body .fc .fc-scroller {
 body .fc-direction-ltr .fc-timegrid-slot-label-frame {
   background: white;
 }
+body .fc-timegrid-event-condensed .fc-event-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
 body .fc-v-event {
-  background: #18A0FB;
+  background: transparent;
+  border: none !important;
 }
 
 .googleIconContainer {
