@@ -70,13 +70,6 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $validatedData = $request->validate([
-            'first_name' => ['bail', 'required', 'min:2', 'max:50'],
-            'last_name' => ['bail', 'required', 'min:2', 'max:50'],
-            'email' => ['bail', 'required', 'min:2', 'max:50', 'email']
-        ]);
-
         $user = User::find($id);
 
         $user->first_name = request()->input('first_name');

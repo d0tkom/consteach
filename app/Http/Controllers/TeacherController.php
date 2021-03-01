@@ -70,33 +70,36 @@ class TeacherController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
-        if ($request->input('step') == 1) {
+        if ($request->input('step') == 0) {
             $validatedData = $request->validate([
-                'first_name' => ['bail', 'required', 'min:2', 'max:50'],
-                'last_name' => ['bail', 'required', 'min:2', 'max:50'],
-                'email' => ['bail', 'required', 'min:2', 'max:50', 'email'],
-                'country' => ['bail', 'required'],
-                'timezone' => ['bail', 'required'],
-                'spoken_languages' => ['bail', 'required', 'array'],
-                'teaching_languages' => ['bail', 'required', 'array'],
-                'adult' => ['bail', 'required', 'accepted'],
+                'first_name' => ['required', 'min:2', 'max:50'],
+                'last_name' => ['required', 'min:2', 'max:50'],
+                'email' => ['required', 'min:2', 'max:50', 'email'],
+                'country' => ['required'],
+                'timezone' => ['required'],
+                'spoken_languages' => ['required', 'array', 'min:1'],
+                'teaching_languages' => ['required', 'array', 'min:1'],
+                'adult' => ['required', 'accepted'],
+            ]);
+        } elseif ($request->input('step') == 1) {
+            $validatedData = $request->validate([
+                'profile_photo' => ['required', 'file', 'image'],
             ]);
         } elseif ($request->input('step') == 2) {
             $validatedData = $request->validate([
-                'profile_photo' => ['bail', 'required', 'file', 'image'],
+                'video_url' => ['required', 'active_url'],
             ]);
         } elseif ($request->input('step') == 3) {
             $validatedData = $request->validate([
-                'video_url' => ['bail', 'required', 'active_url'],
-
-            ]);
-        } elseif ($request->input('step') == 4) {
-            $validatedData = $request->validate([
-                'about_me' => ['bail', 'required', 'array'],
+                'about_me' => ['required', 'array'],
             ]);
         } else {
-            //save here
+            /*$validatedData = $request->validate([
+                'validation_photo' => ['required', 'file', 'image'], //TODO: WTF legyen ezzel 
+            ]);*/
         }
+
+        return redirect(route('teacher-application'));
     }
 
     /**

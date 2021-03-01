@@ -25,6 +25,7 @@
 							<cInput
 								v-model="form.first_name"
 								label="Keresztnév"
+								:error="!!$page.props.errors.first_name"
 							></cInput>
 						</div>
 						
@@ -32,6 +33,7 @@
 							<cInput
 								label="Családnév"
 								v-model="form.last_name"
+								:error="!!$page.props.errors.last_name"
 							></cInput>
 						</div>
 						
@@ -40,6 +42,7 @@
 								readonly
 								label="Email cím"
 								v-model="form.email"
+								:error="!!$page.props.errors.email"
 							></cInput>
 						</div>
 						
@@ -49,19 +52,22 @@
 								label="Származási hely"
 								labelKey="name"
 								valueKey="code"
+								:error="!!$page.props.errors.country"
 								v-model="form.country"
 							/>
 						</div>
 						
 						<div class="mb-4">
 							<c-select
-								class="mb-4"
-								label="Időzóna"
-								:data="timezones"
-								label-key="name"
-								value-key="code"
-								v-model="form.timezone"
-							/>
+			                    class="mb-4"
+			                    :label="trans.get('settings.timezone')"
+			                    :data="timezones"
+			                    label-key="name"
+			                    value-key="code"
+			                    :error="!!$page.props.errors.timezone"
+			                    :selected="form.timezone"
+			                    v-model="form.timezone"
+			                />
 						</div>
 						
 						<!-- Tanított nyelvek -->
@@ -78,6 +84,7 @@
 										label="Nyelv"
 										labelKey="name"
 										valueKey="code"
+										:error="!!$page.props.errors.teaching_languages"
 										v-model="language.language"
 									/>
 								</div>
@@ -88,6 +95,7 @@
 										label="Szint"
 										labelKey="label"
 										valueKey="code"
+										:error="!!$page.props.errors.teaching_languages"
 										v-model="language.level"
 									/>
 								</div>
@@ -117,6 +125,7 @@
 										label="Nyelv"
 										labelKey="name"
 										valueKey="code"
+										:error="!!$page.props.errors.spoken_languages"
 										v-model="language.language"
 									/>
 								</div>
@@ -127,6 +136,7 @@
 										label="Szint"
 										labelKey="label"
 										valueKey="code"
+										:error="!!$page.props.errors.spoken_languages"
 										v-model="language.level"
 									/>
 								</div>
@@ -143,6 +153,7 @@
 						<c-checkbox
 							class="my-2"
 							v-model="form.adult"
+							:error="!!$page.props.errors.adult"
 						>Elmúltam 18 éves</c-checkbox>
 					</form>
 				</div>
@@ -270,29 +281,26 @@
 			<div class="card" v-if="activeTab === 3">
 				<h2 class="title text-lg color-primary-dark font-bold">Bemutatkozás</h2>
 				<div class="color-blue-dark">Mutatkozz be leendő diákjaidnak!</div>
-				<div class="content mt-4">
-					<form>
-						<c-text-area
-							hint="Minimum 250 karakter"
+				<div
+                class="card md-4"
+                v-for="(about_me, a) in form.about_me"
+                :key="'abtm-'+ a"
+            >
+                    <div>
+                        <h2 class="title text-lg color-primary-dark mb-4">{{ trans.get('settings.about_me') }} {{ about_me.locale }}</h2>
+                        <c-text-area
+                            :hint="trans.get('settings.min_character', {num: 250})"
                             :max="2000"
-							class="mb-4"
-							label="Bemutatkozás magyarul"
-							v-model="form.about_me_hu"
-						/>
-						<c-text-area
-							hint="Minimum 250 karakter"
-                            :max="2000"
-							label="Bemutatkozás angolul"
-							v-model="form.about_me_en"
-						/>
-					</form>
-				</div>
-			</div>
+                            class="mb-4"
+                            :error="!!$page.props.errors.about_me"
+                            v-model="about_me.text"
+                        />
+                    </div>
+
+                </div>
+            </div>
+
 			<div class="card" v-if="activeTab === 4">
-				<h2 class="title text-lg color-primary-dark mb-4 font-bold">Elérhetőség</h2>
-				<FullCalendar :options="calendarOptions" />
-			</div>
-			<div class="card" v-if="activeTab === 5">
 				<h2 class="title text-lg color-primary-dark font-bold">Verifikáció</h2>
 				<p>Már csak egy lépcső szükséges ahhoz hogy el tudj kezdeni tanítani nálunk!
 					Kérjük tölts fel egy fotót magadról és tartsd az arcod mellé útleveledet, vagy személyi igazolványodat. </p>
@@ -326,7 +334,7 @@
 					v-if="activeTab === tabs.length"
 					:loading="form.processing"
 					class="ml-2"
-					@click="submitaddNewLanguage"
+					@click="submit"
 					icon="done"
 				>Jelentkezés véglegesítése</c-btn>
 			</div>
@@ -335,50 +343,24 @@
 </template>
 
 <script>
-import AppLayout from "@/Layouts/AppLayout";
-import countries from '@/Partials/countries'
-import languages from '@/Partials/languages'
-import currencies from '@/Partials/currencies'
-import timezones from '@/Partials/timezones'
-import levels from '@/Partials/levels'
+	import AppLayout from "@/Layouts/AppLayout";
+	import countries from '@/Partials/countries'
+	import languages from '@/Partials/languages'
+	import currencies from '@/Partials/currencies'
+	import levels from '@/Partials/levels'
 
-import FullCalendar from '@fullcalendar/vue';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import interactionPlugin from '@fullcalendar/interaction';
+	import FullCalendar from '@fullcalendar/vue';
+	import timeGridPlugin from '@fullcalendar/timegrid';
+	import interactionPlugin from '@fullcalendar/interaction';
 
 export default {
 	components: {
 		AppLayout,
-		FullCalendar
+		FullCalendar,
 	},
-	mounted() {
-		const local_data = localStorage.getItem('teacher-application');
-		if (local_data) {
-			this.form = this.$inertia.form(JSON.parse(local_data));
-		}
-	},
-	created() {
-		this.countries = require('i18n-iso-countries');
-		this.countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
-		this.countries.registerLocale(require('i18n-iso-countries/langs/hu.json'));
-		this.countries.registerLocale(require('i18n-iso-countries/langs/de.json'));
-		
-		this.countries = Object.entries(this.countries.getNames(this.locale, {select: 'official'})).map(array => {
-			return {code: array[0], name: array[1]};
-		});
-		
-		this.languageList = require('@cospired/i18n-iso-languages');
-		this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/en.json'));
-		this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/hu.json'));
-		this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
-		
-		this.languageList = Object.entries(this.languageList.getNames(this.locale, {select: 'official'})).map(array => {
-			return {code: array[0], name: array[1]};
-		});
-		
-		this.currencies = this.currencies.map(code => {
-			return {code: code, name: code};
-		});
+	props: {
+		timezoneList: Array,
+		teacher: Object,
 	},
 	data() {
 		return {
@@ -386,7 +368,7 @@ export default {
 			languages,
 			languageList: null,
 			currencies,
-			timezones,
+			timezones: [],
 			levels,
 			locale: window.default_locale,
 			
@@ -409,9 +391,6 @@ export default {
 				}, {
 					label: 'Bemutatkozás',
 					id: 3,
-				}, {
-					label: 'Elérhetőség',
-					id: 4,
 				},
 			],
 			form: this.$inertia.form({
@@ -420,61 +399,48 @@ export default {
 				email: this.$page.props.user.email,
 				country: null,
 				timezone: null,
-				about_me_hu: null,
-				about_me_en: null,
+				about_me: [{locale: 'hu', text: ''}, {locale: 'en', text: ''}],
 				video_url: null,
+				step: 0,
+				profile_photo: null,
 				teaching_languages: [],
 				spoken_languages: [],
 				adult: false,
 			}),
-			calendarOptions: {
-				plugins: [ timeGridPlugin, interactionPlugin ],
-				initialView: 'timeGridWeek',
-				locale: window.default_locale,
-				buttonText: {
-					today:    'mai nap',
-					month:    'hónap',
-					week:     'hét',
-					day:      'nap',
-					list:     'lista'
-				},
-				allDayText: 'egész nap',
-				firstDay: 1,
-				slotDuration: '01:00:00',
-				dayHeaderFormat: { 
-					weekday: 'long' ,
-					day: 'numeric',
-					omitCommas: true
-				},
-				allDaySlot: false,
-				slotLabelFormat: {
-					hour: '2-digit',
-					minute: '2-digit',
-					meridiem: 'long'
-				},
-				headerToolbar: {
-					left: 'prev',
-					center: 'title',
-					right: 'next'
-				},
-				events: [],
-				selectable: true,
-				selectOverlap: false,
-				select: function (selectionInfo) {
-					console.log(selectionInfo);
-					axios.put('/availability', {params: {
-						start: selectionInfo.startStr,
-						end: selectionInfo.endStr
-					}})
-					.then(function (response) {
-						console.log(response);
-					})
-					.catch(function (error) {
-						console.log(error);
-					});
-				},
-			}
 		};
+	},
+	mounted() {
+		const local_data = localStorage.getItem('teacher-application');
+		if (local_data) {
+			this.form = this.$inertia.form(JSON.parse(local_data));
+		}
+	},
+	created() {
+		this.countries = require('i18n-iso-countries');
+		this.countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
+		this.countries.registerLocale(require('i18n-iso-countries/langs/hu.json'));
+		this.countries.registerLocale(require('i18n-iso-countries/langs/de.json'));
+		
+		this.countries = Object.entries(this.countries.getNames(this.locale, {select: 'official'})).map(array => {
+			return {code: array[0], name: array[1]};
+		});
+
+		this.timezones =  this.$page.props.timezoneList.map(value => {
+                return {code: value, name: value};
+            });
+		
+		this.languageList = require('@cospired/i18n-iso-languages');
+		this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/en.json'));
+		this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/hu.json'));
+		this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
+		
+		this.languageList = Object.entries(this.languageList.getNames(this.locale, {select: 'official'})).map(array => {
+			return {code: array[0], name: array[1]};
+		});
+		
+		this.currencies = this.currencies.map(code => {
+			return {code: code, name: code};
+		});
 	},
 	watch: {
 		form: {
@@ -494,18 +460,36 @@ export default {
 			this.form.teaching_languages.push(languageTemplate);
 		},
 		submit() {
-			this.form.post('/api/teacher-application', { preserveScroll: true });
+			this.form.put('/users/' + this.$page.props.user.id, { preserveScroll: true });
 		},
 		nextTab() {
-			if (this.activeTab < this.tabs.length) {
-				this.activeTab ++;
+			this.form.step = this.activeTab;
+
+			if (this.form.teaching_languages.length != 0) {
+				this.form.teaching_languages = this.form.teaching_languages[0].language == null || this.form.teaching_languages[0].level == null ? [] : this.form.teaching_languages;
 			}
+
+			if (this.form.spoken_languages.length != 0) {
+				this.form.spoken_languages = this.form.spoken_languages[0].language == null  || this.form.spoken_languages[0].level == null ? [] : this.form.spoken_languages;
+			}
+
+			this.form.put('/teacher/' + this.teacher.id, { 
+				preserveScroll: true, 
+				onSuccess: page => {
+                	if (Object.keys(page.props.errors).length === 0) {
+	                	if (this.activeTab < this.tabs.length ) {
+	                		this.activeTab ++;
+						}
+	                }
+	           	},
+			});
 		},
 		prevTab() {
 			if (this.activeTab > 0) {
 				this.activeTab --;
 			}
-		},
+		}
 	}
 }
 </script>
+
