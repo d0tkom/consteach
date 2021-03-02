@@ -64,6 +64,7 @@
                                 :key="a"
                                 from-teacher
                                 :data="appointment"
+                                @destroy="$delete(appointments, a)"
                             />
                         </div>
                     </div>

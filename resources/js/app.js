@@ -16,6 +16,7 @@ Vue.mixin({ methods: { route } });
 Vue.directive('on-click-outside', onClickOutside)
 Vue.use(InertiaPlugin);
 Vue.use(PortalVue);
+import scrollLock from 'scroll-lock';
 
 import CountryFlag from 'vue-country-flag'
 
@@ -50,7 +51,7 @@ new Vue({
         }
 
         this.$inertia.on('before', (event) => {
-            document.body.classList.remove('scrollLock');
+            scrollLock.enablePageScroll();
         })
     },
     methods: {

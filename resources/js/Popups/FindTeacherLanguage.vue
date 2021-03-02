@@ -6,13 +6,20 @@
 	>
 		<div class="grid grid-cols-3">
 			<div
-				class="flex flex-col items-center justify-center"
+				class="mb-6 rounded-xl py-2 flex cursor-pointer flex-col items-center justify-center"
+				:class="value === language && 'shadow-xl'"
 				v-for="language in languages"
 				:key="language"
 				@click="optionClick(language)"
 			>
-				<img class="blue-border rounded-full overflow-hidden shadow-md" src="https://via.placeholder.com/80" alt="">
-				<div class="text-center mt-2">{{ languageList.getName(language, locale) }}</div>
+				<country-flag
+					class="flagImg mb-4"
+					rounded
+					size='big'
+					v-if="language"
+					:country="language === 'en' ? 'us' : language"
+				/>
+				<div class="text-center capitalize font-bold text-md mt-4">{{ languageList.getName(language, locale) }}</div>
 			</div>
 			
 			<c-btn
@@ -21,6 +28,7 @@
 				text
 				full
 				@click="optionClick(o)"
+				class=""
 			>{{ option.label }}</c-btn>
 		</div>
 	</c-pop-up>
@@ -45,7 +53,7 @@ export default {
 		},
 		value: {
 			type: String,
-			default: 'popular'
+			default: null
 		},
 		options: {
 			type: Object,

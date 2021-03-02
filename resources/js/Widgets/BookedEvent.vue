@@ -51,6 +51,14 @@
 			>
 				Üzenet
 			</c-btn>
+			<c-btn
+				small
+				text
+				icon="close"
+				@click="appointmentPopup.open = true"
+			>
+				Óra lemondása
+			</c-btn>
 		</div>
 		<cancel-lesson
 			v-model="cancelLessonPopup"
@@ -60,6 +68,13 @@
 			v-model="eventNotReadyPopup"
 			:event="data"
 		/>
+		
+		<student-appointment
+			v-model="appointmentPopup.open"
+			:data="data"
+			:time-zone="timeZone"
+			@submit="deleteAppointment"
+		/>
 	</div>
 </template>
 
@@ -67,8 +82,10 @@
 
 import CancelLesson from "@/Popups/CancelLesson";
 import LessonNotReady from "@/Popups/LessonNotReady";
+import StudentAppointment from "@/Popups/StudentAppointment";
 export default {
 	components: {
+		StudentAppointment,
 		LessonNotReady,
 		CancelLesson
 	},
@@ -86,6 +103,10 @@ export default {
 	},
 	data() {
 		return {
+			appointmentPopup: {
+				open: false,
+				data: null
+			},
 			timeZone: 'local',
 			cancelLessonPopup: false,
 			eventNotReadyPopup: false
@@ -102,6 +123,19 @@ export default {
 			}
 			
 			this.eventNotReadyPopup = true;
+		},
+		deleteAppointment() {
+			axios.delete('/appointment/' + this.data.id)
+				.then(response => {
+					this.appointmentPopup.open = false;
+					this.$emit('destroy');
+					
+					this.$toast.success('Foglalás törölve');
+				})
+				.catch(error => {
+					console.error(error);
+					this.$toast.error('Foglalás törlése sikertelen');
+				});
 		}
 	},
 	computed: {

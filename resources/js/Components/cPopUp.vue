@@ -28,8 +28,9 @@
 </template>
 
 <script>
-
 import Logo from "@/Layouts/Partials/Logo";
+import scrollLock from 'scroll-lock';
+
 export default {
 	components: {Logo},
 	props: {
@@ -62,9 +63,9 @@ export default {
 	methods: {
 		lockBody(value) {
 			if (value) {
-				document.body.classList.add('scrollLock');
+				scrollLock.disablePageScroll();
 			} else {
-				document.body.classList.remove('scrollLock');
+				scrollLock.enablePageScroll();
 			}
 		}
 	}
