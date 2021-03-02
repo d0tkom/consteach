@@ -148,8 +148,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     })->name('dashboard');
 
     Route::get('/teacher-application', function () {
-        return Inertia::render('Teacher/Application');
-    })->name('teacherApplication');
+        $teacher = Teacher::where('user_id', Auth::user()->id)->first();
+        $timezones = timezone_identifiers_list();
+        return Inertia::render('Teacher/Application')->with(['teacher' => $teacher, 'timezoneList' => $timezones]);
+    })->name('teacher-application');
 
     Route::post('/checkout/payment', [CheckoutController::class, 'store']);
 
@@ -159,7 +161,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         return Inertia::render('Checkout')->with(['teacher' => $teacher]);
     })->name('checkout');
 
-    Route::middleware(['teacher.registered'])->get('/settings', function () {
+    Route::put('/teacher/{teacher}', [TeacherController::class, 'update'])->name('teacher.update');
+
+    Route::middleware(['teacher.registered', 'teacher.verified'])->get('/settings', function () {
         switch (Auth::user()->role) {
             case ('student'):
                 $timezones = timezone_identifiers_list();
