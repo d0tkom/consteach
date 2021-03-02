@@ -71,8 +71,10 @@
 							full
 							icon="event"
 							class="mb-4"
+							:navigate-to="'/teacher/' + data.id"
 						>Órafoglalás</c-btn>
 						<c-btn
+							v-if="false"
 							full
 							outlined
 							icon="chat"
