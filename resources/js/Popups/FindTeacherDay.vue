@@ -85,16 +85,16 @@ export default {
 			timeOfDays: [
 				{
 					label: '04:00 - 08:00',
-					value: '04:00 - 08:00'
+					value: {start: '04:00', end: '08:00'}
 				}, {
 					label: '09:00 - 11:00',
-					value: '09:00 - 11:00'
+					value: {start: '09:00', end: '11:00'}
 				}, {
 					label: '12:00 - 18:00',
-					value: '12:00 - 18:00'
+					value: {start: '12:00', end: '18:00'}
 				}, {
 					label: '19:00 - 03:00',
-					value: '19:00 - 03:00'
+					value: {start: '19:00', end: '03:00'}
 				}
 			]
 		};

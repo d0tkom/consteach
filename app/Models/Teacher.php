@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Lesson;
 use App\Models\User;
 use App\Models\Appointment;
+use App\Models\Availability;
 
 class Teacher extends Model
 {
@@ -43,6 +44,11 @@ class Teacher extends Model
     public function appointments()
     {
         return $this->hasMany(Appointment::class);
+    }
+
+    public function availabilities()
+    {
+        return $this->hasMany(Availability::class);
     }
 
     public function getAppointmentCountAttribute()

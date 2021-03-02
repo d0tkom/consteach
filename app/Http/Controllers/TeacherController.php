@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Teacher;
 use App\Helpers\CollectionHelper;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class TeacherController extends Controller
 {
@@ -116,7 +118,7 @@ class TeacherController extends Controller
     public function filter(Request $request)
     {
         $teachers = Teacher::whereBetween('one_hour_price', [request()->input('prices')[0], request()->input('prices')[1]])
-            ->with('user');
+            ->with(['user', 'availabilities']);
 
         if (request()->input('language')) {
             $teachers->where('teaching_languages', 'LIKE', '%"language": "'.request()->input('language').'"%');
@@ -128,6 +130,31 @@ class TeacherController extends Controller
         } else {
             $teachers = $teachers->get();
             $teachers->sortBy(request()->input('order_by'));
+        }
+
+        if (json_decode(request()->input('time'))->timeOfDay) {
+            $teachers = $teachers->filter(function ($teacher) {
+                return !$teacher->availabilities->filter(function ($availabilitiy) {
+                    $start = json_decode(request()->input('time'))->timeOfDay[0]->start;
+                    $end = json_decode(request()->input('time'))->timeOfDay[0]->end;
+                    $compare_start = Carbon::createFromTimeString($start)->format('H');
+                    $compare_end = Carbon::createFromTimeString($end)->format('H');
+                    $time = Carbon::create($availabilitiy->start)->tz('UTC')->setTimezone(Auth::check() ? auth()->user()->timzezone : 'Europe/Budapest')->format('H');
+
+                    if ($time >= $compare_start && $time <= $compare_end) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                    
+                })->isEmpty();
+            });
+        }
+
+        if (json_decode(request()->input('time'))->day) {
+            $teachers = $teachers->filter(function ($teacher) {
+                return !$teacher->availabilities->whereIn('weekday', json_decode(request()->input('time'))->day)->isEmpty();
+            });
         }
 
         $teachers = CollectionHelper::paginate($teachers, 5);
