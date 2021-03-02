@@ -116,8 +116,8 @@ body {
 		}
 		text-transform: uppercase;
 		text-align: center;
-		font-size: 1.2em;
-		font-weight: 500;
+		font-weight: bold;
+		font-size: 1.2rem;
 		margin-bottom: 30px;
 	}
 	.wave {
@@ -648,7 +648,7 @@ body {
 			.container {
 				display: flex;
 				flex-wrap: wrap;
-				margin: 15px;
+
 				.lang {
 					display: none;
 					flex: 1 0 21%;
@@ -666,8 +666,7 @@ body {
 						}
 					}
 					.flagImg {
-						max-width: 80px;
-						margin: 0 auto;
+						margin-bottom: 16px;
 					}
 					.title {
 						text-align: center;
@@ -697,12 +696,6 @@ body {
 				text-align: center;
 				text-transform: uppercase;
 				font-weight: 600;
-				>div {
-					position: relative;
-					cursor: pointer;
-					max-width: 150px;
-					margin: 0 auto;
-				}
 				.open {
 					.down-arrow {
 						border-left: 5px solid transparent;

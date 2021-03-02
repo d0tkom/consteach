@@ -12,7 +12,7 @@
 			></textarea>
 			<div class="bottom flex justify-between items-center">
 				<div class="hint" v-show="hint">{{ hint }}</div>
-				<div>{{ value_.length }} / {{ max }}</div>
+				<div>{{ value_ ? value_.length : 0 }} / {{ max }}</div>
 			</div>
 		</label>
 	</div>
@@ -23,6 +23,7 @@
 export default {
 	props: {
 		value: {
+			type: String,
 			default: ''
 		},
 		label: {

@@ -32,7 +32,7 @@
                                                 </span>
                                                 <span class="capitalize mr-4">{{ teacher.user.first_name }}  {{ teacher.user.last_name[0] }}.</span>
 	                                            <country-flag
-		                                            :country="teacher.country"
+		                                            flag="teacher.country === 'en' ? 'us' : teacher.country"
 	                                            />
                                             </div>
                                         </div>

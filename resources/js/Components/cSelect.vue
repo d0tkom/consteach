@@ -1,5 +1,5 @@
 <template>
-	<div class="inputContainer">
+	<div class="selectContainer" :class="{error}">
 		<label>
 			<div v-if="label" class="selectLabel">{{ label }}</div>
 			<select
@@ -55,6 +55,10 @@ export default {
 		value: {
 			type: String,
 			default: null
+		},
+		error: {
+			type: Boolean,
+			default: true
 		}
 	},
 	methods: {

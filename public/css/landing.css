@@ -106,8 +106,8 @@ body .base-title {
   color: #174696;
   text-transform: uppercase;
   text-align: center;
-  font-size: 1.2em;
-  font-weight: 500;
+  font-weight: bold;
+  font-size: 1.2rem;
   margin-bottom: 30px;
 }
 body.dark .base-title {
@@ -673,7 +673,6 @@ body.dark main .top .bottom-img {
 body main .choose-a-language .container {
   display: flex;
   flex-wrap: wrap;
-  margin: 15px;
 }
 body main .choose-a-language .container .lang {
   display: none;
@@ -695,8 +694,7 @@ body main .choose-a-language .container .lang.show-mobile {
   }
 }
 body main .choose-a-language .container .lang .flagImg {
-  max-width: 80px;
-  margin: 0 auto;
+  margin-bottom: 16px;
 }
 body main .choose-a-language .container .lang .title {
   text-align: center;
@@ -721,12 +719,6 @@ body main .choose-a-language .lang-button-container {
   text-align: center;
   text-transform: uppercase;
   font-weight: 600;
-}
-body main .choose-a-language .lang-button-container > div {
-  position: relative;
-  cursor: pointer;
-  max-width: 150px;
-  margin: 0 auto;
 }
 body main .choose-a-language .lang-button-container .open .down-arrow {
   border-left: 5px solid transparent;

@@ -1,4 +1,4 @@
-.inputContainer {
+.selectContainer {
 	
 	.selectLabel {
 		margin-bottom: 2px;
@@ -23,6 +23,12 @@
 		
 		&:focus {
 			border: 1px solid rgba($blue, 0.2);
+		}
+	}
+
+	&.error {
+		select {
+			border-color: rgba($red, .5);
 		}
 	}
 }

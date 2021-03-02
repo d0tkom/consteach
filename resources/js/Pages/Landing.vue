@@ -21,37 +21,42 @@
 			<section class="choose-a-language">
 				<div class="section-content">
 					<div class="base-line"></div>
-					<div class="base-title">
+					<div class="base-title pt-4">
 						Válassz nyelvet!
 					</div>
-					<div class="container">
+					<div class="container py-4">
 						<div
 							v-for="language in availableLanguagesFiltered"
 							:key="language"
-							class="flex flex-col lang show-mobile"
+							class="flex flex-col text-center items-center justify-center lang show-mobile"
 						>
-							<div class="flagImg">
-								<img
-									:src="'/img/flags/flag_'+language+'.svg'"
-									:alt="language+' Flag'"
-								>
-							</div>
-							<div class="title capitalize">{{ languageList[language] }}</div>
+							<country-flag
+								class="flagImg mb-4"
+								rounded
+								size='big'
+								v-if="language"
+								:country="language === 'en' ? 'us' : language"
+							/>
+							<div class="title capitalize font-bold">{{ languageList[language] }}</div>
 						</div>
 					</div>
 					<div class="lang-button-container">
 						<c-btn
+							class="mt-4"
 							outlined
+							:icon="moreLanguages ? 'remove_circle_outline' : 'add_circle_outline'"
 							@click="moreLanguages = !moreLanguages"
 						>{{ !moreLanguages ? 'Összes nyelv' : 'Kevesebb nyelv'}}</c-btn>
 					</div>
 				</div>
 			</section>
 			
+			<div class="my-28"></div>
+			
 			<section class="language-learning">
 				<div class="section-content">
 					<div class="base-line"></div>
-					<div class="base-title">
+					<div class="base-title pt-4 pb-8">
 						Nyelvtanulás egyszerűen
 					</div>
 					<div class="container">
@@ -80,13 +85,23 @@
 							<div class="title">Csatlakozz a videóhíváshoz és kezdődhet a tanulás!</div>
 						</div>
 					</div>
-					<div class="button-container">
-						<p>
-							Milyen tanárt keresel? Válaszd ki a preferenciáid és máris mutatjuk a hozzád illő tanárokat!
-						</p>
-						<c-btn
-							navigate-to="/teachers"
-						>Tanárkeresés</c-btn>
+					
+					<div class="my-24"></div>
+					
+					<div class="mb-8 flex mt-12 text-left justify-between">
+						<div>
+							<h3 class="title font-bold text-2xl">Milyen tanárt keresel?</h3>
+							<p class="my-4">
+								Válaszd ki a preferenciáid és máris mutatjuk a hozzád illő tanárokat!
+							</p>
+						</div>
+						<div>
+							<inertia-link href="/teachers">
+								<c-btn
+									icon="search"
+								>Tanárkeresés</c-btn>
+							</inertia-link>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -96,34 +111,34 @@
 			<section class="next-level">
 				<div class="section-content">
 					<div class="base-line"></div>
-					<div class="base-title">
+					<div class="base-title pt-4 pb-8">
 						Lépj a következő szintre
 					</div>
 					<div class="container">
-						<div class="line">
+						<div class="line pb-10">
 							<div class="icon flex justify-center">
 								<img src="/img/level_up_1.png" alt="circle1">
 							</div>
 							<div class="content">
-								<div class="title">Gyors</div>
+								<div class="title font-bold text-2xl mb-4">Gyors</div>
 								<p>Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből.</p>
 							</div>
 						</div>
-						<div class="line text-align-right">
+						<div class="line pb-10 text-align-right">
 							<div class="content">
-								<div class="title">Személyre szabott</div>
+								<div class="title font-bold text-2xl mb-4">Személyre szabott</div>
 								<p>Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből.</p>
 							</div>
 							<div class="icon flex justify-center">
 								<img src="/img/level_up_2.png" alt="circle2">
 							</div>
 						</div>
-						<div class="line">
+						<div class="line pb-10">
 							<div class="icon flex justify-center">
 								<img src="/img/level_up_3.png" alt="circle3">
 							</div>
 							<div class="content">
-								<div class="title">Minőségi</div>
+								<div class="title font-bold text-2xl mb-4">Minőségi</div>
 								<p>Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből.</p>
 							</div>
 						</div>
@@ -141,34 +156,34 @@
 			<section class="teach-with-us">
 				<div class="section-content">
 					<div class="base-line"></div>
-					<div class="base-title">
-						Taníts nálunk
+					<div class="base-title pt-4 pb-8">
+						Taníts nálunk!
 					</div>
 					<div class="container">
 						<div class="line">
-							<div class="icon">
+							<div class="icon flex justify-center">
 								<img src="/img/circle5.svg" alt="circle5">
 							</div>
 							<div class="content">
-								<div class="title">Karrier</div>
+								<div class="title text-2xl font-bold mb-4">Karrier</div>
 								<p>Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből.</p>
 							</div>
 						</div>
-						<div class="line">
-							<div class="icon">
+						<div class="line mr-12">
+							<div class="icon flex justify-center">
 								<img src="/img/circle6.svg" alt="circle6">
 							</div>
 							<div class="content">
-								<div class="title">Fejlődés</div>
+								<div class="title text-2xl font-bold mb-4">Fejlődés</div>
 								<p>Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből.</p>
 							</div>
 						</div>
-						<div class="line">
-							<div class="icon">
+						<div class="line mr-24">
+							<div class="icon flex justify-center">
 								<img src="/img/circle7.svg" alt="circle7">
 							</div>
 							<div class="content">
-								<div class="title">Tapasztalat</div>
+								<div class="title text-2xl font-bold mb-4">Tapasztalat</div>
 								<p>Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből.</p>
 							</div>
 						</div>
@@ -187,8 +202,8 @@
 				</div>
 				<div class="section-content">
 					<div class="base-line"></div>
-					<div class="base-title">
-						Csatlakozz hozzánk
+					<div class="base-title pt-4 pb-8">
+						Csatlakozz hozzánk!
 					</div>
 					<div class="container">
 						<div class="videoWrapper">
