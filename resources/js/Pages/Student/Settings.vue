@@ -5,19 +5,26 @@
             <div class="page userSettings shadow-lg">
                 <div class="top mb-4">
                     <div class="profileImg">
-                        <img :src="$page.props.user.profile_photo_url" alt="Diák profilkép">
-                        <c-input
-                            type="file"
-                            only-slot
-                            class="profileImageEditIcon"
-                        >
-                            <c-btn
-                                icon="edit"
-                                icon-only
-                                circle
-                            ></c-btn>
-                        </c-input>
+                        <img v-if="!photoPreview" :src="$page.props.user.profile_photo_url" alt="Diák profilkép">
+                        <img v-else :src="photoPreview" alt="Diák profilkép">
+                        <div class="inputContainer profileImageEditIcon">
+                            <label>
+                                <input
+                                    id="photo-input"
+                                    ref="photo"
+                                    class="hidden"
+                                    type="file"
+                                    @change="updatePhotoPreview"
+                                >
+                                <c-btn
+                                    icon="edit"
+                                    icon-only
+                                    circle
+                                ></c-btn>
+                            </label>
+                        </div>
                     </div>
+
                     <div class="userName title text-center color-primary text-2xl mt-4">{{ $page.props.user.last_name }}</div>
                 </div>
                 <div class="content">
@@ -187,6 +194,8 @@
                 currencies,
 
                 locale: window.default_locale,
+
+                photoPreview: null,
                 
                 saving: false,
                 
@@ -199,6 +208,8 @@
                 },
                 
                 form: this.$inertia.form({
+                    '_method': 'PUT',
+                    photo: null,
                     first_name: this.$page.props.user.first_name,
                     last_name: this.$page.props.user.last_name,
                     email: this.$page.props.user.email,
@@ -250,7 +261,11 @@
                 this.form.spoken_languages.push(languageTemplate);
             },
             submit() {
-                this.form.put('/users/' + this.$page.props.user.id, {
+                if (this.$refs.photo) {
+                    this.form.photo = this.$refs.photo.files[0];
+                }
+
+                this.form.post('/users/' + this.$page.props.user.id, {
                 	preserveScroll: true,
 	                onSuccess: () => {
 		                this.$toast.success('Sikeres mentés');
@@ -260,7 +275,16 @@
 		                this.$toast.success('Sikertelen mentés');
 	                }
                 });
-            }
+            },
+            updatePhotoPreview() {
+                const reader = new FileReader();
+        
+                reader.onload = (e) => {
+                    this.photoPreview = e.target.result;
+                };
+
+                reader.readAsDataURL(this.$refs.photo.files[0]);
+            },
         }
     }
 </script>

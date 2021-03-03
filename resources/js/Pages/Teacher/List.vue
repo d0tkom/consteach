@@ -123,7 +123,7 @@
                 languageList: null,
                 total: this.all_teachers.total,
                 locale: window.default_locale,
-                next_page_url: this.all_teachers.next_page_url,
+                next_page_url: this.all_teachers.next_page_url.replace('teachers', 'teachers/load-more'),
                 filters: {
                     order: {
                         active: false,

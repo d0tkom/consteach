@@ -18,7 +18,7 @@ class TeacherVerified
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->role == 'teacher' && Auth::user()->extra->verified == false) {
+        if (Auth::user()->role == 'teacher' && Auth::user()->extra->validated == false) {
             return redirect('/dashboard');
         }
         return $next($request);

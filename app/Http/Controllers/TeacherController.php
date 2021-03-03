@@ -85,7 +85,7 @@ class TeacherController extends Controller
             ]);
         } elseif ($request->input('step') == 1) {
             $validatedData = $request->validate([
-                'profile_photo' => ['required', 'file', 'image'],
+                'photo' => ['required', 'image', 'max:2048'],
             ]);
         } elseif ($request->input('step') == 2) {
             $validatedData = $request->validate([
@@ -113,6 +113,18 @@ class TeacherController extends Controller
     public function destroy(Teacher $teacher)
     {
         //
+    }
+
+    public function load_more(Request $request)
+    {
+        $teachers = Teacher::with('user')->orderBy('one_hour_price', 'ASC')->get();
+        $teachers = CollectionHelper::paginate($teachers, 5);
+
+        if ($request->ajax()) {
+            return response()->json(['teachers' => $teachers]);
+        } else {
+            abort(404);
+        }
     }
 
     public function filter(Request $request)

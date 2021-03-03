@@ -169,15 +169,26 @@
 							Készíts egy jól megvilágított, jókedvű fotót. A jó profilkép fél siker, több hallgatót érhetsz el vele.
 						</p>
 						<div class="flex items-center mb-4">
-							<c-input
-								type="file"
-								only-slot
-								class=""
-							>
-								<c-btn
-									icon="add_photo_alternate"
-								>Fotó feltöltése</c-btn>
-							</c-input>
+							<div class="profileImg">
+		                        <img v-if="!profilePhotoPreview" :src="$page.props.user.profile_photo_url" alt="Tanár profilkép">
+		                        <img v-else :src="profilePhotoPreview" alt="Tanár profilkép">
+		                        <div class="inputContainer profileImageEditIcon">
+		                            <label>
+		                                <input
+		                                    id="profile-photo-input"
+		                                    ref="profile_photo"
+		                                    class="hidden"
+		                                    type="file"
+		                                    @change="updateProfilePhotoPreview"
+		                                >
+		                                <c-btn
+		                                    icon="edit"
+		                                    icon-only
+		                                    circle
+		                                ></c-btn>
+		                            </label>
+		                        </div>
+		                    </div>
 							<span class="text-xs text-gray-500 ml-4">JPG vagy PNG<br/>Max.: 5MB</span>
 						</div>
 						<div class="text-center">
@@ -307,15 +318,26 @@
 				<h2 class="title text-lg color-primary-dark font-bold">Verifikáció</h2>
 				<p>Már csak egy lépcső szükséges ahhoz hogy el tudj kezdeni tanítani nálunk!
 					Kérjük tölts fel egy fotót magadról és tartsd az arcod mellé útleveledet, vagy személyi igazolványodat. </p>
-				<c-input
-					type="file"
-					only-slot
-					class="mt-4"
-				>
-					<c-btn
-						icon="insert_photo"
-					>Kép feltöltése</c-btn>
-				</c-input>
+				<div class="profileImg">
+                    <img v-if="!verificationPhotoPreview" :src="$page.props.user.profile_photo_url" alt="Tanár profilkép">
+                    <img v-else :src="verificationPhotoPreview" alt="Tanár profilkép">
+                    <div class="inputContainer profileImageEditIcon">
+                        <label>
+                            <input
+                                id="verification-photo-input"
+                                ref="verification_photo"
+                                class="hidden"
+                                type="file"
+                                @change="updateVerificationPhotoPreview"
+                            >
+                            <c-btn
+                                icon="edit"
+                                icon-only
+                                circle
+                            ></c-btn>
+                        </label>
+                    </div>
+                </div>
 			
 			</div>
 			<div class="actions flex justify-center">
@@ -374,6 +396,9 @@ export default {
 				language: null,
 				level: null
 			},
+
+			profilePhotoPreview: null,
+			verificationPhotoPreview: null,
 			
 			activeTab: 0,
 			tabs: [
@@ -392,6 +417,9 @@ export default {
 				},
 			],
 			form: this.$inertia.form({
+				'_method': 'PUT',
+	            photo: null,
+	            verification_photo: null,
 				first_name: this.$page.props.user.first_name,
 				last_name: this.$page.props.user.last_name,
 				email: this.$page.props.user.email,
@@ -458,13 +486,31 @@ export default {
 			this.form.teaching_languages.push(languageTemplate);
 		},
 		submit() {
-			this.form.put('/users/' + this.$page.props.user.id, { 
+			this.form.post('/users/' + this.$page.props.user.id, { 
 				preserveScroll: true, 
 				onSuccess: () => {
 					this.$toast.success('Sikeres mentés');
 				} 
 			});
 		},
+		updateProfilePhotoPreview() {
+	        const reader = new FileReader();
+	
+	        reader.onload = (e) => {
+		        this.profilePhotoPreview = e.target.result;
+	        };
+
+	        reader.readAsDataURL(this.$refs.profile_photo.files[0]);
+        },
+        updateVerificationPhotoPreview() {
+	        const reader = new FileReader();
+	
+	        reader.onload = (e) => {
+		        this.verificationPhotoPreview = e.target.result;
+	        };
+
+	        reader.readAsDataURL(this.$refs.verification_photo.files[0]);
+        },
 		nextTab() {
 			this.form.step = this.activeTab;
 
@@ -476,7 +522,15 @@ export default {
 				this.form.spoken_languages = this.form.spoken_languages[0].language == null  || this.form.spoken_languages[0].level == null ? [] : this.form.spoken_languages;
 			}
 
-			this.form.put('/teacher/' + this.teacher.id, { 
+			if (this.$refs.profile_photo) {
+                this.form.photo = this.$refs.profile_photo.files[0];
+            }
+
+            if (this.$refs.verification_photo) {
+                    this.form.verification_photo = this.$refs.verification_photo.files[0];
+                }
+
+			this.form.post('/teacher/' + this.teacher.id, { 
 				preserveScroll: true, 
 				onSuccess: page => {
                 	if (Object.keys(page.props.errors).length === 0) {

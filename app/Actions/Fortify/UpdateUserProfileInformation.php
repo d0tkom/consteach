@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
+use App\Models\Teacher;
 
 class UpdateUserProfileInformation implements UpdatesUserProfileInformation
 {
@@ -19,7 +20,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     public function update($user, array $input)
     {
         Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'photo' => ['nullable', 'image', 'max:2048'],
         ])->validateWithBag('updateProfileInformation');
@@ -33,10 +35,29 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $this->updateVerifiedUser($user, $input);
         } else {
             $user->forceFill([
-                'name' => $input['name'],
+                'first_name' => $input['first_name'],
+                'last_name' => $input['last_name'],
                 'email' => $input['email'],
+                'timezone' => $input['timezone'],
+                'spoken_languages' => $input['spoken_languages'],
+                'site_language' => $input['site_language'],
+                'currency' => $input['currency'],
             ])->save();
         }
+
+        if ($user->role == 'teacher') {
+            $teacher = Teacher::where('user_id', $user->id)->first();
+
+            $teacher->teaching_languages = $input['teaching_languages'];
+            $teacher->about_me = $input['about_me'];
+            $teacher->country = $input['country'];
+            $teacher->video_url = $input['video_url'];
+            $teacher->one_hour_price = $input['one_hour_price'];
+            $teacher->five_hour_price = $input['five_hour_price'];
+            $teacher->ten_hour_price = $input['ten_hour_price'];
+
+            $teacher->save();
+        }        
     }
 
     /**

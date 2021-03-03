@@ -105,11 +105,11 @@ Route::get('/teachers', function (Request $request) {
     }
     $teachers = Teacher::with('user')->orderBy('one_hour_price', 'ASC')->get();
     $teachers = CollectionHelper::paginate($teachers, 5);
-    if ($request->ajax()) {
-        return response()->json(['teachers' => $teachers]);
-    }
+
     return Inertia::render('Teacher/List')->with(['all_teachers' => $teachers, 'availableLanguages' => $availableLanguages]);
 })->name('teachers');
+
+Route::get('teachers/load-more', [TeacherController::class, 'load_more'])->name('teachers.more');
 
 Route::get('/teachers/filter', [TeacherController::class, 'filter'])->name('teachers.filter');
 
@@ -166,6 +166,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     })->name('checkout');
 
     Route::put('/teacher/{teacher}', [TeacherController::class, 'update'])->name('teacher.update');
+    Route::post('/teacher/{teacher}', [TeacherController::class, 'update']);
 
     Route::middleware(['teacher.registered', 'teacher.verified'])->get('/settings', function () {
         switch (Auth::user()->role) {

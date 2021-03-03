@@ -5,23 +5,24 @@
             <div class="card md userSettings">
                 <div class="top mb-4">
                     <div class="profileImg">
-                        <img v-if="!photoPreview" :src="$page.props.user.profile_photo_url" alt="Diák profilkép">
-                        <img v-else :src="photoPreview" alt="Diák profilkép">
-                        <c-input
-	                        @change="updatePhotoPreview"
-	                        input-id="photo-input"
-	                        ref="photo"
-                            type="file"
-                            only-slot
-                            v-model="form.photo"
-                            class="profileImageEditIcon"
-                        >
-                            <c-btn
-                                icon="edit"
-                                icon-only
-                                circle
-                            ></c-btn>
-                        </c-input>
+                        <img v-if="!photoPreview" :src="$page.props.user.profile_photo_url" alt="Tanár profilkép">
+                        <img v-else :src="photoPreview" alt="Tanár profilkép">
+                        <div class="inputContainer profileImageEditIcon">
+                            <label>
+                                <input
+                                    id="photo-input"
+                                    ref="photo"
+                                    class="hidden"
+                                    type="file"
+                                    @change="updatePhotoPreview"
+                                >
+                                <c-btn
+                                    icon="edit"
+                                    icon-only
+                                    circle
+                                ></c-btn>
+                            </label>
+                        </div>
                     </div>
 	                
                     <div class="userName title text-center color-primary text-2xl mt-4">{{ $page.props.user.last_name }}</div>
@@ -340,6 +341,7 @@
                 },
 
                 form: this.$inertia.form({
+                    '_method': 'PUT',
 	                photo: null,
                     first_name: this.$page.props.user.first_name,
                     last_name: this.$page.props.user.last_name,
@@ -423,8 +425,8 @@
 		        reader.onload = (e) => {
 			        this.photoPreview = e.target.result;
 		        };
-		
-		        reader.readAsDataURL(document.getElementById('photo-input').files[0]);
+
+		        reader.readAsDataURL(this.$refs.photo.files[0]);
 	        },
             addNewSpokenLanguage() {
                 const languageTemplate = JSON.parse(JSON.stringify(this.languageTemplate));
@@ -435,8 +437,11 @@
                 this.form.teaching_languages.push(languageTemplate);
             },
             submit() {
-            	//this.form.photo = document.querySelector('#photo-input').files[0];
-                this.form.put('/users/' + this.$page.props.user.id, {
+                if (this.$refs.photo) {
+                    this.form.photo = this.$refs.photo.files[0];
+                }
+
+                this.form.post('/users/' + this.$page.props.user.id, {
                 	preserveScroll: true,
 	                onSuccess: () => {
                 		this.$toast.success('Sikeresen mentve');
