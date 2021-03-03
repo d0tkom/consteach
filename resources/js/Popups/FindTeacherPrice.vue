@@ -5,18 +5,22 @@
 		title="Milyen óradíjjal keresel tanárt? Jelöld be a csúszkán!"
 	>
 		<div class="valueContainer flex items-center justify-between text-2xl font-bold relative">
-			<div>{{ value[0] }} HUF</div>
+			<div>{{ value_[0] }} HUF</div>
 			<span class="separator">-</span>
-			<div>{{ value[1] }} HUF</div>
+			<div>{{ value_[1] }} HUF</div>
 		</div>
 		<vue-slider
-			:value="value"
+			v-model="value_"
 			:min="0"
 			:max="15000"
 			:interval="100"
 			tooltip="none"
-			@change="value => $emit('change', value)"
 		/>
+		<div class="flex justify-center mt-4">
+			<c-btn
+				@click="submit"
+			>Szűrés</c-btn>
+		</div>
 	</c-pop-up>
 </template>
 
@@ -40,14 +44,19 @@ export default {
 			}
 		}
 	},
+	watch: {
+		value(value) {
+			this.value_ = value;
+		}
+	},
 	data: function() {
 		return {
-		
+			value_: this.value
 		};
 	},
 	methods: {
-		optionClick(value) {
-			this.$emit('change', value);
+		submit() {
+			this.$emit('change', this.value_);
 			this.$emit('change-active', false);
 		}
 	}

@@ -71,24 +71,37 @@
                     <div class="col-span-2 card p-sm">
                         <FullCalendar :options="calendarOptions" />
 	                    
-	                    <div class="flex items-center justify-end mt-4">
-		                    <div class="mr-6">Szűrés napszakra</div>
-		                    <c-select
-			                    not-nullable
-			                    value-key="value"
-			                    label-key="label"
-			                    class="mr-4 w-28"
-			                    :data="filterCalendarTime.options"
-			                    v-model="filterCalendarTime.start"
-		                    />
-		                    <c-select
-			                    not-nullable
-			                    class="w-28"
-			                    value-key="value"
-			                    label-key="label"
-			                    :data="filterCalendarTime.options"
-			                    v-model="filterCalendarTime.end"
-		                    />
+	                    <div class="flex justify-between items-center mt-2">
+		                    <div class="p-4">
+			                    <div class="text-sm flex items-center">
+				                    <div class="colorSample free mr-2"></div>
+				                    <span>Foglalható</span>
+			                    </div>
+			                    <div class="text-sm flex items-center">
+				                    <div class="colorSample booked mr-2"></div>
+				                    <span>Foglalt</span>
+			                    </div>
+		                    </div>
+		                    
+		                    <div class="flex items-center justify-end">
+			                    <div class="mr-6">Szűrés napszakra</div>
+			                    <c-select
+				                    not-nullable
+				                    value-key="value"
+				                    label-key="label"
+				                    class="mr-4 w-28"
+				                    :data="filterCalendarTime.options"
+				                    v-model="filterCalendarTime.start"
+			                    />
+			                    <c-select
+				                    not-nullable
+				                    class="w-28"
+				                    value-key="value"
+				                    label-key="label"
+				                    :data="filterCalendarTime.options"
+				                    v-model="filterCalendarTime.end"
+			                    />
+		                    </div>
 	                    </div>
                     </div>
                     <!-- Sidebar -->
@@ -279,7 +292,7 @@
 
             Object.values(this.availabilities).forEach(availability => {
                 let event = {
-                	title: 'Foglalható',
+                	title: '',
                     start: moment.utc(availability.start).tz(this.calendarOptions.timeZone).format(),
                     end: moment.utc(availability.end).tz(this.calendarOptions.timeZone).format(),
                     booked: false,
@@ -401,7 +414,7 @@
                     }})
                     .then(response => {
                         let event = {
-                        	title: 'Foglalható',
+                        	title: '',
                             start: moment.utc(response.data.start).tz(this.calendarOptions.timeZone).format(),
                             end: moment.utc(response.data.end).tz(this.calendarOptions.timeZone).format(),
                             booked: false,

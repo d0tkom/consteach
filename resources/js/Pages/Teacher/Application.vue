@@ -423,9 +423,9 @@ export default {
 			return {code: array[0], name: array[1]};
 		});
 
-		this.timezones =  this.$page.props.timezoneList.map(value => {
-                return {code: value, name: value};
-            });
+		this.timezones = this.$page.props.timezoneList.map(value => {
+            return {code: value, name: value};
+        });
 		
 		this.languageList = require('@cospired/i18n-iso-languages');
 		this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/en.json'));

@@ -1,3 +1,17 @@
 .walletIcon {
-        font-size: 3rem;
-    }
+	font-size: 2.3rem !important;
+}
+
+.colorSample {
+	width: 16px;
+	height: 16px;
+	border-radius: 4px;
+
+	&.free {
+		background: rgb(24, 160, 251);
+	}
+
+	&.booked {
+		background: rgb(16, 191, 30);
+	}
+}
