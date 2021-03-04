@@ -7,17 +7,15 @@
 		<div class="grid grid-cols-3">
 			<div
 				class="mb-6 rounded-xl py-2 flex cursor-pointer flex-col items-center justify-center"
-				:class="value === language && 'shadow-xl'"
+				:class="value === language && 'shadow-md'"
 				v-for="language in languages"
 				:key="language"
 				@click="optionClick(language)"
 			>
-				<country-flag
-					class="flagImg mb-4"
-					rounded
-					size='big'
+				<flag
+					class="text-6xl rounded-full flagImg mb-4 shadow-sm"
 					v-if="language"
-					:country="language === 'en' ? 'us' : language"
+					:iso="language === 'en' ? 'us' : language"
 				/>
 				<div class="text-center capitalize font-bold text-md mt-4">{{ languageList.getName(language, locale) }}</div>
 			</div>

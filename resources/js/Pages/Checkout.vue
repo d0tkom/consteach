@@ -5,7 +5,7 @@
 				<div class="p-4 m-4 blue-text-color bg-white rounded-xl shadow-md border border-blue-300 items-center relative">
 					<div class="flex ">
 						<span class="h-6 rounded-full w-6 border blue-border-color text-center text-md flex flex-col justify-center">1</span>
-						<span class="mx-2 flex flex-col justify-center text-md font-semibold ">Tanórák</span>
+						<span class="mx-2 flex flex-col justify-center text-md font-semibold">Tanórák</span>
 					</div>
 					<div class="sm:my-4 sm:mx-8 m-2">
 						<div class="mb-2">Hány órát szeretnél vásárolni?</div>
@@ -36,9 +36,9 @@
 				</div>
 				
 				<div class="p-4 m-4 blue-text-color bg-white rounded-xl shadow-md border border-blue-300 items-center relative">
-					<div class="flex ">
+					<div class="flex">
 						<span class="h-6  rounded-full w-6 border blue-border-color text-center text-md flex flex-col justify-center">2</span>
-						<span class="mx-2 flex flex-col justify-center text-md font-semibold ">Fizetés</span>
+						<span class="mx-2 flex flex-col justify-center text-md font-semibold">Fizetés</span>
 					</div>
 					
 					<div class="sm:my-4 sm:mx-8 m-2">
@@ -81,7 +81,12 @@
 						
 						<div id="card-element"></div>
 						
-						<button id="card-button" @click="processPayment()" :disables="paymentProcessing" v-text="paymentProcessing ? 'Processing' : 'Pay Now'">
+						<button
+							id="card-button"
+							@click="processPayment()"
+							:disables="paymentProcessing"
+							v-text="paymentProcessing ? 'Processing' : 'Pay Now'"
+						>
 							Process Payment
 						</button>
 					</div>

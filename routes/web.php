@@ -40,8 +40,17 @@ Route::get('/forgotten-password', function () {
     return redirect('/#lost-password');
 })->name('forgotten-password');
 
-Route::get('/legal', function() {
-    return Inertia::render('Legal');
+// LEGAL routes
+Route::get('/terms-and-conditions', function() {
+    return Inertia::render('TermsAndConditions');
+});
+
+Route::get('/cookie-policy', function() {
+    return Inertia::render('CookiePolicy');
+});
+
+Route::get('/privacy-policy', function() {
+    return Inertia::render('PrivacyPolicy');
 });
 
 Route::get('/', function () {

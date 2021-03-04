@@ -10,6 +10,9 @@ import Lang from 'lang.js';
 import messages from './../assets/js/ll_messages';
 import { directive as onClickOutside } from 'vue-on-click-outside'
 
+import FlagIcon from 'vue-flag-icon'
+Vue.use(FlagIcon);
+
 window.Lang = Lang;
 
 Vue.mixin({ methods: { route } });

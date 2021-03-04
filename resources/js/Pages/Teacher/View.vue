@@ -2,7 +2,6 @@
     <app-layout>
         <div class="studentHubContainer mt-8">
             <div class="card flat lg">
-                <div class="font-bold text-md mb-4">{{ trans.get('teacher_profile.page_title') }}</div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
                     <div class="col-span-2">
                         <div class="card p-sm">
@@ -31,8 +30,9 @@
                                                     check_circle_outline
                                                 </span>
                                                 <span class="capitalize mr-4">{{ teacher.user.first_name }}  {{ teacher.user.last_name[0] }}.</span>
-	                                            <country-flag
-		                                            :country="teacher.country === 'en' ? 'us' : teacher.country"
+	                                            <flag
+		                                            class="text-2xl shadow-sm"
+		                                            :iso="teacher.country === 'en' ? 'us' : teacher.country"
 	                                            />
                                             </div>
                                         </div>
@@ -125,15 +125,13 @@
                                 <div class="sm:flex mb-10">
                                     <div class="flex-1 sm:text-left text-center">5 {{ trans.get('teacher_profile.hours') }}</div>
                                     <div class="relative">
-                                        <div class="sm:absolute -top-4 right-0 sm:w-28 sm:text-right text-center text-xs text-gray-500 line-through">{{ teacher.one_hour_price*1.2*5 }} HUF</div>
-                                        <div class="text-green-500 text-lg">{{ teacher.five_hour_price*1.2 }} HUF</div>
+                                        <div class="text-green-500 text-lg">{{ (teacher.five_hour_price / 5)*1.2 }} HUF</div>
                                     </div>
                                 </div>
                                 <div class="sm:flex mb-10">
                                     <div class="flex-1 sm:text-left text-center">10 {{ trans.get('teacher_profile.hours') }}</div>
                                     <div class="relative">
-                                        <div class="sm:absolute -top-4 right-0 sm:w-28 sm:text-right text-center text-xs text-gray-500 line-through">{{ teacher.one_hour_price*1.2*10 }} HUF</div>
-                                        <div class="text-green-500 text-lg">{{ teacher.ten_hour_price*1.2 }} HUF</div>
+                                        <div class="text-green-500 text-lg">{{ (teacher.ten_hour_price / 10)*1.2 }} HUF</div>
                                     </div>
                                 </div>
                             </div>

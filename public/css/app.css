@@ -716,6 +716,9 @@ body .mainSiteContainer.bg {
 body .mainSiteContainer.isLanding {
   background: none !important;
 }
+body .mainSiteContainer.isLanding footer:after {
+  content: none;
+}
 body .mainSiteContainer.isLanding .siteContent {
   margin-top: 40px !important;
 }
@@ -748,7 +751,6 @@ body .mainSiteContainer.isLanding .siteContent {
   margin-top: 80px;
   position: relative;
   z-index: 10;
-  margin-bottom: 40px;
 }
 
 .checkoutContainer {

@@ -5,19 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26ec1af2-7b2c-490f-937f-842dba45277b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/img/footer_bg.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Legal.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/hu/legal.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/CookiePolicy.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/PrivacyPolicy.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/Pages/TermsAndConditions.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/js/ll_messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/ll_messages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/css/components/l_app-layout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/l_app-layout.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/components/p_site-footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/p_site-footer.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/components/p_teacher-hub.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/p_teacher-hub.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teacher/Application.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teacher/Application.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teacher/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teacher/Dashboard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Popups/FindTeacherPrice.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Popups/FindTeacherPrice.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Layouts/Partials/SiteHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Layouts/Partials/SiteHeader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Checkout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Checkout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Landing.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Landing.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teacher/View.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teacher/View.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/TeacherLanding.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/TeacherLanding.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Popups/FindTeacherLanguage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Popups/FindTeacherLanguage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Widgets/FindTeacher.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Widgets/FindTeacher.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -605,7 +610,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/Widgets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/Pages" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -620,11 +625,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="I:\html\consteach_2\resources\js\Pages" />
       <recent name="I:\html\consteach_2\resources\js\Widgets" />
       <recent name="I:\html\consteach_2\resources\js\Popups" />
       <recent name="C:\MAMP\htdocs\consteach\resources\js\Pages\Student" />
       <recent name="C:\MAMP\htdocs\consteach\resources\js\Pages\Teacher" />
-      <recent name="C:\MAMP\htdocs\consteach\resources\lang\de" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="I:\html\consteach_2\resources\js\Pages" />
@@ -656,7 +661,12 @@
       <workItem from="1614653887205" duration="49000" />
       <workItem from="1614658043684" duration="52000" />
       <workItem from="1614695037974" duration="1890000" />
-      <workItem from="1614739617746" duration="4021000" />
+      <workItem from="1614739617746" duration="4160000" />
+      <workItem from="1614790342020" duration="500000" />
+      <workItem from="1614798514999" duration="1451000" />
+      <workItem from="1614801252270" duration="3399000" />
+      <workItem from="1614821215505" duration="342000" />
+      <workItem from="1614823782588" duration="3284000" />
     </task>
     <task id="LOCAL-00001" summary="Landing redesign + cSelect error prop">
       <created>1614650970432</created>
@@ -679,7 +689,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614653759919</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Find teacher ár filternél gombra nyomásra menjen a kérés + Footer design fix + Lefal public site">
+      <created>1614744849471</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1614744849471</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -752,7 +769,8 @@
     <MESSAGE value="Landing redesign + cSelect error prop" />
     <MESSAGE value="cSelect fix" />
     <MESSAGE value="Find teacher nyelv szűrőnél legyen flag" />
-    <option name="LAST_COMMIT_MESSAGE" value="Find teacher nyelv szűrőnél legyen flag" />
+    <MESSAGE value="Find teacher ár filternél gombra nyomásra menjen a kérés + Footer design fix + Lefal public site" />
+    <option name="LAST_COMMIT_MESSAGE" value="Find teacher ár filternél gombra nyomásra menjen a kérés + Footer design fix + Lefal public site" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Authenticate.php">

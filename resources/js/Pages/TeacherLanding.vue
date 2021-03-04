@@ -1,6 +1,5 @@
 <template>
-	<div>
-		<site-header />
+	<app-layout>
 		<main>
 			<section class="top">
 				<div class="flex">
@@ -88,28 +87,25 @@
 					</div>
 				</div>
 			</section>
-			<site-footer />
 		</main>
 		<login-popup v-model="$root.popup.login" />
 		<register-popup v-model="$root.popup.registration" />
 		<lost-password-popup v-model="$root.popup.lostPassword" />
-	</div>
+	</app-layout>
 </template>
 
 <script>
 import LoginPopup from "@/Pages/Landing/LoginPopup";
 import RegisterPopup from "@/Pages/Landing/RegisterPopup";
 import LostPasswordPopup from "@/Pages/Landing/LostPasswordPopup";
-import SiteHeader from '@/Layouts/Partials/SiteHeader';
-import SiteFooter from "@/Layouts/Partials/SiteFooter";
+import AppLayout from "@/Layouts/AppLayout";
 
 export default {
 	components: {
 		LostPasswordPopup,
 		RegisterPopup,
 		LoginPopup,
-		SiteHeader,
-		SiteFooter,
+		AppLayout
 	},
 	props: {
 		availableLanguages: {

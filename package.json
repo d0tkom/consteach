@@ -50,6 +50,7 @@
         "vue": "^2.6.12",
         "vue-country-flag": "^2.0.3",
         "vue-date-fns": "^2.0.1",
+        "vue-flag-icon": "^1.0.6",
         "vue-moment": "^4.1.0",
         "vue-on-click-outside": "^1.0.3",
         "vue-slider-component": "^3.2.11",

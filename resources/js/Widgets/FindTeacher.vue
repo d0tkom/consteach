@@ -21,9 +21,10 @@
 						<span
 							class="capitalize mr-4"
 						>{{ data.user.first_name }} {{ data.user.last_name[0] }}.</span>
-						<country-flag
+						<flag
 							v-if="data.country"
-							:country="data.country === 'en' ? 'us' : data.country"
+							class="text-2xl shadow-sm"
+							:iso="data.country === 'en' ? 'us' : data.country"
 						/>
 					</div>
 					<div class="price font-bold color-green-dark text-lg">

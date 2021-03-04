@@ -25,19 +25,17 @@
 						Válassz nyelvet!
 					</div>
 					<div class="container py-4">
+						
 						<div
 							v-for="language in availableLanguagesFiltered"
 							:key="language"
 							class="flex flex-col text-center items-center justify-center lang show-mobile"
 						>
-							<country-flag
-								class="flagImg mb-4"
-								rounded
-								size='big'
-								v-if="language"
-								:country="language === 'en' ? 'us' : language"
+							<flag
+								class="flagImg rounded-full mb-4 text-8xl shadow-md"
+								:iso="language === 'en' ? 'us' : language"
 							/>
-							<div class="title capitalize font-bold">{{ languageList[language] }}</div>
+							<div class="title capitalize font-md font-bold">{{ languageList[language] }}</div>
 						</div>
 					</div>
 					<div class="lang-button-container">
@@ -82,7 +80,7 @@
 							<div class="icon">
 								<img src="/img/circle4.svg" alt="circle4">
 							</div>
-							<div class="title">Csatlakozz a videóhíváshoz és kezdődhet a tanulás!</div>
+							<div class="title">Kezdődjön a videóhívás!</div>
 						</div>
 					</div>
 					
@@ -97,9 +95,7 @@
 						</div>
 						<div>
 							<inertia-link href="/teachers">
-								<c-btn
-									icon="search"
-								>Tanárkeresés</c-btn>
+								tanárkeresés
 							</inertia-link>
 						</div>
 					</div>
@@ -169,7 +165,7 @@
 								<p>Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből.</p>
 							</div>
 						</div>
-						<div class="line mr-12">
+						<div class="line">
 							<div class="icon flex justify-center">
 								<img src="/img/circle6.svg" alt="circle6">
 							</div>
@@ -178,7 +174,7 @@
 								<p>Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből.</p>
 							</div>
 						</div>
-						<div class="line mr-24">
+						<div class="line">
 							<div class="icon flex justify-center">
 								<img src="/img/circle7.svg" alt="circle7">
 							</div>
@@ -235,7 +231,7 @@ export default {
 		RegisterPopup,
 		LoginPopup,
 		SiteHeader,
-		AppLayout,
+		AppLayout
 	},
 	props: {
 		availableLanguages: {
