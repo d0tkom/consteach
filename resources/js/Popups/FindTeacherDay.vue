@@ -24,6 +24,11 @@
 				@click="dayToggle(day.value)"
 			>{{ day.label }}</c-btn>
 		</div>
+		<div class="flex justify-center mt-4">
+			<c-btn
+				@click="submit"
+			>Szűrés</c-btn>
+		</div>
 	</c-pop-up>
 </template>
 
@@ -100,6 +105,11 @@ export default {
 		};
 	},
 	methods: {
+		submit() {
+			this.$emit('change-time-of-day', this.value_.timeOfDay);
+			this.$emit('change-day', this.value_.day);
+			this.$emit('input', false);
+		},
 		timeOfDayToggle(value) {
 			let valueIndex = this.value_.timeOfDay.indexOf(value);
 			if (valueIndex === -1) {
@@ -107,7 +117,6 @@ export default {
 			} else {
 				this.$delete(this.value_.timeOfDay, valueIndex);
 			}
-			this.$emit('change-time-of-day', this.value_.timeOfDay);
 		},
 		dayToggle(value) {
 			let valueIndex = this.value_.day.indexOf(value);
@@ -116,7 +125,6 @@ export default {
 			} else {
 				this.$delete(this.value_.day, valueIndex);
 			}
-			this.$emit('change-day', this.value_.day);
 		}
 	}
 }

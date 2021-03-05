@@ -75,16 +75,16 @@
 		                    <div class="p-4">
 			                    <div class="text-sm flex items-center">
 				                    <div class="colorSample free mr-2"></div>
-				                    <span>Foglalható</span>
+				                    <span>{{ trans.get('dashboard.bookable') }}</span>
 			                    </div>
 			                    <div class="text-sm flex items-center">
 				                    <div class="colorSample booked mr-2"></div>
-				                    <span>Foglalt</span>
+				                    <span>{{ trans.get('dashboard.booked') }}</span>
 			                    </div>
 		                    </div>
 		                    
 		                    <div class="flex items-center justify-end">
-			                    <div class="mr-6">Szűrés napszakra</div>
+			                    <div class="mr-6">{{ trans.get('checkout.filter_calendar') }}</div>
 			                    <c-select
 				                    not-nullable
 				                    value-key="value"

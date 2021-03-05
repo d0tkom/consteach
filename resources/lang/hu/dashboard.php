@@ -11,6 +11,10 @@ return [
     'lesson' => 'Óra',
     'balance' => 'Egyenleg',
     'my_students' => 'Diákjaim',
+    'bookable' => 'Foglalható',
+    'booked' => 'Foglalt',
+    'filter_calendar' => 'Szűrés napszakra',
+
 
     'notification' => [
         'appointment_deleted' => 'Foglalás törölve'

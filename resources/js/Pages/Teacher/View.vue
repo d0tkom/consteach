@@ -73,13 +73,13 @@
                                 </div>
                                 <div class="mt-4">
                                     <div class="text-md font-bold color-blue-dark">{{ trans.get('teacher_profile.introduction') }}</div>
-                                    <div class="color-gray my-1" v-html="teacher.about_me[0].text"></div>
+                                    <div class="color-gray my-1" v-html="aboutMeText"></div>
                                     <c-btn
-                                        navigate-to="#"
                                         text
-                                        icon-right="keyboard_arrow_right"
+                                        :icon-right="aboutMeOpened ? 'keyboard_arrow_up' : 'keyboard_arrow_right'"
+                                        @click="aboutMeOpened = !aboutMeOpened"
                                     >
-                                        {{ trans.get('teacher_profile.more_btn') }}
+                                        {{ trans.get(aboutMeOpened ? 'teacher_profile.less_btn' : 'teacher_profile.more_btn') }}
                                     </c-btn>
                                 </div>
                             </div>
@@ -193,6 +193,7 @@
             return {
                 languageList: null,
                 locale: window.default_locale,
+	            aboutMeOpened: false,
                 appointmentPopup: {
                     open: false,
                     data: {
@@ -271,6 +272,23 @@
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/hu.json'));
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
         },
+	    computed: {
+		    aboutMeText() {
+		    	const maxChar = 100;
+		    	let text = null;
+		    	this.teacher.about_me.forEach(about_me => {
+		    		if (about_me.locale === this.$page.props.user.site_language) {
+		    		    return text = about_me.text;
+			        }
+			    });
+		    	
+		    	if (!this.aboutMeOpened && text.length > maxChar) {
+				    text = text.substring(0, maxChar)+'...';
+			    }
+		    	
+		    	return text;
+		    }
+	    },
         methods: {
             submitAppointment() {
                 axios.put('/appointment', {

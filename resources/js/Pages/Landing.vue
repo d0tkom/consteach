@@ -2,7 +2,7 @@
 	<app-layout>
 		<main>
 			<section class="top">
-				<div class="flex">
+				<div class="flex firstSectionFlex">
 					<div class="left flex flex-col justify-center ml-16">
 						<div class="title">Online, személyesen neked</div>
 						<p>Találj hozzád illő tanárt, tanulj anyanyelvi szinten, otthonod kényelméből</p>
@@ -57,30 +57,22 @@
 					<div class="base-title pt-4 pb-8">
 						Nyelvtanulás egyszerűen
 					</div>
-					<div class="container">
-						<div class="line">
-							<div class="icon">
-								<img src="/img/circle1.svg" alt="circle1">
-							</div>
-							<div class="title">Válassz a nyelvek közül</div>
+					<div class="container flex flex-col">
+						<div class="line flex">
+							<img class="icon" src="/img/circle1.svg" alt="circle1">
+							<div class="title text-xl">Válassz a nyelvek közül</div>
 						</div>
-						<div class="line">
-							<div class="icon">
-								<img src="/img/circle2.svg" alt="circle2">
-							</div>
-							<div class="title">Válassz tanárt magadnak</div>
+						<div class="line flex">
+							<img class="icon" src="/img/circle2.svg" alt="circle2">
+							<div class="title text-xl">Válassz tanárt magadnak</div>
 						</div>
-						<div class="line">
-							<div class="icon">
-								<img src="/img/circle3.svg" alt="circle3">
-							</div>
-							<div class="title">Foglalj időpontot</div>
+						<div class="line flex">
+							<img class="icon" src="/img/circle3.svg" alt="circle3">
+							<div class="title text-xl">Foglalj időpontot</div>
 						</div>
-						<div class="line">
-							<div class="icon">
-								<img src="/img/circle4.svg" alt="circle4">
-							</div>
-							<div class="title">Kezdődjön a videóhívás!</div>
+						<div class="line flex">
+							<img class="icon" src="/img/circle4.svg" alt="circle4">
+							<div class="title text-xl">Kezdődjön a videóhívás!</div>
 						</div>
 					</div>
 					
@@ -95,7 +87,11 @@
 						</div>
 						<div>
 							<inertia-link href="/teachers">
-								tanárkeresés
+								<c-btn
+									navigate-to="/teachers"
+								>
+									Tanárkeresés
+								</c-btn>
 							</inertia-link>
 						</div>
 					</div>
@@ -203,7 +199,7 @@
 					</div>
 					<div class="container">
 						<div class="videoWrapper">
-							<iframe loading="lazy" src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe loading="lazy" width="100%" src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
 					</div>
 					<div class="flex justify-center my-4">

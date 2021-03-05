@@ -948,6 +948,22 @@ body .mainSiteContainer.isLanding .siteContent {
   background: #174696;
   color: white;
 }
+.teacherApplicationContainer .profileImg {
+  position: relative;
+  margin-top: 20px;
+}
+.teacherApplicationContainer .profileImg .btnContainer {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+.teacherApplicationContainer .profileImg img {
+  max-height: 180px;
+  margin: auto;
+}
+.teacherApplicationContainer .profileImg .profileImageEditIcon.alignCenter .btnContainer {
+  left: calc(50% - 20px);
+}
 
 .bookedEvent {
   padding: 10px;

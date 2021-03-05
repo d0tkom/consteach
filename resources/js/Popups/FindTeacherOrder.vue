@@ -6,9 +6,10 @@
 	>
 		<div>
 			<c-btn
+				class="mb-4"
 				v-for="(option, o) in options"
 				:key="o"
-				text
+				:text="value !== o"
 				full
 				@click="optionClick(o)"
 			>{{ option.label }}</c-btn>
