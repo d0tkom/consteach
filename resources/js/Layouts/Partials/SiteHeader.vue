@@ -31,9 +31,6 @@
 							</label>
 						</div>
 					</li>
-					<li>
-						<inertia-link href="/faq">Segítség</inertia-link>
-					</li>
 				</ul>
 				<div class="flex items-center authBtns">
 					<c-btn

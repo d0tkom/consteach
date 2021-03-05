@@ -48,6 +48,7 @@
         "moment-timezone": "^0.5.33",
         "scroll-lock": "^2.1.5",
         "vue": "^2.6.12",
+        "vue-cookie": "^1.1.4",
         "vue-country-flag": "^2.0.3",
         "vue-date-fns": "^2.0.1",
         "vue-flag-icon": "^1.0.6",

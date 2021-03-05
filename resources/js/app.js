@@ -10,6 +10,10 @@ import Lang from 'lang.js';
 import messages from './../assets/js/ll_messages';
 import { directive as onClickOutside } from 'vue-on-click-outside'
 
+const VueCookie = require('vue-cookie');
+
+Vue.use(VueCookie);
+
 import FlagIcon from 'vue-flag-icon'
 Vue.use(FlagIcon);
 
@@ -38,9 +42,19 @@ new Vue({
             login: false,
             registration: false,
             lostPassword: false
+        },
+        cookiePolicy: {
+            accepted: false
+        }
+    },
+    watch: {
+        'cookiePolicy.accepted'(accepted) {
+            this.$cookie.set('cookie-policy', accepted);
         }
     },
     mounted() {
+        this.cookiePolicy.accepted = this.$cookie.get('cookie-policy') || false;
+
         if (window.location.hash === '#login') {
             this.popup.login = true;
         }
