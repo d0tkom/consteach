@@ -11,9 +11,9 @@
 			</button>
 			<div class="nav-bar">
 				<div class="lang">
-					<a :href="route(route().current()).replace('http://en.', 'http://')" class="active">HU</a>
+					<a :href="$page.url.replace('http://en.', 'http://')" class="active">HU</a>
 					<span class="separator"></span>
-					<a :href="route(route().current()).replace('http://', 'http://en.')">EN</a>
+					<a :href="$page.url.replace('http://', 'http://en.')">EN</a>
 				</div>
 				<ul>
 					<li>

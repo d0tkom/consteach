@@ -18,7 +18,7 @@ Vue.use(InertiaPlugin);
 Vue.use(PortalVue);
 import scrollLock from 'scroll-lock';
 
-import CountryFlag from 'vue-country-flag'
+import CountryFlag from 'vue-country-flag';
 
 Vue.component('country-flag', CountryFlag)
 
