@@ -577,6 +577,10 @@ body {
 					}
 				}
 				.right {
+					position: absolute;
+					top: 80px;
+					right: 40px;
+					z-index: 10;
 					width: 100%;
 					order: 1;
 					text-align: center;
@@ -750,15 +754,13 @@ body {
 					align-items: center;
 					margin-bottom: 10px;
 					@media screen and (min-width: $break-point1) {
-						display: block;
 						flex: 1;
 					}
 					.icon {
-						max-width: 80px;
-						margin-right: 20px;
+						max-width: 200px;
 						position: relative;
 						@media screen and (min-width: $break-point1) {
-							max-width: 140px;
+							max-width: 220px;
 							margin: 0 auto;
 						}
 						img {
@@ -864,19 +866,11 @@ body {
 		}
 		.teach-with-us {
 			background: #d3eeff;
-			background-image: url('/img/TeachWithUsBgLight.png');
 			@at-root {
 				body.dark main .teach-with-us {
 					background: #2f4467;
-					background-image: url('/img/TeachWithUsBgDark.png');
-					background-size: contain;
-					background-position: center;
-					background-repeat: no-repeat;
 				}
 			}
-			background-size: contain;
-			background-position: center;
-			background-repeat: no-repeat;
 			.container {
 				max-width: 270px;
 				margin: 0 auto;
@@ -971,7 +965,6 @@ body {
 				margin-bottom: 25px;
 				@media screen and (min-width: $break-point1) {
 					max-width: $break-point1;
-					margin: 50px;
 				}
 				.videoWrapper {
 					position: relative;
@@ -989,4 +982,8 @@ body {
 			}
 		}
 	}
+}
+
+.firstSectionFlex {
+	min-height: 60vh !important;
 }

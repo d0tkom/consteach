@@ -598,6 +598,10 @@ body main .top .flex .left .globe-and-book {
   }
 }
 body main .top .flex .right {
+  position: absolute;
+  top: 80px;
+  right: 40px;
+  z-index: 10;
   width: 100%;
   order: 1;
   text-align: center;
@@ -775,18 +779,16 @@ body main .language-learning .container .line {
 }
 @media screen and (min-width: 769px) {
   body main .language-learning .container .line {
-    display: block;
     flex: 1;
   }
 }
 body main .language-learning .container .line .icon {
-  max-width: 80px;
-  margin-right: 20px;
+  max-width: 200px;
   position: relative;
 }
 @media screen and (min-width: 769px) {
   body main .language-learning .container .line .icon {
-    max-width: 140px;
+    max-width: 220px;
     margin: 0 auto;
   }
 }
@@ -893,17 +895,9 @@ body.dark main .next-level .button-container {
 }
 body main .teach-with-us {
   background: #d3eeff;
-  background-image: url("/img/TeachWithUsBgLight.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 body.dark main .teach-with-us {
   background: #2f4467;
-  background-image: url("/img/TeachWithUsBgDark.png");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 body main .teach-with-us .container {
@@ -1007,7 +1001,6 @@ body main .join-us .container {
 @media screen and (min-width: 769px) {
   body main .join-us .container {
     max-width: 769px;
-    margin: 50px;
   }
 }
 body main .join-us .container .videoWrapper {
@@ -1022,4 +1015,8 @@ body main .join-us .container .videoWrapper iframe {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.firstSectionFlex {
+  min-height: 60vh !important;
 }

@@ -2,7 +2,7 @@
 	<app-layout>
 		<main>
 			<section class="top">
-				<div class="flex">
+				<div class="flex firstSectionFlex">
 					<div class="left flex flex-col justify-center ml-16">
 						<div class="title">Online, személyesen neked</div>
 						<p>Találj hozzád illő tanárt, tanulj anyanyelvi szinten, otthonod kényelméből</p>
@@ -25,19 +25,17 @@
 						Válassz nyelvet!
 					</div>
 					<div class="container py-4">
+						
 						<div
 							v-for="language in availableLanguagesFiltered"
 							:key="language"
 							class="flex flex-col text-center items-center justify-center lang show-mobile"
 						>
-							<country-flag
-								class="flagImg mb-4"
-								rounded
-								size='big'
-								v-if="language"
-								:country="language === 'en' ? 'us' : language"
+							<flag
+								class="flagImg rounded-full mb-4 text-8xl shadow-md"
+								:iso="language === 'en' ? 'us' : language"
 							/>
-							<div class="title capitalize font-bold">{{ languageList[language] }}</div>
+							<div class="title capitalize font-md font-bold">{{ languageList[language] }}</div>
 						</div>
 					</div>
 					<div class="lang-button-container">
@@ -59,30 +57,22 @@
 					<div class="base-title pt-4 pb-8">
 						Nyelvtanulás egyszerűen
 					</div>
-					<div class="container">
-						<div class="line">
-							<div class="icon">
-								<img src="/img/circle1.svg" alt="circle1">
-							</div>
-							<div class="title">Válassz a nyelvek közül</div>
+					<div class="container flex flex-col">
+						<div class="line flex">
+							<img class="icon" src="/img/circle1.svg" alt="circle1">
+							<div class="title text-xl">Válassz a nyelvek közül</div>
 						</div>
-						<div class="line">
-							<div class="icon">
-								<img src="/img/circle2.svg" alt="circle2">
-							</div>
-							<div class="title">Válassz tanárt magadnak</div>
+						<div class="line flex">
+							<img class="icon" src="/img/circle2.svg" alt="circle2">
+							<div class="title text-xl">Válassz tanárt magadnak</div>
 						</div>
-						<div class="line">
-							<div class="icon">
-								<img src="/img/circle3.svg" alt="circle3">
-							</div>
-							<div class="title">Foglalj időpontot</div>
+						<div class="line flex">
+							<img class="icon" src="/img/circle3.svg" alt="circle3">
+							<div class="title text-xl">Foglalj időpontot</div>
 						</div>
-						<div class="line">
-							<div class="icon">
-								<img src="/img/circle4.svg" alt="circle4">
-							</div>
-							<div class="title">Csatlakozz a videóhíváshoz és kezdődhet a tanulás!</div>
+						<div class="line flex">
+							<img class="icon" src="/img/circle4.svg" alt="circle4">
+							<div class="title text-xl">Kezdődjön a videóhívás!</div>
 						</div>
 					</div>
 					
@@ -98,8 +88,10 @@
 						<div>
 							<inertia-link href="/teachers">
 								<c-btn
-									icon="search"
-								>Tanárkeresés</c-btn>
+									navigate-to="/teachers"
+								>
+									Tanárkeresés
+								</c-btn>
 							</inertia-link>
 						</div>
 					</div>
@@ -169,7 +161,7 @@
 								<p>Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből.</p>
 							</div>
 						</div>
-						<div class="line mr-12">
+						<div class="line">
 							<div class="icon flex justify-center">
 								<img src="/img/circle6.svg" alt="circle6">
 							</div>
@@ -178,7 +170,7 @@
 								<p>Találj hozzád illő tanárt és tanulj anyanyelvi szinten, otthonod kényelméből.</p>
 							</div>
 						</div>
-						<div class="line mr-24">
+						<div class="line">
 							<div class="icon flex justify-center">
 								<img src="/img/circle7.svg" alt="circle7">
 							</div>
@@ -207,7 +199,7 @@
 					</div>
 					<div class="container">
 						<div class="videoWrapper">
-							<iframe loading="lazy" src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe loading="lazy" width="100%" src="https://www.youtube.com/embed/9bZkp7q19f0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
 					</div>
 					<div class="flex justify-center my-4">
@@ -235,7 +227,7 @@ export default {
 		RegisterPopup,
 		LoginPopup,
 		SiteHeader,
-		AppLayout,
+		AppLayout
 	},
 	props: {
 		availableLanguages: {

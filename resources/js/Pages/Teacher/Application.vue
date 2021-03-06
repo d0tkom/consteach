@@ -317,11 +317,11 @@
 			<div class="card" v-if="activeTab === 4">
 				<h2 class="title text-lg color-primary-dark font-bold">Verifikáció</h2>
 				<p>Már csak egy lépcső szükséges ahhoz hogy el tudj kezdeni tanítani nálunk!
-					Kérjük tölts fel egy fotót magadról és tartsd az arcod mellé útleveledet, vagy személyi igazolványodat. </p>
+					Kérjük tölts fel egy fotót magadról és tartsd az arcod mellé útleveledet, vagy személyi igazolványodat.</p>
 				<div class="profileImg">
                     <img v-if="!verificationPhotoPreview" :src="$page.props.user.profile_photo_url" alt="Tanár profilkép">
                     <img v-else :src="verificationPhotoPreview" alt="Tanár profilkép">
-                    <div class="inputContainer profileImageEditIcon">
+                    <div class="inputContainer profileImageEditIcon alignCenter">
                         <label>
                             <input
                                 id="verification-photo-input"

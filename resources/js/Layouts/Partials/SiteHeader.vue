@@ -1,9 +1,9 @@
 <template>
 	<header>
 		<nav v-if="isLanding">
-			<a href="#" class="logo">
+			<inertia-link href="/" class="logo">
 				<logo :width="180" :height="60" />
-			</a>
+			</inertia-link>
 			<button class="navbar-toggler">
 				<span class="line"></span>
 				<span class="line"></span>
@@ -17,22 +17,19 @@
 				</div>
 				<ul>
 					<li>
-						<a href="/teachers">Tanárt keresek</a>
+						<inertia-link href="/teachers">Tanárt keresek</inertia-link>
 					</li>
 					<li>
-						<a href="/teacher-landing">Jelentkezem tanárnak</a>
+						<inertia-link href="/teacher-landing">Jelentkezem tanárnak</inertia-link>
 					</li>
 					<li class="display-mode">
-						<a href="">Éjjeli mód</a>
+						<inertia-link href="">Éjjeli mód</inertia-link>
 						<div class="switch-container">
 							<label class="switch">
 								<input type="checkbox">
 								<span class="slider round"></span>
 							</label>
 						</div>
-					</li>
-					<li>
-						<a href="/faq">Segítség</a>
 					</li>
 				</ul>
 				<div class="flex items-center authBtns">

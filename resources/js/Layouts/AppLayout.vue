@@ -7,15 +7,23 @@
 	    </div>
 	
 	    <siteFooter />
+	
+	    <transition name="cookiefade">
+		    <cookie-panel
+		        v-if="!$root.cookiePolicy.accepted"
+		    />
+	    </transition>
     </div>
 </template>
 
 <script>
 	import SiteHeader from '@/Layouts/Partials/SiteHeader';
 	import SiteFooter from "@/Layouts/Partials/SiteFooter";
+	import CookiePanel from "@/Layouts/Partials/CookiePanel";
 	
     export default {
         components: {
+	        CookiePanel,
 	        SiteFooter,
 	        SiteHeader,
         },

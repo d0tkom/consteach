@@ -18,5 +18,6 @@ return [
 
     'buy_btn' => 'Csomag vásárlás',
     'message_btn' => 'Üzenet',
-    'more_btn' => 'Tovább'
+    'more_btn' => 'Tovább',
+    'less_btn' => 'Kevesebb',
 ];

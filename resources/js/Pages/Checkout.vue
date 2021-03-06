@@ -5,21 +5,21 @@
 				<div class="p-4 m-4 blue-text-color bg-white rounded-xl shadow-md border border-blue-300 items-center relative">
 					<div class="flex ">
 						<span class="h-6 rounded-full w-6 border blue-border-color text-center text-md flex flex-col justify-center">1</span>
-						<span class="mx-2 flex flex-col justify-center text-md font-semibold ">Tanórák</span>
+						<span class="mx-2 flex flex-col justify-center text-md font-semibold">{{ trans.get('checkout.lessons') }}</span>
 					</div>
 					<div class="sm:my-4 sm:mx-8 m-2">
-						<div class="mb-2">Hány órát szeretnél vásárolni?</div>
+						<div class="mb-2">{{ trans.get('checkout.how_many_hours') }}</div>
 						<label for="e1" @click="selectProduct(1, teacher.one_hour_price, 'HUF')">
 							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
 								<input id="e1" class="mt-1 sm:mr-3" type="radio" name="lesson" />
-								<div class="text-md font-semibold flex-1 mr-4">1 Tanóra</div>
+								<div class="text-md font-semibold flex-1 mr-4">1 {{ trans.choice('checkout.lesson', 1) }}</div>
 								<div class="text-green-500 text-md">{{ teacher.one_hour_price*1.2 }} HUF</div>
 							</div>
 						</label>
 						<label for="e2" @click="selectProduct(5, teacher.five_hour_price, 'HUF')">
 							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
 								<input id="e2" class="mt-1 sm:mr-3" type="radio" name="lesson" />
-								<div class="text-md font-semibold flex-1 mr-4">5 Tanóra</div>
+								<div class="text-md font-semibold flex-1 mr-4">5 {{ trans.choice('checkout.lesson', 5) }}</div>
 								<div class="text-md text-gray-500 line-through mr-2">{{ teacher.one_hour_price*1.2*5 }} HUF</div>
 								<div class="text-green-500 text-md">{{ teacher.five_hour_price*1.2 }} HUF</div>
 							</div>
@@ -27,7 +27,7 @@
 						<label for="e3" @click="selectProduct(10, teacher.ten_hour_price, 'HUF')">
 							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
 								<input id="e3" class="mt-1 sm:mr-3" type="radio" name="lesson" />
-								<div class="text-md font-semibold flex-1 mr-4">10 Tanóra</div>
+								<div class="text-md font-semibold flex-1 mr-4">10 {{ trans.choice('checkout.lesson', 10) }}</div>
 								<div class="text-md text-gray-500 line-through mr-2">{{ teacher.one_hour_price*1.2*10 }} HUF</div>
 								<div class="text-green-500 text-md">{{ teacher.ten_hour_price*1.2 }} HUF</div>
 							</div>
@@ -36,9 +36,9 @@
 				</div>
 				
 				<div class="p-4 m-4 blue-text-color bg-white rounded-xl shadow-md border border-blue-300 items-center relative">
-					<div class="flex ">
+					<div class="flex">
 						<span class="h-6  rounded-full w-6 border blue-border-color text-center text-md flex flex-col justify-center">2</span>
-						<span class="mx-2 flex flex-col justify-center text-md font-semibold ">Fizetés</span>
+						<span class="mx-2 flex flex-col justify-center text-md font-semibold">{{ trans.get('checkout.payment') }}</span>
 					</div>
 					
 					<div class="sm:my-4 sm:mx-8 m-2">
@@ -48,7 +48,7 @@
 							class="mb-4"
 							type="text"
 							name="address"
-							label="Address"
+							:label="trans.get('checkout.address_label')"
 							v-model="billing.address"
 							required
 						/>
@@ -56,7 +56,7 @@
 							class="mb-4"
 							type="text"
 							name="city"
-							label="City"
+							:label="trans.get('checkout.city_label')"
 							v-model="billing.city"
 							required
 						/>
@@ -65,7 +65,7 @@
 							class="mb-4"
 							type="text"
 							name="state"
-							label="State"
+							:label="trans.get('checkout.state_label')"
 							v-model="billing.state"
 							required
 						/>
@@ -74,15 +74,20 @@
 							class="mb-4"
 							type="text"
 							name="postal"
-							label="Postal"
+							:label="trans.get('checkout.postal_label')"
 							v-model="billing.postal"
 							required
 						/>
 						
 						<div id="card-element"></div>
 						
-						<button id="card-button" @click="processPayment()" :disables="paymentProcessing" v-text="paymentProcessing ? 'Processing' : 'Pay Now'">
-							Process Payment
+						<button
+							id="card-button"
+							@click="processPayment()"
+							:disables="paymentProcessing"
+							v-text="trans.get(paymentProcessing ? 'checkout.processing_label' : 'checkout.pay_now_label')"
+						>
+							{{ trans.get('checkout.process_payment') }}
 						</button>
 					</div>
 				</div>
@@ -92,7 +97,7 @@
 				<div class="p-4 blue-text-color bg-white rounded-xl shadow-md border border-blue-300 items-center relative">
 					<div class="flex">
 						<span class="h-6  rounded-full w-6 border blue-border-color text-center text-md flex flex-col justify-center">3</span>
-						<span class="mx-2 flex flex-col justify-center text-md font-semibold">Fizetés befejezése</span>
+						<span class="mx-2 flex flex-col justify-center text-md font-semibold">{{ trans.get('checkout.end_of_checkout') }}</span>
 					</div>
 					
 					<div class="m-4 text-center">
@@ -102,18 +107,18 @@
 					
 					<div class="mx-2">
 						<div class="flex">
-							<span class="text-md flex-1">Termék neve</span>
-							<span class="text-md">Összeg</span>
+							<span class="text-md flex-1">{{ trans.get('checkout.product_name') }}</span>
+							<span class="text-md">{{ trans.get('checkout.price') }}</span>
 						</div>
 						<hr class="my-1">
-						<div><span class="font-semibold">{{ product.lesson_number }} Tanóra</span> 60 perc</div>
+						<div><span class="font-semibold">{{ product.lesson_number }} {{ trans.choice('checkout.lesson', product.lesson_number) }}</span> 60 {{ trans.choice('checkout.minute', 60) }}</div>
 						<hr class="mb-2 mt-4">
 						<div class="flex justify-end mb-8">
 							<div class="flex">
 								<div class="w-28 sm:w-32">
-									<div class="text-green-500 text-md">Összeg:</div>
-									<div class="text-gray-500 text-xs">Illeték</div>
-									<div class="text-green-500 text-md font-semibold mt-2">Teljes összeg:</div>
+									<div class="text-green-500 text-md">{{ trans.get('checkout.price') }}:</div>
+									<div class="text-gray-500 text-xs">{{ trans.get('checkout.fee') }}:</div>
+									<div class="text-green-500 text-md font-semibold mt-2">{{ trans.get('checkout.total_price') }}:</div>
 								</div>
 								<div>
 									<div class="text-green-500 text-md text-right">{{ (product.amount-product.fee)/100 }} {{ product.currency }}</div>
@@ -127,14 +132,14 @@
 								@click="processPayment"
 								:loading="paymentProcessing"
 							>
-								Fizetés
+								{{ trans.get('checkout.pay_btn') }}
 							</c-btn>
 						</div>
 					</div>
 				</div>
 				<div class="p-4 items-center relative">
 					<p class="text-xs blue-text-color">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+						{{ trans.get('checkout.footer_info') }}
 					</p>
 				</div>
 			</div>

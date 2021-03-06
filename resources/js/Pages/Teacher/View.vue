@@ -2,7 +2,6 @@
     <app-layout>
         <div class="studentHubContainer mt-8">
             <div class="card flat lg">
-                <div class="font-bold text-md mb-4">{{ trans.get('teacher_profile.page_title') }}</div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
                     <div class="col-span-2">
                         <div class="card p-sm">
@@ -31,8 +30,9 @@
                                                     check_circle_outline
                                                 </span>
                                                 <span class="capitalize mr-4">{{ teacher.user.first_name }}  {{ teacher.user.last_name[0] }}.</span>
-	                                            <country-flag
-		                                            :country="teacher.country === 'en' ? 'us' : teacher.country"
+	                                            <flag
+		                                            class="text-2xl shadow-sm"
+		                                            :iso="teacher.country === 'en' ? 'us' : teacher.country"
 	                                            />
                                             </div>
                                         </div>
@@ -73,13 +73,13 @@
                                 </div>
                                 <div class="mt-4">
                                     <div class="text-md font-bold color-blue-dark">{{ trans.get('teacher_profile.introduction') }}</div>
-                                    <div class="color-gray my-1" v-html="teacher.about_me[0].text"></div>
+                                    <div class="color-gray my-1" v-html="aboutMeText"></div>
                                     <c-btn
-                                        navigate-to="#"
                                         text
-                                        icon-right="keyboard_arrow_right"
+                                        :icon-right="aboutMeOpened ? 'keyboard_arrow_up' : 'keyboard_arrow_right'"
+                                        @click="aboutMeOpened = !aboutMeOpened"
                                     >
-                                        {{ trans.get('teacher_profile.more_btn') }}
+                                        {{ trans.get(aboutMeOpened ? 'teacher_profile.less_btn' : 'teacher_profile.more_btn') }}
                                     </c-btn>
                                 </div>
                             </div>
@@ -125,15 +125,13 @@
                                 <div class="sm:flex mb-10">
                                     <div class="flex-1 sm:text-left text-center">5 {{ trans.get('teacher_profile.hours') }}</div>
                                     <div class="relative">
-                                        <div class="sm:absolute -top-4 right-0 sm:w-28 sm:text-right text-center text-xs text-gray-500 line-through">{{ teacher.one_hour_price*1.2*5 }} HUF</div>
-                                        <div class="text-green-500 text-lg">{{ teacher.five_hour_price*1.2 }} HUF</div>
+                                        <div class="text-green-500 text-lg">{{ (teacher.five_hour_price / 5)*1.2 }} HUF</div>
                                     </div>
                                 </div>
                                 <div class="sm:flex mb-10">
                                     <div class="flex-1 sm:text-left text-center">10 {{ trans.get('teacher_profile.hours') }}</div>
                                     <div class="relative">
-                                        <div class="sm:absolute -top-4 right-0 sm:w-28 sm:text-right text-center text-xs text-gray-500 line-through">{{ teacher.one_hour_price*1.2*10 }} HUF</div>
-                                        <div class="text-green-500 text-lg">{{ teacher.ten_hour_price*1.2 }} HUF</div>
+                                        <div class="text-green-500 text-lg">{{ (teacher.ten_hour_price / 10)*1.2 }} HUF</div>
                                     </div>
                                 </div>
                             </div>
@@ -195,6 +193,7 @@
             return {
                 languageList: null,
                 locale: window.default_locale,
+	            aboutMeOpened: false,
                 appointmentPopup: {
                     open: false,
                     data: {
@@ -273,6 +272,23 @@
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/hu.json'));
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
         },
+	    computed: {
+		    aboutMeText() {
+		    	const maxChar = 100;
+		    	let text = null;
+		    	this.teacher.about_me.forEach(about_me => {
+		    		if (about_me.locale === this.$page.props.user.site_language) {
+		    		    return text = about_me.text;
+			        }
+			    });
+		    	
+		    	if (!this.aboutMeOpened && text.length > maxChar) {
+				    text = text.substring(0, maxChar)+'...';
+			    }
+		    	
+		    	return text;
+		    }
+	    },
         methods: {
             submitAppointment() {
                 axios.put('/appointment', {

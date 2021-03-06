@@ -9,10 +9,11 @@
                     <div>
                         <c-btn
                             icon-right="keyboard_arrow_down"
-                            text
+                            outlined
+                            class="mr-2"
                             @click="filters.order.active = true"
                         >
-                            {{ filters.order.options[filters.order.value].label }}
+                            Rendezés: {{ filters.order.options[filters.order.value].label }}
                         </c-btn>
                         <find-teacher-order
                             :value="filters.order.value"
@@ -25,10 +26,15 @@
                     <div>
                         <c-btn
                             icon-right="keyboard_arrow_down"
-                            text
+                            outlined
+                            class="mr-2"
                             @click="filters.language.active = true"
                         >
-                            Nyelv
+	                        <flag
+		                        class="flagImg rounded-full"
+		                        :iso="filters.language.value === 'en' ? 'us' : filters.language.value"
+	                        />
+	                        Nyelv
                         </c-btn>
                         <find-teacher-language
                             :languages="availableLanguages"
@@ -44,7 +50,8 @@
                     <div>
                         <c-btn
                             icon-right="keyboard_arrow_down"
-                            text
+                            outlined
+                            class="mr-2"
                             @click="filters.price.active = true"
                         >
                             Ár
@@ -59,7 +66,8 @@
                     <div>
                         <c-btn
                             icon-right="keyboard_arrow_down"
-                            text
+                            outlined
+                            class="mr-2"
                             @click="filters.time.active = true"
                         >
                             Időpont
