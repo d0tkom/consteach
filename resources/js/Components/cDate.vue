@@ -41,7 +41,7 @@ export default {
 			default: {
 				basic: 'MMMM DD, YYYY',
 				withDay: 'MMMM DD, YYYY [(]dddd[)]',
-				onlyTime: 'hh:mm'
+				onlyTime: 'HH:mm'
 			}
 		};
 	},

@@ -14,22 +14,25 @@
 			<div class="mb-4 text-sm">
 				<b>{{ data.available }}</b> óra foglalásra vár
 			</div>
-			<c-btn
-				v-if="!fromTeacher"
-				icon="event"
-				outlined
-				medium
-			>
-				Órafoglalás
-			</c-btn>
-			<c-btn
-				v-else
-				icon="chat"
-				outlined
-				medium
-			>
-				Üzenet
-			</c-btn>
+			<inertia-link :href="'/teacher/' + data.teacher.id">
+				<c-btn 
+					v-if="!fromTeacher"
+					icon="event"
+					outlined
+					medium
+					:navigate-to="'/teacher/' + data.teacher.id"
+				>
+					Órafoglalás
+				</c-btn>
+				<c-btn
+					v-else
+					icon="chat"
+					outlined
+					medium
+				>
+					Üzenet
+				</c-btn>
+			</inertia-link>
 		</div>
 	</div>
 </template>

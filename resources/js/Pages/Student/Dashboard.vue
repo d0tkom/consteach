@@ -51,11 +51,14 @@
                                 :data="lesson"
                             />
                             <div class="flex justify-center">
-                                <c-btn
-                                    icon="search"
-                                >
-                                    {{ trans.get('dashboard.find_new_teacher_btn') }}
-                                </c-btn>
+                                <inertia-link href="/teachers">
+                                    <c-btn
+                                        navigate-to="/teachers"
+                                        icon="search"
+                                    >
+                                        {{ trans.get('dashboard.find_new_teacher_btn') }}
+                                    </c-btn>
+                                </inertia-link>
                             </div>
                         </div>
                         <div class="card p-sm">

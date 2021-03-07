@@ -80,15 +80,7 @@
 						/>
 						
 						<div id="card-element"></div>
-						
-						<button
-							id="card-button"
-							@click="processPayment()"
-							:disables="paymentProcessing"
-							v-text="trans.get(paymentProcessing ? 'checkout.processing_label' : 'checkout.pay_now_label')"
-						>
-							{{ trans.get('checkout.process_payment') }}
-						</button>
+					
 					</div>
 				</div>
 			</div>
@@ -103,6 +95,20 @@
 					<div class="m-4 text-center">
 						<img class="object-cover mx-auto h-14 w-14 rounded-full m-auto" :src="teacher.user.profile_photo_url" alt="Tanár profilképe">
 						<span class="mx-2 font-semibold">{{ teacher.user.first_name }} {{ teacher.user.last_name }}</span>
+					</div>
+
+					<div class="m-4 text-center" v-if="appointment">
+						<div>
+							<c-date
+								with-day
+								:value="appointment.start"
+							/>
+						</div>
+						<c-date
+							class="text-2xl font-bold color-primary-dark"
+							only-time
+							:value="appointment.start"
+						/>
 					</div>
 					
 					<div class="mx-2">
@@ -158,7 +164,8 @@
             Welcome,
         },
         props: {
-            teacher: Object
+            teacher: Object,
+            appointment: Object
         },
         data() {
             return {
@@ -258,7 +265,7 @@
                     alert(error);
                 } else {
                     this.product.payment_method = paymentMethod.id;
-                    axios.post('payment', {billing: this.billing, product: this.product})
+                    axios.post('payment', {appointment: this.appointment, billing: this.billing, product: this.product})
                         .then((response) => {
                             this.paymentProcessing = false;
 	                        this.$toast.success('Sikeres tranzakció');

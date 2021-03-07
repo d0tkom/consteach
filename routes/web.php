@@ -97,7 +97,7 @@ Route::put('/appointment', [AppointmentController::class, 'store'])->name('appoi
 Route::delete('/appointment/{appointment}', [AppointmentController::class, 'destroy'])->name('appointment.destroy');
 
 Route::get('/teachers', function (Request $request) {
-    $teachersAvailableLanguages = Teacher::select(['teaching_languages'])->get();
+    $teachersAvailableLanguages = Teacher::select(['teaching_languages'])->where('complete', true)->where('validated', true)->get();
 
     $availableLanguages = [];
     foreach($teachersAvailableLanguages as $teacherAvailableLanguages) {
@@ -112,7 +112,7 @@ Route::get('/teachers', function (Request $request) {
             }
         }
     }
-    $teachers = Teacher::with('user')->orderBy('one_hour_price', 'ASC')->get();
+    $teachers = Teacher::with('user')->where('complete', true)->where('validated', true)->orderBy('one_hour_price', 'ASC')->get();
     $teachers = CollectionHelper::paginate($teachers, 5);
 
     return Inertia::render('Teacher/List')->with(['all_teachers' => $teachers, 'availableLanguages' => $availableLanguages]);
@@ -171,7 +171,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/checkout/{teacher_id}', function ($teacher_id) {
         $teacher = Teacher::with('user')->find($teacher_id);
 
-        return Inertia::render('Checkout')->with(['teacher' => $teacher]);
+        $appointment = Appointment::find(request()->input('appointment'));
+
+        return Inertia::render('Checkout')->with(['teacher' => $teacher, 'appointment' => $appointment]);
     })->name('checkout');
 
     Route::put('/teacher/{teacher}', [TeacherController::class, 'update'])->name('teacher.update');

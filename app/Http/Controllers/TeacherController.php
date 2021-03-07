@@ -117,7 +117,7 @@ class TeacherController extends Controller
 
     public function load_more(Request $request)
     {
-        $teachers = Teacher::with('user')->orderBy('one_hour_price', 'ASC')->get();
+        $teachers = Teacher::with('user')->where('complete', true)->where('validated', true)->orderBy('one_hour_price', 'ASC')->get();
         $teachers = CollectionHelper::paginate($teachers, 5);
 
         if ($request->ajax()) {
@@ -129,7 +129,7 @@ class TeacherController extends Controller
 
     public function filter(Request $request)
     {
-        $teachers = Teacher::whereBetween('one_hour_price', [request()->input('prices')[0], request()->input('prices')[1]])
+        $teachers = Teacher::where('complete', true)->where('validated', true)->whereBetween('one_hour_price', [request()->input('prices')[0], request()->input('prices')[1]])
             ->with(['user', 'availabilities']);
 
         if (request()->input('language')) {

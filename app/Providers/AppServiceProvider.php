@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Http\Request;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        Request::macro('subdomain', function () {
+            $domain = request()->server->get('HTTP_HOST');
+            $split = explode('.', $domain);
+
+            return array_get($split, '0', '');
+        });
     }
 
     /**

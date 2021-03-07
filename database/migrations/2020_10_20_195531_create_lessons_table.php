@@ -17,9 +17,9 @@ class CreateLessonsTable extends Migration
             $table->id();
             $table->foreignId('student_id')->constrained();
             $table->foreignId('teacher_id')->constrained();
-            $table->smallInteger('finished');
-            $table->tinyInteger('booked');
-            $table->smallInteger('available');
+            $table->smallInteger('finished')->default(0);
+            $table->tinyInteger('booked')->default(0);
+            $table->smallInteger('available')->default(0);
             $table->timestamps();
         });
     }

@@ -36,6 +36,7 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
+
         $appointment = Appointment::create(
                 [
                     'teacher_id' => $request->input('params')['teacher_id'],
@@ -43,12 +44,28 @@ class AppointmentController extends Controller
                     'start' => Carbon::create($request->input('params')['start'])->tz('UTC'),
                     'end' => Carbon::create($request->input('params')['end'])->tz('UTC'),
                     'type' => '??',
+                    'active' => false,
                     'student_approved' => false,
                     'teacher_approved' => false,
                 ]
             );
 
-        //TODO: Notification
+        $lesson = auth()->user()->extra->lessons()->where('teacher_id', $request->input('params')['teacher_id'])->first();
+
+
+        if ($lesson != null && $lesson->available > 0) {
+            $appointment->active = true;
+
+            $appointment->save();
+
+            $lesson->decrement('available', 1);
+            $lesson->increment('booked', 1);
+
+            $lesson->save();
+            //TODO: Notification
+        } else {
+            return response($appointment->id, 423);
+        }
 
         return $appointment;
     }

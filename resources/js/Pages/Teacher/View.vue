@@ -277,7 +277,7 @@
 		    	const maxChar = 100;
 		    	let text = null;
 		    	this.teacher.about_me.forEach(about_me => {
-		    		if (about_me.locale === this.$page.props.user.site_language) {
+		    		if (about_me.locale === this.locale) {
 		    		    return text = about_me.text;
 			        }
 			    });
@@ -291,6 +291,7 @@
 	    },
         methods: {
             submitAppointment() {
+                let self = this;
                 axios.put('/appointment', {
                     params: {
                         start: this.appointmentPopup.data.date_start,
@@ -314,8 +315,11 @@
                     }, 500);
                 })
                 .catch(error => {
-                    console.error(error);
-	                this.$toast.error('Időpont foglalása sikertelen');
+                    if (error.response.status == 423) {
+                         this.$inertia.visit('/checkout/' + this.teacher.id  + '?appointment=' + error.response.data);
+                    } else {
+                        this.$toast.error('Időpont foglalása sikertelen');
+                    }
                 });
             },
             addAppointment: function (eventClickInfo) {
