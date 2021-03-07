@@ -73,6 +73,7 @@
                             Időpont
                         </c-btn>
                         <find-teacher-day
+	                        @input="loadFilteredData(); filters.time.active = false"
                             :value="filters.time.value"
                             :active="filters.time.active"
                             @change-day="value => filters.time.value.day = value"
@@ -171,9 +172,6 @@
         },
         watch: {
             'filters.order.value': function (){
-                 this.loadFilteredData();
-             },
-             'filters.time.value': function (){
                  this.loadFilteredData();
              },
              'filters.language.value': function (){

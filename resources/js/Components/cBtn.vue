@@ -12,6 +12,7 @@
 				medium && 'medium',
 				large && 'large',
 				full && 'full',
+				glow && 'glow',
 				alignLeft && 'align-left',
 				'color-'+color
 			]"
@@ -100,6 +101,10 @@ export default {
 			default: null
 		},
 		alignLeft: {
+			type: Boolean,
+			default: false
+		},
+		glow: {
 			type: Boolean,
 			default: false
 		},
