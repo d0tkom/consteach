@@ -38,6 +38,10 @@ return [
 
     'twenty_hours_net' => '20 óra - nettó',
     'twenty_hours_gross' => '20 óra - bruttó',
+
+    'validating_alert_title' => 'Validálás folyamatban',
+    'validating_alert_description' => 'A validálásig a főbb funkciók nem elérhetőek.',
+
 ];
 
 ?>

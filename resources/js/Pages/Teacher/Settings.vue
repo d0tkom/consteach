@@ -9,8 +9,8 @@
 		            <span class="material-icons icon">info</span>
 	            </div>
 	            <div>
-		            <div class="title text-2xl mb-2 font-bold">Validálás folyamatban</div>
-		            <div>A validálásig a főbb funkciók nem elérhetőek.</div>
+		            <div class="title text-2xl mb-2 font-bold">{{ trans.get('settings.validating_alert_title') }}</div>
+		            <div>{{ trans.get('settings.validating_alert_description') }}</div>
 	            </div>
             </div>
 	        
