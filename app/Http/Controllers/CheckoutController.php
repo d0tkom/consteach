@@ -36,6 +36,10 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->input('product')['amount'] == 0) {
+            return $this->TrialPayment($request->input('appointment')['id']);
+        }
+
         $student = auth()->user()->extra;
 
         $student->address = $request->input('billing')['address'];
@@ -136,5 +140,27 @@ class CheckoutController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function TrialPayment($appointment_id)
+    {
+        $user = auth()->user();
+
+        $lesson = Lesson::firstOrCreate(
+            [
+                'student_id' => $student->id,
+                'teacher_id' => $request->input('product')['teacher_id']
+            ]
+        );
+
+        $lesson->increment('booked', 1);
+
+        $lesson->save();
+
+        $appointment = Appointment::where('id', $appointment_id)->first();
+        $appointment->active = true;
+        $appointment->save();
+
+        return true;
     }
 }
