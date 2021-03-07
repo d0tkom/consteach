@@ -84,9 +84,12 @@ body {
 
 .studentHubContainer {
 	img {
-		max-width: 100px;
+		width: 100px;
+		height: 100px;
+		object-fit: cover;
 	}
 }
+
 
 .teacherHubContainer {
 	.profileImg img, .profileImageWrapper img {
@@ -116,4 +119,12 @@ body {
   &:before {
     left: 0;
   }
+}
+
+.alert {
+	max-width: 600px;
+
+	.icon {
+		font-size: 42px;
+	}
 }
