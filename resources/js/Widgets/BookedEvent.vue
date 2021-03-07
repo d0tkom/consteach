@@ -68,7 +68,6 @@
 			v-model="eventNotReadyPopup"
 			:event="data"
 		/>
-		
 		<student-appointment
 			v-model="appointmentPopup.open"
 			:data="data"

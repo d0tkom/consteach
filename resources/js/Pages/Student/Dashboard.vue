@@ -19,7 +19,7 @@
                         <div class="card p-sm">
                             <div class="flex justify-between mb-4">
                                 <div class="color-primary-dark text-lg font-bold">{{ trans.get('dashboard.booked_lessons') }}</div>
-                                <div class="color-gray">2020. január 21.</div>
+                                <div class="color-gray"></div>
                             </div>
                             <div class="events">
                                 <booked-event

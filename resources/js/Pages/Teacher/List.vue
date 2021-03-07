@@ -132,7 +132,7 @@
                 languageList: null,
                 total: this.all_teachers.total,
                 locale: window.default_locale,
-                next_page_url: this.all_teachers.next_page_url.replace('teachers', 'teachers/load-more'),
+                next_page_url: this.all_teachers.next_page_url ? this.all_teachers.next_page_url.replace('teachers', 'teachers/load-more') : null,
                 filters: {
                     order: {
                         active: false,
