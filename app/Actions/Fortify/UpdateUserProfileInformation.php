@@ -40,8 +40,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'email' => $input['email'],
                 'timezone' => $input['timezone'],
                 'spoken_languages' => $input['spoken_languages'],
-                'site_language' => $input['site_language'],
-                'currency' => $input['currency'],
+                'site_language' => $input['site_language'] ?? 'hu',
+                'currency' => $input['currency'] ?? 'HUF',
             ])->save();
         }
 
@@ -51,10 +51,11 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $teacher->teaching_languages = $input['teaching_languages'];
             $teacher->about_me = $input['about_me'];
             $teacher->country = $input['country'];
+            $teacher->complete = $input['complete'];
             $teacher->video_url = $input['video_url'];
-            $teacher->one_hour_price = $input['one_hour_price'];
-            $teacher->five_hour_price = $input['five_hour_price'];
-            $teacher->ten_hour_price = $input['ten_hour_price'];
+            $teacher->one_hour_price = $input['one_hour_price'] ?? 0;
+            $teacher->five_hour_price = $input['five_hour_price'] ?? 0;
+            $teacher->ten_hour_price = $input['ten_hour_price'] ?? 0;
 
             $teacher->save();
         }        

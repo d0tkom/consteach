@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lesson;
+use App\Models\Appointment;
 
 class CheckoutController extends Controller
 {
@@ -74,6 +75,15 @@ class CheckoutController extends Controller
             );
 
             $lesson->increment('available', $request->input('product')['lesson_number']);
+
+            if ($request->input('appointment') != null) {
+                $appointment = Appointment::where('id', $request->input('appointment')['id'])->first();
+                $appointment->active = true;
+                $appointment->save();
+
+                $lesson->decrement('available', 1);
+                $lesson->increment('booked', 1);
+            }
 
             $lesson->save();
 

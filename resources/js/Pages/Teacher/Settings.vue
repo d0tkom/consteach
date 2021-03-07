@@ -38,7 +38,7 @@
                         </div>
                     </div>
 	                
-                    <div class="userName title text-center color-primary text-2xl mt-4">{{ $page.props.user.last_name }}</div>
+                    <div class="userName title text-center color-primary text-2xl mt-4">{{ $page.props.user.first_name }}</div>
                 </div>
                 <div class="content">
                     <form>
@@ -344,6 +344,8 @@
 	            photoPreview: null,
 	            
                 saving: false,
+
+                fee: 1.20,
                 
                 removeAccountPopup: false,
                 changePasswordPopup: false,
@@ -412,7 +414,7 @@
 	        	let value = form_item / hours;
 		        
 	        	if (!net) {
-	        		value *= 1.20;
+	        		value *= this.fee;
 		        }
 	        	
 	        	return Math.floor(value);
@@ -421,16 +423,16 @@
 	        	let valueCalculated = value * hours;
 		        
 		        if (!net) {
-			        valueCalculated /= 1.20;
+			        valueCalculated /= this.fee;
 		        }
 
 		        this.$set(this.form, form_item, valueCalculated);
 	        },
 	        calculateGrossPrice(value) {
-	        	return Math.floor(value * 1.20);
+	        	return Math.floor(value * this.fee);
 	        },
 	        grossPriceInput(formItem, value) {
-		        formItem = value / 1.20;
+		        formItem = value / this.fee;
 	        },
 	        updatePhotoPreview() {
 		        const reader = new FileReader();

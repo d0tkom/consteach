@@ -424,6 +424,7 @@ export default {
 				last_name: this.$page.props.user.last_name,
 				email: this.$page.props.user.email,
 				country: null,
+				complete: true,
 				timezone: null,
 				about_me: [{locale: 'hu', text: ''}, {locale: 'en', text: ''}],
 				video_url: null,
@@ -451,9 +452,13 @@ export default {
 			return {code: array[0], name: array[1]};
 		});
 
+		this.countries.sort(this.$root.sortAlphabetByName);
+
 		this.timezones = this.$page.props.timezoneList.map(value => {
             return {code: value, name: value};
         });
+
+        this.timezones.sort(this.$root.sortAlphabetByName);
 		
 		this.languageList = require('@cospired/i18n-iso-languages');
 		this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/en.json'));
@@ -463,6 +468,8 @@ export default {
 		this.languageList = Object.entries(this.languageList.getNames(this.locale, {select: 'official'})).map(array => {
 			return {code: array[0], name: array[1]};
 		});
+
+		this.languageList.sort(this.$root.sortAlphabetByName);
 		
 		this.currencies = this.currencies.map(code => {
 			return {code: code, name: code};
@@ -486,10 +493,12 @@ export default {
 			this.form.teaching_languages.push(languageTemplate);
 		},
 		submit() {
-			this.form.post('/users/' + this.$page.props.user.id, { 
+			//TODO: reset localStorage
+			this.form.post('/users/' + this.$page.props.user.id, {
 				preserveScroll: true, 
 				onSuccess: () => {
 					this.$toast.success('Sikeres mentés');
+					localStorage.removeItem('teacher-application');
 				}
 			});
 		},
