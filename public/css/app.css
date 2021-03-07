@@ -73,8 +73,14 @@
   background: #18A0FB;
   color: white;
 }
+.btnContainer .cBtn.color-primary.glow {
+  box-shadow: 0 2px 8px -2px rgba(24, 160, 251, 0.6);
+}
 .btnContainer .cBtn.color-primary:hover {
   background: #4ab5fc;
+}
+.btnContainer .cBtn.color-primary:hover.glow {
+  box-shadow: 0 0 10px -2px rgba(24, 160, 251, 0.8);
 }
 .btnContainer .cBtn.color-primary:active {
   background: #7cc9fd;
@@ -84,8 +90,14 @@
   color: #18A0FB;
   padding: 10px 20px;
 }
+.btnContainer .cBtn.color-primary.text.glow {
+  box-shadow: none;
+}
 .btnContainer .cBtn.color-primary.text:hover {
   background: rgba(24, 160, 251, 0.1);
+}
+.btnContainer .cBtn.color-primary.text:hover.glow {
+  box-shadow: 0 2px 4px -2px rgba(24, 160, 251, 0.6);
 }
 .btnContainer .cBtn.color-primary.text:active {
   background: rgba(24, 160, 251, 0.2);
@@ -95,9 +107,15 @@
   color: #18A0FB;
   border: 2px solid #18A0FB;
 }
+.btnContainer .cBtn.color-primary.outlined.glow {
+  box-shadow: 0 4px 8px -2px rgba(24, 160, 251, 0.6);
+}
 .btnContainer .cBtn.color-primary.outlined:hover {
   background: #18A0FB;
   color: white;
+}
+.btnContainer .cBtn.color-primary.outlined:hover.glow {
+  box-shadow: 0 2px 8px -2px rgba(24, 160, 251, 0.6);
 }
 .btnContainer .cBtn.color-primary.outlined:active {
   background: #4ab5fc;
@@ -732,7 +750,7 @@ body {
   width: 100vw;
   overflow-x: hidden;
 }
-body .mainSiteContainer.bg {
+body .mainSiteContainer .bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -821,7 +839,7 @@ body .mainSiteContainer.isLanding .siteContent {
   transform: translate(-50%, -50%);
 }
 
-.studentSettingsContainer {
+.marginTopExtra {
   margin-top: 200px;
 }
 
@@ -845,7 +863,7 @@ body .mainSiteContainer.isLanding .siteContent {
 .page.userSettings {
   padding: 40px 30px;
   padding-top: 60px;
-  margin-top: 120px;
+  margin-top: 200px;
 }
 .page .top .profileImg {
   width: 140px;
@@ -901,7 +919,7 @@ body .mainSiteContainer.isLanding .siteContent {
 .card.userSettings {
   padding: 40px 30px;
   padding-top: 60px;
-  margin-top: 120px;
+  margin-top: 200px;
 }
 .card .top .profileImg {
   width: 140px;
@@ -1119,7 +1137,10 @@ body {
 }
 
 .studentHubContainer img {
-  max-width: 100px;
+  width: 100px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .teacherHubContainer .profileImg img, .teacherHubContainer .profileImageWrapper img {
@@ -1147,6 +1168,13 @@ body {
 }
 .hr:before {
   left: 0;
+}
+
+.alert {
+  max-width: 600px;
+}
+.alert .icon {
+  font-size: 42px;
 }
 /*! tailwindcss v2.0.3 | MIT License | https://tailwindcss.com */
 

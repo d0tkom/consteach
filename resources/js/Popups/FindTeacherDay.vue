@@ -108,7 +108,7 @@ export default {
 		submit() {
 			this.$emit('change-time-of-day', this.value_.timeOfDay);
 			this.$emit('change-day', this.value_.day);
-			this.$emit('input', false);
+			this.$emit('input', this.value_);
 		},
 		timeOfDayToggle(value) {
 			let valueIndex = this.value_.timeOfDay.indexOf(value);

@@ -7,6 +7,8 @@
 						<div class="title">Taníts nálunk!</div>
 						<p>Ha kimagaslóan beszélsz egy nyelvet és szeretnél nyelvet oktatni nálunk a helyed!</p>
 						<c-btn
+							large
+							glow
 							navigate-to="/"
 						>
 							Jelentkezés
@@ -79,6 +81,8 @@
 					</div>
 					<div class="flex justify-center">
 						<c-btn
+							large
+							glow
 							navigate-to="/#registration"
 							@click="$root.popup.registration = true"
 						>

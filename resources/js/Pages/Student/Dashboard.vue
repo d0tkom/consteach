@@ -11,18 +11,6 @@
                             <div class="name text-xl font-bold color-primary-dark">
                                 {{ $page.props.user.first_name }}
                             </div>
-                            <div>
-                                <b class="color-primary-dark text-md">{{ trans.get('dashboard.mother_tongue') }}:</b> {{ $page.props.user.country }}
-                            </div>
-                            <div class="text-md">
-                                <b class="color-primary-dark">{{ trans.get('dashboard.spoken_languages') }}:</b>
-                                <span
-                                    v-for="(language, l) in $page.props.user.spoken_languages"
-                                    :key="l"
-                                >
-                                    {{ language.language }}({{ language.level }})
-                                </span>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -31,7 +19,7 @@
                         <div class="card p-sm">
                             <div class="flex justify-between mb-4">
                                 <div class="color-primary-dark text-lg font-bold">{{ trans.get('dashboard.booked_lessons') }}</div>
-                                <div class="color-gray">2020. január 21.</div>
+                                <div class="color-gray"></div>
                             </div>
                             <div class="events">
                                 <booked-event

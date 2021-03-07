@@ -73,6 +73,7 @@
                             Időpont
                         </c-btn>
                         <find-teacher-day
+	                        @input="loadFilteredData(); filters.time.active = false"
                             :value="filters.time.value"
                             :active="filters.time.active"
                             @change-day="value => filters.time.value.day = value"
@@ -132,7 +133,7 @@
                 languageList: null,
                 total: this.all_teachers.total,
                 locale: window.default_locale,
-                next_page_url: this.all_teachers.next_page_url.replace('teachers', 'teachers/load-more'),
+                next_page_url: this.all_teachers.next_page_url ? this.all_teachers.next_page_url.replace('teachers', 'teachers/load-more') : null,
                 filters: {
                     order: {
                         active: false,
@@ -172,9 +173,6 @@
         },
         watch: {
             'filters.order.value': function (){
-                 this.loadFilteredData();
-             },
-             'filters.time.value': function (){
                  this.loadFilteredData();
              },
              'filters.language.value': function (){

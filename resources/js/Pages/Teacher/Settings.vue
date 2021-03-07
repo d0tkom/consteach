@@ -1,8 +1,21 @@
 <template>
     <app-layout>
         <div class="studentSettingsContainer">
-            <!-- Felhasználói adatok -->
-            <div class="card md userSettings">
+            <div
+	            v-if="!$page.props.user.extra.validated"
+	            class="card p-sm mb-4 alert flex"
+            >
+	            <div class="flex justify-center items-center mr-4">
+		            <span class="material-icons icon">info</span>
+	            </div>
+	            <div>
+		            <div class="title text-2xl mb-2 font-bold">{{ trans.get('settings.validating_alert_title') }}</div>
+		            <div>{{ trans.get('settings.validating_alert_description') }}</div>
+	            </div>
+            </div>
+	        
+	        <!-- Felhasználói adatok -->
+            <div class="card md userSettings marginTopExtra">
                 <div class="top mb-4">
                     <div class="profileImg">
                         <img v-if="!photoPreview" :src="$page.props.user.profile_photo_url" alt="Tanár profilkép">
@@ -225,7 +238,7 @@
 			            hint="/óra"
 			            readonly
 			            :label="trans.get('settings.five_hours_gross')"
-			            :value="calculateGrossPrice(calculateHourPrice(form.five_hour_price, 5, false))"
+			            :value="calculateHourPrice(form.five_hour_price, 5, false)"
 		            />
 	            </div>
 	            <div class="grid grid-cols-2 gap-4">

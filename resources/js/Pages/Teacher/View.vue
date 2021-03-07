@@ -204,6 +204,9 @@
                     }
                 },
                 calendarOptions: {
+	                validRange: {
+		                start: moment().format('YYYY-MM-DD')
+	                },
                     plugins: [ timeGridPlugin, interactionPlugin ],
                     initialView: 'timeGridWeek',
                     locale: window.default_locale,

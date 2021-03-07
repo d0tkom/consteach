@@ -296,10 +296,10 @@
 				<h2 class="title text-lg color-primary-dark font-bold">Bemutatkozás</h2>
 				<div class="color-blue-dark">Mutatkozz be leendő diákjaidnak!</div>
 				<div
-                class="card md-4"
-                v-for="(about_me, a) in form.about_me"
-                :key="'abtm-'+ a"
-            >
+	                class="card md-4"
+	                v-for="(about_me, a) in form.about_me"
+	                :key="'abtm-'+ a"
+	            >
                     <div>
                         <h2 class="title text-lg color-primary-dark mb-4">{{ trans.get('settings.about_me') }} {{ about_me.locale }}</h2>
                         <c-text-area
@@ -494,12 +494,12 @@ export default {
 		},
 		submit() {
 			//TODO: reset localStorage
-			this.form.post('/users/' + this.$page.props.user.id, { 
+			this.form.post('/users/' + this.$page.props.user.id, {
 				preserveScroll: true, 
 				onSuccess: () => {
 					this.$toast.success('Sikeres mentés');
 					localStorage.removeItem('teacher-application');
-				} 
+				}
 			});
 		},
 		updateProfilePhotoPreview() {
@@ -536,8 +536,8 @@ export default {
             }
 
             if (this.$refs.verification_photo) {
-                    this.form.verification_photo = this.$refs.verification_photo.files[0];
-                }
+                this.form.verification_photo = this.$refs.verification_photo.files[0];
+            }
 
 			this.form.post('/teacher/' + this.teacher.id, { 
 				preserveScroll: true, 
@@ -548,6 +548,9 @@ export default {
 						}
 	                }
 	           	},
+				onError: error => {
+					console.error(error)
+				}
 			});
 		},
 		prevTab() {

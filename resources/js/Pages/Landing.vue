@@ -7,6 +7,8 @@
 						<div class="title">Online, személyesen neked</div>
 						<p>Találj hozzád illő tanárt, tanulj anyanyelvi szinten, otthonod kényelméből</p>
 						<c-btn
+							large
+							glow
 							navigate-to="/teachers"
 						>INGYENES Próbaóra</c-btn>
 						<div class="globe-and-book"></div>
@@ -40,6 +42,8 @@
 					</div>
 					<div class="lang-button-container">
 						<c-btn
+							large
+							glow
 							class="mt-4"
 							outlined
 							:icon="moreLanguages ? 'remove_circle_outline' : 'add_circle_outline'"
@@ -88,6 +92,8 @@
 						<div>
 							<inertia-link href="/teachers">
 								<c-btn
+									large
+									glow
 									navigate-to="/teachers"
 								>
 									Tanárkeresés
@@ -137,6 +143,8 @@
 					</div>
 					<div class="button-container">
 						<c-btn
+							large
+							glow
 							navigate-to="/#registration"
 						>Regisztrálok</c-btn>
 					</div>
@@ -182,6 +190,8 @@
 					</div>
 					<div class="button-container">
 						<c-btn
+							large
+							glow
 							navigate-to="/teacher-landing"
 						>Jelentkezem tanárnak</c-btn>
 					</div>
@@ -204,6 +214,8 @@
 					</div>
 					<div class="flex justify-center my-4">
 						<c-btn
+							large
+							glow
 							navigate-to="/#registration"
 						>Regisztrálok</c-btn>
 					</div>

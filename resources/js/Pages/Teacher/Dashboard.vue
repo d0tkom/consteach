@@ -84,7 +84,7 @@
 		                    </div>
 		                    
 		                    <div class="flex items-center justify-end">
-			                    <div class="mr-6">{{ trans.get('checkout.filter_calendar') }}</div>
+			                    <div class="mr-6">{{ trans.get('dashboard.filter_calendar') }}</div>
 			                    <c-select
 				                    not-nullable
 				                    value-key="value"
@@ -241,6 +241,9 @@
                 languageList: null,
                 locale: window.default_locale,
                 calendarOptions: {
+	                validRange: {
+		                start: moment().format('YYYY-MM-DD')
+	                },
 	                slotMinTime: '06:00:00',
 	                slotMaxTime: '18:00:00',
                     plugins: [ timeGridPlugin, interactionPlugin ],
