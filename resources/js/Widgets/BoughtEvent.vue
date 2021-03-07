@@ -1,5 +1,5 @@
 <template>
-	<div class="boughtEvent flex justify-between card p-sm blue-border">
+	<div class="boughtEvent flex justify-between card p-sm blue-border" v-if="data.teacher">
 		<div class="profileImageWrapper mr-4 flex justify-center items-center">
 			<img
 				class="max-w-none blue-border rounded-full overflow-hidden"
