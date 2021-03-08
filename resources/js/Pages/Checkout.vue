@@ -48,7 +48,6 @@
 					</div>
 					
 					<div class="sm:my-4 sm:mx-8 m-2">
-						
 						<div class="mb-2">Fizetési adatok</div>
 						<c-input
 							class="mb-4"
@@ -85,8 +84,8 @@
 							required
 						/>
 						
+						<div class="mb-2 mt-4">Bankkártya adatok</div>
 						<div id="card-element"></div>
-					
 					</div>
 				</div>
 			</div>
@@ -176,7 +175,7 @@
         },
         data() {
             return {
-            	trialSelected: this.$page.props.user.extra.trial_available,
+            	trialSelected: this.$page.props.user.extra ? this.$page.props.user.extra.trial_available : true,
                 product: {
                     lesson_number: null,
                     amount: null,
@@ -208,10 +207,10 @@
 		            paymentRequestButton: {
 		                color: 'red'
 		            },
+		            empty: {
+		            	padding: '20px'
+		            },
 		            base: {
-			            paymentRequestButton: {
-				            color: 'red'
-			            },
 		            	padding: '20px',
 			            iconColor: '#c4f0ff',
 			            color: 'black',
@@ -232,7 +231,10 @@
 		            },
 	            },
             });
-            this.cardElement.mount('#card-element');
+            
+            this.$nextTick(() => {
+	            this.cardElement.mount('#card-element');
+            });
         },
         created() {
             this.product.teacher_id = this.$props.teacher.id;
