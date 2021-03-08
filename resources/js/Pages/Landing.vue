@@ -10,7 +10,7 @@
 							large
 							glow
 							navigate-to="/teachers"
-						>INGYENES Próbaóra</c-btn>
+						>INGYENES PRÓBAÓRA</c-btn>
 						<div class="globe-and-book"></div>
 					</div>
 					<div class="right">

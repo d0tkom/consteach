@@ -552,10 +552,10 @@ body {
 						position: absolute;
 						bottom: -60px;
 						z-index: 2;
-						width: 30vw;
+						width: 18vw;
 						height: 30vw;
 						max-width: 400px;
-						max-height: 400px;
+						max-height: 320px;
 						background-image: url('/img/GlobeAndBook1.png');
 						background-size: contain;
 						background-repeat: no-repeat;
@@ -571,15 +571,15 @@ body {
 							width: 270px;
 						}
 						@media screen and (min-width: $break-point2) {
-							bottom: -180px;
-							width: 30vw;
+							bottom: -230px;
+							width: 18vw;
 						}
 					}
 				}
 				.right {
 					position: absolute;
 					top: 80px;
-					right: 40px;
+					right: 9vw;
 					z-index: 10;
 					width: 100%;
 					order: 1;
@@ -614,7 +614,7 @@ body {
 							max-width: 100%;
 						}
 						@media screen and (min-width: $break-point2) {
-							width: 440px;
+							width: 480px;
 						}
 					}
 				}
