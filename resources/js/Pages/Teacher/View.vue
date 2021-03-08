@@ -31,7 +31,7 @@
                                                 </span>
                                                 <span class="capitalize mr-4">{{ teacher.user.first_name }}  {{ teacher.user.last_name[0] }}.</span>
 	                                            <flag
-		                                            class="text-2xl shadow-sm"
+		                                            class="text-2xl shadow-sm flagWide"
 		                                            :iso="teacher.country === 'en' ? 'us' : teacher.country"
 	                                            />
                                             </div>
