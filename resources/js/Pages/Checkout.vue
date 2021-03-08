@@ -9,7 +9,7 @@
 					</div>
 					<div class="sm:my-4 sm:mx-8 m-2">
 						<div class="mb-2">{{ trans.get('checkout.how_many_hours') }}</div>
-						<label for="e0" @click="trialSelected = true; selectTrial()">
+						<label for="e0" v-if="$page.props.user.extra.trial_available" @click="trialSelected = true; selectTrial()">
 							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
 								<input id="e0" class="mt-1 sm:mr-3" type="radio" name="lesson" :checked="trialSelected"/>
 								<div class="text-md font-semibold flex-1 mr-4">Próbaóra</div>
@@ -17,7 +17,7 @@
 						</label>
 						<label for="e1" @click="trialSelected = false; selectProduct(1, teacher.one_hour_price, 'HUF')">
 							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
-								<input id="e1" class="mt-1 sm:mr-3" type="radio" name="lesson" />
+								<input id="e1" class="mt-1 sm:mr-3" type="radio" name="lesson":checked="!trialSelected" />
 								<div class="text-md font-semibold flex-1 mr-4">1 {{ trans.choice('checkout.lesson', 1) }}</div>
 								<div class="text-green-500 text-md">
 									<currency
@@ -276,6 +276,9 @@
         },
         created() {
             this.product.teacher_id = this.$props.teacher.id;
+            if (!this.trialSelected) {
+            	this.selectProduct(1, this.teacher.one_hour_price, 'HUF');
+            }
         },
         methods: {
         	selectTrial: function () {
@@ -335,8 +338,8 @@
                     axios.post('payment', {appointment: this.appointment, billing: this.billing, product: this.product})
                         .then((response) => {
                             this.paymentProcessing = false;
+                            this.$inertia.visit('/dashboard');
 	                        this.$toast.success('Sikeres tranzakció');
-                            //redirect here
                         })
                         .catch((error) => {
                             this.paymentProcessing = false;

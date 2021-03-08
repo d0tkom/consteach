@@ -18,7 +18,7 @@ class TeacherVerified
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->role == 'teacher' && Auth::user()->extra->validated == false) {
+        if (Auth::user()->role == 'teacher' && Auth::user()->extra->validated == false && $request->route()->uri != 'settings') {
             return redirect('/settings');
         }
         return $next($request);

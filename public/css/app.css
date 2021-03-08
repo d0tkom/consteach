@@ -69,6 +69,57 @@
 .btnContainer .cBtn .btnIcon.btnIconRight {
   margin-left: 8px;
 }
+.btnContainer .cBtn.color-success {
+  background: #55D393;
+  color: white;
+}
+.btnContainer .cBtn.color-success.glow {
+  box-shadow: 0 2px 8px -2px rgba(85, 211, 147, 0.6);
+}
+.btnContainer .cBtn.color-success:hover {
+  background: #7eddad;
+}
+.btnContainer .cBtn.color-success:hover.glow {
+  box-shadow: 0 0 10px -2px rgba(85, 211, 147, 0.8);
+}
+.btnContainer .cBtn.color-success:active {
+  background: #a6e8c6;
+}
+.btnContainer .cBtn.color-success.text {
+  background: transparent;
+  color: #55D393;
+  padding: 10px 20px;
+}
+.btnContainer .cBtn.color-success.text.glow {
+  box-shadow: none;
+}
+.btnContainer .cBtn.color-success.text:hover {
+  background: rgba(85, 211, 147, 0.1);
+}
+.btnContainer .cBtn.color-success.text:hover.glow {
+  box-shadow: 0 2px 4px -2px rgba(85, 211, 147, 0.6);
+}
+.btnContainer .cBtn.color-success.text:active {
+  background: rgba(85, 211, 147, 0.2);
+}
+.btnContainer .cBtn.color-success.outlined {
+  background: transparent;
+  color: #55D393;
+  border: 2px solid #55D393;
+}
+.btnContainer .cBtn.color-success.outlined.glow {
+  box-shadow: 0 4px 8px -2px rgba(85, 211, 147, 0.6);
+}
+.btnContainer .cBtn.color-success.outlined:hover {
+  background: #55D393;
+  color: white;
+}
+.btnContainer .cBtn.color-success.outlined:hover.glow {
+  box-shadow: 0 2px 8px -2px rgba(85, 211, 147, 0.6);
+}
+.btnContainer .cBtn.color-success.outlined:active {
+  background: #7eddad;
+}
 .btnContainer .cBtn.color-primary {
   background: #18A0FB;
   color: white;
@@ -1175,6 +1226,11 @@ body {
 }
 .alert .icon {
   font-size: 42px;
+}
+
+.flagWide {
+  width: 1.2em !important;
+  background-size: cover !important;
 }
 /*! tailwindcss v2.0.3 | MIT License | https://tailwindcss.com */
 

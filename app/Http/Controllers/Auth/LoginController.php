@@ -7,6 +7,8 @@ use App\Providers\RouteServiceProvider;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Student;
+use App\Models\Teacher;
 
 class LoginController extends Controller
 {
@@ -51,6 +53,19 @@ class LoginController extends Controller
                 'timezone' => 'Europe/Budapest'
                 //'token' => $user->token
             ]);
+
+            if (session('user_role') == 'teacher') {
+                Teacher::create([
+                    'user_id' => $user->id,
+                    'completed' => false,
+                    'validated' => false
+                ]);
+            } else {
+                Student::create([
+                    'user_id' => $user->id,
+                    'wanted_language' => 'en'
+                ]);
+            }
         }
 
         session()->forget('user_role');
