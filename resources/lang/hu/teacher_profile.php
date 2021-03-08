@@ -20,4 +20,7 @@ return [
     'message_btn' => 'Üzenet',
     'more_btn' => 'Tovább',
     'less_btn' => 'Kevesebb',
+
+    'filter_calendar' => 'Szűrés napszakra',
+    'bookable' => 'Foglalható'
 ];

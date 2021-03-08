@@ -87,6 +87,35 @@
                         <div class="card p-sm">
                             <div class="text-md font-bold color-blue-dark">{{ trans.get('teacher_profile.time_table') }}</div>
                             <FullCalendar :options="calendarOptions" />
+	
+	                        <div class="flex justify-between items-center mt-2">
+		                        <div class="p-4">
+			                        <div class="text-sm flex items-center">
+				                        <div class="colorSample free mr-2"></div>
+				                        <span>{{ trans.get('teacher_profile.bookable') }}</span>
+			                        </div>
+		                        </div>
+		
+		                        <div class="flex items-center justify-end">
+			                        <div class="mr-6">{{ trans.get('teacher_profile.filter_calendar') }}</div>
+			                        <c-select
+				                        not-nullable
+				                        value-key="value"
+				                        label-key="label"
+				                        class="mr-4 w-28"
+				                        :data="filterCalendarTime.options"
+				                        v-model="filterCalendarTime.start"
+			                        />
+			                        <c-select
+				                        not-nullable
+				                        class="w-28"
+				                        value-key="value"
+				                        label-key="label"
+				                        :data="filterCalendarTime.options"
+				                        v-model="filterCalendarTime.end"
+			                        />
+		                        </div>
+	                        </div>
                         </div>
                         <div class="card p-sm">
                             <div class="text-md font-bold color-blue-dark">{{ trans.get('teacher_profile.resume') }}</div>
@@ -191,6 +220,85 @@
         },
         data() {
             return {
+	            filterCalendarTime: {
+		            start: '06:00:00',
+		            end: '18:00:00',
+		            options: [
+			            {
+				            label: '00:00',
+				            value: '00:00:00'
+			            }, {
+				            label: '01:00',
+				            value: '01:00:00'
+			            }, {
+				            label: '02:00',
+				            value: '02:00:00'
+			            }, {
+				            label: '03:00',
+				            value: '03:00:00'
+			            }, {
+				            label: '04:00',
+				            value: '04:00:00'
+			            }, {
+				            label: '05:00',
+				            value: '05:00:00'
+			            }, {
+				            label: '06:00',
+				            value: '06:00:00'
+			            }, {
+				            label: '07:00',
+				            value: '07:00:00'
+			            }, {
+				            label: '08:00',
+				            value: '08:00:00'
+			            }, {
+				            label: '09:00',
+				            value: '09:00:00'
+			            }, {
+				            label: '10:00',
+				            value: '10:00:00'
+			            }, {
+				            label: '11:00',
+				            value: '11:00:00'
+			            }, {
+				            label: '12:00',
+				            value: '12:00:00'
+			            }, {
+				            label: '13:00',
+				            value: '13:00:00'
+			            }, {
+				            label: '14:00',
+				            value: '14:00:00'
+			            }, {
+				            label: '15:00',
+				            value: '15:00:00'
+			            }, {
+				            label: '16:00',
+				            value: '16:00:00'
+			            }, {
+				            label: '17:00',
+				            value: '17:00:00'
+			            }, {
+				            label: '18:00',
+				            value: '18:00:00'
+			            }, {
+				            label: '19:00',
+				            value: '19:00:00'
+			            }, {
+				            label: '20:00',
+				            value: '20:00:00'
+			            }, {
+				            label: '21:00',
+				            value: '21:00:00'
+			            }, {
+				            label: '22:00',
+				            value: '22:00:00'
+			            }, {
+				            label: '23:00',
+				            value: '23:00:00'
+			            }
+		            ]
+	            },
                 languageList: null,
                 locale: window.default_locale,
 	            aboutMeOpened: false,
@@ -210,6 +318,9 @@
                     plugins: [ timeGridPlugin, interactionPlugin ],
                     initialView: 'timeGridWeek',
                     locale: window.default_locale,
+	                slotMinTime: '06:00:00',
+	                slotMaxTime: '18:00:00',
+	                height: 'auto',
                     buttonText: {
                         today:    'mai nap',
                         month:    'hónap',
@@ -243,6 +354,21 @@
                 }
             };
         },
+	    watch: {
+		    filterCalendarTime: {
+			    handler(calendarTime) {
+				    let data = JSON.stringify({
+					    start: calendarTime.start,
+					    end: calendarTime.end
+				    });
+				
+				    localStorage.setItem('teacherCalendarFilter', data);
+				
+				    this.calendarOptions.slotMinTime = calendarTime.start;
+				    this.calendarOptions.slotMaxTime = calendarTime.end;
+			    }, deep: true
+		    }
+	    },
         created() {
             this.calendarOptions.timeZone = this.$page.props.user === null ? 'local' : this.$page.props.user.timezone;
 
@@ -274,6 +400,14 @@
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/en.json'));
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/hu.json'));
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
+	
+	        let localStorage_calendarFilter = localStorage.getItem('teacherCalendarFilter');
+	
+	        if (localStorage_calendarFilter) {
+		        localStorage_calendarFilter = JSON.parse(localStorage_calendarFilter);
+		        this.calendarOptions.slotMinTime = this.filterCalendarTime.start = localStorage_calendarFilter.start;
+		        this.calendarOptions.slotMaxTime = this.filterCalendarTime.end = localStorage_calendarFilter.end;
+	        }
         },
 	    computed: {
 		    aboutMeText() {
