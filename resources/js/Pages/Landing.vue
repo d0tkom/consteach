@@ -37,7 +37,7 @@
 								class="flagImg rounded-full mb-4 text-8xl shadow-md"
 								:iso="language === 'en' ? 'us' : language"
 							/>
-							<div class="title capitalize font-md font-bold">{{ languageList[language] }}</div>
+							<div class="title capitalize text-xl font-md font-bold">{{ languageList[language] }}</div>
 						</div>
 					</div>
 					<div class="lang-button-container">
@@ -270,7 +270,7 @@ export default {
 				return this.$page.props.availableLanguages;
 			}
 			
-			return this.$page.props.availableLanguages.slice(0, 3);
+			return this.$page.props.availableLanguages.slice(0, 6);
 		}
 	}
 }

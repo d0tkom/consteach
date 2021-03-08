@@ -23,7 +23,7 @@
 						>{{ data.user.first_name }} {{ data.user.last_name[0] }}.</span>
 						<flag
 							v-if="data.country"
-							class="text-2xl shadow-sm"
+							class="text-2xl shadow-sm flagWide"
 							:iso="data.country === 'en' ? 'us' : data.country"
 						/>
 					</div>
