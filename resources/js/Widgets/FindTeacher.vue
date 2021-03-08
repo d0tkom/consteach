@@ -73,7 +73,7 @@
 							icon="event"
 							class="mb-4"
 							:navigate-to="'/teacher/' + data.id"
-						>Órafoglalás</c-btn>
+						>{{ trialAvailable ? 'Próbaóra foglalás' : 'Órafoglalás' }}</c-btn>
 						<c-btn
 							v-if="false"
 							full
@@ -120,6 +120,10 @@ export default {
 		data: {
 			type: Object,
 			default: {}
+		},
+		trialAvailable: {
+			type: Boolean,
+			default: false
 		}
 	},
 	data() {

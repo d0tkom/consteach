@@ -17,6 +17,10 @@ class Student extends Model
     	'wanted_language',
     ];
 
+    protected $appends = [
+        'trial_available'
+    ];
+
     public function user()
     {
     	return $this->belongsTo(User::class);
@@ -30,5 +34,10 @@ class Student extends Model
     public function appointments()
     {
         return $this->hasMany(Appointment::class);
+    }
+
+    public function getTrialAvailableAttribute()
+    {
+        return $this->appointments()->where('type', 'try')->count() > 0 ? false : true;
     }
 }

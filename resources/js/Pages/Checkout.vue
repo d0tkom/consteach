@@ -9,14 +9,20 @@
 					</div>
 					<div class="sm:my-4 sm:mx-8 m-2">
 						<div class="mb-2">{{ trans.get('checkout.how_many_hours') }}</div>
-						<label for="e1" @click="selectProduct(1, teacher.one_hour_price, 'HUF')">
+						<label for="e0" @click="trialSelected = true; selectTrial()">
+							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
+								<input id="e0" class="mt-1 sm:mr-3" type="radio" name="lesson" :checked="trialSelected"/>
+								<div class="text-md font-semibold flex-1 mr-4">Próbaóra</div>
+							</div>
+						</label>
+						<label for="e1" @click="trialSelected = false; selectProduct(1, teacher.one_hour_price, 'HUF')">
 							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
 								<input id="e1" class="mt-1 sm:mr-3" type="radio" name="lesson" />
 								<div class="text-md font-semibold flex-1 mr-4">1 {{ trans.choice('checkout.lesson', 1) }}</div>
 								<div class="text-green-500 text-md">{{ teacher.one_hour_price*1.2 }} HUF</div>
 							</div>
 						</label>
-						<label for="e2" @click="selectProduct(5, teacher.five_hour_price, 'HUF')">
+						<label for="e2" @click="trialSelected = false; selectProduct(5, teacher.five_hour_price, 'HUF')">
 							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
 								<input id="e2" class="mt-1 sm:mr-3" type="radio" name="lesson" />
 								<div class="text-md font-semibold flex-1 mr-4">5 {{ trans.choice('checkout.lesson', 5) }}</div>
@@ -24,7 +30,7 @@
 								<div class="text-green-500 text-md">{{ teacher.five_hour_price*1.2 }} HUF</div>
 							</div>
 						</label>
-						<label for="e3" @click="selectProduct(10, teacher.ten_hour_price, 'HUF')">
+						<label for="e3" @click="trialSelected = false; selectProduct(10, teacher.ten_hour_price, 'HUF')">
 							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
 								<input id="e3" class="mt-1 sm:mr-3" type="radio" name="lesson" />
 								<div class="text-md font-semibold flex-1 mr-4">10 {{ trans.choice('checkout.lesson', 10) }}</div>
@@ -35,7 +41,7 @@
 					</div>
 				</div>
 				
-				<div class="p-4 m-4 blue-text-color bg-white rounded-xl shadow-md border border-blue-300 items-center relative">
+				<div class="p-4 m-4 blue-text-color bg-white rounded-xl shadow-md border border-blue-300 items-center relative" v-show="!trialSelected">
 					<div class="flex">
 						<span class="h-6  rounded-full w-6 border blue-border-color text-center text-md flex flex-col justify-center">2</span>
 						<span class="mx-2 flex flex-col justify-center text-md font-semibold">{{ trans.get('checkout.payment') }}</span>
@@ -118,8 +124,9 @@
 						</div>
 						<hr class="my-1">
 						<div><span class="font-semibold">{{ product.lesson_number }} {{ trans.choice('checkout.lesson', product.lesson_number) }}</span> 60 {{ trans.choice('checkout.minute', 60) }}</div>
+						<div class="flex justify-end">Ingyenes</div>
 						<hr class="mb-2 mt-4">
-						<div class="flex justify-end mb-8">
+						<div class="flex justify-end mb-8" v-show="!trialSelected">
 							<div class="flex">
 								<div class="w-28 sm:w-32">
 									<div class="text-green-500 text-md">{{ trans.get('checkout.price') }}:</div>
@@ -169,6 +176,7 @@
         },
         data() {
             return {
+            	trialSelected: this.$page.props.user.extra.trial_available,
                 product: {
                     lesson_number: null,
                     amount: null,
@@ -188,11 +196,6 @@
                 paymentProcessing: false,
             }
         },
-        computed : {
-            fee: function () {
-                return this.product.amount * 0.8;
-            }
-        }, 
         async mounted() {
             this.stripe = await loadStripe('pk_test_51IJzZ5BL1awehvPyAmK3WX8hXKt8NZYxV2q9KFu1VIuO0GFAkt3YIJefhmO2J2cKkt6xuWlnDjUw6ejJYEN4xV2300ss9XpQPd');
             const elements = this.stripe.elements();
@@ -235,6 +238,15 @@
             this.product.teacher_id = this.$props.teacher.id;
         },
         methods: {
+        	selectTrial: function () {
+        		this.product = {
+                    lesson_number: 1,
+                    amount: 0,
+                    currency : 'HUF',
+                    payment_method: null,
+                    fee: 0,
+                };
+        	},
             selectProduct: function (lesson_number, amount, currency) {
                 this.product.lesson_number = lesson_number;
                 this.product.amount = amount*1.2*100;
@@ -243,6 +255,21 @@
             },
             async processPayment() {
                 this.paymentProcessing = true;
+                if (this.trialSelected) {
+                	axios.post('payment', {appointment: this.appointment, billing: this.billing, product: this.product})
+                        .then((response) => {
+                            this.paymentProcessing = false;
+	                        this.$toast.success('Sikeres tranzakció');
+                            //redirect here
+                        })
+                        .catch((error) => {
+                            this.paymentProcessing = false;
+                            console.error(error);
+	                        this.$toast.error('Sikertelen tranzakció');
+                        });
+                        
+                	return;
+                }
 
                 const {paymentMethod, error} = await this.stripe.createPaymentMethod(
                     'card', this.cardElement, {
