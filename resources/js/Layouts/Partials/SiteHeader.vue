@@ -65,6 +65,17 @@
 						v-model="walletOpened"
 					/>
 				</div>
+				<div v-if="$page.props.user != null && $page.props.user.role === 'student'">
+					<c-btn
+						lg
+						icon-only
+						circle
+						text
+						class="mr-4"
+						icon="search"
+						navigate-to="/teachers"
+					/>
+				</div>
 				<c-btn
 					lg
 					icon-only
