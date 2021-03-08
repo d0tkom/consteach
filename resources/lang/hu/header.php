@@ -6,11 +6,6 @@ return [
     'dark_mode_btn' => 'Éjjeli mód',
     'login_btn' => 'Bejelentkezés',
     'register_btn' => 'Regisztráció',
-    '' => '',
-    '' => '',
-    '' => '',
-    '' => '',
-    '' => '',
 ];
 
 ?>
