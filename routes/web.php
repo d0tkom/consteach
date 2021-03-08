@@ -40,6 +40,10 @@ Route::get('/forgotten-password', function () {
     return redirect('/#lost-password');
 })->name('forgotten-password');
 
+Route::get('/faq', function() {
+    return Inertia::render('Faq');
+});
+
 // LEGAL routes
 Route::get('/terms-and-conditions', function() {
     return Inertia::render('TermsAndConditions');
