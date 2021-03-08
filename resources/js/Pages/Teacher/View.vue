@@ -143,8 +143,9 @@
 			                    <div class="sm:flex mb-10">
 				                    <div class="flex-1 sm:text-left text-center">{{ trans.get('teacher_profile.free_lesson_description') }}</div>
 				                    <div class="relative flex flex-col items-end">
-					                    <div class="line-through text-gray text-sm">
+					                    <div class="text-gray text-sm">
 						                    <currency
+							                    class="line-through"
 							                    :value="(teacher.one_hour_price*fee)/2"
 						                    />
 						                </div>
@@ -418,7 +419,6 @@
 
             Object.values(this.availabilities).forEach(availability => {
                 let event = {
-                	title: 'Foglalható',
 	                backgroundColor: '#18A0FB',
                     start: moment.utc(availability.start).tz(this.calendarOptions.timeZone).format(),
                     end: moment.utc(availability.end).tz(this.calendarOptions.timeZone).format(),
