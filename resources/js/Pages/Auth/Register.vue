@@ -7,12 +7,12 @@
 				full
 				:outlined="form.teacher"
 				@click="form.teacher = false"
-			>Regisztráció diákként</c-btn>
+			>{{ trans.get('auth.register_as_student') }}</c-btn>
 			<c-btn
 				full
 				:outlined="!form.teacher"
 				@click="form.teacher = true"
-			>Regisztráció tanárként</c-btn>
+			>{{ trans.get('auth.register_as_teacher') }}</c-btn>
 		</div>
 		
 		<div class="socialLogin">

@@ -28,7 +28,9 @@
 						/>
 					</div>
 					<div class="price font-bold color-green-dark text-lg">
-						{{ data.one_hour_price }} HUF / óra
+						<currency
+							:value="data.one_hour_price"
+						/> / óra
 					</div>
 				</div>
 				<div class="flex">
@@ -54,7 +56,7 @@
 						<div>
                             <span class="color-primary-dark font-lg font-bold">Beszélt nyelvek:</span>
                             <span
-                                class="mr-2"
+                                class="mr-2 capitalize"
                                 v-for="(language, l) in data.user.spoken_languages"
                                 :key="l"
                             >{{ languageList.getName(language.language, locale) }} ({{ language.level }})</span>

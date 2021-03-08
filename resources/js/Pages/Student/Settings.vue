@@ -32,7 +32,7 @@
                         <h2 class="title text-lg color-primary-dark mb-4">{{ trans.get('dashboard.student') }}</h2>
                         <div class="mb-4">
                             <cInput
-                                :error="$page.props.errors.first_name ? true : false"
+                                :error="!!$page.props.errors.first_name"
                                 v-model="form.first_name"
                                 :label="trans.get('settings.first_name_label')"
                             ></cInput>
@@ -40,7 +40,7 @@
                         
                         <div class="mb-4">
                             <cInput
-                                :error="$page.props.errors.last_name ? true : false"
+                                :error="!!$page.props.errors.last_name"
                                 :label="trans.get('settings.last_name_label')"
                                 v-model="form.last_name"
                             ></cInput>
@@ -48,7 +48,7 @@
                         
                         <div class="mb-4">
                             <cInput
-                                :error="$page.props.errors.email ? true : false"
+                                :error="!!$page.props.errors.email"
                                 :label="trans.get('settings.email_label')"
                                 v-model="form.email"
                             ></cInput>

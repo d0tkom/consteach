@@ -8,6 +8,7 @@ import cTextArea from '@/Components/cTextArea';
 import cTag from '@/Components/cTag';
 import cPopUp from '@/Components/cPopUp';
 import cCheckbox from '@/Components/cCheckbox';
+import Currency from '@/Components/Currency';
 
 Vue.component('cBtn', cBtn);
 Vue.component('cSelect', cSelect);
@@ -18,3 +19,4 @@ Vue.component('cTextArea', cTextArea);
 Vue.component('cTag', cTag);
 Vue.component('cPopUp', cPopUp);
 Vue.component('cCheckbox', cCheckbox);
+Vue.component('Currency', Currency);

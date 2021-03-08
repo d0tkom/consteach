@@ -10,7 +10,7 @@
 				<option
 					v-if="!notNullable"
 					:selected="!value"
-				>Válassz</option>
+				>{{ trans.get('other.select_choose') }}</option>
 				<option
 					:selected="value === item[valueKey]"
 					:value="item[valueKey]"

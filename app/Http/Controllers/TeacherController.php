@@ -139,9 +139,12 @@ class TeacherController extends Controller
         if (request()->input('order_by') == 'one_hour_price') {
             $teachers->orderBy(request()->input('order_by'), 'ASC');
             $teachers = $teachers->get();
-        } else {
+        } elseif (request()->input('order_by') == 'appointment_count') {
             $teachers = $teachers->get();
             $teachers->sortBy(request()->input('order_by'));
+        } elseif (request()->input('order_by') == 'random') {
+            $teachers = $teachers->get();
+            $teachers->random();
         }
 
         if (json_decode(request()->input('time'))->timeOfDay) {

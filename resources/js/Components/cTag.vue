@@ -17,16 +17,10 @@ export default {
 			default: false
 		}
 	},
-	watch: {
-
-	},
 	data: function() {
 		return {
 
 		};
-	},
-	methods: {
-
 	}
 }
 </script>

@@ -30,7 +30,7 @@ export default {
 		},
 		value: {
 			type: String,
-			default: 'popular'
+			default: 'random'
 		},
 		options: {
 			type: Object,

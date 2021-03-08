@@ -47,7 +47,11 @@
                         <div class="flex flex-col justify-center">
                             <div class="flex items-center">
                                 <span class="walletIcon material-icons mr-2 text-2xl color-primary-dark">account_balance_wallet</span>
-                                <span class="font-bold text-2xl color-green-dark">15,000 HUF</span>
+                                <span class="font-bold text-2xl color-green-dark">
+	                                <currency
+		                                :value="15000"
+	                                />
+                                </span>
                             </div>
                             <div class="text-right">{{ trans.get('dashboard.balance') }}</div>
                         </div>

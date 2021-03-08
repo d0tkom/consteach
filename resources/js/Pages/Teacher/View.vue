@@ -143,8 +143,16 @@
 			                    <div class="sm:flex mb-10">
 				                    <div class="flex-1 sm:text-left text-center">{{ trans.get('teacher_profile.free_lesson_description') }}</div>
 				                    <div class="relative flex flex-col items-end">
-					                    <div class="line-through text-gray text-sm">{{ (teacher.one_hour_price*fee)/2 }} HUF</div>
-					                    <div class="text-green-500 text-lg">0 HUF</div>
+					                    <div class="line-through text-gray text-sm">
+						                    <currency
+							                    :value="(teacher.one_hour_price*fee)/2"
+						                    />
+						                </div>
+					                    <div class="text-green-500 text-lg">
+						                    <currency
+							                    :value="0"
+						                    />
+					                    </div>
 				                    </div>
 			                    </div>
 		                    </div>
@@ -169,19 +177,31 @@
                                 <div class="sm:flex mb-10">
                                     <div class="flex-1 sm:text-left text-center">1 {{ trans.get('teacher_profile.hour') }}</div>
                                     <div class="relative">
-                                        <div class="text-green-500 text-lg">{{ teacher.one_hour_price*fee }} HUF</div>
+                                        <div class="text-green-500 text-lg">
+	                                        <currency
+		                                        :value="teacher.one_hour_price*fee"
+	                                        />
+	                                    </div>
                                     </div>
                                 </div>
                                 <div class="sm:flex mb-10">
                                     <div class="flex-1 sm:text-left text-center">5 {{ trans.get('teacher_profile.hours') }}</div>
                                     <div class="relative">
-                                        <div class="text-green-500 text-lg">{{ (teacher.five_hour_price / 5)*fee }} HUF</div>
+                                        <div class="text-green-500 text-lg">
+	                                        <currency
+		                                        :value="(teacher.five_hour_price / 5)*fee"
+	                                        />
+	                                   </div>
                                     </div>
                                 </div>
                                 <div class="sm:flex mb-10">
                                     <div class="flex-1 sm:text-left text-center">10 {{ trans.get('teacher_profile.hours') }}</div>
                                     <div class="relative">
-                                        <div class="text-green-500 text-lg">{{ (teacher.ten_hour_price / 10)*fee }} HUF</div>
+                                        <div class="text-green-500 text-lg">
+	                                        <currency
+		                                        :value="(teacher.ten_hour_price / 10)*fee"
+	                                        />
+	                                    </div>
                                     </div>
                                 </div>
                             </div>

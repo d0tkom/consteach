@@ -137,14 +137,17 @@
                 filters: {
                     order: {
                         active: false,
-                        value: 'one_hour_price',
+                        value: 'random',
                         options: {
                             one_hour_price: {
                                 label: 'Ár'
                             },
                             appointment_count: {
                                 label: 'Megtartott órák száma'
-                            }
+                            },
+	                        random: {
+		                        label: 'Random'
+	                        }
                         }
                     },
                     language: {

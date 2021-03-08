@@ -19,6 +19,9 @@ return [
     'login_with_facebook_btn' => 'Folytatás Facebook fiókkal',
     'login_with_google_btn' => 'Folytatás Google fiókkal',
 
+    'register_as_student' => 'Regisztráció diákként',
+    'register_as_teacher' => 'Regisztráció tanárként',
+
     'login_social_or_email' => 'vagy',
 
     'first_name_label' => 'Vezetéknév',

@@ -3,7 +3,11 @@
 		<label>
 			<div v-if="label" class="inputLabel">{{ label }}</div>
 			<div>
-				<div class="value text-center">{{ data }} HUF</div>
+				<div class="value text-center">
+					<currency
+						:value="data"
+					/>
+				</div>
 				<input
 					v-model="data"
 					@input="$emit('input', $event.target.value)"

@@ -19,23 +19,45 @@
 							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
 								<input id="e1" class="mt-1 sm:mr-3" type="radio" name="lesson" />
 								<div class="text-md font-semibold flex-1 mr-4">1 {{ trans.choice('checkout.lesson', 1) }}</div>
-								<div class="text-green-500 text-md">{{ teacher.one_hour_price*1.2 }} HUF</div>
+								<div class="text-green-500 text-md">
+									<currency
+										:value="teacher.one_hour_price*fee"
+									/>
+								</div>
 							</div>
 						</label>
 						<label for="e2" @click="trialSelected = false; selectProduct(5, teacher.five_hour_price, 'HUF')">
 							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
 								<input id="e2" class="mt-1 sm:mr-3" type="radio" name="lesson" />
 								<div class="text-md font-semibold flex-1 mr-4">5 {{ trans.choice('checkout.lesson', 5) }}</div>
-								<div class="text-md text-gray-500 line-through mr-2">{{ teacher.one_hour_price*1.2*5 }} HUF</div>
-								<div class="text-green-500 text-md">{{ teacher.five_hour_price*1.2 }} HUF</div>
+								<div class="text-md text-gray-500 mr-2">
+									<currency
+										class="line-through"
+										:value="teacher.one_hour_price*fee*5"
+									/>
+								</div>
+								<div class="text-green-500 text-md">
+									<currency
+										:value="teacher.five_hour_price*fee"
+									/>
+								</div>
 							</div>
 						</label>
 						<label for="e3" @click="trialSelected = false; selectProduct(10, teacher.ten_hour_price, 'HUF')">
 							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
 								<input id="e3" class="mt-1 sm:mr-3" type="radio" name="lesson" />
 								<div class="text-md font-semibold flex-1 mr-4">10 {{ trans.choice('checkout.lesson', 10) }}</div>
-								<div class="text-md text-gray-500 line-through mr-2">{{ teacher.one_hour_price*1.2*10 }} HUF</div>
-								<div class="text-green-500 text-md">{{ teacher.ten_hour_price*1.2 }} HUF</div>
+								<div class="text-md text-gray-500 line-through mr-2">
+									<currency
+										class="line-through"
+										:value="teacher.one_hour_price*fee*10"
+									/>
+								</div>
+								<div class="text-green-500 text-md">
+									<currency
+										:value="teacher.ten_hour_price*fee"
+									/>
+								</div>
 							</div>
 						</label>
 					</div>
@@ -133,9 +155,24 @@
 									<div class="text-green-500 text-md font-semibold mt-2">{{ trans.get('checkout.total_price') }}:</div>
 								</div>
 								<div>
-									<div class="text-green-500 text-md text-right">{{ (product.amount-product.fee)/100 }} {{ product.currency }}</div>
-									<div class="text-gray-500 text-xs text-right">{{ product.fee/100 }} {{ product.currency }}</div>
-									<div class="text-green-500 text-md font-semibold mt-2 text-right">{{ product.amount/100 }} {{ product.currency }}</div>
+									<div class="text-green-500 text-md text-right">
+										<currency
+											:value="(product.amount-product.fee)/100"
+											:currency="product.currency"
+										/>
+									</div>
+									<div class="text-gray-500 text-xs text-right">
+										<currency
+											:value="product.fee/100"
+											:currency="product.currency"
+										/>
+									</div>
+									<div class="text-green-500 text-md font-semibold mt-2 text-right">
+										<currency
+											:value="product.amount/100"
+											:currency="product.currency"
+										/>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -175,6 +212,7 @@
         },
         data() {
             return {
+            	fee: 1.2,
             	trialSelected: this.$page.props.user.extra ? this.$page.props.user.extra.trial_available : true,
                 product: {
                     lesson_number: null,
@@ -251,8 +289,8 @@
         	},
             selectProduct: function (lesson_number, amount, currency) {
                 this.product.lesson_number = lesson_number;
-                this.product.amount = amount*1.2*100;
-                this.product.fee = (amount*1.2-amount)*100;
+                this.product.amount = amount*this.fee*100;
+                this.product.fee = (amount*this.fee-amount)*100;
                 this.product.currency = currency;
             },
             async processPayment() {
