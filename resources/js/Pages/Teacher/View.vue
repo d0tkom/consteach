@@ -135,6 +135,27 @@
                         </div>
                     </div>
                     <div class="col-span-1">
+	                    <div class="card p-sm">
+		                    <div class="blue-text-color mb-6 text-center sm:text-left ">
+			                    <p class="text-lg font-semibold">
+				                    {{ trans.get('teacher_profile.free_lesson_title') }}
+			                    </p>
+			                    <div class="sm:flex mb-10">
+				                    <div class="flex-1 sm:text-left text-center">{{ trans.get('teacher_profile.free_lesson_description') }}</div>
+				                    <div class="relative flex flex-col items-end">
+					                    <div class="line-through text-gray text-sm">{{ (teacher.one_hour_price*fee)/2 }} HUF</div>
+					                    <div class="text-green-500 text-lg">0 HUF</div>
+				                    </div>
+			                    </div>
+		                    </div>
+		                    <div class="flex flex-col items-end">
+			                    <c-btn
+				                    color="success"
+				                    :navigate-to="route('checkout', teacher.id)"
+				                    icon="sentiment_satisfied_alt"
+			                    >{{ trans.get('teacher_profile.free_lesson_btn') }}</c-btn>
+		                    </div>
+	                    </div>
                         <div class="card p-sm">
                             <div class="blue-text-color mb-6 text-center sm:text-left ">
                                 <p class="text-lg font-semibold">
@@ -148,19 +169,19 @@
                                 <div class="sm:flex mb-10">
                                     <div class="flex-1 sm:text-left text-center">1 {{ trans.get('teacher_profile.hour') }}</div>
                                     <div class="relative">
-                                        <div class="text-green-500 text-lg">{{ teacher.one_hour_price*1.2 }} HUF</div>
+                                        <div class="text-green-500 text-lg">{{ teacher.one_hour_price*fee }} HUF</div>
                                     </div>
                                 </div>
                                 <div class="sm:flex mb-10">
                                     <div class="flex-1 sm:text-left text-center">5 {{ trans.get('teacher_profile.hours') }}</div>
                                     <div class="relative">
-                                        <div class="text-green-500 text-lg">{{ (teacher.five_hour_price / 5)*1.2 }} HUF</div>
+                                        <div class="text-green-500 text-lg">{{ (teacher.five_hour_price / 5)*fee }} HUF</div>
                                     </div>
                                 </div>
                                 <div class="sm:flex mb-10">
                                     <div class="flex-1 sm:text-left text-center">10 {{ trans.get('teacher_profile.hours') }}</div>
                                     <div class="relative">
-                                        <div class="text-green-500 text-lg">{{ (teacher.ten_hour_price / 10)*1.2 }} HUF</div>
+                                        <div class="text-green-500 text-lg">{{ (teacher.ten_hour_price / 10)*fee }} HUF</div>
                                     </div>
                                 </div>
                             </div>
@@ -220,6 +241,7 @@
         },
         data() {
             return {
+	            fee: 1.2,
 	            filterCalendarTime: {
 		            start: '06:00:00',
 		            end: '18:00:00',
