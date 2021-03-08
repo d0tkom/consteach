@@ -144,11 +144,10 @@
             JetLabel,
             JetValidationErrors
         },
-
         data() {
             return {
                 form: this.$inertia.form({
-	                teacher: false,
+	                teacher: this.$root.popup.registrationType === 'teacher',
                     first_name: '',
                     last_name: '',
                     email: '',
@@ -158,7 +157,13 @@
                 })
             }
         },
-
+	    watch: {
+        	'$root.popup.registration'(registration) {
+        		if (registration) {
+        			this.form.teacher = this.$root.popup.registrationType === 'teacher';
+		        }
+	        }
+	    },
         methods: {
             submit() {
                 this.form.post(this.route('register'), {

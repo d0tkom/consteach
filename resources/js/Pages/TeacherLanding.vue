@@ -9,7 +9,7 @@
 						<c-btn
 							large
 							glow
-							navigate-to="/"
+							@click="clickedRegistration"
 						>
 							Jelentkezés
 						</c-btn>
@@ -117,6 +117,12 @@ export default {
 			default() {
 				return [];
 			}
+		}
+	},
+	methods: {
+		clickedRegistration() {
+			this.$root.popup.registrationType = 'teacher';
+			this.$root.popup.registration = true
 		}
 	}
 }

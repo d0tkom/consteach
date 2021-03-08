@@ -41,7 +41,8 @@ new Vue({
         popup: {
             login: false,
             registration: false,
-            lostPassword: false
+            lostPassword: false,
+            registrationType: 'student'
         },
         cookiePolicy: {
             accepted: false
@@ -60,6 +61,11 @@ new Vue({
         }
 
         if (window.location.hash === '#registration') {
+            this.popup.registration = true;
+        }
+
+        if (window.location.hash === '#teacher-registration') {
+            this.popup.registrationType = 'teacher';
             this.popup.registration = true;
         }
 
