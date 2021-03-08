@@ -17,13 +17,13 @@
 				</div>
 				<ul>
 					<li>
-						<inertia-link href="/teachers">{{ trans.get('header.find_teacher_btn') }}</inertia-link>
+						<inertia-link href="/teachers">Tanárt keresek</inertia-link>
 					</li>
 					<li>
-						<inertia-link href="/teacher-landing">{{ trans.get('header.teacher_landing_btn') }}</inertia-link>
+						<inertia-link href="/teacher-landing">Jelentkezem tanárnak</inertia-link>
 					</li>
 					<li class="display-mode">
-						<inertia-link href="">{{ trans.get('header.dark_mode_btn') }}</inertia-link>
+						<inertia-link href="">Éjjeli mód</inertia-link>
 						<div class="switch-container">
 							<label class="switch">
 								<input type="checkbox">
@@ -37,10 +37,10 @@
 						class="mr-4"
 						outlined
 						@click="$root.popup.login = true"
-					>{{ trans.get('header.login_btn') }}</c-btn>
+					>Bejelentkezés</c-btn>
 					<c-btn
 						@click="$root.popup.registration = true"
-					>{{ trans.get('header.register_btn') }}</c-btn>
+					>Regisztráció</c-btn>
 				</div>
 			</div>
 		</nav>
