@@ -43,7 +43,7 @@ class AppointmentController extends Controller
                     'student_id' => auth()->user()->extra->id,
                     'start' => Carbon::create($request->input('params')['start'])->tz('UTC'),
                     'end' => Carbon::create($request->input('params')['end'])->tz('UTC'),
-                    'type' => '??',
+                    'type' => 'normal',
                     'active' => false,
                     'student_approved' => false,
                     'teacher_approved' => false,

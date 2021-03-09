@@ -36,11 +36,11 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->input('product')['amount'] == 0) {
-            return $this->TrialPayment($request->input('appointment')['id']);
-        }
-
         $student = auth()->user()->extra;
+
+        if ($request->input('product')['amount'] == 0) {
+            return $this->TrialPayment($request->input('appointment')['id'] ?? null, $student->id);
+        }
 
         $student->address = $request->input('billing')['address'];
         $student->city = $request->input('billing')['city'];
@@ -83,6 +83,7 @@ class CheckoutController extends Controller
             if ($request->input('appointment') != null) {
                 $appointment = Appointment::where('id', $request->input('appointment')['id'])->first();
                 $appointment->active = true;
+                $appointment->type = 'normal';
                 $appointment->save();
 
                 $lesson->decrement('available', 1);
@@ -142,14 +143,14 @@ class CheckoutController extends Controller
         //
     }
 
-    public function TrialPayment($appointment_id)
+    public function TrialPayment($appointment_id, $student_id)
     {
         $user = auth()->user();
 
         $lesson = Lesson::firstOrCreate(
             [
-                'student_id' => $student->id,
-                'teacher_id' => $request->input('product')['teacher_id']
+                'student_id' => $student_id,
+                'teacher_id' => request()->input('product')['teacher_id']
             ]
         );
 
@@ -157,9 +158,12 @@ class CheckoutController extends Controller
 
         $lesson->save();
 
-        $appointment = Appointment::where('id', $appointment_id)->first();
-        $appointment->active = true;
-        $appointment->save();
+        if ($appointment_id != null) {
+            $appointment = Appointment::where('id', $appointment_id)->first();
+            $appointment->active = true;
+            $appointment->type = 'try';
+            $appointment->save();
+        }
 
         return true;
     }

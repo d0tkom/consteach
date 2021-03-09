@@ -107,7 +107,7 @@ body .base-title {
   text-transform: uppercase;
   text-align: center;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-bottom: 30px;
 }
 body.dark .base-title {
@@ -568,10 +568,10 @@ body main .top .flex .left .globe-and-book {
   position: absolute;
   bottom: -60px;
   z-index: 2;
-  width: 30vw;
+  width: 18vw;
   height: 30vw;
   max-width: 400px;
-  max-height: 400px;
+  max-height: 320px;
   background-image: url("/img/GlobeAndBook1.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -593,14 +593,14 @@ body main .top .flex .left .globe-and-book {
 }
 @media screen and (min-width: 1201px) {
   body main .top .flex .left .globe-and-book {
-    bottom: -180px;
-    width: 30vw;
+    bottom: -230px;
+    width: 18vw;
   }
 }
 body main .top .flex .right {
   position: absolute;
   top: 80px;
-  right: 40px;
+  right: 9vw;
   z-index: 10;
   width: 100%;
   order: 1;
@@ -642,7 +642,7 @@ body main .top .flex .right img {
 }
 @media screen and (min-width: 1201px) {
   body main .top .flex .right img {
-    width: 440px;
+    width: 480px;
   }
 }
 body main .top .bottom-img {
