@@ -251,10 +251,14 @@
 	            },
                 languageList: null,
                 locale: window.default_locale,
-                calendarOptions: {
+	            calendarOptions: {
 	                validRange: {
 		                start: moment().format('YYYY-MM-DD')
 	                },
+		            dayHeaderContent: ({text}) => {
+	                	let texts = text.split(' ');
+	                	return `${texts[0]}\n${texts[1]}`;
+		            },
 	                slotMinTime: '06:00:00',
 	                slotMaxTime: '18:00:00',
                     plugins: [ timeGridPlugin, interactionPlugin ],
