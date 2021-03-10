@@ -358,6 +358,10 @@
 	                validRange: {
 		                start: moment().format('YYYY-MM-DD')
 	                },
+	                dayHeaderContent: ({text}) => {
+		                let texts = text.split(' ');
+		                return `${texts[0]}\n${texts[1]}`;
+	                },
                     plugins: [ timeGridPlugin, interactionPlugin ],
                     initialView: 'timeGridWeek',
                     locale: window.default_locale,
