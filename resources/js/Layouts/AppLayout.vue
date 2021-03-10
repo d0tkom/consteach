@@ -1,7 +1,5 @@
 <template>
     <div class="mainSiteContainer" :class="{isLanding}">
-	    <div class="bg"></div>
-	    
 	    <siteHeader />
 	    
 	    <div class="siteContent">

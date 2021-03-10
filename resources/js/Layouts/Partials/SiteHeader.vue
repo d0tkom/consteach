@@ -4,32 +4,67 @@
 			<inertia-link href="/" class="logo">
 				<logo :width="180" :height="60" />
 			</inertia-link>
-			<button class="navbar-toggler">
+			<button
+				class="navbar-toggler"
+				:class="menu.opened && 'opened'"
+				@click="menu.opened = !menu.opened"
+			>
 				<span class="line"></span>
 				<span class="line"></span>
 				<span class="line"></span>
 			</button>
-			<div class="nav-bar">
-				<div class="lang">
-					<a :href="$page.url.replace('https://en.', 'https://')" class="active">HU</a>
-					<span class="separator"></span>
-					<a :href="$page.url.replace('https://', 'https://en.')">EN</a>
+			<div
+				class="nav-bar"
+				:class="menu.opened && 'opened'"
+			>
+				<div class="lang flex items-center">
+					<inertia-link
+						:href="$page.url.replace('https://en.', 'https://')"
+						class="active"
+					>
+						<c-btn
+							text
+							small
+						>
+							HU
+						</c-btn>
+					</inertia-link>
+
+					<span class="separator mx-2"></span>
+					
+					<inertia-link
+						:href="$page.url.replace('https://', 'https://en.')"
+						class="active"
+					>
+						<c-btn
+							text
+							small
+						>
+							EN
+						</c-btn>
+					</inertia-link>
 				</div>
-				<ul>
+				<ul class="items-center">
 					<li>
-						<inertia-link href="/teachers">Tanárt keresek</inertia-link>
+						<inertia-link href="/teachers">
+							<c-btn
+								text
+								class=""
+								icon="search"
+							>
+								{{ trans.get('header.find_teacher_btn') }}
+							</c-btn>
+						</inertia-link>
 					</li>
 					<li>
-						<inertia-link href="/teacher-landing">Jelentkezem tanárnak</inertia-link>
-					</li>
-					<li class="display-mode">
-						<inertia-link href="">Éjjeli mód</inertia-link>
-						<div class="switch-container">
-							<label class="switch">
-								<input type="checkbox">
-								<span class="slider round"></span>
-							</label>
-						</div>
+						<inertia-link href="/teacher-landing">
+							<c-btn
+								text
+								class=""
+							>
+								{{ trans.get('header.teacher_landing_btn') }}
+							</c-btn>
+						</inertia-link>
 					</li>
 				</ul>
 				<div class="flex items-center authBtns">
@@ -37,10 +72,14 @@
 						class="mr-4"
 						outlined
 						@click="$root.popup.login = true"
-					>Bejelentkezés</c-btn>
+					>
+						{{ trans.get('header.login_btn') }}
+					</c-btn>
 					<c-btn
 						@click="$root.popup.registration = true"
-					>Regisztráció</c-btn>
+					>
+						{{ trans.get('header.register_btn') }}
+					</c-btn>
 				</div>
 			</div>
 		</nav>
@@ -131,7 +170,10 @@ export default {
 	},
 	data() {
 		return {
-			walletOpened: false
+			walletOpened: false,
+			menu: {
+				opened: false
+			}
 		};
 	},
 	computed: {

@@ -14,10 +14,8 @@ body {
 		background: #2f4467;
 	}
 	padding: 0;
-	background: #d3eeff;
-	font-family: 'Montserrat',
-	sans-serif;
-	font-size: 12px;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
 	margin: 0 auto;
 	@media only screen and (min-width: $break-point1) {
 		font-size: 16px;
@@ -100,12 +98,13 @@ body {
 		text-align: right;
 	}
 	.base-line {
-		width: 30px;
-		height: 6px;
-		background: #A8DDFF;
+		width: 80px;
+		height: 15px;
+		background: #99D1F3;
 		border-radius: 30px;
 		margin: 0 auto;
-		margin-bottom: 5px;
+		margin-bottom: 20px;
+		opacity: .4;
 	}
 	.base-title {
 		color: $textColor1;
@@ -120,57 +119,11 @@ body {
 		font-size: 1.4rem;
 		margin-bottom: 30px;
 	}
-	.wave {
-		text-align: center;
-		width: 100%;
-		height: 60px;
-		background-position: top;
-		background-size: contain;
-		background-repeat: no-repeat;
-		&.wave-1 {
-			background-image: url('/img/Wave1MobileLight.svg');
-			@at-root {
-				body.dark .wave.wave-1 {
-					background-image: url('/img/Wave1MobileDark.svg');
-				}
-			}
-			@media screen and (min-width: $break-point1) {
-				height: 120px;
-				background-image: url('/img/Wave1ScreenLight.svg');
-				@at-root {
-					body.dark .wave.wave-1 {
-						background-image: url('/img/Wave1ScreenDark.svg');
-					}
-				}
-			}
-			@media only screen and (min-width: $break-biggerthanfullhd) {
-				height: 7vw;
-			}
-		}
-		&.wave-2 {
-			background-image: url('/img/Wave2MobileLight.svg');
-			@at-root {
-				body.dark .wave.wave-2 {
-					background-image: url('/img/Wave2MobileDark.svg');
-				}
-			}
-			@media screen and (min-width: $break-point1) {
-				height: 120px;
-				background-image: url('/img/Wave2ScreenLight.svg');
-				@at-root {
-					body.dark .wave.wave-2 {
-						background-image: url('/img/Wave2ScreenDark.svg');
-					}
-				}
-			}
-			@media only screen and (min-width: $break-biggerthanfullhd) {
-				height: 7vw;
-			}
-		}
-	}
+
+
 	header {
 		z-index: 30;
-		height: 40px;
+		height: 60px;
 		background-color: #fff;
 		@at-root {
 			body.dark header {
@@ -188,10 +141,12 @@ body {
 			height: 60px;
 		}
 		nav {
-			max-width: $break-fullhd;
+			height: 60px;
+			max-width: 1200px;
 			margin: 0 auto;
 			@media only screen and (min-width: $break-point2) {
 				display: flex;
+				align-items: center;
 				position: relative;
 			}
 			.logo {
@@ -211,26 +166,24 @@ body {
 				}
 				img {
 					padding: 6px;
-					max-width: 120px;
-					@media only screen and (min-width: $break-point2) {
-						padding: 18px 20px;
-						max-width: 110px;
-					}
-					@media only screen and (min-width: $break-fullhd) {
-						padding: 6px 20px;
-						max-width: 220px;
-					}
+					height: 38px;
 				}
 			}
 			.navbar-toggler {
 				float: right;
-				width: 40px;
-				height: 40px;
-				position: relative;
+				width: 60px;
+				height: 60px;
+				position: absolute;
+				right: 10px;
+				top: 0;
 				border: none;
-				padding-top: 3px;
 				background: none;
 				outline: none;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				margin-right: -10px;
 				@media only screen and (min-width: $break-point2) {
 					display: none;
 				}
@@ -241,12 +194,20 @@ body {
 					display: block;
 					margin-bottom: 4px;
 					border-radius: 5px;
+					transition: all .25s;
 				}
-				&:hover {
-					cursor: pointer;
-					background: $baseColor1;
-					span.line {
-						background-color: #FFFFFF;
+
+				&.opened {
+					.line {
+						&:nth-child(1) {
+							transform: rotate(45deg) translate(7px, 7px);
+						}
+						&:nth-child(2) {
+							transform: scale(0);
+						}
+						&:nth-child(3) {
+							transform: rotate(-45deg) translate(4px, -4px);
+						}
 					}
 				}
 			}
@@ -274,7 +235,7 @@ body {
 					background: none;
 					border: 0;
 				}
-				&.show {
+				&.opened {
 					display: block;
 				}
 				.lang {
@@ -282,59 +243,28 @@ body {
 						order: 2;
 						margin: 20px;
 					}
-					a {
-						text-decoration: none;
-						color: $baseColor1;
-						&.active {
-							color: #979797;
-						}
-						&:hover {
-							color: $textColor1;
-							text-decoration: underline;
-							@at-root {
-								body.dark header nav .nav-bar .lang a:hover {
-									color: $textColorDark1;
-								}
-							}
-						}
-					}
 					.separator {
 						width: 2px;
 						height: 20px;
 						background: #dcdcdc;
 						display: inline-block;
-						margin: -4px 2px;
 					}
 				}
 				ul {
 					list-style-type: none;
 					padding: 0;
-					margin: 24px 0;
+
 					@media only screen and (min-width: $break-point2) {
 						order: 1;
 						display: flex;
-						margin: 20px 10px;
 					}
 					li {
-						margin-bottom: 20px;
-						@media only screen and (min-width: $break-point2) {
-							margin: 0 10px;
-						}
+
 						a {
-							text-decoration: none;
-							color: $baseColor1;
+
 							@at-root {
 								body.dark header nav .nav-bar ul li a {
 									color: #BEE6FF;
-								}
-							}
-							&:hover {
-								color: $textColor1;
-								text-decoration: underline;
-								@at-root {
-									body.dark header nav .nav-bar ul li a:hover {
-										color: $textColorDark1;
-									}
 								}
 							}
 						}
@@ -433,7 +363,7 @@ body {
 		section {
 			.section-content {
 				position: relative;
-				padding-bottom: 50px;
+				padding: 10vh 0;
 				max-width: 375px;
 				margin: 0 auto;
 				@media only screen and (min-width: $break-point1) {
@@ -442,37 +372,30 @@ body {
 			}
 			&.top {
 				position: relative;
-				padding-bottom: 10px;
 				margin: 0 auto;
-				@media only screen and (min-width: $break-point1) {
-					padding-bottom: 130px;
-					margin-bottom: -100px;
-				}
-				@media only screen and (min-width: $break-fullhd) {
-					padding-bottom: 270px;
-					margin-bottom: -200px;
-				}
 			}
 		}
+
+		.hero {
+			min-height: calc(100vh - 60px);
+			background: linear-gradient(360deg, #C7E6F9 0%, #FFFFFF 100%);
+
+			.base-line {
+				background: #BEE6FF;
+			}
+
+			.section-content {
+				padding: 0 0;
+			}
+		}
+
 		.top {
 			color: $textColor1;
-			background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 83.91%), #BEE6FF;
-			@at-root {
-				body.dark main .top {
-					background: linear-gradient(180deg, #5576AE 0%, #344B71 83.91%), #BEE6FF;
-				}
-			}
 			overflow: hidden;
-			padding-bottom: 4vw;
-			margin-bottom: -4vw;
 			@at-root {
 				body.dark main .top {
 					color: $textColorDark1;
 				}
-			}
-			@media screen and (min-width: $break-point1) {
-				padding-bottom: 14vw;
-				margin-bottom: -14vw;
 			}
 			.flex {
 				max-width: $break-fullhd;
@@ -483,6 +406,7 @@ body {
 				min-height: 200px;
 				padding-bottom: 0;
 				flex-wrap: wrap;
+				justify-content: center;
 				@media screen and (min-width: $break-min) and (max-width: $break-min) {
 					padding-bottom: 15px;
 				}
@@ -492,37 +416,18 @@ body {
 				}
 				.left {
 					text-align: center;
-					flex-grow: 1;
 					position: relative;
-					width: 100%;
-					order: 2;
-					background: #d3eeff;
-					@at-root {
-						body.dark main .top .flex .left {
-							background: #2f4467;
-						}
-					}
-					margin-left: -15px;
-					margin-right: -15px;
-					margin-bottom: -10px;
-					padding-bottom: 30px;
+
 					@media screen and (min-width: $break-point1) {
 						width: auto;
 						order: 1;
-						padding-top: 50px;
 						background: transparent;
 						margin-left: initial;
 						margin-right: initial;
 						margin-bottom: initial;
 						padding-bottom: initial;
-						@at-root {
-							body.dark main .top .flex .left {
-								background: transparent;
-							}
-						}
 					}
 					p {
-						min-height: 45px;
 						max-width: 260px;
 						margin: 0 auto;
 						padding: 20px 0;
@@ -538,7 +443,7 @@ body {
 						}
 					}
 					.title {
-						font-weight: 600;
+						font-weight: bold;
 						font-size: 12px;
 						@media screen and (min-width: $break-point1) {
 							font-size: 20px;
@@ -548,42 +453,9 @@ body {
 							font-size: 40px;
 						}
 					}
-					.globe-and-book {
-						position: absolute;
-						bottom: -60px;
-						z-index: 2;
-						width: 18vw;
-						height: 30vw;
-						max-width: 400px;
-						max-height: 320px;
-						background-image: url('/img/GlobeAndBook1.png');
-						background-size: contain;
-						background-repeat: no-repeat;
-						background-position: center;
-						display: none;
-						@media screen and (min-width: $break-min) and (max-width: $break-min) {
-							bottom: -25px;
-						}
-						@media only screen and (min-width: $break-point1) {
-							display: block;
-							background-image: url('/img/GlobeAndBook2.png');
-							bottom: -160px;
-							width: 270px;
-						}
-						@media screen and (min-width: $break-point2) {
-							bottom: -230px;
-							width: 18vw;
-						}
-					}
 				}
 				.right {
-					position: absolute;
-					top: 80px;
-					right: 9vw;
-					z-index: 10;
-					width: 100%;
-					order: 1;
-					text-align: center;
+					position: relative;
 					& .girl-light {
 						display: initial;
 					}
@@ -603,52 +475,21 @@ body {
 						order: 2;
 						margin-left: 10px;
 					}
-					img {
-						width: 100%;
-						max-width: 320px;
-						min-width: 113px;
-						@media screen and (min-width: $break-point1) {
-							margin-top: 20px;
-							margin-bottom: -20px;
-							width: 320px;
-							max-width: 100%;
-						}
-						@media screen and (min-width: $break-point2) {
-							width: 480px;
-						}
+					.landingGirl {
+						width: auto;
+						height: 60vh;
 					}
-				}
-			}
-			.bottom-img {
-				height: 150px;
-				width: 100%;
-				position: absolute;
-				bottom: 156px;
-				background-image: url('/img/TopLineMobileLight.svg');
-				@at-root {
-					body.dark main .top .bottom-img {
-						background-image: url('/img/TopLineMobileDark.svg');
+
+					.landingTree {
+						position: absolute;
+						bottom: 60px;
+						right: -30px;
 					}
-				}
-				background-size: contain;
-				background-repeat: no-repeat;
-				background-position: bottom;
-				@media screen and (min-width: $break-point1) {
-					bottom: 0;
-					background-image: url('/img/TopLineScreenLight.svg');
-					height: 370px;
-					@at-root {
-						body.dark main .top .bottom-img {
-							background-image: url('/img/TopLineScreenDark.svg');
-						}
-					}
-				}
-				@media only screen and (min-width: $break-biggerthanfullhd) {
-					background-size: cover;
 				}
 			}
 		}
 		.choose-a-language {
+			margin-top: -40px;
 			.container {
 				display: flex;
 				flex-wrap: wrap;
@@ -657,9 +498,8 @@ body {
 					display: none;
 					flex: 1 0 21%;
 					cursor: pointer;
-					&:hover {
-						opacity: 0.8;
-					}
+					transition: all .25s ease-in-out;
+					opacity: .9;
 					&.show-mobile {
 						display: block;
 					}
@@ -670,6 +510,7 @@ body {
 						}
 					}
 					.flagImg {
+						transition: all .25s ease-in-out;
 						margin-bottom: 16px;
 					}
 					.title {
@@ -680,6 +521,15 @@ body {
 							body.dark main .choose-a-language .container .lang .title {
 								color: $textColorDark1;
 							}
+						}
+					}
+
+					&:hover {
+						opacity: 1;
+
+						.flagImg {
+							transform: translate(0, -6px);
+							box-shadow: 0 4px 16px -4px rgba(black, .3);
 						}
 					}
 				}
@@ -699,7 +549,7 @@ body {
 				color: $baseColor1;
 				text-align: center;
 				text-transform: uppercase;
-				font-weight: 600;
+				font-weight: bold;
 				.open {
 					.down-arrow {
 						border-left: 5px solid transparent;
@@ -735,24 +585,48 @@ body {
 			}
 		}
 		.language-learning {
-			background: rgb(197, 233, 255);
-			background: linear-gradient(0deg, rgba(197, 233, 255, 1) 0%, rgba(211, 238, 255, 1) 100%);
-			@at-root {
-				body.dark main .language-learning {
-					background: linear-gradient( 0deg, #6288c8 0%, #2f4467 100%);
-				}
+			background: #C8E7FA;
+			position: relative;
+
+			&:before {
+				content: "";
+				height: 14vw;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background: #DEEEF8;
+				z-index: 2;
 			}
+
+			&:after {
+				content: "";
+				height: 14vw;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				z-index: 4;
+
+				background: url('/img/landing_wave_bottom.svg') -17px top / cover;
+			}
+
+			.section-content {
+				position: relative;
+				z-index: 15;
+			}
+
 			.container {
 				max-width: 270px;
 				margin: 0 auto;
 				@media screen and (min-width: $break-point1) {
-					display: flex;
 					max-width: $break-point1;
 				}
 				.line {
-					display: flex;
+					padding-right: 20px;
 					align-items: center;
 					margin-bottom: 10px;
+					flex-direction: column;
 					@media screen and (min-width: $break-point1) {
 						flex: 1;
 					}
@@ -770,16 +644,14 @@ body {
 					}
 					.title {
 						flex: 1;
-						text-align: left;
 						color: $textColor1;
+						font-weight: bold;
+						text-align: center;
+
 						@at-root {
 							body.dark main .language-learning .container .line .title {
 								color: $textColorDark1;
 							}
-						}
-						font-weight: 600;
-						@media screen and (min-width: $break-point1) {
-							text-align: center;
 						}
 					}
 				}
@@ -803,8 +675,7 @@ body {
 			}
 		}
 		.next-level {
-			background: rgb(197, 233, 255);
-			background: linear-gradient(0deg, rgba(197, 233, 255, 1) 0%, rgba(211, 238, 255, 1) 100%);
+			background: linear-gradient(0deg, #DEEEF8 0%, #DEEEF8 100%);
 			@at-root {
 				body.dark main .next-level {
 					background: linear-gradient( 0deg, #6288c8 0%, #2f4467 100%);
@@ -838,7 +709,7 @@ body {
 								color: $textColorDark1;
 							}
 						}
-						font-weight: 600;
+						font-weight: bold;
 					}
 					p {
 						color: $textColor1;
@@ -865,7 +736,35 @@ body {
 			}
 		}
 		.teach-with-us {
-			background: #d3eeff;
+			background: #F0F9FF;
+			position: relative;
+
+			&:before {
+				content: "";
+				height: 14vw;
+				position: absolute;
+				top: -1px;
+				left: 0;
+				right: 0;
+				background: #DEEEF8;
+				z-index: 2;
+			}
+
+			&:after {
+				content: "";
+				height: 14vw;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				z-index: 4;
+				background: url('/img/landing_wave_white_top.svg') -17px top / cover;
+			}
+
+			.section-content {
+				z-index: 10;
+			}
+
 			@at-root {
 				body.dark main .teach-with-us {
 					background: #2f4467;
@@ -890,7 +789,7 @@ body {
 							margin: 0 auto;
 							text-align: center;
 							img {
-								max-width: 180px;
+								max-width: 220px;
 							}
 						}
 					}
@@ -902,7 +801,7 @@ body {
 								color: $textColorDark1;
 							}
 						}
-						font-weight: 600;
+						font-weight: bold;
 					}
 					p {
 						color: $textColor1;
@@ -930,6 +829,26 @@ body {
 		}
 		.join-us {
 			position: relative;
+			background: #DEEEF8;
+			margin-top: -300px;
+			padding-top: 190px;
+
+			&:after {
+				content: "";
+				height: 14vw;
+				position: absolute;
+				top: -1px;
+				left: 0;
+				right: 0;
+				z-index: 4;
+				background: url('/img/landing_wave_white_bottom.svg') -17px top / cover;
+			}
+
+			.section-content {
+				position: relative;
+				z-index: 10;
+			}
+
 			.svg.svg-light {
 				display: block;
 			}

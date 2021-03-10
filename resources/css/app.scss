@@ -47,11 +47,14 @@
 @import 'components/w_bought-event';
 @import 'components/w_find-teacher';
 
-
+@import 'partials/responsive';
 
 body {
+	background: #DEEEF8 !important;
 	color: $blue-dark;
 	font-family: 'Montserrat', sans-serif;
+	width: 100vw;
+	overflow-x: hidden;
 }
 
 .fc .fc-col-header-cell-cushion {
