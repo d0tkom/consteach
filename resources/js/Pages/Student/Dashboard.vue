@@ -14,7 +14,7 @@
 				        </div>
 			        </div>
 		        </div>
-		        <div class="card">
+		        <div class="card noDataCard">
 			        <h2 class="title font-bold text-xl color-primary-dark mb-2">{{ trans.get('dashboard.fresh_start_title') }}</h2>
 			        <p>{{ trans.get('dashboard.fresh_start_description') }}</p>
 			        <c-btn

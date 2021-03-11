@@ -2,9 +2,9 @@
     <app-layout>
         <div class="studentHubContainer mt-8">
             <div class="card flat lg">
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <div class="mainGrid grid grid-cols-1 lg:grid-cols-3 gap-4">
                     <div class="col-span-2">
-                        <div class="card p-sm">
+                        <div class="mobileReversedCol card p-sm">
                             <iframe
 	                            class="mb-8 w-full"
 	                            height="400"
@@ -23,8 +23,8 @@
                                             alt="Tanár képe"
                                         >
                                     </div>
-                                    <div class="w-full flex flex-col">
-                                        <div class="flex items-center justify-between mb-4">
+                                    <div class="teacherInfo w-full flex flex-col">
+                                        <div class="teacherInfoTop flex items-center justify-between mb-4">
                                             <div class="name text-lg font-bold color-primary-dark flex items-center">
                                                 <span v-if="false" class="material-icons mr-2 color-green-dark">
                                                     check_circle_outline
@@ -38,12 +38,12 @@
                                         </div>
                                         <div>
                                             <div class="text-lg font-bold color-primary-dark flex items-center mb-3">
-                                                <span class="material-icons mr-2">school</span>
-                                                <div class="flex items-center">
+                                                <span class="studentInfoIcon material-icons mr-2">school</span>
+                                                <div class="teacherLanguagesContainer flex items-center">
 	                                                <div
 		                                                v-for="(language, l) in teacher.teaching_languages"
 		                                                :key="l"
-		                                                class="mr-4"
+		                                                class="languageItem mr-4"
 	                                                >
 		                                                <span
 		                                                    class="capitalize"
@@ -57,13 +57,17 @@
                                                 </div>
                                             </div>
                                             <div class="text-lg font-bold color-primary-dark mb-2 flex items-center">
-                                                <span class="material-icons mr-2">person</span>
-                                                {{ teacher.student_count }} {{ trans.get('teacher_profile.student') }} · {{ teacher.appointment_count }} {{ trans.get('teacher_profile.lessons') }}
+                                                <span class="studentInfoIcon material-icons mr-2">person</span>
+	                                            <span class="studentStats">
+		                                            <span>{{ teacher.student_count }} {{ trans.get('teacher_profile.student') }}</span>
+		                                            <span> · </span>
+		                                            <span>{{ teacher.appointment_count }} {{ trans.get('teacher_profile.lessons') }}</span>
+	                                            </span>
                                             </div>
                                             <div>
                                                 <span class="color-primary-dark font-lg font-bold">{{ trans.get('teacher_profile.spoken_languages') }}</span>
                                                 <span
-                                                    class="mr-2"
+                                                    class="capitalize mr-2"
                                                     v-for="(language, l) in teacher.user.spoken_languages"
                                                     :key="l"
                                                 >{{ languageList.getName(language.language, locale) }} ({{ language.level }})</span>
@@ -88,15 +92,15 @@
                             <div class="text-md font-bold color-blue-dark">{{ trans.get('teacher_profile.time_table') }}</div>
                             <FullCalendar :options="calendarOptions" />
 	
-	                        <div class="flex justify-between items-center mt-2">
-		                        <div class="p-4">
+	                        <div class="calendarFooter flex justify-between items-center mt-2">
+		                        <div class="calendarFooterLabels p-4">
 			                        <div class="text-sm flex items-center">
 				                        <div class="colorSample free mr-2"></div>
 				                        <span>{{ trans.get('teacher_profile.bookable') }}</span>
 			                        </div>
 		                        </div>
 		
-		                        <div class="flex items-center justify-end">
+		                        <div class="calendarFooterOptions flex items-center justify-end">
 			                        <div class="mr-6">{{ trans.get('teacher_profile.filter_calendar') }}</div>
 			                        <c-select
 				                        not-nullable
@@ -363,7 +367,7 @@
 		                return `${texts[0]}\n${texts[1]}`;
 	                },
                     plugins: [ timeGridPlugin, interactionPlugin ],
-                    initialView: 'timeGridWeek',
+                    initialView: this.$root.calendarType,
                     locale: window.default_locale,
 	                slotMinTime: '06:00:00',
 	                slotMaxTime: '18:00:00',

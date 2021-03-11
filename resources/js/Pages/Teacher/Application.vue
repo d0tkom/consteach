@@ -2,7 +2,7 @@
 	<app-layout>
 		<div class="card md flat teacherApplicationContainer">
 			<div class="tabs p-4 mb-4 bg-white rounded-xl shadow-md border blue-border items-center relative">
-				<div class="sm:flex text-center blue-text-color">
+				<div class="tabsContainer flex text-center blue-text-color">
 					<div
 						v-for="tab in tabs"
 						:key="tab.id"
@@ -13,7 +13,7 @@
 							class="tabNumber h-10 m-auto rounded-full w-10 border blue-border-color text-center text-2xl flex flex-col justify-center mb-2"
 							:class="{activeTab: activeTab === tab.id}"
 						>{{ tab.id + 1 }}</div>
-						<div>{{ tab.label }}</div>
+						<div class="tabLabel">{{ tab.label }}</div>
 					</div>
 				</div>
 			</div>
@@ -73,7 +73,10 @@
 						
 						<!-- Tanított nyelvek -->
 						<div class="mb-4">
-							<div class="title color-gray mb-2">Tanított nyelvek</div>
+							<div
+								class="title color-gray mb-2"
+								:class="!!$page.props.errors.teaching_languages && 'text-red-500'"
+							>Tanított nyelvek</div>
 							<div
 								class="grid md:grid-cols-2 grid-cols-1 gap-4 mb-4"
 								v-for="(language, languageIndex) in form.teaching_languages"
@@ -115,7 +118,10 @@
 						
 						<!-- Beszélt nyelvek -->
 						<div>
-							<div class="title color-gray mb-2">Beszélt nyelvek</div>
+							<div
+								class="title color-gray mb-2"
+								:class="!!$page.props.errors.spoken_languages && 'text-red-500'"
+							>Beszélt nyelvek</div>
 							<div
 								class="grid md:grid-cols-2 grid-cols-1 gap-4 mb-4"
 								v-for="(language, languageIndex) in form.spoken_languages"
@@ -499,6 +505,9 @@ export default {
 				onSuccess: () => {
 					this.$toast.success('Sikeres mentés');
 					localStorage.removeItem('teacher-application');
+				},
+				onError: () => {
+					this.$toast.erro('Kérjük ellenőrizd a megadott adatokat');
 				}
 			});
 		},
@@ -549,6 +558,7 @@ export default {
 	                }
 	           	},
 				onError: error => {
+					this.$toast.error('Kérjük ellenőrizd a bevitt adatokat');
 					console.error(error)
 				}
 			});

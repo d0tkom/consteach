@@ -89,6 +89,15 @@
 			>
 				<logo />
 			</inertia-link>
+			<button
+				class="navbar-toggler"
+				:class="menu.opened && 'opened'"
+				@click="menu.opened = !menu.opened"
+			>
+				<span class="line"></span>
+				<span class="line"></span>
+				<span class="line"></span>
+			</button>
 			<nav class="hidden sm:flex items-center justify-between">
 				<div class="walletContainer relative mr-4" v-if="$page.props.user != null && $page.props.user.role === 'teacher'">
 					<c-btn

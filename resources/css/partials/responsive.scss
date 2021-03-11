@@ -185,4 +185,180 @@
 		margin-top: -150px;
 		padding-top: 30px;
 	}
+
+	.siteContent {
+		padding: 10px;
+		box-sizing: border-box;
+	}
+
+	.studentHubContainer {
+		.mainGrid {
+			gap: 0;
+		}
+
+		.mobileReversedCol {
+			display: flex;
+			flex-direction: column-reverse;
+
+			iframe {
+				height: 200px;
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	body .siteContent {
+		margin-top: 68px;
+
+		.studentHubContainer {
+			margin-top: 0;
+		}
+	}
+
+	.teacherMorePanel {
+		display: none !important;
+	}
+
+	.studentHubContainer {
+		.noDataCard {
+			padding: 20px !important;
+		}
+
+		img {
+			width: 60px !important;
+			height: 60px !important;
+		}
+	}
+
+	body .page.userSettings {
+		margin-top: 120px;
+		padding: 20px;
+	}
+
+	.teacherApplicationContainer {
+		.tabs {
+			.tabsContainer {
+				display: flex;
+				.tabNumber {
+					margin-bottom: 0;
+				}
+
+				.tabLabel {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.studentSettingsContainer {
+		.formExtra {
+			flex-direction: column;
+
+			.btnContainer {
+				&:first-child {
+					margin-bottom: 20px;
+				}
+			}
+		}
+	}
+
+	.teacherWidgetMainCard {
+		.infoBottom {
+			flex-direction: column;
+
+			.btnContainer {
+				display: flex;
+				justify-content: flex-end;
+			}
+		}
+	}
+
+	.findTeacherContainer .actions {
+		margin: auto;
+		margin-top: 20px;
+		padding: 0 20px;
+	}
+
+	.findTeacherContainer {
+		.filters {
+			justify-content: space-between;
+			flex-wrap: wrap;
+
+			.btnContainer {
+				margin-bottom: 20px;
+			}
+		}
+	}
+
+	.teacherWidgetMainCard {
+		flex-direction: column;
+		align-items: center;
+
+		.teacherInfo {
+			align-items: center;
+			margin-top: 32px;
+
+			.name {
+				font-size: 1.8em;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.studentInfoIcon {
+				font-size: 2em;
+			}
+
+			.studentStats {
+				width: 100%;
+				display: flex;
+				justify-content: space-around;
+			}
+
+			.teacherLanguagesContainer {
+				width: 100%;
+				display: flex;
+				justify-content: space-around;
+			}
+
+			.languageItem {
+				justify-content: center;
+				align-items: center;
+				display: flex;
+				flex-direction: column;
+
+				.tagContainer {
+					margin-left: 0;
+				}
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+
+			.teacherInfoTop {
+				width: 100%;
+				justify-content: center;
+			}
+		}
+	}
+
+	body .calendarFooter {
+		flex-direction: column;
+		align-items: flex-start;
+
+		.calendarFooterOptions {
+			width: 100%;
+			justify-content: space-between;
+			padding: 0 10px;
+		}
+
+		.calendarFooterLabels {
+			padding-bottom: 0;
+		}
+	}
+
+	.studentHubContainer .resume img {
+		width: 60px;
+		height: 60px;
+	}
 }
