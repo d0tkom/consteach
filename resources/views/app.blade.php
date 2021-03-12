@@ -25,7 +25,7 @@
             window.fallback_locale = "{{ config('app.fallback_locale') }}";
         </script>
     </head>
-    <body class="font-sans antialiased" data-scroll-lock-fill-gap>
+    <body class="antialiased" data-scroll-lock-fill-gap>
         @inertia
     </body>
 </html>

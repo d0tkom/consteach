@@ -188,6 +188,7 @@
 		                                    @change="updateProfilePhotoPreview"
 		                                >
 		                                <c-btn
+			                                :color="!!$page.props.errors.photo ? 'error' : 'primary'"
 		                                    icon="edit"
 		                                    icon-only
 		                                    circle
@@ -302,7 +303,7 @@
 				<h2 class="title text-lg color-primary-dark font-bold">Bemutatkozás</h2>
 				<div class="color-blue-dark">Mutatkozz be leendő diákjaidnak!</div>
 				<div
-	                class="card md-4"
+	                class="card flat md-4"
 	                v-for="(about_me, a) in form.about_me"
 	                :key="'abtm-'+ a"
 	            >
@@ -316,7 +317,6 @@
                             v-model="about_me.text"
                         />
                     </div>
-
                 </div>
             </div>
 
@@ -340,11 +340,11 @@
                                 icon="edit"
                                 icon-only
                                 circle
+                                :color="!!$page.props.errors.photo ? 'error' : 'primary'"
                             ></c-btn>
                         </label>
                     </div>
                 </div>
-			
 			</div>
 			<div class="actions flex justify-center">
 				<c-btn
@@ -506,8 +506,9 @@ export default {
 					this.$toast.success('Sikeres mentés');
 					localStorage.removeItem('teacher-application');
 				},
-				onError: () => {
-					this.$toast.erro('Kérjük ellenőrizd a megadott adatokat');
+				onError: error => {
+					console.error(error);
+					this.$toast.error('Kérjük ellenőrizd a megadott adatokat');
 				}
 			});
 		},
