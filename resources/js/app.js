@@ -25,6 +25,10 @@ Vue.use(InertiaPlugin);
 Vue.use(PortalVue);
 import scrollLock from 'scroll-lock';
 
+import VTooltip from 'v-tooltip'
+
+Vue.use(VTooltip)
+
 import CountryFlag from 'vue-country-flag';
 Vue.component('country-flag', CountryFlag)
 

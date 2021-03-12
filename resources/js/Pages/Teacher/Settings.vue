@@ -215,11 +215,11 @@
 	        <!-- Óradíjak -->
             <div class="card md">
                 <h2
-	                class="title text-lg font-bold color-primary-dark mb-4"
+	                class="title text-lg font-bold color-primary-dark mb-4 flex"
                 >
 	                {{ trans.get('settings.hourly_rates') }}
 	                <span
-		                class="material-icons cursor-help"
+		                class="material-icons cursor-help ml-4"
 		                v-tooltip="trans.get('settings.hourly_rates_tooltip')"
 	                >help_outline</span>
                 </h2>
@@ -235,11 +235,11 @@
 	                />
                 </div>
 	            <h2
-		            class="title text-lg font-bold color-primary-dark mt-8 mb-4"
+		            class="title text-lg font-bold color-primary-dark mt-8 mb-4 flex"
 	            >
 		            {{ trans.get('settings.bulk_prices') }}
 		            <span
-			            class="material-icons cursor-help"
+			            class="material-icons cursor-help ml-4"
 			            v-tooltip="trans.get('settings.bulk_prices_tooltip')"
 		            >help_outline</span>
 	            </h2>
