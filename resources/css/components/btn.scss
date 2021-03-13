@@ -9,6 +9,7 @@
 		user-select: none;
 		border: 2px solid transparent;
 		font-weight: bold;
+		letter-spacing: 1.1px;
 		
 		.btnContent {
 			line-height: 1;
@@ -188,87 +189,131 @@
 		}
 
         &.color-facebook {
-          background: #3B5998;
-          color: white;
-
-        &:hover {
-          background: lighten(#3B5998, 10);
-        }
-
-        &:active {
-          background: lighten(#3B5998, 20);
-        }
-
-        &.text {
-          background: transparent;
-          color: #3B5998;
-          padding: 10px 20px;
-
-          &:hover {
-            background: rgba(#3B5998, .05);
-          }
-
-          &:active {
-            background: rgba(#3B5998, .1);
-          }
-        }
-
-        &.outlined {
-          background: transparent;
-          color: #3B5998;
-          //padding: 10px 20px;
-          border: 2px solid #3B5998;
-
-          &:hover {
-            background: #3B5998;
-            color: white;
-          }
-
-          &:active {
-            background: lighten(#3B5998, 10);
-          }
-        }
-      }
-		
-		&.color-error {
-			background: $red;
+			background: #3B5998;
 			color: white;
-			
-			&:hover {
-				background: lighten($red, 10);
-			}
-			
-			&:active {
-				background: lighten($red, 20);
-			}
-			
-			&.text {
+
+	        &:hover {
+	          background: lighten(#3B5998, 10);
+	        }
+
+	        &:active {
+	          background: lighten(#3B5998, 20);
+	        }
+
+	        &.text {
 				background: transparent;
-				color: $error;
+				color: #3B5998;
 				padding: 10px 20px;
-				
+
 				&:hover {
-					background: rgba($error, .05);
+					background: rgba(#3B5998, .05);
 				}
-				
+
 				&:active {
-					background: rgba($error, .1);
+					background: rgba(#3B5998, .1);
 				}
-			}
-			
-			&.outlined {
+	        }
+
+	        &.outlined {
 				background: transparent;
-				color: $error;
-				border: 2px solid $error;
+				color: #3B5998;
 				//padding: 10px 20px;
-				
+				border: 2px solid #3B5998;
+
 				&:hover {
-					background: $error;
+					background: #3B5998;
 					color: white;
 				}
-				
+
 				&:active {
-					background: lighten($error, 10);
+					background: lighten(#3B5998, 10);
+				}
+	        }
+        }
+		
+		&.color-error {
+			 background: $red;
+			 color: white;
+
+			 &:hover {
+				 background: lighten($red, 10);
+			 }
+
+			 &:active {
+				 background: lighten($red, 20);
+			 }
+
+			 &.text {
+				 background: transparent;
+				 color: $error;
+				 padding: 10px 20px;
+
+				 &:hover {
+					 background: rgba($error, .05);
+				 }
+
+				 &:active {
+					 background: rgba($error, .1);
+				 }
+			 }
+
+			 &.outlined {
+				 background: transparent;
+				 color: $error;
+				 border: 2px solid $error;
+				 //padding: 10px 20px;
+
+				 &:hover {
+					 background: $error;
+					 color: white;
+				 }
+
+				 &:active {
+					 background: lighten($error, 10);
+					 color: white;
+				 }
+			 }
+		 }
+
+		&.color-gray {
+			background: $gray;
+			color: white;
+
+			&:hover {
+				background: lighten($gray, 10);
+			}
+
+			&:active {
+				background: lighten($gray, 20);
+			}
+
+			&.text {
+				background: transparent;
+				color: $gray;
+				padding: 10px 20px;
+
+				&:hover {
+					background: rgba($gray, .05);
+				}
+
+				&:active {
+					background: rgba($gray, .1);
+				}
+			}
+
+			&.outlined {
+				background: transparent;
+				color: $gray;
+				border: 2px solid $gray;
+				//padding: 10px 20px;
+
+				&:hover {
+					background: $gray;
+					color: white;
+				}
+
+				&:active {
+					background: lighten($gray, 10);
 					color: white;
 				}
 			}
@@ -307,11 +352,15 @@
 		}
 		
 		&.large {
-			padding: 8px 16px !important;
+			padding: 10px 30px !important;
 			font-size: 1.2rem;
 			
 			.btnIcon {
-				font-size: 1.2rem;
+				font-size: 1.4rem;
+			}
+
+			.btnContent {
+				margin-top: 3px;
 			}
 		}
 		

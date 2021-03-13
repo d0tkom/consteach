@@ -1,7 +1,30 @@
 <template>
     <app-layout>
         <div class="studentHubContainer mt-8">
-            <div class="card flat lg">
+	        <div v-if="noData" class="card flat md">
+		        <div class="card p-sm">
+			        <div class="flex">
+				        <div class="profileImg mr-4">
+					        <img class="blue-border rounded-full overflow-hidden" :src="$page.props.user.profile_photo_url" alt="Profilkép">
+				        </div>
+				        <div class="flex flex-col justify-around">
+					        <div class="name text-xl font-bold color-primary-dark">
+						        {{ $page.props.user.first_name }}
+					        </div>
+				        </div>
+			        </div>
+		        </div>
+		        <div class="card noDataCard">
+			        <h2 class="title font-bold text-xl color-primary-dark mb-2">{{ trans.get('dashboard.fresh_start_title') }}</h2>
+			        <p>{{ trans.get('dashboard.fresh_start_description') }}</p>
+			        <c-btn
+				        class="mt-4"
+				        icon="search"
+			            navigate-to="/teachers"
+			        >{{ trans.get('dashboard.fresh_start_search_teacher_btn') }}</c-btn>
+		        </div>
+	        </div>
+            <div v-else class="card flat lg">
                 <div class="card p-sm">
                     <div class="flex">
                         <div class="profileImg mr-4">
@@ -41,7 +64,6 @@
                             <div class="flex justify-center">
                                 <inertia-link href="/teachers">
                                     <c-btn
-                                        navigate-to="/teachers"
                                         icon="search"
                                     >
                                         {{ trans.get('dashboard.find_new_teacher_btn') }}
@@ -84,6 +106,19 @@
         props: {
             lessons: Array,
             appointments: Array
-        }
+        },
+	    computed: {
+		    noData() {
+		    	if (this.appointments.length) {
+		    		return false;
+			    }
+			
+			    if (this.lessons.length) {
+					return false;
+			    }
+			    
+			    return true;
+		    }
+	    }
     }
 </script>

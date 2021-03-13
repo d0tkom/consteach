@@ -5,7 +5,7 @@
                 <div class="color-gray font-bold text-md mb-4">
                     Tanárok ebben a szűrésben ({{ total }})
                 </div>
-                <div class="flex items-center">
+                <div class="filters flex items-center">
                     <div>
                         <c-btn
                             icon-right="keyboard_arrow_down"

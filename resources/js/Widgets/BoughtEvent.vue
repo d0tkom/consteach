@@ -1,5 +1,5 @@
 <template>
-	<div class="boughtEvent flex justify-between card p-sm blue-border" v-if="data.teacher">
+	<div class="boughtEvent flex justify-between card flat p-sm blue-border">
 		<div class="profileImageWrapper mr-4 flex justify-center items-center">
 			<img
 				class="max-w-none blue-border rounded-full overflow-hidden"
@@ -14,25 +14,23 @@
 			<div class="mb-4 text-sm">
 				<b>{{ data.available }}</b> óra foglalásra vár
 			</div>
-			<inertia-link :href="'/teacher/' + data.teacher.id">
-				<c-btn 
-					v-if="!fromTeacher"
-					icon="event"
-					outlined
-					medium
-					:navigate-to="'/teacher/' + data.teacher.id"
-				>
-					Órafoglalás
-				</c-btn>
-				<c-btn
-					v-else
-					icon="chat"
-					outlined
-					medium
-				>
-					Üzenet
-				</c-btn>
-			</inertia-link>
+			<c-btn
+				v-if="!fromTeacher"
+				icon="event"
+				outlined
+				medium
+				:navigate-to="'/teacher/' + data.teacher.id"
+			>
+				Órafoglalás
+			</c-btn>
+			<c-btn
+				v-else
+				icon="chat"
+				outlined
+				medium
+			>
+				Üzenet
+			</c-btn>
 		</div>
 	</div>
 </template>

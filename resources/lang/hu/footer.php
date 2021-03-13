@@ -18,6 +18,10 @@ return [
     'site_map' => 'Site Map',
     'contact_title' => 'Kapcsolat',
     'email_address' => 'info@consteach.com',
+    'facebook_url' => '#',
+    'instagram_url' => '#',
+    'linkedin_in_url' => '#',
+    'twitter_url' => '#',
 ];
 
 ?>

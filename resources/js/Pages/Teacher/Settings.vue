@@ -214,7 +214,15 @@
         
 	        <!-- Óradíjak -->
             <div class="card md">
-                <h2 class="title text-lg font-bold color-primary-dark mb-4">{{ trans.get('settings.hourly_rates') }}</h2>
+                <h2
+	                class="title text-lg font-bold color-primary-dark mb-4 flex"
+                >
+	                {{ trans.get('settings.hourly_rates') }}
+	                <span
+		                class="material-icons cursor-help ml-4"
+		                v-tooltip="trans.get('settings.hourly_rates_tooltip')"
+	                >help_outline</span>
+                </h2>
                 <div class="grid grid-cols-2 gap-4">
 	                <c-input
 		                :label="trans.get('settings.one_hour_net')"
@@ -226,7 +234,15 @@
 		                :value="calculateGrossPrice(form.one_hour_price)"
 	                />
                 </div>
-	            <h2 class="title text-lg font-bold color-primary-dark mt-8 mb-4">{{ trans.get('settings.bulk_prices') }}</h2>
+	            <h2
+		            class="title text-lg font-bold color-primary-dark mt-8 mb-4 flex"
+	            >
+		            {{ trans.get('settings.bulk_prices') }}
+		            <span
+			            class="material-icons cursor-help ml-4"
+			            v-tooltip="trans.get('settings.bulk_prices_tooltip')"
+		            >help_outline</span>
+	            </h2>
 	            <div class="grid grid-cols-2 gap-4 mb-4">
 		            <c-input
 			            hint="/óra"

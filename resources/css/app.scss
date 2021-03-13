@@ -47,11 +47,79 @@
 @import 'components/w_bought-event';
 @import 'components/w_find-teacher';
 
+@import 'components/tooltip';
 
+@import 'partials/responsive';
 
 body {
+	background: #DEEEF8 !important;
 	color: $blue-dark;
 	font-family: 'Montserrat', sans-serif;
+	width: 100vw;
+	overflow-x: hidden;
+}
+
+.fc .fc-col-header-cell-cushion {
+	white-space: break-spaces;
+}
+
+body .fc-theme-standard td {
+	border: 6px solid white !important;
+}
+
+body .fc .fc-cell-shaded, body .fc .fc-day-disabled {
+	background: #F1F5FA;
+}
+
+body  .fc td.fc-timegrid-col.fc-day.fc-day-future {
+	background: #E4F3FE;
+}
+
+.fc-theme-standard td, .fc-theme-standard th {
+	border: none !important;
+}
+
+body .fc .fc-scroller-harness {
+	overflow: initial;
+}
+
+body .fc-theme-standard th {
+	position: relative;
+}
+
+th.fc-col-header-cell.fc-day.fc-day-fri.fc-day-today:after {
+	content: "";
+	position: absolute;
+	top: -12px;
+	left: calc(50% - 4px);
+	width: 6px;
+	height: 6px;
+	background: #18a0fb;
+	border-radius: 50%;
+}
+
+body .fc-media-screen .fc-timegrid-event {
+	top: 1px !important;
+	bottom: 3px !important;
+	left: -1px !important;
+	right: -2px !important;
+}
+
+body .fc-media-screen .fc-timegrid-event:hover {
+	top: -1px !important;
+	bottom: 3px !important;
+	left: -2px !important;
+	right: -3px !important;
+	box-shadow: 0 2px 6px rgb(0 0 0 / 30%);
+}
+
+.fc .fc-toolbar-title {
+	font-family: "Montserrat", sans-serif;
+	font-weight: bold;
+}
+
+th.fc-col-header-cell.fc-day.fc-day-disabled {
+	background: white;
 }
 
 .color-green {
@@ -80,6 +148,7 @@ body {
 
 .siteContent {
 	margin-top: 80px;
+	min-height: 68vh;
 }
 
 .studentHubContainer {

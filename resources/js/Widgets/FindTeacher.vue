@@ -33,7 +33,7 @@
 						/> / óra
 					</div>
 				</div>
-				<div class="flex">
+				<div class="infoBottom flex">
 					<div>
 						<div class="flex items-center mb-2">
 							<div

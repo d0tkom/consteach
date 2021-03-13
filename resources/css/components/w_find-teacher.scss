@@ -13,6 +13,20 @@
 	background: white;
 	border-radius: 10px;
 	z-index: $z-teacher-more-panel;
+
+	&:after {
+		content: "";
+		position: absolute;
+		top: 100px;
+		left: -8px;
+		width: 16px;
+		height: 16px;
+		background: white;
+		border-left: 1px solid #9FC6DF;
+		border-top: 1px solid #9FC6DF;
+		transform: rotate(-45deg);
+		border-radius: 2px;
+	}
 }
 
 .teacherWidgetMainCard {

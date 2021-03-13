@@ -1,0 +1,364 @@
+@media all and (max-width: 1440px) {
+	body main .choose-a-language .container .lang .flagImg {
+		width: 0.8em !important;
+		height: 0.8em !important;
+	}
+
+	body main .top .flex .left p {
+		font-size: 22px;
+	}
+
+	body main .top .flex .right .landingTree {
+		bottom: 5px;
+	}
+
+	body main .language-learning .container .line .icon {
+		max-width: 200px;
+	}
+
+	body main .teach-with-us {
+		padding-bottom: 60px;
+	}
+}
+
+@media all and (max-width: 1366px) {
+	body main .top .flex .right .landingTree {
+		width: 110px;
+	}
+
+	.btnContainer .cBtn.large {
+		padding: 10px 26px !important;
+		font-size: 1.1rem;
+	}
+
+	body main .top .flex .left .title {
+		font-size: 34px;
+	}
+
+	body main .hero .base-line {
+		margin-bottom: 10px;
+	}
+
+	body main .language-learning .container .line .icon {
+		max-width: 180px;
+	}
+
+	body main .join-us .section-content {
+		padding: 60px 0 100px 0;
+	}
+
+	body main .teach-with-us {
+		padding-bottom: 100px;
+	}
+}
+
+@media all and (max-width: 1024px) {
+	body header nav {
+		display: flex;
+	}
+
+	body header nav .nav-bar {
+		top: 55px;
+		background: #ffffff;
+		box-shadow: 0 8px 20px -2px rgba(black, .3);
+	}
+
+	body header nav .lang {
+		justify-content: space-around;
+	}
+
+	body header nav .nav-bar ul li {
+		display: flex;
+		justify-content: center;
+		margin: 10px 0;
+	}
+
+	body main .language-learning .container {
+		grid-template-columns: repeat(1, minmax(0, 1fr));
+	}
+
+	body main .language-learning .container .line {
+		flex-direction: column;
+		margin-bottom: 20px;
+	}
+
+	body footer .container {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		display: grid;
+
+		.column {
+			width: 100%;
+		}
+	}
+
+	footer .container .column:nth-child(3) {
+		text-align: left;
+	}
+
+	footer .container .column a.social {
+		justify-content: flex-start;
+		text-align: left;
+		margin-left: 20px;
+	}
+}
+
+@media all and (max-width: 640px) {
+	body main .top .flex .left {
+		margin-top: 20px;
+		background: transparent;
+
+		.title {
+			font-size: 24px;
+		}
+
+		p {
+			font-size: 18px;
+		}
+	}
+
+	body main .top .flex .right .landingGirl {
+		height: 50vh;
+	}
+
+	body main .top .flex .right {
+		margin-bottom: 80px;
+		margin-top: 20px;
+	}
+
+	body main .choose-a-language .container {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		display: grid;
+	}
+
+	body main .choose-a-language .container .lang {
+		opacity: 1;
+		margin-bottom: 30px;
+	}
+
+	body main .choose-a-language .container .lang .flagImg {
+		width: 0.7em !important;
+		height: 0.7em !important;
+	}
+
+	body .base-title {
+		font-size: 1.2rem;
+	}
+
+	body main .language-learning .container .line .icon {
+		max-width: 150px;
+	}
+
+	body main .next-level .container {
+		max-width: 330px;
+	}
+
+	body main .teach-with-us .container .line {
+		flex-direction: column;
+		margin-bottom: 40px;
+
+		.icon {
+			max-width: 160px;
+			img {
+				width: 140px;
+			}
+		}
+
+		.content {
+			text-align: center;
+		}
+	}
+
+	body .base-line {
+		width: 40px;
+		height: 8px;
+	}
+
+	body main .language-learning:after,
+	body main .language-learning:before,
+	body main .teach-with-us:after,
+	body main .teach-with-us:before,
+	body main .join-us:after {
+		height: 14.6vw;
+	}
+
+	body main .join-us {
+		margin-top: -150px;
+		padding-top: 30px;
+	}
+
+	.siteContent {
+		padding: 10px;
+		box-sizing: border-box;
+	}
+
+	.studentHubContainer {
+		.mainGrid {
+			gap: 0;
+		}
+
+		.mobileReversedCol {
+			display: flex;
+			flex-direction: column-reverse;
+
+			iframe {
+				height: 200px;
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	body .siteContent {
+		margin-top: 68px;
+
+		.studentHubContainer {
+			margin-top: 0;
+		}
+	}
+
+	.teacherMorePanel {
+		display: none !important;
+	}
+
+	.studentHubContainer {
+		.noDataCard {
+			padding: 20px !important;
+		}
+
+		img {
+			width: 60px !important;
+			height: 60px !important;
+		}
+	}
+
+	body .page.userSettings {
+		margin-top: 120px;
+		padding: 20px;
+	}
+
+	.teacherApplicationContainer {
+		.tabs {
+			.tabsContainer {
+				display: flex;
+				.tabNumber {
+					margin-bottom: 0;
+				}
+
+				.tabLabel {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.studentSettingsContainer {
+		.formExtra {
+			flex-direction: column;
+
+			.btnContainer {
+				&:first-child {
+					margin-bottom: 20px;
+				}
+			}
+		}
+	}
+
+	.teacherWidgetMainCard {
+		.infoBottom {
+			flex-direction: column;
+
+			.btnContainer {
+				display: flex;
+				justify-content: flex-end;
+			}
+		}
+	}
+
+	.findTeacherContainer .actions {
+		margin: auto;
+		margin-top: 20px;
+		padding: 0 20px;
+	}
+
+	.findTeacherContainer {
+		.filters {
+			justify-content: space-between;
+			flex-wrap: wrap;
+
+			.btnContainer {
+				margin-bottom: 20px;
+			}
+		}
+	}
+
+	.teacherWidgetMainCard {
+		flex-direction: column;
+		align-items: center;
+
+		.teacherInfo {
+			align-items: center;
+			margin-top: 32px;
+
+			.name {
+				font-size: 1.8em;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.studentInfoIcon {
+				font-size: 2em;
+			}
+
+			.studentStats {
+				width: 100%;
+				display: flex;
+				justify-content: space-around;
+			}
+
+			.teacherLanguagesContainer {
+				width: 100%;
+				display: flex;
+				justify-content: space-around;
+			}
+
+			.languageItem {
+				justify-content: center;
+				align-items: center;
+				display: flex;
+				flex-direction: column;
+
+				.tagContainer {
+					margin-left: 0;
+				}
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+
+			.teacherInfoTop {
+				width: 100%;
+				justify-content: center;
+			}
+		}
+	}
+
+	body .calendarFooter {
+		flex-direction: column;
+		align-items: flex-start;
+
+		.calendarFooterOptions {
+			width: 100%;
+			justify-content: space-between;
+			padding: 0 10px;
+		}
+
+		.calendarFooterLabels {
+			padding-bottom: 0;
+		}
+	}
+
+	.studentHubContainer .resume img {
+		width: 60px;
+		height: 60px;
+	}
+}

@@ -2,7 +2,7 @@
 	<app-layout>
 		<div class="card md flat teacherApplicationContainer">
 			<div class="tabs p-4 mb-4 bg-white rounded-xl shadow-md border blue-border items-center relative">
-				<div class="sm:flex text-center blue-text-color">
+				<div class="tabsContainer flex text-center blue-text-color">
 					<div
 						v-for="tab in tabs"
 						:key="tab.id"
@@ -13,7 +13,7 @@
 							class="tabNumber h-10 m-auto rounded-full w-10 border blue-border-color text-center text-2xl flex flex-col justify-center mb-2"
 							:class="{activeTab: activeTab === tab.id}"
 						>{{ tab.id + 1 }}</div>
-						<div>{{ tab.label }}</div>
+						<div class="tabLabel">{{ tab.label }}</div>
 					</div>
 				</div>
 			</div>
@@ -73,7 +73,10 @@
 						
 						<!-- Tanított nyelvek -->
 						<div class="mb-4">
-							<div class="title color-gray mb-2">Tanított nyelvek</div>
+							<div
+								class="title color-gray mb-2"
+								:class="!!$page.props.errors.teaching_languages && 'text-red-500'"
+							>Tanított nyelvek</div>
 							<div
 								class="grid md:grid-cols-2 grid-cols-1 gap-4 mb-4"
 								v-for="(language, languageIndex) in form.teaching_languages"
@@ -115,7 +118,10 @@
 						
 						<!-- Beszélt nyelvek -->
 						<div>
-							<div class="title color-gray mb-2">Beszélt nyelvek</div>
+							<div
+								class="title color-gray mb-2"
+								:class="!!$page.props.errors.spoken_languages && 'text-red-500'"
+							>Beszélt nyelvek</div>
 							<div
 								class="grid md:grid-cols-2 grid-cols-1 gap-4 mb-4"
 								v-for="(language, languageIndex) in form.spoken_languages"
@@ -182,6 +188,7 @@
 		                                    @change="updateProfilePhotoPreview"
 		                                >
 		                                <c-btn
+			                                :color="!!$page.props.errors.photo ? 'error' : 'primary'"
 		                                    icon="edit"
 		                                    icon-only
 		                                    circle
@@ -296,7 +303,7 @@
 				<h2 class="title text-lg color-primary-dark font-bold">Bemutatkozás</h2>
 				<div class="color-blue-dark">Mutatkozz be leendő diákjaidnak!</div>
 				<div
-	                class="card md-4"
+	                class="card flat md-4"
 	                v-for="(about_me, a) in form.about_me"
 	                :key="'abtm-'+ a"
 	            >
@@ -310,7 +317,6 @@
                             v-model="about_me.text"
                         />
                     </div>
-
                 </div>
             </div>
 
@@ -334,11 +340,11 @@
                                 icon="edit"
                                 icon-only
                                 circle
+                                :color="!!$page.props.errors.photo ? 'error' : 'primary'"
                             ></c-btn>
                         </label>
                     </div>
                 </div>
-			
 			</div>
 			<div class="actions flex justify-center">
 				<c-btn
@@ -499,6 +505,10 @@ export default {
 				onSuccess: () => {
 					this.$toast.success('Sikeres mentés');
 					localStorage.removeItem('teacher-application');
+				},
+				onError: error => {
+					console.error(error);
+					this.$toast.error('Kérjük ellenőrizd a megadott adatokat');
 				}
 			});
 		},
@@ -549,6 +559,7 @@ export default {
 	                }
 	           	},
 				onError: error => {
+					this.$toast.error('Kérjük ellenőrizd a bevitt adatokat');
 					console.error(error)
 				}
 			});
