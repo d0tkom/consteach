@@ -127,7 +127,7 @@ Route::get('teachers/load-more', [TeacherController::class, 'load_more'])->name(
 Route::get('/teachers/filter', [TeacherController::class, 'filter'])->name('teachers.filter');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::middleware(['teacher.registered'])->get('/dashboard', function () {
+    Route::middleware(['teacher.registered', 'teacher.verified'])->get('/dashboard', function () {
         switch (Auth::user()->role) {
         case ('student'):
             $lessons = Lesson::where('student_id', Auth::user()->extra->id)

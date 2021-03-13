@@ -53,18 +53,24 @@ class CheckoutController extends Controller
             $user = auth()->user();
             $user->createOrGetStripeCustomer();
 
-            $payment = $user->charge(
+            /*$payment = $user->charge(
                 $request->input('product')['amount'],
                 $request->input('product')['payment_method']
 
-            );
+            );*/
 
-            $payment = $payment->asStripePaymentIntent();
+            //$payment = $payment->asStripePaymentIntent();
+
+            $payment = $user->invoiceFor('Lesson Fee', $request->input('product')['amount'],[],[
+                'default_payment_method' => $request->input('product')['payment_method']
+            ]);
+
+            var_Dump($payment);
 
             $order = $user->orders()
                 ->create([
-                    'transaction_id' => $payment->charges->data[0]->id,
-                    'total' => $payment->charges->data[0]->amount,
+                    'transaction_id' => '311',
+                    'total' => '3131',
                     'teacher_id' => $request->input('product')['teacher_id'],
                     'lesson_number' => $request->input('product')['lesson_number'],
                 ]);

@@ -39,7 +39,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'last_name' => $input['last_name'],
                 'email' => $input['email'],
                 'timezone' => $input['timezone'],
-                'spoken_languages' => $input['spoken_languages'],
+                'spoken_languages' => $input['spoken_languages'] ?? [],
                 'site_language' => $input['site_language'] ?? 'hu',
                 'currency' => $input['currency'] ?? 'HUF',
             ])->save();

@@ -13,32 +13,38 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
+    'failed' => 'A megadott adatok alapján nem található a fiók.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
+    'login_with_facebook_btn' => 'Folytatás Facebook fiókkal',
+    'login_with_google_btn' => 'Folytatás Google fiókkal',
 
-    'login_with_facebook_btn' => 'Continue with Facebook account',
-    'login_with_google_btn' => 'Continue with Google account',
+    'register_as_student' => 'Regisztráció diákként',
+    'register_as_teacher' => 'Regisztráció tanárként',
 
-    'login_social_or_email' => 'or',
+    'login_social_or_email' => 'vagy',
 
-    'first_name_label' => 'First name',
-    'last_name_label' => 'Last name',
-    'name_label' => 'Name',
+    'first_name_label' => 'Vezetéknév',
+    'last_name_label' => 'Keresztnév',
     'email_label' => 'Email',
-    'password_label' => 'Password',
-    'password_confirmation_label' => 'Password again',
-    'remember_label' => 'Remember me',
+    'password_label' => 'Jelszó',
+    'password_confirmation_label' => 'Jelszó ismét',
+    'remember_label' => 'Emlékezz rám',
 
-    'login_btn' => 'Login',
-    'register_btn' => 'Registration',
-    'lost_password_btn' => 'Lost password',
-    'create_new_account_btn' => 'Create new account',
-    'already_registered_btn' => 'Already registered',
-    'password_reset_link_btn' => 'Email Password Reset Link',
+    'login_btn' => 'Bejelentkezés',
+    'register_btn' => 'Regisztráció',
+    'lost_password_btn' => 'Elfelejtett jelszó',
+    'create_new_account_btn' => 'Új fiók létrehozása',
+    'already_registered_btn' => 'Van fiókom',
+    'password_reset_link_btn' => 'Visszaállító link küldése',
 
-    'forgot_password_title' => 'Forgot your password?',
-    'forgot_password_subtitle' => 'No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.',
+    'forgot_password_title' => 'Elfelejtetted a jelszavad?',
+    'forgot_password_subtitle' => 'Semmi probléma. Add meg az email címedet és küldünk egy levelet, amiben megtalálod a teendőket a jelszavad megváltoztatásához',
 
 
+    'current_password_label' => 'Jelenlegi jelszó',
+    'new_password_label' => 'Új jelszó',
+    'new_password_confirmation_label' => 'Új jelszó ismét',
+
+    'password_update_save_btn' => 'Mentés',
 ];

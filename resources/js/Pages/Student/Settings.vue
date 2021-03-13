@@ -53,43 +53,6 @@
                                 v-model="form.email"
                             ></cInput>
                         </div>
-                        
-                        <div
-                            class="grid md:grid-cols-2 grid-cols-1 gap-4 mb-4"
-                            v-for="(language, languageIndex) in form.spoken_languages"
-                            :key="languageIndex"
-                        >
-                            <div>
-                                <c-select
-	                                capitalize
-                                    :data="languageList"
-                                    :label="trans.get('settings.spoken_language')"
-                                    labelKey="name"
-                                    valueKey="code"
-                                    :selected="language.language"
-                                    v-model="language.language"
-                                />
-                            </div>
-                            
-                            <div>
-                                <c-select
-                                    :data="levels"
-                                    :label="trans.get('settings.language_level')"
-                                    labelKey="label"
-                                    valueKey="code"
-                                    :selected="language.level"
-                                    v-model="language.level"
-                                />
-                            </div>
-                        </div>
-                        
-                        <c-btn
-                            text
-                            icon="add"
-                            @click="addNewLanguage"
-                        >
-                            {{ trans.get('settings.add_language_btn') }}
-                        </c-btn>
 
                         <div class="formExtra mt-4 flex justify-between">
                             <c-btn
@@ -190,7 +153,6 @@
                 languages,
                 levels,
                 timezones: [],
-                languageList: null,
                 currencies,
 
                 locale: window.default_locale,
@@ -201,11 +163,6 @@
                 
                 removeAccountPopup: false,
                 changePasswordPopup: false,
-                
-                languageTemplate: {
-                    language: null,
-                    level: null
-                },
                 
                 form: this.$inertia.form({
                     '_method': 'PUT',
@@ -240,26 +197,11 @@
                 return {code: value, name: value};
             });
 
-            this.languageList = require('@cospired/i18n-iso-languages');
-            this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/en.json'));
-            this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/hu.json'));
-            this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
-
-            this.languageList = Object.entries(this.languageList.getNames(this.locale, {select: 'official'})).map(array => {
-                return {code: array[0], name: array[1]};
-            });
-	
-	        this.languageList.sort(this.$root.sortAlphabetByName);
-
             this.currencies = this.currencies.map(code => {
                 return {code: code, name: code};
             });
         },
         methods: {
-            addNewLanguage() {
-                const languageTemplate = JSON.parse(JSON.stringify(this.languageTemplate));
-                this.form.spoken_languages.push(languageTemplate);
-            },
             submit() {
                 if (this.$refs.photo) {
                     this.form.photo = this.$refs.photo.files[0];
