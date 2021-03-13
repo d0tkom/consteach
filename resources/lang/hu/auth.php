@@ -24,8 +24,8 @@ return [
 
     'login_social_or_email' => 'vagy',
 
-    'first_name_label' => 'Vezetéknév',
-    'last_name_label' => 'Keresztnév',
+    'first_name_label' => 'Keresztnév',
+    'last_name_label' => 'Vezetéknév',
     'email_label' => 'Email',
     'password_label' => 'Jelszó',
     'password_confirmation_label' => 'Jelszó ismét',
