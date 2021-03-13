@@ -13,38 +13,37 @@ return [
     |
     */
 
-    'failed' => 'A megadott adatok alapján nem található a fiók.',
+    'failed' => 'The account cannot be found based on the credentials provided.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
-    'login_with_facebook_btn' => 'Folytatás Facebook fiókkal',
-    'login_with_google_btn' => 'Folytatás Google fiókkal',
+    'login_with_facebook_btn' => 'Continue with Facebook',
+    'login_with_google_btn' => 'Continue with Google',
 
-    'register_as_student' => 'Regisztráció diákként',
-    'register_as_teacher' => 'Regisztráció tanárként',
+    'register_as_student' => 'Registrate as student',
+    'register_as_teacher' => 'Registrate as teacher',
 
-    'login_social_or_email' => 'vagy',
+    'login_social_or_email' => 'or',
 
-    'first_name_label' => 'Vezetéknév',
-    'last_name_label' => 'Keresztnév',
+    'first_name_label' => 'First name',
+    'last_name_label' => 'Last name',
     'email_label' => 'Email',
-    'password_label' => 'Jelszó',
-    'password_confirmation_label' => 'Jelszó ismét',
-    'remember_label' => 'Emlékezz rám',
+    'password_label' => 'Password',
+    'password_confirmation_label' => 'Confirm password',
+    'remember_label' => 'Remember me',
 
-    'login_btn' => 'Bejelentkezés',
-    'register_btn' => 'Regisztráció',
-    'lost_password_btn' => 'Elfelejtett jelszó',
-    'create_new_account_btn' => 'Új fiók létrehozása',
-    'already_registered_btn' => 'Van fiókom',
-    'password_reset_link_btn' => 'Visszaállító link küldése',
+    'login_btn' => 'Log in',
+    'register_btn' => 'Sign up',
+    'lost_password_btn' => 'Forgotten password',
+    'create_new_account_btn' => 'Create new account',
+    'already_registered_btn' => 'I have an account',
+    'password_reset_link_btn' => 'Send password reset',
 
-    'forgot_password_title' => 'Elfelejtetted a jelszavad?',
-    'forgot_password_subtitle' => 'Semmi probléma. Add meg az email címedet és küldünk egy levelet, amiben megtalálod a teendőket a jelszavad megváltoztatásához',
+    'forgot_password_title' => 'Forgotten password?',
+    'forgot_password_subtitle' => 'No worries, please provide your email address and we send you a message to help you request a new password', 
 
+    'current_password_label' => 'Current password',
+    'new_password_label' => 'New password',
+    'new_password_confirmation_label' => 'New password again',
 
-    'current_password_label' => 'Jelenlegi jelszó',
-    'new_password_label' => 'Új jelszó',
-    'new_password_confirmation_label' => 'Új jelszó ismét',
-
-    'password_update_save_btn' => 'Mentés',
+    'password_update_save_btn' => 'Update password',
 ];
