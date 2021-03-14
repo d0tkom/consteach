@@ -377,7 +377,7 @@
                     first_name: this.$page.props.user.first_name,
                     last_name: this.$page.props.user.last_name,
                     email: this.$page.props.user.email,
-                    country: this.$page.props.user.country,
+                    country: this.teacher.country,
                     spoken_languages: this.$page.props.user.spoken_languages ?? [{language: null, level: null}],
                     teaching_languages: this.teacher.teaching_languages ?? [{language: null, level: null}],
                     site_language: this.$page.props.user.site_language,
