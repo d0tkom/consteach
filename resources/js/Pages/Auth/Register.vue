@@ -115,8 +115,8 @@
 	        
 	        <div class="flex justify-end">
 		        <c-btn
+			        @click="alreadyRegisteredClicked"
 			        text
-			        navigate-to="/#login"
 			    >
 			        {{ trans.get('auth.already_registered_btn') }}
 		        </c-btn>
@@ -165,6 +165,10 @@
 	        }
 	    },
         methods: {
+        	alreadyRegisteredClicked() {
+		        this.$root.popup.registration = false;
+		        this.$root.popup.login = true;
+	        },
             submit() {
                 this.form.post(this.route('register'), {
 	                onFinish: () => {

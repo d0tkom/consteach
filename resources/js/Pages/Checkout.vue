@@ -12,7 +12,7 @@
 						<label for="e0" v-if="$page.props.user.extra.trial_available" @click="trialSelected = true; selectTrial()">
 							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
 								<input id="e0" class="mt-1 sm:mr-3" type="radio" name="lesson" :checked="trialSelected"/>
-								<div class="text-md font-semibold flex-1 mr-4">Próbaóra</div>
+								<div class="text-md font-semibold flex-1 mr-4">{{ trans.get('checkout.free_lesson') }}</div>
 							</div>
 						</label>
 						<label for="e1" @click="trialSelected = false; selectProduct(1, teacher.one_hour_price, 'HUF')">
@@ -70,7 +70,7 @@
 					</div>
 					
 					<div class="sm:my-4 sm:mx-8 m-2">
-						<div class="mb-2">Fizetési adatok</div>
+						<div class="mb-2">{{ trans.get('checkout.payment_info_label') }}</div>
 						<c-input
 							class="mb-4"
 							type="text"
@@ -106,7 +106,7 @@
 							required
 						/>
 						
-						<div class="mb-2 mt-4">Bankkártya adatok</div>
+						<div class="mb-2 mt-4">{{ trans.get('checkout.bank_card_info_label') }}</div>
 						<div id="card-element"></div>
 					</div>
 				</div>
@@ -181,7 +181,7 @@
 								@click="processPayment"
 								:loading="paymentProcessing"
 							>
-								{{ trans.get('checkout.pay_btn') }}
+								{{ trans.get(trialSelected ? 'checkout.free_lesson_pay_btn' : 'checkout.pay_btn') }}
 							</c-btn>
 						</div>
 					</div>

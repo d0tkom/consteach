@@ -89,7 +89,7 @@
                             </div>
                         </div>
                         <div class="card p-sm">
-                            <div class="text-md font-bold color-blue-dark">{{ trans.get('teacher_profile.time_table') }}</div>
+                            <div class="text-md font-bold color-blue-dark mb-4">{{ trans.get('teacher_profile.time_table') }}</div>
                             <FullCalendar :options="calendarOptions" />
 	
 	                        <div class="calendarFooter flex justify-between items-center mt-2">
@@ -139,21 +139,21 @@
                         </div>
                     </div>
                     <div class="col-span-1">
-	                    <div class="card p-sm">
+	                    <div class="card freeLessonCard p-sm">
 		                    <div class="blue-text-color mb-6 text-center sm:text-left ">
 			                    <p class="text-lg font-semibold">
 				                    {{ trans.get('teacher_profile.free_lesson_title') }}
 			                    </p>
 			                    <div class="sm:flex mb-10">
 				                    <div class="flex-1 sm:text-left text-center">{{ trans.get('teacher_profile.free_lesson_description') }}</div>
-				                    <div class="relative flex flex-col items-end">
-					                    <div class="text-gray text-sm">
+				                    <div class="price relative flex flex-col items-end">
+					                    <div class="originalPrice text-gray text-sm">
 						                    <currency
 							                    class="line-through"
 							                    :value="(teacher.one_hour_price*fee)/2"
 						                    />
 						                </div>
-					                    <div class="text-green-500 text-lg">
+					                    <div class="newPRice text-green-500 text-lg">
 						                    <currency
 							                    :value="0"
 						                    />
@@ -161,7 +161,7 @@
 				                    </div>
 			                    </div>
 		                    </div>
-		                    <div class="flex flex-col items-end">
+		                    <div class="ctaContainer flex flex-col items-end">
 			                    <c-btn
 				                    color="success"
 				                    :navigate-to="route('checkout', teacher.id)"
@@ -169,7 +169,7 @@
 			                    >{{ trans.get('teacher_profile.free_lesson_btn') }}</c-btn>
 		                    </div>
 	                    </div>
-                        <div class="card p-sm">
+                        <div class="priceTableCard card p-sm">
                             <div class="blue-text-color mb-6 text-center sm:text-left ">
                                 <p class="text-lg font-semibold">
 	                                {{ trans.get('teacher_profile.private_lessons') }}
@@ -179,30 +179,30 @@
                                 </p>
                             </div>
                             <div class="text-center blue-text-color">
-                                <div class="sm:flex mb-10">
-                                    <div class="flex-1 sm:text-left text-center">1 {{ trans.get('teacher_profile.hour') }}</div>
+                                <div class="priceItem sm:flex mb-10">
+                                    <div class="title flex-1 sm:text-left text-center">1 {{ trans.get('teacher_profile.hour') }}</div>
                                     <div class="relative">
-                                        <div class="text-green-500 text-lg">
+                                        <div class="value text-green-500 text-lg">
 	                                        <currency
 		                                        :value="teacher.one_hour_price*fee"
 	                                        />
 	                                    </div>
                                     </div>
                                 </div>
-                                <div class="sm:flex mb-10">
-                                    <div class="flex-1 sm:text-left text-center">5 {{ trans.get('teacher_profile.hours') }}</div>
+                                <div class="priceItem sm:flex mb-10">
+                                    <div class="title flex-1 sm:text-left text-center">5 {{ trans.get('teacher_profile.hours') }}</div>
                                     <div class="relative">
-                                        <div class="text-green-500 text-lg">
+                                        <div class="value text-green-500 text-lg">
 	                                        <currency
 		                                        :value="(teacher.five_hour_price / 5)*fee"
 	                                        />
 	                                   </div>
                                     </div>
                                 </div>
-                                <div class="sm:flex mb-10">
-                                    <div class="flex-1 sm:text-left text-center">10 {{ trans.get('teacher_profile.hours') }}</div>
+                                <div class="priceItem sm:flex mb-10">
+                                    <div class="title flex-1 sm:text-left text-center">10 {{ trans.get('teacher_profile.hours') }}</div>
                                     <div class="relative">
-                                        <div class="text-green-500 text-lg">
+                                        <div class="value text-green-500 text-lg">
 	                                        <currency
 		                                        :value="(teacher.ten_hour_price / 10)*fee"
 	                                        />
@@ -210,7 +210,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex flex-col items-end">
+                            <div class="actions flex flex-col items-end">
                                 <c-btn
                                     class="mb-4"
                                     :navigate-to="route('checkout', teacher.id)"

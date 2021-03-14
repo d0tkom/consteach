@@ -118,6 +118,10 @@ body .fc-media-screen .fc-timegrid-event:hover {
 	font-weight: bold;
 }
 
+body .fc .fc-button:disabled {
+	opacity: 0.15;
+}
+
 th.fc-col-header-cell.fc-day.fc-day-disabled {
 	background: white;
 }
@@ -169,25 +173,25 @@ th.fc-col-header-cell.fc-day.fc-day-disabled {
 }
 
 .hr {
-  position: relative;
-  text-align: center;
-  margin: 20px 0;
-  opacity: .6;
+	position: relative;
+	text-align: center;
+	margin: 20px 0;
+	opacity: 0.4;
 
-  &:after, &:before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 40%;
-    border-bottom: 1px solid gray;
-  }
+	&:after, &:before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		width: 40%;
+		border-bottom: 1px solid gray;
+	}
 
-  &:after {
-    right: 0;
-  }
-  &:before {
-    left: 0;
-  }
+	&:after {
+		right: 0;
+	}
+	&:before {
+		left: 0;
+	}
 }
 
 .alert {

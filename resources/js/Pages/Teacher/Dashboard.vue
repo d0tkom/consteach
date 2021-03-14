@@ -57,7 +57,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <div class="contentGrid grid grid-cols-1 lg:grid-cols-3 gap-4">
                     <div class="col-span-2 card p-sm" v-if="appointments.length">
                         <div class="flex justify-between mb-4">
                             <div class="color-primary-dark text-lg font-bold">{{ trans.get('dashboard.booked_lessons') }}</div>

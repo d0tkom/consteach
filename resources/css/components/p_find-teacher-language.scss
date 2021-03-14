@@ -1,0 +1,8 @@
+.languagesGrid {
+	.languageItem {
+		&.selected {
+			background: #174696;
+			color: white;
+		}
+	}
+}

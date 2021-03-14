@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <div class="contentGrid grid grid-cols-1 lg:grid-cols-3 gap-4">
                     <div class="col-span-2">
                         <div class="card p-sm">
                             <div class="flex justify-between mb-4">
