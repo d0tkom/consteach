@@ -14,13 +14,9 @@
                         </div>
                         <div class="flex items-center">
                             <div class="infoItem flex mx-4">
-                                <div class="mr-4">
-                                    <img
-	                                    height="40"
-	                                    src="/img/student_icon.svg"
-	                                    alt="Diák ikon"
-                                    >
-                                </div>
+	                            <div class="mr-4 material-icons headerIcon">
+		                            person
+	                            </div>
                                 <div class="text-center">
                                     <div class="color-primary-dark font-bold">
                                         {{ $page.props.user.extra.student_count }}
@@ -29,12 +25,8 @@
                                 </div>
                             </div>
                             <div class="infoItem flex mx-4">
-                                <div  class="mr-4">
-                                    <img
-	                                    height="40"
-	                                    src="/img/sand_glass.svg"
-	                                    alt="Diák ikon"
-                                    >
+                                <div class="mr-4 material-icons headerIcon">
+	                                insert_invitation
                                 </div>
                                 <div class="text-center">
                                     <div class="color-primary-dark font-bold">
@@ -46,8 +38,8 @@
                         </div>
                         <div class="flex flex-col justify-center">
                             <div class="flex items-center">
-                                <span class="walletIcon material-icons mr-2 text-2xl color-primary-dark">account_balance_wallet</span>
-                                <span class="font-bold text-2xl color-green-dark">
+                                <span class="walletIcon material-icons mr-2 text-2xl">account_balance_wallet</span>
+                                <span class="walletValue font-bold text-2xl">
 	                                <currency
 		                                :value="15000"
 	                                />
