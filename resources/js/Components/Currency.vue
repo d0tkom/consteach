@@ -1,7 +1,7 @@
 <template>
 	<money-format
 		class="inline-block"
-		:value="value"
+		:value="valueConverted"
 		:locale="$page.props.user ? $page.props.user.site_language : 'hu'"
 		:currency-code="currency_"
 		:subunits-value="false"
@@ -42,6 +42,17 @@ export default {
 		}
 		
 		this.currency_ = this.$page.props.user.currency;
+	},
+	computed: {
+		valueConverted() {
+			if (this.currency_ === 'HUF') {
+				return this.value;
+			}
+			
+			let exchange = this.$root.currencies[this.currency_];
+			
+			return this.value * exchange;
+		}
 	}
 }
 

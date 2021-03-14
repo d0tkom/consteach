@@ -231,11 +231,15 @@
                 stripe: {},
                 cardElement: {},
                 paymentProcessing: false,
+	            locale: window.locale,
             }
         },
         async mounted() {
+        	console.log(this.locale);
             this.stripe = await loadStripe('pk_test_51IJzZ5BL1awehvPyAmK3WX8hXKt8NZYxV2q9KFu1VIuO0GFAkt3YIJefhmO2J2cKkt6xuWlnDjUw6ejJYEN4xV2300ss9XpQPd');
-            const elements = this.stripe.elements();
+            const elements = this.stripe.elements({
+	            locale: 'hu'
+            });
             this.cardElement = elements.create('card', {
                 hidePostalCode: true,
                 classes: {

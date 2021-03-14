@@ -26,9 +26,16 @@ return [
     'fresh_start_description' => 'Nincs más dolgod mint kiválasztani azt a tanárt aki a te igényeidnek a leginkább megfelel, időpontot foglalni és kezdődhet a tanulás!',
     'fresh_start_search_teacher_btn' => 'Tanárt keresek',
 
-    'notification' => [
-        'appointment_deleted' => 'Foglalás törölve'
-    ]
+
+    'appointment_delete_success_notification' => 'Foglalás törölve',
+    'appointment_delete_fail_notification' => 'Foglalás törlése sikertelen',
+
+    'availability_deleted_success_notification' => 'Foglalható időpont törölve',
+    'availability_deleted_fail_notification' => 'Foglalható időpont törlése sikertelen',
+
+
+    'availability_added_success_notification' => 'Foglalható időpont hozzáadva',
+    'availability_added_fail_notification' => 'Foglalható időpont hozzáadása sikertelen',
 ];
 
 ?>

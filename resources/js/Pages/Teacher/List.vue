@@ -139,15 +139,9 @@
                         active: false,
                         value: 'random',
                         options: {
-                            one_hour_price: {
-                                label: 'Ár'
-                            },
-                            appointment_count: {
-                                label: 'Megtartott órák száma'
-                            },
-	                        random: {
-		                        label: 'Random'
-	                        }
+                            one_hour_price: {},
+                            appointment_count: {},
+	                        random: {}
                         }
                     },
                     language: {

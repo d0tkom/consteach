@@ -434,11 +434,13 @@
                         };
 	                    this.calendarOptions.events.push(event);
 	
-	                    this.$toast.success('Foglalható időpont hozzáadva');
+	                    let message = this.trans.get('teacher_application.availability_added_success_notification');
+	                    this.$toast.success(message);
                     })
                     .catch(error => {
                         console.error(error);
-	                    this.$toast.success('Foglalható időpont hozzáadása sikertelen');
+	                    let message = this.trans.get('teacher_application.availability_added_fail_notification');
+	                    this.$toast.error(message);
                     });
                 });
             },
@@ -451,11 +453,13 @@
                         this.calendarOptions.events.splice(index, 1);
                     }
 	
-	                this.$toast.success('Foglalható időpont törölve');
+                    let message = this.trans.get('dashboard.availability_deleted_success_notification');
+	                this.$toast.success(message);
                 })
                 .catch(error => {
                     console.error(error);
-	                this.$toast.error('Foglalható időpont törlése sikertelen');
+                    let message = this.trans.get('dashboard.availability_deleted_fail_notification');
+	                this.$toast.error(message);
                 });
             },
             deleteAppointment() {
@@ -464,11 +468,14 @@
                 	this.appointmentPopup.open = false;
 	                this.$delete(this.calendarOptions.events, this.appointmentPopup.index);
 					
-	                this.$toast.success('Foglalás törölve');
+	                let message = this.trans.get('dashboard.appointment_delete_success_notification');
+	                this.$toast.success(message);
                 })
                 .catch(error => {
                     console.error(error);
-	                this.$toast.error('Foglalás törlése sikertelen');
+                    
+                    let message = this.trans.get('dashboard.appointment_delete_fail_notification');
+	                this.$toast.error(message);
                 });
             }
         }

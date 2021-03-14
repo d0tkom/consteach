@@ -19,6 +19,7 @@ return [
     'save_btn' => 'Változtatások mentése',
     'about_me' => 'Bemutatkozás',
     'min_character' => 'Minimum :num karakter',
+    'student' => 'Diák',
     'video' => 'Videó',
     'hour' => 'óra',
     'hours' => 'óra',
