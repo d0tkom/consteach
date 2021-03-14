@@ -121,6 +121,7 @@
 		                        </div>
 	                        </div>
                         </div>
+	                    <!--
                         <div class="card p-sm">
                             <div class="text-md font-bold color-blue-dark">{{ trans.get('teacher_profile.resume') }}</div>
                             <div class="resume flex p-4 blue-border">
@@ -137,6 +138,7 @@
                                 </div>
                             </div>
                         </div>
+                        -->
                     </div>
                     <div class="col-span-1">
 	                    <div class="card freeLessonCard p-sm">
