@@ -1,5 +1,10 @@
 <template>
     <div class="mainSiteContainer" :class="{isLanding}">
+	    <div class="pageBg" v-if="!isLanding">
+		    <span class="top"></span>
+		    <span class="bottom"></span>
+	    </div>
+	    
 	    <siteHeader />
 	    
 	    <div class="siteContent">

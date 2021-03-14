@@ -7,7 +7,7 @@
 				alt="Tanár képe"
 			>
 		</div>
-		<div class="w-full flex flex-col">
+		<div class="bookedEventInfo w-full flex flex-col">
 			<div class="name text-2xl font-bold color-primary-dark mb-2">
 				{{ fromTeacher ? data.student.user.first_name : data.teacher.user.first_name }}
 			</div>

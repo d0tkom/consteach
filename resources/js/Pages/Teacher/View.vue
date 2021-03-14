@@ -471,7 +471,7 @@
 			        }
 			    });
 		    	
-		    	if (!this.aboutMeOpened && text.length > maxChar) {
+		    	if (!this.aboutMeOpened && text && text.length > maxChar) {
 				    text = text.substring(0, maxChar)+'...';
 			    }
 		    	

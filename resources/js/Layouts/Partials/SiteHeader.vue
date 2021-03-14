@@ -149,6 +149,7 @@
 						icon="chat"
 						navigate-to="/messages"
 					>{{ trans.get('header.messages_btn') }}</c-btn>
+					<!--
 					<c-btn
 						lg
 						:icon-only="!mobileMenu"
@@ -157,6 +158,7 @@
 						class="mr-4"
 						icon="notifications"
 					>{{ trans.get('header.notifications_btn') }}</c-btn>
+					-->
 					<div v-if="mobileMenu">
 						<!--
 						<c-btn
