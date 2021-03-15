@@ -118,10 +118,11 @@ export default {
 			}
 			
 			if (this.isEventLive) {
-				return alert('TODO:Csatlakozás a videóchat-hez...');
+				window.open(this.data.meeting_url, '_blank');
+			} else {
+				window.open(this.data.meeting_url, '_blank');
+				//this.eventNotReadyPopup = true;
 			}
-			
-			this.eventNotReadyPopup = true;
 		},
 		deleteAppointment() {
 			axios.delete('/appointment/' + this.data.id)
@@ -145,7 +146,7 @@ export default {
 			return dDiff > 0;
 		},
 		isEventLive() {
-			const startDate = this.$moment.utc(this.data.start, 'YYYY-MM-DD HH:mm:ss').tz(this.timeZone);
+			const startDate = this.$moment.utc(this.data.start, 'YYYY-MM-DD HH:mm:ss').tz(this.timeZone).subtract(10, 'minutes');;
 			const endDate = this.$moment.utc(this.data.start, 'YYYY-MM-DD HH:mm:ss').tz(this.timeZone).add(this.data.length, 'minutes');
 			
 			const range = this.$moment.range(startDate, endDate);

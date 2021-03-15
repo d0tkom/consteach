@@ -20,7 +20,7 @@ class CreateStudentsTable extends Migration
             $table->string('address')->nullable();
             $table->string('postal')->nullable();
             $table->string('city')->nullable();
-            $table->string('state')->nullable();
+            $table->string('country')->nullable();
             $table->timestamps();
         });
     }

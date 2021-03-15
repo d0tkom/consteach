@@ -20,6 +20,7 @@ class CreateAppointmentsTable extends Migration
             $table->string('type');
             $table->dateTime('start');
             $table->dateTime('end');
+            $table->string('meeting_id')->nullable();
             $table->boolean('active')->default(false);
             $table->boolean('student_approved');
             $table->boolean('teacher_approved');

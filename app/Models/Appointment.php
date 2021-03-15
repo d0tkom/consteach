@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Teacher;
 use App\Models\Student;
+use MacsiDigital\Zoom\Facades\Zoom;
 
 class Appointment extends Model
 {
@@ -21,7 +22,7 @@ class Appointment extends Model
         'teacher_approved',
     ];
 
-    protected $appends = ['length'];
+    protected $appends = ['meeting_url'];
 
     public function teacher()
     {
@@ -33,8 +34,8 @@ class Appointment extends Model
     	return $this->belongsTo(Student::class);
     }
 
-    public function getLengthAttribute()
+    public function getMeetingUrlAttribute()
     {
-    	return $this->to;
+        return Zoom::meeting()->find($this->meeting_id)->join_url;
     }
 }

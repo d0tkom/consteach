@@ -86,7 +86,7 @@ Route::get('/teacher-landing', function () {
 })->name('teacher-landing');
 
 Route::get('/teacher/{teacher_id}', function ($teacher_id) {
-    $appointments = Appointment::where('teacher_id', $teacher_id)->get();
+    $appointments = Appointment::where('teacher_id', $teacher_id)->where('active', 1)->get();
 
     $availabilities = Availability::where('teacher_id', $teacher_id)->get();
 
@@ -116,7 +116,7 @@ Route::get('/teachers', function (Request $request) {
             }
         }
     }
-    $teachers = Teacher::with('user')->where('complete', true)->where('validated', true)->orderBy('one_hour_price', 'ASC')->get();
+    $teachers = Teacher::with('user', 'appointments', 'availabilities')->where('complete', true)->where('validated', true)->orderBy('one_hour_price', 'ASC')->get();
     $teachers = CollectionHelper::paginate($teachers, 5);
 
     return Inertia::render('Teacher/List')->with(['all_teachers' => $teachers, 'availableLanguages' => $availableLanguages]);
@@ -137,7 +137,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                     return $lesson->teacher->user->first_name;
                 });
 
-            $appointments = Appointment::where('student_id', Auth::user()->extra->id)->where('student_approved', 0)->where('teacher_approved', 0)->with(['teacher', 'teacher.user', 'student', 'student.user'])->get();
+            $appointments = Appointment::where('student_id', Auth::user()->extra->id)->where('active', 1)->where('student_approved', 0)->where('teacher_approved', 0)->with(['teacher', 'teacher.user', 'student', 'student.user'])->orderBy('start', 'ASC')->get();
 
             return Inertia::render('Student/Dashboard')->with(['appointments' => $appointments, 'lessons' => $lessons]);
             break;
@@ -149,7 +149,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                     return
                      $lesson->student->user->first_name;
                 });
-            $appointments = Appointment::where('teacher_id', Auth::user()->extra->id)->where('student_approved', 0)->where('teacher_approved', 0)->with(['teacher', 'teacher.user', 'student', 'student.user'])->orderBy('start', 'ASC')->get();
+            $appointments = Appointment::where('teacher_id', Auth::user()->extra->id)->where('active', 1)->where('student_approved', 0)->where('teacher_approved', 0)->with(['teacher', 'teacher.user', 'student', 'student.user'])->orderBy('start', 'ASC')->get();
 
             $availabilities = Availability::where('teacher_id', Auth::user()->extra->id)->get();
 

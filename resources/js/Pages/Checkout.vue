@@ -302,8 +302,8 @@
                 	axios.post('payment', {appointment: this.appointment, billing: this.billing, product: this.product})
                         .then((response) => {
                             this.paymentProcessing = false;
+                            this.$inertia.visit('/dashboard');
 	                        this.$toast.success('Sikeres tranzakció');
-                            //redirect here
                         })
                         .catch((error) => {
                             this.paymentProcessing = false;

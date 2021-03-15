@@ -53,7 +53,7 @@
                         
                         <div class="mb-4">
                             <cInput
-                                :error="!!$page.props.errors.first_name"
+                                :error="!!$page.props.errors.last_name"
                                 :label="trans.get('settings.last_name_label')"
                                 v-model="form.last_name"
                             ></cInput>

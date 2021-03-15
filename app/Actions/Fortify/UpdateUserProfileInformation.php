@@ -51,7 +51,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $teacher->teaching_languages = $input['teaching_languages'];
             $teacher->about_me = $input['about_me'];
             $teacher->country = $input['country'];
-            $teacher->complete = $input['complete'];
+            $teacher->complete = $input['complete'] ?? $teacher->complete;
             $teacher->video_url = $input['video_url'];
             $teacher->one_hour_price = $input['one_hour_price'] ?? 0;
             $teacher->five_hour_price = $input['five_hour_price'] ?? 0;

@@ -50,6 +50,8 @@ class LoginController extends Controller
                 'last_name' => explode(' ', $socialite_user->getName())[1],
                 'provider_id' => $socialite_user->getId(),
                 'role' => session('user_role'),
+                'currency' => 'HUF',
+                'site_language' => 'hu',
                 'timezone' => 'Europe/Budapest'
                 //'token' => $user->token
             ]);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use MacsiDigital\Zoom\Facades\Zoom;
 
 class AppointmentController extends Controller
 {
@@ -49,6 +50,8 @@ class AppointmentController extends Controller
                     'teacher_approved' => false,
                 ]
             );
+
+        $this->createMeeting($appointment);
 
         $lesson = auth()->user()->extra->lessons()->where('teacher_id', $request->input('params')['teacher_id'])->first();
 
@@ -115,5 +118,30 @@ class AppointmentController extends Controller
         $appointment->delete();
 
         //TODO: Notification
+    }
+
+    public function createMeeting(Appointment $appointment)
+    {
+        $meeting = Zoom::meeting()->make([
+            'topic' => 'Nyelvóra',
+            'type' => 2,
+            'start_time' => $appointment->start_time,
+            'duration' => 2
+        ]);
+
+        $meeting->settings()->make([
+            'host_video' => false,
+            'participant_video' => true,
+            'join_before_host' => true,
+            'jbh_time' => 10,
+            'approval_type' => 2,
+            'meeting_authentication' => false,
+        ]);
+
+        Zoom::user()->find('totand92@gmail.com')->meetings()->save($meeting);
+
+        $appointment->meeting_id = $meeting->id;
+
+        $appointment->save();
     }
 }
