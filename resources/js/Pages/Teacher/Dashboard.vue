@@ -3,8 +3,8 @@
         <div class="teacherHubContainer mt-8">
             <div class="card flat lg">
                 <div class="card p-sm">
-                    <div class="flex justify-between">
-                        <div class="flex items-center">
+                    <div class="mainInfos flex justify-between">
+                        <div class="infoTop flex items-center">
                             <div class="profileImg blue-border rounded-full overflow-hidden mr-8">
                                 <img :src="$page.props.user.profile_photo_url" alt="Profilkép">
                             </div>
@@ -12,7 +12,7 @@
                                 {{ $page.props.user.first_name }}
                             </div>
                         </div>
-                        <div class="flex items-center">
+                        <div class="infoItems flex items-center">
                             <div class="infoItem flex mx-4">
 	                            <div class="mr-4 material-icons headerIcon">
 		                            person
@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex flex-col justify-center">
+                        <div class="walletContainer flex flex-col justify-center">
                             <div class="flex items-center">
                                 <span class="walletIcon material-icons mr-2 text-2xl">account_balance_wallet</span>
                                 <span class="walletValue font-bold text-2xl">
@@ -74,8 +74,8 @@
 	                    
                         <FullCalendar :options="calendarOptions" />
 	                    
-	                    <div class="flex justify-between items-center mt-2">
-		                    <div class="p-4">
+	                    <div class="calendarFooter flex justify-between items-center mt-2">
+		                    <div class="calendarFooterLabels p-4">
 			                    <div class="text-sm flex items-center">
 				                    <div class="colorSample free mr-2"></div>
 				                    <span>{{ trans.get('dashboard.bookable') }}</span>
@@ -86,7 +86,7 @@
 			                    </div>
 		                    </div>
 		                    
-		                    <div class="flex items-center justify-end">
+		                    <div class="calendarFooterOptions flex items-center justify-end">
 			                    <div class="mr-6">{{ trans.get('dashboard.filter_calendar') }}</div>
 			                    <c-select
 				                    not-nullable
@@ -254,7 +254,7 @@
 	                slotMinTime: '06:00:00',
 	                slotMaxTime: '18:00:00',
                     plugins: [ timeGridPlugin, interactionPlugin ],
-                    initialView: 'timeGridWeek',
+		            initialView: this.$root.calendarType,
                     locale: window.default_locale,
                     buttonText: {
                         today:    'mai nap',
@@ -434,12 +434,12 @@
                         };
 	                    this.calendarOptions.events.push(event);
 	
-	                    let message = this.trans.get('teacher_application.availability_added_success_notification');
+	                    let message = this.trans.get('dashboard.availability_added_success_notification');
 	                    this.$toast.success(message);
                     })
                     .catch(error => {
                         console.error(error);
-	                    let message = this.trans.get('teacher_application.availability_added_fail_notification');
+	                    let message = this.trans.get('dashboard.availability_added_fail_notification');
 	                    this.$toast.error(message);
                     });
                 });

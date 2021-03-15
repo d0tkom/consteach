@@ -103,7 +103,10 @@
 					class="nav-bar"
 					:class="menu.opened && 'opened'"
 				>
-					<div class="walletContainer relative mr-4" v-if="$page.props.user != null && $page.props.user.role === 'teacher'">
+					<div
+						class="walletContainer relative mr-4"
+						v-if="!mobileMenu && $page.props.user != null && $page.props.user.role === 'teacher'"
+					>
 						<c-btn
 							lg
 							icon-only
@@ -252,6 +255,11 @@ export default {
 	methods: {
 		walletClose() {
 			this.walletOpened = false
+		},
+		logout() {
+			axios.post(route('logout').url()).then(response => {
+				window.location = '/';
+			})
 		},
 	}
 };

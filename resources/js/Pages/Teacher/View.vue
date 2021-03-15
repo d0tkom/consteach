@@ -77,8 +77,9 @@
                                 </div>
                                 <div class="mt-4">
                                     <div class="text-md font-bold color-blue-dark">{{ trans.get('teacher_profile.introduction') }}</div>
-                                    <div class="color-gray my-1" v-html="aboutMeText"></div>
+                                    <div class="color-gray my-1" v-html="aboutMeText.value"></div>
                                     <c-btn
+	                                    v-if="!aboutMeText.full"
                                         text
                                         :icon-right="aboutMeOpened ? 'keyboard_arrow_up' : 'keyboard_arrow_right'"
                                         @click="aboutMeOpened = !aboutMeOpened"
@@ -268,6 +269,7 @@
         },
         data() {
             return {
+	            aboutMeMaxChar: 1000,
 	            fee: 1.2,
 	            filterCalendarTime: {
 		            start: '06:00:00',
@@ -463,19 +465,23 @@
         },
 	    computed: {
 		    aboutMeText() {
-		    	const maxChar = 100;
 		    	let text = null;
+		    	let full = true;
 		    	this.teacher.about_me.forEach(about_me => {
 		    		if (about_me.locale === this.locale) {
 		    		    return text = about_me.text;
 			        }
 			    });
 		    	
-		    	if (!this.aboutMeOpened && text && text.length > maxChar) {
-				    text = text.substring(0, maxChar)+'...';
+		    	if (!this.aboutMeOpened && text && text.length > this.aboutMeMaxChar) {
+		    		full = false;
+				    text = text.substring(0, this.aboutMeMaxChar)+'...';
 			    }
 		    	
-		    	return text;
+		    	return {
+		    		value: text,
+				    full: full
+			    };
 		    }
 	    },
         methods: {

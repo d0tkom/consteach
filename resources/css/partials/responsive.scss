@@ -109,6 +109,7 @@
 
 		.column {
 			width: 100%;
+			margin-bottom: 40px;
 		}
 	}
 
@@ -138,7 +139,7 @@
 	}
 
 	body main .top .flex .right .landingGirl {
-		height: 50vh;
+		height: 80vw;
 	}
 
 	body main .top .flex .right {
@@ -575,5 +576,34 @@
 		padding-top: 70px;
 		max-height: 80vh;
 		overflow-y: scroll;
+	}
+
+	.teacherHubContainer {
+
+		.mainInfos {
+			flex-direction: column;
+			.infoTop {
+				flex-direction: column;
+
+				.profileImg {
+					margin-right: 0;
+				}
+			}
+
+			.infoItems {
+				justify-content: center;
+				margin: 20px 0;
+			}
+		}
+
+		.walletContainer {
+			flex-direction: row-reverse;
+			justify-content: space-around;
+			align-items: center;
+
+			.walletValue {
+				font-size: 1.2em;
+			}
+		}
 	}
 }

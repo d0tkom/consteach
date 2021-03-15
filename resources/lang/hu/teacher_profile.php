@@ -26,5 +26,7 @@ return [
 
     'free_lesson_title' => 'Próbaóra',
     'free_lesson_description' => 'Egyszeri alkalom, 30 perc',
-    'free_lesson_btn' => 'INGYENES PRÓBAÓRA'
+    'free_lesson_btn' => 'INGYENES PRÓBAÓRA',
+
+    'lesson_book_btn' => 'Órafoglalás',
 ];
