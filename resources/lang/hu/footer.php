@@ -12,7 +12,7 @@ return [
     'blog' => 'Blog',
     'community' => 'Közösség',
     'social_title' => 'Social',
-    'policies_title' => 'Szabályzat',
+    'policies_title' => 'Szabályzatok',
     'privacy' => 'Adatkezelési szabályzat',
     'terms_of_use' => 'Általános szerződési feltételek',
     'cookie_policy' => 'Süti beállítások',
