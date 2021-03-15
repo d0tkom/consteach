@@ -12,7 +12,7 @@
 						<label for="e0" v-if="$page.props.user.extra.trial_available" @click="trialSelected = true; selectTrial()">
 							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
 								<input id="e0" class="mt-1 sm:mr-3" type="radio" name="lesson" :checked="trialSelected"/>
-								<div class="text-md font-semibold flex-1 mr-4">Próbaóra</div>
+								<div class="text-md font-semibold flex-1 mr-4">{{ trans.get('checkout.free_lesson') }}</div>
 							</div>
 						</label>
 						<label for="e1" @click="trialSelected = false; selectProduct(1, teacher.one_hour_price, 'HUF')">
@@ -70,7 +70,7 @@
 					</div>
 					
 					<div class="sm:my-4 sm:mx-8 m-2">
-						<div class="mb-2">Fizetési adatok</div>
+						<div class="mb-2">{{ trans.get('checkout.payment_info_label') }}</div>
 						<c-input
 							class="mb-4"
 							type="text"
@@ -106,7 +106,7 @@
 							required
 						/>
 						
-						<div class="mb-2 mt-4">Bankkártya adatok</div>
+						<div class="mb-2 mt-4">{{ trans.get('checkout.bank_card_info_label') }}</div>
 						<div id="card-element"></div>
 					</div>
 				</div>
@@ -181,7 +181,7 @@
 								@click="processPayment"
 								:loading="paymentProcessing"
 							>
-								{{ trans.get('checkout.pay_btn') }}
+								{{ trans.get(trialSelected ? 'checkout.free_lesson_pay_btn' : 'checkout.pay_btn') }}
 							</c-btn>
 						</div>
 					</div>
@@ -231,11 +231,15 @@
                 stripe: {},
                 cardElement: {},
                 paymentProcessing: false,
+	            locale: window.locale,
             }
         },
         async mounted() {
+        	console.log(this.locale);
             this.stripe = await loadStripe('pk_test_51IJzZ5BL1awehvPyAmK3WX8hXKt8NZYxV2q9KFu1VIuO0GFAkt3YIJefhmO2J2cKkt6xuWlnDjUw6ejJYEN4xV2300ss9XpQPd');
-            const elements = this.stripe.elements();
+            const elements = this.stripe.elements({
+	            locale: 'hu'
+            });
             this.cardElement = elements.create('card', {
                 hidePostalCode: true,
                 classes: {
@@ -302,13 +306,16 @@
                 	axios.post('payment', {appointment: this.appointment, billing: this.billing, product: this.product})
                         .then((response) => {
                             this.paymentProcessing = false;
-                            this.$inertia.visit('/dashboard');
-	                        this.$toast.success('Sikeres tranzakció');
+                            
+                            let message = this.trans.get('checkout.transaction_success_notification');
+	                        this.$toast.success(message);
+	                        this.$inertia.visit('/dashboard');
                         })
                         .catch((error) => {
                             this.paymentProcessing = false;
                             console.error(error);
-	                        this.$toast.error('Sikertelen tranzakció');
+                            let message = this.trans.get('checkout.transaction_fail_notification');
+	                        this.$toast.error(message);
                         });
                         
                 	return;
@@ -325,7 +332,6 @@
                                 state: this.billing.state,
                                 postal_code: this.billing.postal
                             }
-
                         }
                     }
                 );
@@ -339,12 +345,14 @@
                         .then((response) => {
                             this.paymentProcessing = false;
                             this.$inertia.visit('/dashboard');
-	                        this.$toast.success('Sikeres tranzakció');
+	                        let message = this.trans.get('checkout.transaction_success_notification');
+	                        this.$toast.success(message);
                         })
                         .catch((error) => {
                             this.paymentProcessing = false;
                             console.error(error);
-	                        this.$toast.error('Sikertelen tranzakció');
+	                        let message = this.trans.get('checkout.transaction_fail_notification');
+	                        this.$toast.error(message);
                         });
                 }
             }

@@ -1,68 +1,62 @@
+.popUpContainer {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(#001D50 , .5);
+	opacity: 0;
+	pointer-events: none;
+	transition: all .35s ease-in-out;
+	z-index: $z-popup;
 
-	body.scrollLock {
-		overflow: hidden;
-		padding-right: 17px;
-	}
-	
-	.popUpContainer {
-		position: fixed;
+	.popUpBg {
+		position: absolute;
 		top: 0;
+		right: 0;
 		bottom: 0;
 		left: 0;
-		right: 0;
-		background: rgba($blue-dark, .6);
+	}
+
+	.popupContent {
+		width: 96%;
+		max-width: 550px;
+		padding: 40px;
+		position: relative;
+		padding-top: 100px;
+		border-radius: 10px;
+		transition: all .25s ease-in-out;
+		margin-top: 100px;
 		opacity: 0;
-		pointer-events: none;
-		transition: all .35s ease-in-out;
-		z-index: $z-popup;
-		
-		.popUpBg {
+
+		.brandLogo {
 			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
+			top: 20px;
+			left: 50%;
+			transform: translate(-50%, 0);
 		}
-		
-		.popupContent {
-			width: 96%;
-			max-width: 550px;
-			padding: 40px;
-			position: relative;
-			padding-top: 100px;
-			border-radius: 10px;
-			transition: all .25s ease-in-out;
-			margin-top: 100px;
-			opacity: 0;
-			
-			.brandLogo {
-				position: absolute;
-				top: 20px;
-				left: 50%;
-				transform: translate(-50%, 0);
-			}
-			
-			.closeBtn {
-				position: absolute;
-				top: 20px;
-				right: 20px;
-			}
-		}
-		
-		&.large {
-			.popupContent {
-				max-width: 600px;
-			}
-		}
-		
-		&.active {
-			opacity: 1;
-			pointer-events: initial;
-			
-			.popupContent {
-				transition: all .25s .2s ease-in-out;
-				margin-top: 0;
-				opacity: 1;
-			}
+
+		.closeBtn {
+			position: absolute;
+			top: 20px;
+			right: 20px;
 		}
 	}
+
+	&.large {
+		.popupContent {
+			max-width: 600px;
+		}
+	}
+
+	&.active {
+		opacity: 1;
+		pointer-events: initial;
+
+		.popupContent {
+			transition: all .25s .2s ease-in-out;
+			margin-top: 0;
+			opacity: 1;
+		}
+	}
+}

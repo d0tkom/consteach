@@ -72,7 +72,8 @@ export default {
 				onSuccess: () => {
 					this.form.reset();
 					this.$emit('close');
-					this.$toast.success('Sikeres mentés');
+					let message = this.trans.get('auth.password_update_success_notification');
+					this.$toast.success(message);
 				},
 				onError: () => {
 					if (this.form.errors.password) {
@@ -85,7 +86,8 @@ export default {
 						this.$refs.current_password.focus()
 					}
 					
-					this.$toast.error('Sikertelen mentés');
+					let message = this.trans.get('auth.password_update_success_notification');
+					this.$toast.error(message);
 				}
 			})
 		},

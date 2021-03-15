@@ -3,17 +3,17 @@
         <div class="findTeacherContainer card lg flat pb-8">
             <div class="top mb-4">
                 <div class="color-gray font-bold text-md mb-4">
-                    Tanárok ebben a szűrésben ({{ total }})
+                    {{ trans.get('find_teacher.total_teacher') }} ({{ total }})
                 </div>
                 <div class="filters flex items-center">
                     <div>
                         <c-btn
                             icon-right="keyboard_arrow_down"
                             outlined
-                            class="mr-2"
+                            class="mr-2 first"
                             @click="filters.order.active = true"
                         >
-                            Rendezés: {{ filters.order.options[filters.order.value].label }}
+                            {{ trans.get('find_teacher.order_btn') }}: {{ trans.get('find_teacher.option-'+filters.order.value) }}
                         </c-btn>
                         <find-teacher-order
                             :value="filters.order.value"
@@ -34,7 +34,7 @@
 		                        class="flagImg rounded-full"
 		                        :iso="filters.language.value === 'en' ? 'us' : filters.language.value"
 	                        />
-	                        Nyelv
+	                        {{ trans.get('find_teacher.language_filter_btn') }}
                         </c-btn>
                         <find-teacher-language
                             :languages="availableLanguages"
@@ -54,7 +54,7 @@
                             class="mr-2"
                             @click="filters.price.active = true"
                         >
-                            Ár
+	                        {{ trans.get('find_teacher.price_filter_btn') }}
                         </c-btn>
                         <find-teacher-price
                             :value="filters.price.value"
@@ -70,7 +70,7 @@
                             class="mr-2"
                             @click="filters.time.active = true"
                         >
-                            Időpont
+	                        {{ trans.get('find_teacher.time_filter_btn') }}
                         </c-btn>
                         <find-teacher-day
 	                        @input="loadFilteredData(); filters.time.active = false"
@@ -98,7 +98,7 @@
                 <c-btn
                     v-if="moreExists"
                     @click="loadMoreTeacher"
-                >Még több tanár</c-btn>
+                >{{ trans.get('find_teacher.more_teacher_btn') }}</c-btn>
             </div>
         </div>
     </app-layout>
@@ -139,15 +139,9 @@
                         active: false,
                         value: 'random',
                         options: {
-                            one_hour_price: {
-                                label: 'Ár'
-                            },
-                            appointment_count: {
-                                label: 'Megtartott órák száma'
-                            },
-	                        random: {
-		                        label: 'Random'
-	                        }
+                            one_hour_price: {},
+                            appointment_count: {},
+	                        random: {}
                         }
                     },
                     language: {

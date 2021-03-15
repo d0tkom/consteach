@@ -4,20 +4,14 @@
 		@close="$emit('input', false)"
 		:title="trans.get('student_appointment_popup.popup_title')"
 	>
-		<div class="flex flex-col items-center">
+		<div class="studentAppointmentPopup flex flex-col items-center">
 			<div
 				class="font-bold text-xl mb-2"
 				v-if="data.student"
 			>{{ data.student.user.first_name }} {{ data.student.user.last_name }}</div>
 			<div class="date">{{ date }}</div>
 			<div class="time text-2xl mb-4">{{ time }}</div>
-			<div class="flex w-full px-6 mt-6 max-w-sm justify-between">
-				<c-btn
-					outlined
-					@click="$emit('input', false)"
-				>
-					{{ trans.get('student_appointment_popup.close') }}
-				</c-btn>
+			<div class="actions flex w-full px-6 mt-6 max-w-sm justify-center">
 				<c-btn
 					:outlined="!approved"
 					color="error"

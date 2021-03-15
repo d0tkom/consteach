@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <div class="contentGrid grid grid-cols-1 lg:grid-cols-3 gap-4">
                     <div class="col-span-2">
                         <div class="card p-sm">
                             <div class="flex justify-between mb-4">
@@ -90,7 +90,6 @@
     import AppLayout from '@/Layouts/AppLayout'
     import BookedEvent from "@/Widgets/BookedEvent";
     import ChangePassword from '@/Popups/ChangePassword'
-    import DeleteProfile from "@/Popups/DeleteProfile";
     import BoughtEvent from "@/Widgets/BoughtEvent";
     import Teacher from "@/Widgets/Teacher";
     
@@ -101,7 +100,6 @@
             AppLayout,
             BookedEvent,
             ChangePassword,
-            DeleteProfile,
         },
         props: {
             lessons: Array,

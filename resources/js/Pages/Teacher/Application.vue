@@ -18,20 +18,22 @@
 				</div>
 			</div>
 			<div class="card" v-if="activeTab === 0">
-				<h2 class="title text-lg color-primary-dark mb-4 font-bold">Felhasználói adatok</h2>
+				<h2 class="title text-lg color-primary-dark mb-4 font-bold">
+					{{ trans.get('teacher_application.user_informations') }}
+				</h2>
 				<div class="content">
 					<form>
 						<div class="mb-4">
 							<cInput
 								v-model="form.first_name"
-								label="Keresztnév"
+								:label="trans.get('teacher_application.first_name_label')"
 								:error="!!$page.props.errors.first_name"
 							></cInput>
 						</div>
 						
 						<div class="mb-4">
 							<cInput
-								label="Családnév"
+								:label="trans.get('teacher_application.last_name_label')"
 								v-model="form.last_name"
 								:error="!!$page.props.errors.last_name"
 							></cInput>
@@ -40,7 +42,7 @@
 						<div class="mb-4">
 							<cInput
 								readonly
-								label="Email cím"
+								:label="trans.get('teacher_application.email_label')"
 								v-model="form.email"
 								:error="!!$page.props.errors.email"
 							></cInput>
@@ -50,7 +52,7 @@
 							<c-select
 								capitalize
 								:data="countries"
-								label="Származási hely"
+								:label="trans.get('teacher_application.country_label')"
 								labelKey="name"
 								valueKey="code"
 								:error="!!$page.props.errors.country"
@@ -61,7 +63,7 @@
 						<div class="mb-4">
 							<c-select
 			                    class="mb-4"
-			                    :label="trans.get('settings.timezone')"
+			                    :label="trans.get('teacher_application.timezone_label')"
 			                    :data="timezones"
 			                    label-key="name"
 			                    value-key="code"
@@ -76,7 +78,7 @@
 							<div
 								class="title color-gray mb-2"
 								:class="!!$page.props.errors.teaching_languages && 'text-red-500'"
-							>Tanított nyelvek</div>
+							>{{ trans.get('teacher_application.teaching_language') }}</div>
 							<div
 								class="grid md:grid-cols-2 grid-cols-1 gap-4 mb-4"
 								v-for="(language, languageIndex) in form.teaching_languages"
@@ -86,7 +88,7 @@
 									<c-select
 										capitalize
 										:data="languageList"
-										label="Nyelv"
+										:label="trans.get('teacher_application.language_label')"
 										labelKey="name"
 										valueKey="code"
 										:error="!!$page.props.errors.teaching_languages"
@@ -97,7 +99,7 @@
 								<div>
 									<c-select
 										:data="levels"
-										label="Szint"
+										:label="trans.get('teacher_application.level_label')"
 										labelKey="label"
 										valueKey="code"
 										:error="!!$page.props.errors.teaching_languages"
@@ -110,7 +112,7 @@
 								icon="add"
 								@click="addNewTeachingLanguage"
 							>
-								Nyelv hozzáadása
+								{{ trans.get('teacher_application.add_language_btn') }}
 							</c-btn>
 						</div>
 						
@@ -121,7 +123,7 @@
 							<div
 								class="title color-gray mb-2"
 								:class="!!$page.props.errors.spoken_languages && 'text-red-500'"
-							>Beszélt nyelvek</div>
+							>{{ trans.get('teacher_application.spoken_language') }}</div>
 							<div
 								class="grid md:grid-cols-2 grid-cols-1 gap-4 mb-4"
 								v-for="(language, languageIndex) in form.spoken_languages"
@@ -131,7 +133,7 @@
 									<c-select
 										capitalize
 										:data="languageList"
-										label="Nyelv"
+										:label="trans.get('teacher_application.language_label')"
 										labelKey="name"
 										valueKey="code"
 										:error="!!$page.props.errors.spoken_languages"
@@ -142,7 +144,7 @@
 								<div>
 									<c-select
 										:data="levels"
-										label="Szint"
+										:label="trans.get('teacher_application.level_label')"
 										labelKey="label"
 										valueKey="code"
 										:error="!!$page.props.errors.spoken_languages"
@@ -156,23 +158,23 @@
 								icon="add"
 								@click="addNewSpokenLanguage"
 							>
-								Nyelv hozzáadása
+								{{ trans.get('teacher_application.add_language_btn') }}
 							</c-btn>
 						</div>
 						<c-checkbox
 							class="my-2"
 							v-model="form.adult"
 							:error="!!$page.props.errors.adult"
-						>Elmúltam 18 éves</c-checkbox>
+						>{{ trans.get('teacher_application.adult_checkbox_label') }}</c-checkbox>
 					</form>
 				</div>
 			</div>
 			<div class="card" v-if="activeTab === 1">
 				<div class="sm:flex">
 					<div class="sm:w-7/12 w-full mr-8">
-						<h2 class="title text-lg color-primary-dark mb-4 font-bold">Profilkép</h2>
+						<h2 class="title text-lg color-primary-dark mb-4 font-bold">{{ trans.get('teacher_application.profile_picture_title') }}</h2>
 						<p class="mb-3 text-md">
-							Készíts egy jól megvilágított, jókedvű fotót. A jó profilkép fél siker, több hallgatót érhetsz el vele.
+							{{ trans.get('teacher_application.profile_picture_instruction') }}
 						</p>
 						<div class="flex items-center mb-4">
 							<div class="profileImg">
@@ -196,15 +198,17 @@
 		                            </label>
 		                        </div>
 		                    </div>
-							<span class="text-xs text-gray-500 ml-4">JPG vagy PNG<br/>Max.: 5MB</span>
+							<span class="text-xs text-gray-500 ml-4">
+								{{ trans.get('teacher_application.formats') }}
+								<br/>Max.: 5MB</span>
 						</div>
 						<div class="text-center">
 							<img class="block mb-2 w-full" src="/img/profile_img_test.jpg" alt="Man">
-							<span class="text-gray-500 text-xs">Példa</span>
+							<span class="text-gray-500 text-xs">{{ trans.get('teacher_application.profile_picture_example') }}</span>
 						</div>
 					</div>
 					<div class="sm:w-5/12 w-full">
-						<span class="block text-md font-semibold mb-6">Tippek</span>
+						<span class="block text-md font-semibold mb-6">{{ trans.get('teacher_application.profile_picture_tips') }}</span>
 						<div class="flex mb-5">
 							<img class="block mx-auto h-20 sm:h-16 rounded-full m-auto" src="/img/profile_photo_tip_1.png" alt="Woman's Face">
 							<img class="block mx-auto h-20 sm:h-16 rounded-full m-auto" src="/img/profile_photo_tip_2.png" alt="Woman's Face">
@@ -213,23 +217,23 @@
 
 						<div class="flex items-center my-2">
 							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
-							<span class="text-md justify-center">Mosolyogj és nézz a kamerába</span>
+							<span class="text-md justify-center">{{ trans.get('teacher_application.pp_tip_1') }}</span>
 						</div>
 						<div class="flex items-center my-2">
 							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
-							<span class="text-md justify-center">Legyen az arcod fókuszban</span>
+							<span class="text-md justify-center">{{ trans.get('teacher_application.pp_tip_2') }}</span>
 						</div>
 						<div class="flex items-center my-2">
 							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
-							<span class="text-md justify-center">Használj semleges hátteret és világítást</span>
+							<span class="text-md justify-center">{{ trans.get('teacher_application.pp_tip_3') }}</span>
 						</div>
 						<div class="flex items-center my-2">
 							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
-							<span class="text-md justify-center">Kerüld a logókat és a brand jelzéseket</span>
+							<span class="text-md justify-center">{{ trans.get('teacher_application.pp_tip_4') }}</span>
 						</div>
 						<div class="flex items-center my-2">
 							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
-							<span class="text-md justify-center">Szerepelj csak te a fotón</span>
+							<span class="text-md justify-center">{{ trans.get('teacher_application.pp_tip_5') }}</span>
 						</div>
 					</div>
 				</div>
@@ -237,9 +241,9 @@
 			<div class="card" v-if="activeTab === 2">
 				<div class="sm:flex">
 					<div class="sm:w-7/12 w-full mr-8">
-						<h2 class="title text-lg color-primary-dark mb-4 font-bold">Bemutatkozó videó</h2>
+						<h2 class="title text-lg color-primary-dark mb-4 font-bold">{{ trans.get('teacher_application.video_title') }}</h2>
 						<p class="mb-3 text-md">
-							Illeszd be a bemutatkozó videód linkjét. Videó feltöltése nem kötelező, de egy magabiztos videó megosztása sokban segíthet új diákokat szerezni. Később még könnyedén tölthetsz fel bemutatkozó videót!
+							{{ trans.get('teacher_application.video_instruction') }}
 						</p>
 						<div class="flex flex-col mb-4">
 							<c-input
@@ -247,61 +251,81 @@
 								type="text"
 								v-model="form.video_url"
 								:error="!!$page.props.errors.video_url"
-								label="Youtube link"
+								:label="trans.get('teacher_application.youtube_link_label')"
 							/>
-							<iframe v-if="form.video_url" width="100%" height="200" :src="form.video_url.replace('watch?v=', 'embed/')" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe
+								v-if="form.video_url"
+								width="100%"
+								height="200"
+								:src="form.video_url.replace('watch?v=', 'embed/')"
+								frameborder="0"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen
+							></iframe>
 						</div>
 					</div>
 					<div class="sm:w-5/12 w-full">
-						<span class="block text-md font-semibold mb-6">Tippek</span>
+						<span class="block text-md font-semibold mb-6">{{ trans.get('teacher_application.video_tips') }}</span>
 						<div class="flex mb-5">
-							<img class="block mx-auto h-20 sm:h-16 rounded-full m-auto" src="/img/profile_photo_tip_1.png" alt="Woman's Face">
-							<img class="block mx-auto h-20 sm:h-16 rounded-full m-auto" src="/img/profile_photo_tip_2.png" alt="Woman's Face">
-							<img class="block mx-auto h-20 sm:h-16 rounded-full m-auto" src="/img/profile_photo_tip_3.png" alt="Woman's Face">
+							<img
+								class="block mx-auto h-20 sm:h-16 rounded-full m-auto"
+								src="/img/profile_photo_tip_1.png"
+								alt="Woman's Face"
+							>
+							<img
+								class="block mx-auto h-20 sm:h-16 rounded-full m-auto"
+								src="/img/profile_photo_tip_2.png"
+								alt="Woman's Face"
+							>
+							<img
+								class="block mx-auto h-20 sm:h-16 rounded-full m-auto"
+								src="/img/profile_photo_tip_3.png"
+								alt="Woman's Face"
+							>
 						</div>
 
 						<div class="flex items-center my-2">
 							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
-							<span class="text-md justify-center">Maximum 2 perces videót ossz meg</span>
+							<span class="text-md justify-center">{{ trans.get('teacher_application.video_tip_1') }}</span>
 						</div>
 						<div class="flex items-center my-2">
 							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
-							<span class="text-md justify-center">Horizontális módban vedd fel</span>
+							<span class="text-md justify-center">{{ trans.get('teacher_application.video_tip_2') }}</span>
 						</div>
 						<div class="flex items-center my-2">
 							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
-							<span class="text-md justify-center">Az arcod legyen fókuszban</span>
+							<span class="text-md justify-center">{{ trans.get('teacher_application.video_tip_3') }}</span>
 						</div>
 						<div class="flex items-center my-2">
 							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
-							<span class="text-md justify-center">Semleges hátteret és fényeket használj</span>
+							<span class="text-md justify-center">{{ trans.get('teacher_application.video_tip_4') }}</span>
 						</div>
 						<div class="flex items-center my-2">
 							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
-							<span class="text-md justify-center">Kerüld a logókat és brand jelzéseket</span>
+							<span class="text-md justify-center">{{ trans.get('teacher_application.video_tip_5') }}</span>
 						</div>
 						<div class="flex items-center my-2">
 							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
-							<span class="text-md justify-center">Csak te szerepelj a videón</span>
+							<span class="text-md justify-center">{{ trans.get('teacher_application.video_tip_6') }}</span>
 						</div>
 						<div class="flex items-center my-2">
 							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
-							<span class="text-md justify-center">Köszöntsd leendő diákjaidat</span>
+							<span class="text-md justify-center">{{ trans.get('teacher_application.video_tip_7') }}</span>
 						</div>
 						<div class="flex items-center my-2">
 							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
-							<span class="text-md justify-center">Bátorítsd a diákokat prbóaóra foglalására</span>
+							<span class="text-md justify-center">{{ trans.get('teacher_application.video_tip_8') }}</span>
 						</div>
 						<div class="flex items-center my-2">
 							<i class="material-icons mr-2 text-green-500">check_circle_outline</i>
-							<span class="text-md justify-center">Beszélj korábbi munkatapasztalataidról</span>
+							<span class="text-md justify-center">{{ trans.get('teacher_application.video_tip_9') }}</span>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="card" v-if="activeTab === 3">
-				<h2 class="title text-lg color-primary-dark font-bold">Bemutatkozás</h2>
-				<div class="color-blue-dark">Mutatkozz be leendő diákjaidnak!</div>
+				<h2 class="title text-lg color-primary-dark font-bold">{{ trans.get('teacher_application.about_me_title') }}</h2>
+				<div class="color-blue-dark">{{ trans.get('teacher_application.about_me_instruction') }}</div>
 				<div
 	                class="card flat md-4"
 	                v-for="(about_me, a) in form.about_me"
@@ -321,12 +345,23 @@
             </div>
 
 			<div class="card" v-if="activeTab === 4">
-				<h2 class="title text-lg color-primary-dark font-bold">Verifikáció</h2>
-				<p>Már csak egy lépcső szükséges ahhoz hogy el tudj kezdeni tanítani nálunk!
-					Kérjük tölts fel egy fotót magadról és tartsd az arcod mellé útleveledet, vagy személyi igazolványodat.</p>
+				<h2 class="title text-lg color-primary-dark font-bold">
+					{{ trans.get('teacher_application.verification_title') }}
+				</h2>
+				<p>
+					{{ trans.get('teacher_application.verification_instruction') }}
+				</p>
 				<div class="profileImg">
-                    <img v-if="!verificationPhotoPreview" :src="$page.props.user.profile_photo_url" alt="Tanár profilkép">
-                    <img v-else :src="verificationPhotoPreview" alt="Tanár profilkép">
+                    <img
+	                    v-if="!verificationPhotoPreview"
+	                    :src="$page.props.user.profile_photo_url"
+	                    alt="Tanár profilkép"
+                    >
+                    <img
+	                    v-else
+	                    :src="verificationPhotoPreview"
+	                    alt="Tanár profilkép"
+                    >
                     <div class="inputContainer profileImageEditIcon alignCenter">
                         <label>
                             <input
@@ -353,21 +388,21 @@
 					v-show="activeTab > 0 && !form.processing"
 					@click="prevTab"
 					icon="keyboard_arrow_left"
-				>Vissza</c-btn>
+				>{{ trans.get('teacher_application.back_btn') }}</c-btn>
 				<c-btn
 					v-if="activeTab !== tabs.length"
 					:loading="form.processing"
 					class="ml-2"
 					@click="nextTab"
 					icon-right="keyboard_arrow_right"
-				>Tovább</c-btn>
+				>{{ trans.get('teacher_application.next_btn') }}</c-btn>
 				<c-btn
 					v-if="activeTab === tabs.length"
 					:loading="form.processing"
 					class="ml-2"
 					@click="submit"
 					icon="done"
-				>Jelentkezés véglegesítése</c-btn>
+				>{{ trans.get('teacher_application.submit_btn') }}</c-btn>
 			</div>
 		</div>
 	</app-layout>
@@ -409,16 +444,16 @@ export default {
 			activeTab: 0,
 			tabs: [
 				{
-					label: 'Felhasználói adatok',
+					label: this.trans.get('teacher_application.tab_1_label'),
 					id: 0,
 				}, {
-					label: 'Profilkép',
+					label: this.trans.get('teacher_application.tab_2_label'),
 					id: 1,
 				}, {
-					label: 'Videó',
+					label: this.trans.get('teacher_application.tab_3_label'),
 					id: 2,
 				}, {
-					label: 'Bemutatkozás',
+					label: this.trans.get('teacher_application.tab_4_label'),
 					id: 3,
 				},
 			],
@@ -503,12 +538,14 @@ export default {
 			this.form.post('/users/' + this.$page.props.user.id, {
 				preserveScroll: true, 
 				onSuccess: () => {
-					this.$toast.success('Sikeres mentés');
+					let message = this.trans.get('teacher_application.submit_notification_success');
+					this.$toast.success(message);
 					localStorage.removeItem('teacher-application');
 				},
 				onError: error => {
 					console.error(error);
-					this.$toast.error('Kérjük ellenőrizd a megadott adatokat');
+					let message = this.trans.get('teacher_application.submit_notification_fail');
+					this.$toast.error(message);
 				}
 			});
 		},
@@ -533,11 +570,11 @@ export default {
 		nextTab() {
 			this.form.step = this.activeTab;
 
-			if (this.form.teaching_languages.length != 0) {
+			if (this.form.teaching_languages.length !== 0) {
 				this.form.teaching_languages = this.form.teaching_languages[0].language == null || this.form.teaching_languages[0].level == null ? [] : this.form.teaching_languages;
 			}
 
-			if (this.form.spoken_languages.length != 0) {
+			if (this.form.spoken_languages.length !== 0) {
 				this.form.spoken_languages = this.form.spoken_languages[0].language == null  || this.form.spoken_languages[0].level == null ? [] : this.form.spoken_languages;
 			}
 
@@ -559,7 +596,8 @@ export default {
 	                }
 	           	},
 				onError: error => {
-					this.$toast.error('Kérjük ellenőrizd a bevitt adatokat');
+					let message = this.trans.get('teacher_application.next_tab_notification_fail');
+					this.$toast.error(message);
 					console.error(error)
 				}
 			});

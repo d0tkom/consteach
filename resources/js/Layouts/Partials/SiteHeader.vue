@@ -83,7 +83,7 @@
 				</div>
 			</div>
 		</nav>
-		<div v-else class="headerContainer flex justify-between items-center">
+		<div v-else class="headerContainer loggedInHeaderContainer flex justify-between items-center">
 			<inertia-link
 				href="/"
 			>
@@ -98,58 +98,117 @@
 				<span class="line"></span>
 				<span class="line"></span>
 			</button>
-			<nav class="hidden sm:flex items-center justify-between">
-				<div class="walletContainer relative mr-4" v-if="$page.props.user != null && $page.props.user.role === 'teacher'">
+			<nav class="flex items-center justify-between">
+				<div
+					class="nav-bar"
+					:class="menu.opened && 'opened'"
+				>
+					<div
+						class="walletContainer relative mr-4"
+						v-if="!mobileMenu && $page.props.user != null && $page.props.user.role === 'teacher'"
+					>
+						<c-btn
+							lg
+							icon-only
+							circle
+							text
+							icon="account_balance_wallet"
+							@click="walletOpened = !walletOpened"
+							v-on-click-outside="walletClose"
+						/>
+						<wallet
+							v-model="walletOpened"
+						/>
+					</div>
 					<c-btn
+						v-if="mobileMenu"
 						lg
-						icon-only
-						circle
-						text
-						icon="account_balance_wallet"
-						@click="walletOpened = !walletOpened"
-						v-on-click-outside="walletClose"
-					/>
-					<wallet
-						v-model="walletOpened"
-					/>
-				</div>
-				<div v-if="$page.props.user != null && $page.props.user.role === 'student'">
-					<c-btn
-						lg
-						icon-only
-						circle
+						:icon-only="!mobileMenu"
+						:circle="!mobileMenu"
 						text
 						class="mr-4"
-						icon="search"
-						navigate-to="/teachers"
-					/>
-				</div>
-				<c-btn
-					lg
-					icon-only
-					circle
-					text
-					class="mr-4"
-					icon="chat"
-					navigate-to="/messages"
-				/>
-				<c-btn
-					lg
-					icon-only
-					circle
-					text
-					class="mr-4"
-					icon="notifications"
-				/>
-				<div class="profilePopupContainer relative">
+						icon="home"
+						navigate-to="/dashboard"
+					>
+						{{ trans.get($page.props.user.role === 'teacher' ? 'header.teacher_hub_btn' : 'header.student_hub_btn') }}
+					</c-btn>
+					<div v-if="$page.props.user != null && $page.props.user.role === 'student'">
+						<c-btn
+							lg
+							:icon-only="!mobileMenu"
+							:circle="!mobileMenu"
+							text
+							class="mr-4"
+							icon="search"
+							navigate-to="/teachers"
+						>{{ trans.get('header.find_teacher_btn') }}</c-btn>
+					</div>
 					<c-btn
 						lg
-						icon-only
-						circle
+						:icon-only="!mobileMenu"
+						:circle="!mobileMenu"
 						text
-						icon="account_circle"
-					/>
-					<profile-popup />
+						class="mr-4"
+						icon="chat"
+						navigate-to="/messages"
+					>{{ trans.get('header.messages_btn') }}</c-btn>
+					<!--
+					<c-btn
+						lg
+						:icon-only="!mobileMenu"
+						:circle="!mobileMenu"
+						text
+						class="mr-4"
+						icon="notifications"
+					>{{ trans.get('header.notifications_btn') }}</c-btn>
+					-->
+					<div v-if="mobileMenu">
+						<!--
+						<c-btn
+							lg
+							:icon-only="!mobileMenu"
+							:circle="!mobileMenu"
+							text
+							class="mr-4"
+							icon="dark_mode"
+						>
+							{{ trans.get('header.dark_mode_btn') }}
+						</c-btn>
+						-->
+						<c-btn
+							lg
+							:icon-only="!mobileMenu"
+							:circle="!mobileMenu"
+							text
+							class="mr-4"
+							icon="settings"
+							navigate-to="/settings"
+						>
+							{{ trans.get('header.settings_btn') }}
+						</c-btn>
+						<c-btn
+							lg
+							:icon-only="!mobileMenu"
+							:circle="!mobileMenu"
+							text
+							class="mr-4"
+							icon="logout"
+							@click.prevent="logout"
+						>
+							{{ trans.get('header.logout_btn') }}
+						</c-btn>
+					</div>
+					
+					<div v-else class="profilePopupContainer relative">
+						<c-btn
+							lg
+							:icon-only="!mobileMenu"
+							:circle="!mobileMenu"
+							text
+							icon="account_circle"
+						>{{ trans.get('header.profile_btn') }}</c-btn>
+						<profile-popup />
+					</div>
 				</div>
 			</nav>
 		</div>
@@ -186,6 +245,9 @@ export default {
 		};
 	},
 	computed: {
+		mobileMenu() {
+			return this.$root.viewport.w <= 1200;
+		},
 		isLanding() {
 			return this.$page.props.user === null;
 		}
@@ -193,6 +255,11 @@ export default {
 	methods: {
 		walletClose() {
 			this.walletOpened = false
+		},
+		logout() {
+			axios.post(route('logout').url()).then(response => {
+				window.location = '/';
+			})
 		},
 	}
 };

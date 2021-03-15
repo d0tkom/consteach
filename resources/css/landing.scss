@@ -215,31 +215,30 @@ body {
 			}
 
 			.nav-bar {
-				display: none;
 				background: #EEF6FB;
-				border: 1px solid #9FC6DF;
 				box-sizing: border-box;
 				border-radius: 5px;
 				position: absolute;
-				right: 15px;
-				top: 45px;
-				padding: 15px;
 				z-index: 30;
+				opacity: 0;
+				pointer-events: none;
+				transition: all .25s;
+				display: flex;
+				right: 0;
+				top: 0;
+				padding: 0;
+				background: none;
+				border: 0;
 
 				.authBtns {
 					order: 3;
 				}
 
-				@media only screen and (min-width: $break-point2) {
-					display: flex;
-					right: 0;
-					top: 0;
-					padding: 0;
-					background: none;
-					border: 0;
-				}
 				&.opened {
-					display: block;
+					top: 65px;
+					right: 10px;
+					opacity: 1;
+					pointer-events: initial;
 				}
 				.lang {
 					@media only screen and (min-width: $break-point2) {
@@ -515,6 +514,7 @@ body {
 					.flagImg {
 						transition: all .25s ease-in-out;
 						margin-bottom: 16px;
+						box-shadow: 0 2px 30px -2px rgba(black, .3);
 					}
 					.title {
 						text-align: center;
@@ -532,7 +532,7 @@ body {
 
 						.flagImg {
 							transform: translate(0, -6px);
-							box-shadow: 0 4px 16px -4px rgba(black, .3);
+							box-shadow: 0 4px 34px -4px rgba(black, .3);
 						}
 					}
 				}

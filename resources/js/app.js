@@ -45,6 +45,10 @@ new Vue({
             w: null,
             h: null
         },
+        currencies: {
+            EUR: null,
+            USD: null
+        },
         popup: {
             login: false,
             registration: false,
@@ -88,9 +92,24 @@ new Vue({
 
         this.$inertia.on('before', () => {
             scrollLock.enablePageScroll();
-        })
+        });
+
+        this.getCurrencyExchange();
     },
     methods: {
+        openLoginPopup() {
+            this.popup.registration = false;
+            this.popup.lostPassword = false;
+            this.popup.login = true;
+        },
+        getCurrencyExchange() {
+            axios.get('/currency').then(({data}) => {
+                this.currencies.EUR = data.EUR;
+                this.currencies.USD = data.USD;
+            }).catch(error => {
+                console.error(error);
+            });
+        },
         getViewportSize() {
             const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
             const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);

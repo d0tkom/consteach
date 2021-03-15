@@ -410,18 +410,13 @@
   border: 1px solid rgba(23, 70, 150, 0.1);
 }
 
-body.scrollLock {
-  overflow: hidden;
-  padding-right: 17px;
-}
-
 .popUpContainer {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(23, 70, 150, 0.6);
+  background: rgba(0, 29, 80, 0.5);
   opacity: 0;
   pointer-events: none;
   transition: all 0.35s ease-in-out;
@@ -759,9 +754,6 @@ footer .container {
 footer .container .column {
   margin: 0 auto;
 }
-footer .container .column:nth-child(3) {
-  text-align: center;
-}
 footer .container .column .fab {
   color: #2E3A59;
   font-size: 20px;
@@ -771,7 +763,6 @@ body.dark footer .container .column .fab {
 }
 
 footer .container .column .title {
-  color: #0B132A;
   font-size: 16px;
   margin-left: 20px;
   margin-bottom: 12px;
@@ -780,10 +771,6 @@ footer .container .column .title.social {
   margin: 0 20px;
   margin-bottom: 10px;
 }
-body.dark footer .container .column .title {
-  color: #E8F3FA;
-}
-
 footer .container .column a {
   display: block;
   text-decoration: none;
@@ -874,6 +861,13 @@ body .mainSiteContainer.isLanding .siteContent {
   width: 50%;
 }
 
+#card-element {
+  border: 1px solid #d1daea;
+  padding: 10px 20px;
+  border-radius: 4px;
+  width: 100%;
+}
+
 @media all and (max-width: 1000px) {
   .checkoutContainer {
     flex-direction: column;
@@ -894,6 +888,11 @@ body .mainSiteContainer.isLanding .siteContent {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.languagesGrid .languageItem.selected {
+  background: #174696;
+  color: white;
 }
 
 .valueContainer {
@@ -958,6 +957,14 @@ body .mainSiteContainer.isLanding .siteContent {
 
 .walletIcon {
   font-size: 2.3rem !important;
+}
+
+.walletValue {
+  color: #27AE60;
+}
+
+.infoItem .headerIcon {
+  font-size: 2.6em;
 }
 
 .colorSample {
@@ -1331,14 +1338,21 @@ body .mainSiteContainer.isLanding .siteContent {
     padding-bottom: 100px;
   }
 }
-@media all and (max-width: 1024px) {
-  body header nav {
-    display: flex;
-  }
-
+@media all and (min-width: 1201px) {
   body header nav .nav-bar {
+    opacity: 1;
+    pointer-events: initial;
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+}
+@media all and (max-width: 1201px) {
+  body header nav .nav-bar {
+    padding: 10px;
     top: 55px;
     background: #ffffff;
+    flex-direction: column;
     box-shadow: 0 8px 20px -2px rgba(0, 0, 0, 0.3);
   }
 
@@ -1352,6 +1366,11 @@ body .mainSiteContainer.isLanding .siteContent {
     margin: 10px 0;
   }
 
+  .loggedInHeaderContainer .nav-bar .btnContainer .cBtn .btnIcon {
+    margin-right: 20px;
+  }
+}
+@media all and (max-width: 1024px) {
   body main .language-learning .container {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
@@ -1367,6 +1386,7 @@ body .mainSiteContainer.isLanding .siteContent {
   }
   body footer .container .column {
     width: 100%;
+    margin-bottom: 40px;
   }
 
   footer .container .column:nth-child(3) {
@@ -1392,7 +1412,7 @@ body .mainSiteContainer.isLanding .siteContent {
   }
 
   body main .top .flex .right .landingGirl {
-    height: 50vh;
+    height: 80vw;
   }
 
   body main .top .flex .right {
@@ -1490,11 +1510,6 @@ body main .join-us:after {
   .studentHubContainer .noDataCard {
     padding: 20px !important;
   }
-  .studentHubContainer img {
-    width: 60px !important;
-    height: 60px !important;
-  }
-
   body .page.userSettings {
     margin-top: 120px;
     padding: 20px;
@@ -1531,17 +1546,92 @@ body main .join-us:after {
     padding: 0 20px;
   }
 
+  .languagesGrid .languageItem .flagImg {
+    width: 0.8em;
+    height: 0.8em;
+    margin-bottom: 10px;
+  }
+  .languagesGrid .languageItem .itemName {
+    margin-top: 0;
+  }
+
   .findTeacherContainer .filters {
     justify-content: space-between;
-    flex-wrap: wrap;
+    position: relative;
+    padding-bottom: 20px;
   }
   .findTeacherContainer .filters .btnContainer {
     margin-bottom: 20px;
+  }
+  .findTeacherContainer .filters .btnContainer.first {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-bottom: 0;
+  }
+  .findTeacherContainer .filters .btnContainer.first .cBtn {
+    width: 100%;
+    border: none;
+  }
+  .findTeacherContainer .filters .btnContainer .cBtn {
+    font-size: 0.9em;
+  }
+  .findTeacherContainer .filters .btnContainer .cBtn .btnIconRight {
+    display: none;
+  }
+
+  .vue-slider-dot {
+    width: 20px;
+    height: 20px;
+  }
+
+  body .mainSiteContainer .fc .fc-button-primary {
+    border: none;
+  }
+  body .mainSiteContainer .fc .fc-toolbar-title {
+    font-size: 1.1em;
+  }
+
+  .freeLessonCard .price {
+    align-items: center;
+    margin-top: 20px;
+  }
+  .freeLessonCard .originalPrice {
+    line-height: 1;
+    font-size: 1.6em;
+  }
+  .freeLessonCard .newPRice {
+    line-height: 1;
+    font-size: 2em;
+    margin-top: 20px;
+  }
+  .freeLessonCard .ctaContainer {
+    align-items: center;
+  }
+
+  .priceTableCard .priceItem .title {
+    font-size: 1.6em;
+  }
+  .priceTableCard .priceItem .value {
+    font-size: 1.4em;
+  }
+  .priceTableCard .actions .btnContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .teacherWidgetMainCard {
     flex-direction: column;
     align-items: center;
+  }
+  .teacherWidgetMainCard .profileImageWrapper img {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .teacherWidgetMainCard .actions {
+    width: 100%;
   }
   .teacherWidgetMainCard .teacherInfo {
     align-items: center;
@@ -1588,16 +1678,115 @@ body main .join-us:after {
   }
   body .calendarFooter .calendarFooterOptions {
     width: 100%;
-    justify-content: space-between;
+    display: block;
     padding: 0 10px;
+    margin-top: 20px;
+  }
+  body .calendarFooter .calendarFooterOptions .selectContainer {
+    float: left;
   }
   body .calendarFooter .calendarFooterLabels {
     padding-bottom: 0;
   }
 
+  .card.userSettings {
+    margin-top: 130px;
+  }
+
+  .studentAppointmentPopup .actions {
+    padding: 0;
+  }
+
+  .bookedEvent .bookedEventInfo {
+    padding-right: 80px;
+  }
+
+  .teacherHubContainer .profileImageWrapper img, .studentHubContainer .profileImageWrapper img {
+    width: 80px;
+    height: 80px;
+  }
+  .teacherHubContainer .contentGrid, .studentHubContainer .contentGrid {
+    gap: 0;
+  }
+  .teacherHubContainer .contentGrid .bookedEvent, .studentHubContainer .contentGrid .bookedEvent {
+    position: relative;
+    flex-direction: column;
+  }
+  .teacherHubContainer .contentGrid .bookedEvent .profileImageWrapper, .studentHubContainer .contentGrid .bookedEvent .profileImageWrapper {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    margin-right: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+
   .studentHubContainer .resume img {
-    width: 60px;
-    height: 60px;
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .cookiePanel {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+    z-index: 200;
+    max-width: initial;
+  }
+  .cookiePanel .cookiePanel .closeIcon {
+    top: 0;
+    right: 0;
+  }
+
+  .popUpContainer .popupContent .brandLogo {
+    top: 0;
+    width: 140px;
+  }
+
+  .popUpContainer .popupContent .closeBtn {
+    top: 10px;
+    right: 10px;
+  }
+
+  .popupContent .authPopupActions .btnContainer .cBtn {
+    padding: 10px 0;
+  }
+  .popupContent .authPopupActions .btnContainer .cBtn .btnContent {
+    font-size: 0.9em;
+  }
+
+  .popupContent .roleSelect {
+    text-align: center;
+  }
+
+  .popUpContainer .popupContent {
+    padding: 20px;
+    padding-top: 70px;
+    max-height: 80vh;
+    overflow-y: scroll;
+  }
+
+  .teacherHubContainer .mainInfos {
+    flex-direction: column;
+  }
+  .teacherHubContainer .mainInfos .infoTop {
+    flex-direction: column;
+  }
+  .teacherHubContainer .mainInfos .infoTop .profileImg {
+    margin-right: 0;
+  }
+  .teacherHubContainer .mainInfos .infoItems {
+    justify-content: center;
+    margin: 20px 0;
+  }
+  .teacherHubContainer .walletContainer {
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .teacherHubContainer .walletContainer .walletValue {
+    font-size: 1.2em;
   }
 }
 body {
@@ -1606,6 +1795,45 @@ body {
   font-family: "Montserrat", sans-serif;
   width: 100vw;
   overflow-x: hidden;
+}
+body .pageBg {
+  min-height: 100vh;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
+body .pageBg .top {
+  width: 100%;
+  height: 60vh;
+  background: linear-gradient(360deg, #C7E6F9 0%, #FFFFFF 100%);
+}
+body .pageBg .bottom {
+  width: 100%;
+  height: 40vh;
+  background: #C8E7FA;
+}
+body .pageBg:before {
+  content: "";
+  height: 14vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #DEEEF8;
+  z-index: 2;
+}
+body .pageBg:after {
+  content: "";
+  height: 14vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  background: url("/img/landing_wave_bottom.svg") -17px top/cover;
 }
 
 .fc .fc-col-header-cell-cushion {
@@ -1667,6 +1895,10 @@ body .fc-media-screen .fc-timegrid-event:hover {
   font-weight: bold;
 }
 
+body .fc .fc-button:disabled {
+  opacity: 0.15;
+}
+
 th.fc-col-header-cell.fc-day.fc-day-disabled {
   background: white;
 }
@@ -1718,7 +1950,7 @@ th.fc-col-header-cell.fc-day.fc-day-disabled {
   position: relative;
   text-align: center;
   margin: 20px 0;
-  opacity: 0.6;
+  opacity: 0.4;
 }
 .hr:after, .hr:before {
   content: "";

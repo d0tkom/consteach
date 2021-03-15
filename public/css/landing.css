@@ -205,32 +205,29 @@ body header nav .logo img {
   height: 38px;
 }
 body header nav .nav-bar {
-  display: none;
   background: #EEF6FB;
-  border: 1px solid #9FC6DF;
   box-sizing: border-box;
   border-radius: 5px;
   position: absolute;
-  right: 15px;
-  top: 45px;
-  padding: 15px;
   z-index: 30;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s;
+  display: flex;
+  right: 0;
+  top: 0;
+  padding: 0;
+  background: none;
+  border: 0;
 }
 body header nav .nav-bar .authBtns {
   order: 3;
 }
-@media only screen and (min-width: 1201px) {
-  body header nav .nav-bar {
-    display: flex;
-    right: 0;
-    top: 0;
-    padding: 0;
-    background: none;
-    border: 0;
-  }
-}
 body header nav .nav-bar.opened {
-  display: block;
+  top: 65px;
+  right: 10px;
+  opacity: 1;
+  pointer-events: initial;
 }
 @media only screen and (min-width: 1201px) {
   body header nav .nav-bar .lang {
@@ -504,6 +501,7 @@ body main .choose-a-language .container .lang.show-mobile {
 body main .choose-a-language .container .lang .flagImg {
   transition: all 0.25s ease-in-out;
   margin-bottom: 16px;
+  box-shadow: 0 2px 30px -2px rgba(0, 0, 0, 0.3);
 }
 body main .choose-a-language .container .lang .title {
   text-align: center;
@@ -519,7 +517,7 @@ body main .choose-a-language .container .lang:hover {
 }
 body main .choose-a-language .container .lang:hover .flagImg {
   transform: translate(0, -6px);
-  box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 34px -4px rgba(0, 0, 0, 0.3);
 }
 body main .choose-a-language .container.show .lang {
   display: block;

@@ -2,7 +2,7 @@
 	<c-pop-up
 		:value="value"
 		@close="$emit('input', false)"
-		title="Biztosan törölni szeretnéd a fiókodat? A törléshez add meg a jelszavadat!"
+		:title="trans.get('settings.delete_profile_popup_title')"
 	>
 		<delete-user-form />
 	</c-pop-up>

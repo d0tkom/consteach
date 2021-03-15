@@ -30,7 +30,7 @@
 					<div class="price font-bold color-green-dark text-lg">
 						<currency
 							:value="data.one_hour_price"
-						/> / óra
+						/> / {{ trans.get('find_teacher.hour') }}
 					</div>
 				</div>
 				<div class="infoBottom flex">
@@ -51,10 +51,10 @@
 						</div>
 						<div class="text-lg font-bold color-primary-dark mb-2 flex items-center">
 							<span class="material-icons mr-2">person</span>
-							{{ data.student_count }} diák · {{ data.appointment_count }} óra
+							{{ data.student_count }} {{ trans.get('find_teacher.student') }} · {{ data.appointment_count }} {{ trans.get('find_teacher.hour') }}
 						</div>
 						<div>
-                            <span class="color-primary-dark font-lg font-bold">Beszélt nyelvek:</span>
+                            <span class="color-primary-dark font-lg font-bold">{{ trans.get('find_teacher.spoken_languages') }}:</span>
                             <span
                                 class="mr-2 capitalize"
                                 v-for="(language, l) in data.user.spoken_languages"
@@ -66,7 +66,7 @@
 							:navigate-to="'/teacher/' + data.id"
 							text
 						>
-							Tovább >
+							{{ trans.get('find_teacher.more_btn') }} >
 						</c-btn>
 					</div>
 					<div class="actions flex flex-col justify-end items-center">
@@ -75,13 +75,13 @@
 							icon="event"
 							class="mb-4"
 							:navigate-to="'/teacher/' + data.id"
-						>{{ trialAvailable ? 'Próbaóra foglalás' : 'Órafoglalás' }}</c-btn>
+						>{{ trans.get(trialAvailable ? 'find_teacher.free_lesson_book_btn' : 'find_teacher.book_btn') }}</c-btn>
 						<c-btn
 							v-if="false"
 							full
 							outlined
 							icon="chat"
-						>Üzenet</c-btn>
+						>{{ trans.get('find_teacher.chat_btn') }}</c-btn>
 					</div>
 				</div>
 			</div>
@@ -97,14 +97,14 @@
 				<div class="flex items-center justify-center text-center">
 					<span class="material-icons mr-4">public</span>
 					<div class="color-gray">
-						Az időpontok a Te időzónádnak megfelelően jelennek meg (GMT +2)
+						{{ trans.get('find_teacher.timezone_info') }}
 					</div>
 				</div>
 				<div class="flex justify-center">
 					<c-btn
 						class="mt-4"
 						:navigate-to="'/teacher/' + data.id"
-					>Profil megtekintése</c-btn>
+					>{{ trans.get('find_teacher.profile_btn') }}</c-btn>
 				</div>
 			</div>
 		</transition>

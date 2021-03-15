@@ -57,7 +57,7 @@
 	            >{{ trans.get('auth.login_btn') }}</c-btn>
             </div>
 	
-	        <div class="flex justify-between">
+	        <div class="authPopupActions flex justify-between">
 		        <c-btn
 			        text
 			        navigate-to="/#lost-password"
@@ -66,7 +66,7 @@
 		        </c-btn>
 		        <c-btn
 			        text
-			        navigate-to="/#registration"
+			        @click="createNewAccountClicked"
 		        >{{ trans.get('auth.create_new_account_btn') }}
 		        </c-btn>
 	        </div>
@@ -106,6 +106,10 @@
         },
 
         methods: {
+        	createNewAccountClicked() {
+        		this.$root.popup.login = false;
+        		this.$root.popup.registration = true;
+	        },
             submit() {
                 this.form
                     .transform(data => ({

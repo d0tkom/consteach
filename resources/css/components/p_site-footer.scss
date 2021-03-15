@@ -21,9 +21,6 @@ footer {
 
 		.column {
 			margin: 0 auto;
-			&:nth-child(3) {
-				text-align: center;
-			}
 			.fab {
 				color: #2E3A59;
 				@at-root {
@@ -34,7 +31,6 @@ footer {
 				font-size: 20px;
 			}
 			.title {
-				color: #0B132A;
 				font-size: 16px;
 				margin-left: 20px;
 				margin-bottom: 12px;
@@ -42,12 +38,6 @@ footer {
 				&.social {
 					margin: 0 20px;
 					margin-bottom: 10px;
-				}
-
-				@at-root {
-					body.dark footer .container .column .title {
-						color: #E8F3FA;
-					}
 				}
 			}
 			a {

@@ -2,12 +2,12 @@
 	<c-pop-up
 		:value="active"
 		@close="$emit('change-active', false)"
-		title="Milyen nyelvet tanulnál?"
+		:title="trans.get('find_teacher.language_filter_popup_title')"
 	>
-		<div class="grid grid-cols-3">
+		<div class="languagesGrid grid grid-cols-3">
 			<div
-				class="mb-6 rounded-xl py-2 flex cursor-pointer flex-col items-center justify-center"
-				:class="value === language && 'shadow-md'"
+				class="languageItem mb-6 rounded-xl py-2 flex cursor-pointer flex-col items-center justify-center"
+				:class="value === language && 'selected'"
 				v-for="language in languages"
 				:key="language"
 				@click="optionClick(language)"
@@ -17,7 +17,7 @@
 					v-if="language"
 					:iso="language === 'en' ? 'us' : language"
 				/>
-				<div class="text-center capitalize font-bold text-md mt-4">{{ languageList.getName(language, locale) }}</div>
+				<div class="itemName text-center capitalize font-bold text-md mt-4">{{ languageList.getName(language, locale) }}</div>
 			</div>
 			
 			<c-btn

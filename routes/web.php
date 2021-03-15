@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\AvailabilityController;
@@ -163,6 +164,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             break;
     }
     })->name('dashboard');
+
+    Route::get('/currency', [CurrencyController::class, 'fetchExchange']);
 
     Route::get('/teacher-application', function () {
         $teacher = Teacher::where('user_id', Auth::user()->id)->first();

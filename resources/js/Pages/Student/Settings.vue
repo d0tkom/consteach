@@ -29,7 +29,7 @@
                 </div>
                 <div class="content">
                     <form>
-                        <h2 class="title text-lg color-primary-dark mb-4">{{ trans.get('dashboard.student') }}</h2>
+                        <h2 class="title text-lg color-primary-dark mb-4">{{ trans.get('settings.student') }}</h2>
                         <div class="mb-4">
                             <cInput
                                 :error="!!$page.props.errors.first_name"

@@ -19,6 +19,7 @@ return [
     'save_btn' => 'Változtatások mentése',
     'about_me' => 'Bemutatkozás',
     'min_character' => 'Minimum :num karakter',
+    'student' => 'Diák',
     'video' => 'Videó',
     'hour' => 'óra',
     'hours' => 'óra',
@@ -44,6 +45,18 @@ return [
     'validating_alert_title' => 'Validálás folyamatban',
     'validating_alert_description' => 'A validálásig a főbb funkciók nem elérhetőek.',
 
+    'submit_success_notification' => 'Sikeresen mentve',
+    'submit_fail_notification' => 'Mentés sikertelen',
+
+
+
+    'change_password_popup_title' => 'Add meg régi és új jelszavad a változtatáshoz!',
+    'delete_profile_popup_title' => 'Biztosan törölni szeretnéd a fiókodat? A törléshez add meg a jelszavadat!',
+    'delete_profile_password_placeholder' => 'Jelszó',
+    'delete_profile_submit_btn' => 'Fiók törlése',
+    'delete_profile_cancel_btn' => 'Mégsem',
+    'delete_profile_submit_success_notification' => 'Sikeres törlés',
+    'delete_profile_submit_fail_notification' => 'Sikertelen törlés',
 ];
 
 ?>

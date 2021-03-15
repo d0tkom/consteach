@@ -77,8 +77,9 @@
                                 </div>
                                 <div class="mt-4">
                                     <div class="text-md font-bold color-blue-dark">{{ trans.get('teacher_profile.introduction') }}</div>
-                                    <div class="color-gray my-1" v-html="aboutMeText"></div>
+                                    <div class="color-gray my-1" v-html="aboutMeText.value"></div>
                                     <c-btn
+	                                    v-if="!aboutMeText.full"
                                         text
                                         :icon-right="aboutMeOpened ? 'keyboard_arrow_up' : 'keyboard_arrow_right'"
                                         @click="aboutMeOpened = !aboutMeOpened"
@@ -89,7 +90,7 @@
                             </div>
                         </div>
                         <div class="card p-sm">
-                            <div class="text-md font-bold color-blue-dark">{{ trans.get('teacher_profile.time_table') }}</div>
+                            <div class="text-md font-bold color-blue-dark mb-4">{{ trans.get('teacher_profile.time_table') }}</div>
                             <FullCalendar :options="calendarOptions" />
 	
 	                        <div class="calendarFooter flex justify-between items-center mt-2">
@@ -121,6 +122,7 @@
 		                        </div>
 	                        </div>
                         </div>
+	                    <!--
                         <div class="card p-sm">
                             <div class="text-md font-bold color-blue-dark">{{ trans.get('teacher_profile.resume') }}</div>
                             <div class="resume flex p-4 blue-border">
@@ -137,23 +139,24 @@
                                 </div>
                             </div>
                         </div>
+                        -->
                     </div>
                     <div class="col-span-1">
-	                    <div class="card p-sm">
+	                    <div class="card freeLessonCard p-sm">
 		                    <div class="blue-text-color mb-6 text-center sm:text-left ">
 			                    <p class="text-lg font-semibold">
 				                    {{ trans.get('teacher_profile.free_lesson_title') }}
 			                    </p>
 			                    <div class="sm:flex mb-10">
 				                    <div class="flex-1 sm:text-left text-center">{{ trans.get('teacher_profile.free_lesson_description') }}</div>
-				                    <div class="relative flex flex-col items-end">
-					                    <div class="text-gray text-sm">
+				                    <div class="price relative flex flex-col items-end">
+					                    <div class="originalPrice text-gray text-sm">
 						                    <currency
 							                    class="line-through"
 							                    :value="(teacher.one_hour_price*fee)/2"
 						                    />
 						                </div>
-					                    <div class="text-green-500 text-lg">
+					                    <div class="newPRice text-green-500 text-lg">
 						                    <currency
 							                    :value="0"
 						                    />
@@ -161,7 +164,7 @@
 				                    </div>
 			                    </div>
 		                    </div>
-		                    <div class="flex flex-col items-end">
+		                    <div class="ctaContainer flex flex-col items-end">
 			                    <c-btn
 				                    color="success"
 				                    :navigate-to="route('checkout', teacher.id)"
@@ -169,7 +172,7 @@
 			                    >{{ trans.get('teacher_profile.free_lesson_btn') }}</c-btn>
 		                    </div>
 	                    </div>
-                        <div class="card p-sm">
+                        <div class="priceTableCard card p-sm">
                             <div class="blue-text-color mb-6 text-center sm:text-left ">
                                 <p class="text-lg font-semibold">
 	                                {{ trans.get('teacher_profile.private_lessons') }}
@@ -179,30 +182,30 @@
                                 </p>
                             </div>
                             <div class="text-center blue-text-color">
-                                <div class="sm:flex mb-10">
-                                    <div class="flex-1 sm:text-left text-center">1 {{ trans.get('teacher_profile.hour') }}</div>
+                                <div class="priceItem sm:flex mb-10">
+                                    <div class="title flex-1 sm:text-left text-center">1 {{ trans.get('teacher_profile.hour') }}</div>
                                     <div class="relative">
-                                        <div class="text-green-500 text-lg">
+                                        <div class="value text-green-500 text-lg">
 	                                        <currency
 		                                        :value="teacher.one_hour_price*fee"
 	                                        />
 	                                    </div>
                                     </div>
                                 </div>
-                                <div class="sm:flex mb-10">
-                                    <div class="flex-1 sm:text-left text-center">5 {{ trans.get('teacher_profile.hours') }}</div>
+                                <div class="priceItem sm:flex mb-10">
+                                    <div class="title flex-1 sm:text-left text-center">5 {{ trans.get('teacher_profile.hours') }}</div>
                                     <div class="relative">
-                                        <div class="text-green-500 text-lg">
+                                        <div class="value text-green-500 text-lg">
 	                                        <currency
 		                                        :value="(teacher.five_hour_price / 5)*fee"
 	                                        />
 	                                   </div>
                                     </div>
                                 </div>
-                                <div class="sm:flex mb-10">
-                                    <div class="flex-1 sm:text-left text-center">10 {{ trans.get('teacher_profile.hours') }}</div>
+                                <div class="priceItem sm:flex mb-10">
+                                    <div class="title flex-1 sm:text-left text-center">10 {{ trans.get('teacher_profile.hours') }}</div>
                                     <div class="relative">
-                                        <div class="text-green-500 text-lg">
+                                        <div class="value text-green-500 text-lg">
 	                                        <currency
 		                                        :value="(teacher.ten_hour_price / 10)*fee"
 	                                        />
@@ -210,10 +213,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex flex-col items-end">
+                            <div class="actions flex flex-col items-end">
                                 <c-btn
                                     class="mb-4"
-                                    :navigate-to="route('checkout', teacher.id)"
+                                    @click="clickedBuyBtn"
                                     icon="account_balance_wallet"
                                 >{{ trans.get('teacher_profile.buy_btn') }}</c-btn>
 
@@ -266,6 +269,7 @@
         },
         data() {
             return {
+	            aboutMeMaxChar: 1000,
 	            fee: 1.2,
 	            filterCalendarTime: {
 		            start: '06:00:00',
@@ -461,22 +465,36 @@
         },
 	    computed: {
 		    aboutMeText() {
-		    	const maxChar = 100;
 		    	let text = null;
+		    	let full = true;
 		    	this.teacher.about_me.forEach(about_me => {
 		    		if (about_me.locale === this.locale) {
 		    		    return text = about_me.text;
 			        }
 			    });
 		    	
-		    	if (!this.aboutMeOpened && text.length > maxChar) {
-				    text = text.substring(0, maxChar)+'...';
+		    	if (!this.aboutMeOpened && text && text.length > this.aboutMeMaxChar) {
+		    		full = false;
+				    text = text.substring(0, this.aboutMeMaxChar)+'...';
 			    }
 		    	
-		    	return text;
+		    	return {
+		    		value: text,
+				    full: full
+			    };
 		    }
 	    },
         methods: {
+        	clickedBuyBtn() {
+		        if (!this.$page.props.user) {
+			        let message = this.trans.get('teacher_profile.no_auth_notification');
+			        this.$toast.info(message);
+			        this.$root.openLoginPopup();
+			        return;
+		        }
+		        
+	            this.$inertia.visit('/checkout/'+this.teacher.id);
+	        },
             submitAppointment() {
                 let self = this;
                 axios.put('/appointment', {
@@ -490,7 +508,8 @@
                     this.appointmentPopup.data.eventClickInfo.event.remove();
                     this.appointmentPopup.open = false;
 
-                    this.$toast.success('Időpont lefoglalva');
+                    let message = this.trans.get('teacher_profile.submit_appointment_success_notification');
+                    this.$toast.success(message);
 
                     setTimeout(() => {
                         this.appointmentPopup.data = {
@@ -505,7 +524,8 @@
                     if (error.response.status == 423) {
                          this.$inertia.visit('/checkout/' + this.teacher.id  + '?appointment=' + error.response.data);
                     } else {
-                        this.$toast.error('Időpont foglalása sikertelen');
+	                    let message = this.trans.get('teacher_profile.submit_appointment_fail_notification');
+                        this.$toast.error(message);
                     }
                 });
             },
@@ -513,8 +533,9 @@
                 let self = this;
 
                 if (!this.$page.props.user) {
-	                this.$toast.info('A foglaláshoz jelentkezz be vagy regisztrálj!');
-                    this.$inertia.visit('/#login');
+	                let message = this.trans.get('teacher_profile.no_auth_notification');
+	                this.$toast.info(message);
+	                this.$root.openLoginPopup();
                 }
 
                 if (this.$page.props.user.role !== 'student') {
@@ -525,7 +546,8 @@
                 let hasCredit = true;
 
                 if (!hasCredit) {
-	                this.$toast.info('A foglaláshoz vásárolj kreditet a tanárhoz!');
+                	let message = this.trans.get('teacher_profile.no_credit_notification');
+	                this.$toast.info(message);
                     this.$inertia.visit('/checkout/'+this.teacher.id);
                 }
 

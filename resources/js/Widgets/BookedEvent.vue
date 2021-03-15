@@ -7,7 +7,7 @@
 				alt="Tanár képe"
 			>
 		</div>
-		<div class="w-full flex flex-col">
+		<div class="bookedEventInfo w-full flex flex-col">
 			<div class="name text-2xl font-bold color-primary-dark mb-2">
 				{{ fromTeacher ? data.student.user.first_name : data.teacher.user.first_name }}
 			</div>
@@ -24,7 +24,7 @@
 			/>
 		</div>
 		<div class="actions flex flex-col justify-between items-center">
-			<div v-if="isEventLive" class="text-center mb-2 color-green-dark">Az óra elkezdődött</div>
+			<div v-if="isEventLive" class="text-center mb-2 color-green-dark">{{ trans.get('dashboard.booked_event_lesson_started') }}</div>
 			<c-date
 				class="text-center mb-2 color-gray"
 				:value="data.start"
@@ -39,7 +39,7 @@
 				@click="joinEvent"
 				v-if="!isEventInPast"
 			>
-				Csatlakozás
+				{{ trans.get('dashboard.booked_event_join_btn') }}
 			</c-btn>
 			<c-btn
 				full
@@ -49,7 +49,7 @@
 				class="mb-2"
 				v-if="!isEventInPast"
 			>
-				Üzenet
+				{{ trans.get('dashboard.booked_event_chat_btn') }}
 			</c-btn>
 			<c-btn
 				small
@@ -57,7 +57,7 @@
 				icon="close"
 				@click="appointmentPopup.open = true"
 			>
-				Óra lemondása
+				{{ trans.get('dashboard.booked_event_cancel_btn') }}
 			</c-btn>
 		</div>
 		<cancel-lesson
@@ -129,12 +129,13 @@ export default {
 				.then(response => {
 					this.appointmentPopup.open = false;
 					this.$emit('destroy');
-					
-					this.$toast.success('Foglalás törölve');
+					let message = this.trans.get('dashboard.booked_event_cancel_success_notification');
+					this.$toast.success(message);
 				})
 				.catch(error => {
 					console.error(error);
-					this.$toast.error('Foglalás törlése sikertelen');
+					let message = this.trans.get('dashboard.booked_event_cancel_fail_notification');
+					this.$toast.error(message);
 				});
 		}
 	},

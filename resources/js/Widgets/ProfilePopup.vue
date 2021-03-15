@@ -10,7 +10,7 @@
 			align-left
 			navigate-to="/dashboard"
 		>
-			{{ $page.props.user.role == 'teacher' ? 'Oktatótér' : 'Tanulótér' }}
+			{{ trans.get($page.props.user.role === 'teacher' ? 'header.teacher_hub_btn' : 'header.student_hub_btn') }}
 		</c-btn>
 		<c-btn
 			full
@@ -19,7 +19,7 @@
 			align-left
 			icon="dark_mode"
 		>
-			Éjjeli mód
+			{{ trans.get('header.dark_mode_btn') }}
 		</c-btn>
 		<c-btn
 			full
@@ -29,7 +29,7 @@
 			icon="settings"
 			navigate-to="/settings"
 		>
-			Beállítások
+			{{ trans.get('header.settings_btn') }}
 		</c-btn>
 		<c-btn
 			full
@@ -38,7 +38,7 @@
 			icon="logout"
 			@click.prevent="logout"
 		>
-			Kijelentkezés
+			{{ trans.get('header.logout_btn') }}
 		</c-btn>
 	</div>
 </template>

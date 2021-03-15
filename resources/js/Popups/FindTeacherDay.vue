@@ -3,9 +3,9 @@
 		large
 		:value="active"
 		@close="$emit('change-active', false)"
-		title="Szűrj nap vagy napszak alapján!"
+		:title="trans.get('find_teacher.day_popup_title')"
 	>
-		<div class="color-gray text-center">Napszak</div>
+		<div class="color-gray text-center">{{ trans.get('find_teacher.day_popup_time_of_day') }}</div>
 		<div class="daysContainer mb-4 p-1 rounded-md blue-border flex items-center justify-between font-bold relative">
 			<c-btn
 				small
@@ -15,7 +15,7 @@
 				@click="timeOfDayToggle(timeOfDay.value)"
 			>{{ timeOfDay.label }}</c-btn>
 		</div>
-		<div class="color-gray text-center">Nap</div>
+		<div class="color-gray text-center">{{ trans.get('find_teacher.day_popup_day') }}</div>
 		<div class="daysContainer p-1 rounded-md blue-border flex items-center justify-between font-bold relative">
 			<c-btn
 				v-for="(day, d) in days"
@@ -27,7 +27,7 @@
 		<div class="flex justify-center mt-4">
 			<c-btn
 				@click="submit"
-			>Szűrés</c-btn>
+			>{{ trans.get('find_teacher.day_popup_filter_btn') }}</c-btn>
 		</div>
 	</c-pop-up>
 </template>
@@ -65,25 +65,25 @@ export default {
 			value_: this.value,
 			days: [
 				{
-					label: 'Hé',
+					label: this.trans.get('find_teacher.day_popup_day_0_label'),
 					value: 0
 				}, {
-					label: 'Ke',
+					label: this.trans.get('find_teacher.day_popup_day_1_label'),
 					value: 1
 				}, {
-					label: 'Sze',
+					label: this.trans.get('find_teacher.day_popup_day_2_label'),
 					value: 2
 				}, {
-					label: 'Csü',
+					label: this.trans.get('find_teacher.day_popup_day_3_label'),
 					value: 3
 				}, {
-					label: 'Pé',
+					label: this.trans.get('find_teacher.day_popup_day_4_label'),
 					value: 4
 				}, {
-					label: 'Szo',
+					label: this.trans.get('find_teacher.day_popup_day_5_label'),
 					value: 5
 				}, {
-					label: 'Va',
+					label: this.trans.get('find_teacher.day_popup_day_6_label'),
 					value: 6
 				}
 			],

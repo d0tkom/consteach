@@ -2,7 +2,7 @@
 	<c-pop-up
 		:value="active"
 		@close="$emit('change-active', false)"
-		title="Milyen elv szerint rendezzük sorba a tanárokat?"
+		:title="trans.get('find_teacher.order_popup_title')"
 	>
 		<div>
 			<c-btn
@@ -12,7 +12,7 @@
 				:text="value !== o"
 				full
 				@click="optionClick(o)"
-			>{{ option.label }}</c-btn>
+			>{{ trans.get('find_teacher.option-'+o) }}</c-btn>
 		</div>
 	</c-pop-up>
 </template>

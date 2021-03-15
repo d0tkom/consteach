@@ -3,8 +3,8 @@
         <div class="teacherHubContainer mt-8">
             <div class="card flat lg">
                 <div class="card p-sm">
-                    <div class="flex justify-between">
-                        <div class="flex items-center">
+                    <div class="mainInfos flex justify-between">
+                        <div class="infoTop flex items-center">
                             <div class="profileImg blue-border rounded-full overflow-hidden mr-8">
                                 <img :src="$page.props.user.profile_photo_url" alt="Profilkép">
                             </div>
@@ -12,15 +12,11 @@
                                 {{ $page.props.user.first_name }}
                             </div>
                         </div>
-                        <div class="flex items-center">
+                        <div class="infoItems flex items-center">
                             <div class="infoItem flex mx-4">
-                                <div class="mr-4">
-                                    <img
-	                                    height="40"
-	                                    src="/img/student_icon.svg"
-	                                    alt="Diák ikon"
-                                    >
-                                </div>
+	                            <div class="mr-4 material-icons headerIcon">
+		                            person
+	                            </div>
                                 <div class="text-center">
                                     <div class="color-primary-dark font-bold">
                                         {{ $page.props.user.extra.student_count }}
@@ -29,12 +25,8 @@
                                 </div>
                             </div>
                             <div class="infoItem flex mx-4">
-                                <div  class="mr-4">
-                                    <img
-	                                    height="40"
-	                                    src="/img/sand_glass.svg"
-	                                    alt="Diák ikon"
-                                    >
+                                <div class="mr-4 material-icons headerIcon">
+	                                insert_invitation
                                 </div>
                                 <div class="text-center">
                                     <div class="color-primary-dark font-bold">
@@ -44,10 +36,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex flex-col justify-center">
+                        <div class="walletContainer flex flex-col justify-center">
                             <div class="flex items-center">
-                                <span class="walletIcon material-icons mr-2 text-2xl color-primary-dark">account_balance_wallet</span>
-                                <span class="font-bold text-2xl color-green-dark">
+                                <span class="walletIcon material-icons mr-2 text-2xl">account_balance_wallet</span>
+                                <span class="walletValue font-bold text-2xl">
 	                                <currency
 		                                :value="15000"
 	                                />
@@ -57,7 +49,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <div class="contentGrid grid grid-cols-1 lg:grid-cols-3 gap-4">
                     <div class="col-span-2 card p-sm" v-if="appointments.length">
                         <div class="flex justify-between mb-4">
                             <div class="color-primary-dark text-lg font-bold">{{ trans.get('dashboard.booked_lessons') }}</div>
@@ -82,8 +74,8 @@
 	                    
                         <FullCalendar :options="calendarOptions" />
 	                    
-	                    <div class="flex justify-between items-center mt-2">
-		                    <div class="p-4">
+	                    <div class="calendarFooter flex justify-between items-center mt-2">
+		                    <div class="calendarFooterLabels p-4">
 			                    <div class="text-sm flex items-center">
 				                    <div class="colorSample free mr-2"></div>
 				                    <span>{{ trans.get('dashboard.bookable') }}</span>
@@ -94,7 +86,7 @@
 			                    </div>
 		                    </div>
 		                    
-		                    <div class="flex items-center justify-end">
+		                    <div class="calendarFooterOptions flex items-center justify-end">
 			                    <div class="mr-6">{{ trans.get('dashboard.filter_calendar') }}</div>
 			                    <c-select
 				                    not-nullable
@@ -262,7 +254,7 @@
 	                slotMinTime: '06:00:00',
 	                slotMaxTime: '18:00:00',
                     plugins: [ timeGridPlugin, interactionPlugin ],
-                    initialView: 'timeGridWeek',
+		            initialView: this.$root.calendarType,
                     locale: window.default_locale,
                     buttonText: {
                         today:    'mai nap',
@@ -442,11 +434,13 @@
                         };
 	                    this.calendarOptions.events.push(event);
 	
-	                    this.$toast.success('Foglalható időpont hozzáadva');
+	                    let message = this.trans.get('dashboard.availability_added_success_notification');
+	                    this.$toast.success(message);
                     })
                     .catch(error => {
                         console.error(error);
-	                    this.$toast.success('Foglalható időpont hozzáadása sikertelen');
+	                    let message = this.trans.get('dashboard.availability_added_fail_notification');
+	                    this.$toast.error(message);
                     });
                 });
             },
@@ -459,11 +453,13 @@
                         this.calendarOptions.events.splice(index, 1);
                     }
 	
-	                this.$toast.success('Foglalható időpont törölve');
+                    let message = this.trans.get('dashboard.availability_deleted_success_notification');
+	                this.$toast.success(message);
                 })
                 .catch(error => {
                     console.error(error);
-	                this.$toast.error('Foglalható időpont törlése sikertelen');
+                    let message = this.trans.get('dashboard.availability_deleted_fail_notification');
+	                this.$toast.error(message);
                 });
             },
             deleteAppointment() {
@@ -472,11 +468,14 @@
                 	this.appointmentPopup.open = false;
 	                this.$delete(this.calendarOptions.events, this.appointmentPopup.index);
 					
-	                this.$toast.success('Foglalás törölve');
+	                let message = this.trans.get('dashboard.appointment_delete_success_notification');
+	                this.$toast.success(message);
                 })
                 .catch(error => {
                     console.error(error);
-	                this.$toast.error('Foglalás törlése sikertelen');
+                    
+                    let message = this.trans.get('dashboard.appointment_delete_fail_notification');
+	                this.$toast.error(message);
                 });
             }
         }

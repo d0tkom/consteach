@@ -2,9 +2,8 @@
 	<c-pop-up
 		:value="value"
 		@close="$emit('input', false)"
-		title="Biztosan le akarod mondani az órát? Tanárod értesítést kap a változásról."
+		:title="trans.get('dashboard.lesson_cancel_title')"
 	>
-		
 		<div class="eventContainer flex justify-between mb-8">
 			<div class="profileImageWrapper mr-4">
 				<img
@@ -18,7 +17,7 @@
 					{{ event.teacher.name }}
 				</div>
 				<div class="color-primary font-bold mb-2">
-					{{ event.language }} óra ({{ event.length }} perc)
+					{{ event.language }} {{ trans.get('dashboard.lesson_cancel_hour') }} ({{ event.length }} {{ trans.get('dashboard.lesson_cancel_minute') }})
 				</div>
 				<div>
 					<c-date
@@ -38,10 +37,9 @@
 			<c-btn
 				color="error"
 				outlined
-
 				icon="cancel"
 				:loading="loading"
-			>Óra lemondása</c-btn>
+			>{{ trans.get('dashboard.lesson_cancel_btn') }}</c-btn>
 		</div>
 	</c-pop-up>
 </template>

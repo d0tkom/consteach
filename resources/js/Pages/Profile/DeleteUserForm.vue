@@ -5,12 +5,11 @@
                 <cInput
                     type="password"
                     class="mt-1 block w-3/4"
-                    placeholder="Jelszó"
+                    :placeholder="trans.get('settings.delete_profile_password_placeholder')"
                     ref="remove-user-password"
                     v-model="form.password"
                     @keyup.enter="deleteUser"
                 />
-
                 <jet-input-error :message="form.errors.password" class="mt-2" />
             </div>
         </div>
@@ -19,12 +18,12 @@
             <cBtn
                 outlined
                 @click="closeModal"
-            >Mégsem</cBtn>
+            >{{ trans.get('settings.delete_profile_cancel_btn') }}</cBtn>
 
             <cBtn
                 :loading="form.processing"
                 @click="deleteUser"
-            >Fiók törlése</cBtn>
+            >{{ trans.get('settings.delete_profile_submit_btn') }}</cBtn>
         </div>
     </div>
 </template>
@@ -57,21 +56,20 @@
                     preserveScroll: true,
                     onSuccess: () => {
                     	this.closeModal();
-	                    this.$toast.success('Sikeres törlés');
+                    	let message = this.trans.get('settings.delete_profile_submit_success_notification');
+	                    this.$toast.success(message);
                     },
                     onError: () => {
                     	this.$refs.password.focus();
-	                    this.$toast.error('Sikertelen törlés');
+	                    let message = this.trans.get('settings.delete_profile_submit_fail_notification');
+	                    this.$toast.error(message);
                     },
                     onFinish: () => this.form.reset(),
                 })
             },
-
             closeModal() {
                 this.confirmingUserDeletion = false
-
                 this.form.reset()
-
                 this.$emit('close');
             },
         },
