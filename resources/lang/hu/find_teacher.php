@@ -11,7 +11,7 @@ return [
     'language_filter_popup_title' => 'Milyen nyelvet tanulnál?',
     'option-one_hour_price' => 'Ár',
     'option-appointment_count' => 'Megtartott órák száma',
-    'option-random' => 'Random',
+    'option-random' => 'Véletlenszerű',
 
     'day_popup_title' => 'Szűrj nap vagy napszak alapján!',
     'day_popup_time_of_day' => 'Napszak',
@@ -36,7 +36,7 @@ return [
     'book_btn' => 'Órafoglalás',
     'chat_btn' => 'Üzenet',
 
-    'timezone_info' => 'Az időpontok a Te időzónádnak megfelelően jelennek meg (GMT +2)',
+    'timezone_info' => 'Az időpontok a Te időzónádnak megfelelően jelennek meg',
     'profile_btn' => 'Profil megtekintése',
 ];
 
