@@ -492,7 +492,8 @@
                     this.appointmentPopup.data.eventClickInfo.event.remove();
                     this.appointmentPopup.open = false;
 
-                    this.$toast.success('Időpont lefoglalva');
+                    let message = this.trans.get('settings.submit_appointment_success_notification');
+                    this.$toast.success(message);
 
                     setTimeout(() => {
                         this.appointmentPopup.data = {
@@ -507,7 +508,8 @@
                     if (error.response.status == 423) {
                          this.$inertia.visit('/checkout/' + this.teacher.id  + '?appointment=' + error.response.data);
                     } else {
-                        this.$toast.error('Időpont foglalása sikertelen');
+	                    let message = this.trans.get('settings.submit_appointment_fail_notification');
+                        this.$toast.error(message);
                     }
                 });
             },
@@ -515,7 +517,8 @@
                 let self = this;
 
                 if (!this.$page.props.user) {
-	                this.$toast.info('A foglaláshoz jelentkezz be vagy regisztrálj!');
+	                let message = this.trans.get('settings.no_auth_notification');
+	                this.$toast.info(message);
                     this.$inertia.visit('/#login');
                 }
 
@@ -527,7 +530,8 @@
                 let hasCredit = true;
 
                 if (!hasCredit) {
-	                this.$toast.info('A foglaláshoz vásárolj kreditet a tanárhoz!');
+                	let message = this.trans.get('settings.no_credit_notification');
+	                this.$toast.info(message);
                     this.$inertia.visit('/checkout/'+this.teacher.id);
                 }
 

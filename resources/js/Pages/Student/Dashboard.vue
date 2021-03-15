@@ -90,7 +90,6 @@
     import AppLayout from '@/Layouts/AppLayout'
     import BookedEvent from "@/Widgets/BookedEvent";
     import ChangePassword from '@/Popups/ChangePassword'
-    import DeleteProfile from "@/Popups/DeleteProfile";
     import BoughtEvent from "@/Widgets/BoughtEvent";
     import Teacher from "@/Widgets/Teacher";
     
@@ -101,7 +100,6 @@
             AppLayout,
             BookedEvent,
             ChangePassword,
-            DeleteProfile,
         },
         props: {
             lessons: Array,

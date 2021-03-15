@@ -12,7 +12,7 @@
 				{{ fromTeacher ? data.student.user.first_name : data.teacher.user.first_name }}
 			</div>
 			<div class="mb-4 text-sm">
-				<b>{{ data.available }}</b> óra foglalásra vár
+				<b>{{ data.available }}</b> {{ trans.get('dashboard.bought_event_available') }}
 			</div>
 			<c-btn
 				v-if="!fromTeacher"
@@ -21,7 +21,7 @@
 				medium
 				:navigate-to="'/teacher/' + data.teacher.id"
 			>
-				Órafoglalás
+				{{ trans.get('dashboard.bought_event_book_btn') }}
 			</c-btn>
 			<c-btn
 				v-else
@@ -29,7 +29,7 @@
 				outlined
 				medium
 			>
-				Üzenet
+				{{ trans.get('dashboard.bought_event_chat_btn') }}
 			</c-btn>
 		</div>
 	</div>

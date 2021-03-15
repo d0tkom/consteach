@@ -16,20 +16,20 @@
 					{{ data.teacher.user.country }}
 				</span>
 				<c-tag class="ml-2" type="success" small>
-					Anyanyelv
+					{{ trans.get('dashboard.mother_tongue') }}
 				</c-tag>
 			</div>
 			<div class="mt-4">
 				<div class="stat mb-2 flex justify-between items-center">
-					<span class="text-md">Lefoglalt órák</span>
+					<span class="text-md">{{ trans.get('dashboard.teacher_widget_booked_lessons') }}</span>
 					<span class="text-lg font-bold">{{ data.booked }}</span>
 				</div>
 				<div class="stat orange mb-2 flex justify-between items-center">
-					<span class="text-md">Foglalásra vár</span>
+					<span class="text-md">{{ trans.get('dashboard.teacher_widget_bought_lessons') }}</span>
 					<span class="text-lg font-bold">{{ data.available }}</span>
 				</div>
 				<div class="stat purple mb-2 flex justify-between items-center">
-					<span class="text-md">Megtartott órák</span>
+					<span class="text-md">{{ trans.get('dashboard.teacher_widget_finished_lessons') }}</span>
 					<span class="text-lg font-bold">{{ data.finished }}</span>
 				</div>
 			</div>

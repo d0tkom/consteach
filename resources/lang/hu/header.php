@@ -14,6 +14,9 @@ return [
     'teacher_hub_btn' => 'Oktatótér',
     'student_hub_btn' => 'Tanulótér',
     'settings_btn' => 'Beállítások',
+
+    'wallet_total' => 'Pénzfelvétel',
+    'payment_btn' => 'Pénzfelvétel',
 ];
 
 ?>

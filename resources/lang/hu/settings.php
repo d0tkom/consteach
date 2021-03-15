@@ -45,6 +45,22 @@ return [
     'validating_alert_title' => 'Validálás folyamatban',
     'validating_alert_description' => 'A validálásig a főbb funkciók nem elérhetőek.',
 
+    'submit_success_notification' => 'Sikeresen mentve',
+    'submit_fail_notification' => 'Mentés sikertelen',
+
+    'submit_appointment_success_notification' => 'Időpont lefoglalva',
+    'submit_appointment_fail_notification' => 'Időpont foglalása sikertelen',
+
+    'no_auth_notification' => 'A foglaláshoz jelentkezz be vagy regisztrálj!',
+    'no_credit_notification' => 'A foglaláshoz vásárolj kreditet a tanárhoz!',
+
+    'change_password_popup_title' => 'Add meg régi és új jelszavad a változtatáshoz!',
+    'delete_profile_popup_title' => 'Biztosan törölni szeretnéd a fiókodat? A törléshez add meg a jelszavadat!',
+    'delete_profile_password_placeholder' => 'Jelszó',
+    'delete_profile_submit_btn' => 'Fiók törlése',
+    'delete_profile_cancel_btn' => 'Mégsem',
+    'delete_profile_submit_success_notification' => 'Sikeres törlés',
+    'delete_profile_submit_fail_notification' => 'Sikertelen törlés',
 ];
 
 ?>

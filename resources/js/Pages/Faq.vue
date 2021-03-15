@@ -158,12 +158,6 @@ export default {
 		return {
 			openedQuestion: null,
 		};
-	},
-	created() {
-
-    },
-	methods: {
-
 	}
 }
 </script>

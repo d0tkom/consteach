@@ -245,13 +245,13 @@
 	            </h2>
 	            <div class="grid grid-cols-2 gap-4 mb-4">
 		            <c-input
-			            hint="/óra"
+			            :hint="'/'+trans.get('settings.hour')"
 			            :label="trans.get('settings.five_hours_net')"
 			            :value="calculateHourPrice(form.five_hour_price, 5, true)"
 						@keyup="value => bulkPriceInput(value, 'five_hour_price', 5, true)"
 		            />
 		            <c-input
-			            hint="/óra"
+			            :hint="'/'+trans.get('settings.hour')"
 			            readonly
 			            :label="trans.get('settings.five_hours_gross')"
 			            :value="calculateHourPrice(form.five_hour_price, 5, false)"
@@ -259,13 +259,13 @@
 	            </div>
 	            <div class="grid grid-cols-2 gap-4">
 		            <c-input
-			            hint="/óra"
+			            :hint="'/'+trans.get('settings.hour')"
 			            :label="trans.get('settings.ten_hours_net')"
 			            :value="calculateHourPrice(form.ten_hour_price, 10, true)"
 			            @keyup="value => bulkPriceInput(value, 'ten_hour_price', 10, true)"
 		            />
 		            <c-input
-			            hint="/óra"
+			            :hint="'/'+trans.get('settings.hour')"
 			            readonly
 			            :label="trans.get('settings.ten_hours_gross')"
 			            :value="calculateHourPrice(form.ten_hour_price, 10, false)"
@@ -475,10 +475,12 @@
                 this.form.post('/users/' + this.$page.props.user.id, {
                 	preserveScroll: true,
 	                onSuccess: () => {
-                		this.$toast.success('Sikeresen mentve');
+                		let messages = this.trans('settings.submit_success_notification');
+                		this.$toast.success(messages);
 	                },
 	                onError: () => {
-		                this.$toast.error('Mentés sikertelen');
+		                let messages = this.trans('settings.submit_fail_notification');
+		                this.$toast.error(messages);
 	                }
                 });
             },

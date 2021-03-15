@@ -306,13 +306,15 @@
                 	axios.post('payment', {appointment: this.appointment, billing: this.billing, product: this.product})
                         .then((response) => {
                             this.paymentProcessing = false;
-	                        this.$toast.success('Sikeres tranzakció');
+                            let message = this.trans.get('checkout.transaction_success_notification');
+	                        this.$toast.success(message);
                             //redirect here
                         })
                         .catch((error) => {
                             this.paymentProcessing = false;
                             console.error(error);
-	                        this.$toast.error('Sikertelen tranzakció');
+                            let message = this.trans.get('checkout.transaction_fail_notification');
+	                        this.$toast.error(message);
                         });
                         
                 	return;
@@ -329,7 +331,6 @@
                                 state: this.billing.state,
                                 postal_code: this.billing.postal
                             }
-
                         }
                     }
                 );
@@ -343,12 +344,14 @@
                         .then((response) => {
                             this.paymentProcessing = false;
                             this.$inertia.visit('/dashboard');
-	                        this.$toast.success('Sikeres tranzakció');
+	                        let message = this.trans.get('checkout.transaction_success_notification');
+	                        this.$toast.success(message);
                         })
                         .catch((error) => {
                             this.paymentProcessing = false;
                             console.error(error);
-	                        this.$toast.error('Sikertelen tranzakció');
+	                        let message = this.trans.get('checkout.transaction_fail_notification');
+	                        this.$toast.error(message);
                         });
                 }
             }

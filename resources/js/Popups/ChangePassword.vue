@@ -2,7 +2,7 @@
 	<c-pop-up
 		:value="value"
 		@close="$emit('input', false)"
-		title="Add meg régi és új jelszavad a változtatáshoz!"
+		:title="trans.get('settings.change_password_popup_title')"
 	>
 		<update-password-form
 			@close="$emit('input', false)"
@@ -29,8 +29,5 @@ export default {
 
 		};
 	},
-	methods: {
-
-	}
 }
 </script>

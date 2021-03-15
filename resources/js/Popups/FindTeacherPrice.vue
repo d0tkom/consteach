@@ -2,7 +2,7 @@
 	<c-pop-up
 		:value="active"
 		@close="$emit('change-active', false)"
-		title="Milyen óradíjjal keresel tanárt? Jelöld be a csúszkán!"
+		:title="trans.get('find_teacher.price_popup_title')"
 	>
 		<div class="valueContainer flex items-center justify-between text-2xl font-bold relative">
 			<div>{{ value_[0] }} HUF</div>
@@ -19,7 +19,7 @@
 		<div class="flex justify-center mt-4">
 			<c-btn
 				@click="submit"
-			>Szűrés</c-btn>
+			>{{ trans.get('find_teacher.price_popup_filter_btn') }}</c-btn>
 		</div>
 	</c-pop-up>
 </template>

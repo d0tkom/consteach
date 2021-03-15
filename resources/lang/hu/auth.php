@@ -47,4 +47,6 @@ return [
     'new_password_confirmation_label' => 'Új jelszó ismét',
 
     'password_update_save_btn' => 'Mentés',
+    'password_update_success_notification' => 'Sikeres mentés',
+    'password_update_fail_notification' => 'Sikertelen mentés',
 ];

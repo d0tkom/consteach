@@ -9,7 +9,7 @@
 			<div class="time text-2xl mb-4">{{ time }}</div>
 			<c-btn
 				@click="$emit('submit')"
-			>Órafoglalás</c-btn>
+			>{{ trans.get('teacher_profile.lesson_book_btn') }}</c-btn>
 		</div>
 	</c-pop-up>
 </template>
@@ -17,9 +17,6 @@
 <script>
 
 export default {
-	components: {
-		
-	},
 	props: {
 		value: {
 			type: Boolean,
@@ -53,8 +50,5 @@ export default {
 			return this.$moment.utc(this.data.date_start).tz(this.timeZone).format('hh:mm');
 		}
 	},
-	methods: {
-
-	}
 }
 </script>

@@ -23,7 +23,9 @@ return [
     'free_lesson_pay_btn' => 'Foglalás',
     'payment_info_label' => 'Fizetési adatok',
     'bank_card_info_label' => 'Bankkártya adatok',
-    'footer_info' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.'
+    'footer_info' => 'A fizetés gomb lenyomása után átirányítjuk Önt  az OTP Bank fizetőoldalára, és a fizetés közvetlenül a Bank által üzemeltetett, a nemzetközi kártyatársaságok szabályai és biztonsági előírásai szerint működő oldalon történik. A fizetés bármely bank által kibocsátott, internetes vásárlásra alkalmas bankkártyával kezdeményezhető.',
+    'transaction_success_notification' => 'Sikeres tranzakció',
+    'transaction_fail_notification' => 'Sikertelen tranzakció',
 ];
 
 ?>
