@@ -216,7 +216,7 @@
                             <div class="actions flex flex-col items-end">
                                 <c-btn
                                     class="mb-4"
-                                    :navigate-to="route('checkout', teacher.id)"
+                                    @click="clickedBuyBtn"
                                     icon="account_balance_wallet"
                                 >{{ trans.get('teacher_profile.buy_btn') }}</c-btn>
 
@@ -485,6 +485,16 @@
 		    }
 	    },
         methods: {
+        	clickedBuyBtn() {
+		        if (!this.$page.props.user) {
+			        let message = this.trans.get('teacher_profile.no_auth_notification');
+			        this.$toast.info(message);
+			        this.$root.openLoginPopup();
+			        return;
+		        }
+		        
+	            this.$inertia.visit('/checkout/'+this.teacher.id);
+	        },
             submitAppointment() {
                 let self = this;
                 axios.put('/appointment', {
@@ -498,7 +508,7 @@
                     this.appointmentPopup.data.eventClickInfo.event.remove();
                     this.appointmentPopup.open = false;
 
-                    let message = this.trans.get('settings.submit_appointment_success_notification');
+                    let message = this.trans.get('teacher_profile.submit_appointment_success_notification');
                     this.$toast.success(message);
 
                     setTimeout(() => {
@@ -514,7 +524,7 @@
                     if (error.response.status == 423) {
                          this.$inertia.visit('/checkout/' + this.teacher.id  + '?appointment=' + error.response.data);
                     } else {
-	                    let message = this.trans.get('settings.submit_appointment_fail_notification');
+	                    let message = this.trans.get('teacher_profile.submit_appointment_fail_notification');
                         this.$toast.error(message);
                     }
                 });
@@ -523,9 +533,9 @@
                 let self = this;
 
                 if (!this.$page.props.user) {
-	                let message = this.trans.get('settings.no_auth_notification');
+	                let message = this.trans.get('teacher_profile.no_auth_notification');
 	                this.$toast.info(message);
-                    this.$inertia.visit('/#login');
+	                this.$root.openLoginPopup();
                 }
 
                 if (this.$page.props.user.role !== 'student') {
@@ -536,7 +546,7 @@
                 let hasCredit = true;
 
                 if (!hasCredit) {
-                	let message = this.trans.get('settings.no_credit_notification');
+                	let message = this.trans.get('teacher_profile.no_credit_notification');
 	                this.$toast.info(message);
                     this.$inertia.visit('/checkout/'+this.teacher.id);
                 }

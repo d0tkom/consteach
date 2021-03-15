@@ -48,11 +48,7 @@ return [
     'submit_success_notification' => 'Sikeresen mentve',
     'submit_fail_notification' => 'Mentés sikertelen',
 
-    'submit_appointment_success_notification' => 'Időpont lefoglalva',
-    'submit_appointment_fail_notification' => 'Időpont foglalása sikertelen',
 
-    'no_auth_notification' => 'A foglaláshoz jelentkezz be vagy regisztrálj!',
-    'no_credit_notification' => 'A foglaláshoz vásárolj kreditet a tanárhoz!',
 
     'change_password_popup_title' => 'Add meg régi és új jelszavad a változtatáshoz!',
     'delete_profile_popup_title' => 'Biztosan törölni szeretnéd a fiókodat? A törléshez add meg a jelszavadat!',

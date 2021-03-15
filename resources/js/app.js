@@ -97,6 +97,11 @@ new Vue({
         this.getCurrencyExchange();
     },
     methods: {
+        openLoginPopup() {
+            this.popup.registration = false;
+            this.popup.lostPassword = false;
+            this.popup.login = true;
+        },
         getCurrencyExchange() {
             axios.get('/currency').then(({data}) => {
                 this.currencies.EUR = data.EUR;

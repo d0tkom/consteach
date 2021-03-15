@@ -29,4 +29,10 @@ return [
     'free_lesson_btn' => 'INGYENES PRÓBAÓRA',
 
     'lesson_book_btn' => 'Órafoglalás',
+
+    'submit_appointment_success_notification' => 'Időpont lefoglalva',
+    'submit_appointment_fail_notification' => 'Időpont foglalása sikertelen',
+
+    'no_auth_notification' => 'A folytatáshoz jelentkezz be vagy regisztrálj!',
+    'no_credit_notification' => 'A foglaláshoz vásárolj kreditet a tanárhoz!',
 ];
