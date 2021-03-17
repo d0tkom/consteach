@@ -18,6 +18,7 @@ return [
     'product_name' => 'Termék neve',
     'price' => 'Összeg',
     'fee' => 'Illeték',
+    'free' => 'Ingyenes',
     'total_price' => 'Teljes összeg',
     'pay_btn' => 'Fizetés',
     'free_lesson_pay_btn' => 'Foglalás',

@@ -35,4 +35,5 @@ return [
 
     'no_auth_notification' => 'A folytatáshoz jelentkezz be vagy regisztrálj!',
     'no_credit_notification' => 'A foglaláshoz vásárolj kreditet a tanárhoz!',
+    'free_lesson_btn_notification' => 'A foglaláshoz válassz a szabad időpontok közül.',
 ];

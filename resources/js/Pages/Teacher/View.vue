@@ -89,7 +89,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card p-sm">
+                        <div class="card p-sm" id="calendar">
                             <div class="text-md font-bold color-blue-dark mb-4">{{ trans.get('teacher_profile.time_table') }}</div>
                             <FullCalendar :options="calendarOptions" />
 	
@@ -167,8 +167,9 @@
 		                    <div class="ctaContainer flex flex-col items-end">
 			                    <c-btn
 				                    color="success"
-				                    :navigate-to="route('checkout', teacher.id)"
 				                    icon="sentiment_satisfied_alt"
+				                    @click="clickedFreeLessonBtn"
+				                    v-scroll-to="'#calendar'"
 			                    >{{ trans.get('teacher_profile.free_lesson_btn') }}</c-btn>
 		                    </div>
 	                    </div>
@@ -485,6 +486,10 @@
 		    }
 	    },
         methods: {
+        	clickedFreeLessonBtn() {
+		        let message = this.trans.get('teacher_profile.free_lesson_btn_notification');
+		        this.$toast.info(message);
+	        },
         	clickedBuyBtn() {
 		        if (!this.$page.props.user) {
 			        let message = this.trans.get('teacher_profile.no_auth_notification');

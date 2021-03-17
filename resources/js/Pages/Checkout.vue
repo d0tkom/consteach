@@ -159,7 +159,7 @@
 							<div
 								v-else
 								class="flex justify-end font-bold color-green-dark"
-							>Ingyenes</div>
+							>{{ trans.get('checkout.free') }}</div>
 						</div>
 						<hr class="my-2">
 						<div class="flex justify-end mb-8" v-show="!trialSelected">
