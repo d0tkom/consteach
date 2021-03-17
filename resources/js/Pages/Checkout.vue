@@ -1,7 +1,7 @@
 <template>
 	<app-layout>
 		<div class="checkoutContainer m-auto flex justify-center max-w-xl">
-			<div class="checkoutCol flex flex-col justify-center">
+			<div class="checkoutCol flex flex-col">
 				<div class="p-4 m-4 blue-text-color bg-white rounded-xl shadow-md border border-blue-300 items-center relative">
 					<div class="flex ">
 						<span class="h-6 rounded-full w-6 border blue-border-color text-center text-md flex flex-col justify-center">1</span>
@@ -143,10 +143,25 @@
 							<span class="text-md flex-1">{{ trans.get('checkout.product_name') }}</span>
 							<span class="text-md">{{ trans.get('checkout.price') }}</span>
 						</div>
-						<hr class="my-1">
-						<div><span class="font-semibold">{{ product.lesson_number }} {{ trans.choice('checkout.lesson', product.lesson_number) }}</span> 60 {{ trans.choice('checkout.minute', 60) }}</div>
-						<div class="flex justify-end">Ingyenes</div>
-						<hr class="mb-2 mt-4">
+						<hr class="my-2">
+						<div class="productRow flex items-center justify-between">
+							<div>
+								<span class="font-semibold">{{ product.lesson_number }} {{ trans.choice('checkout.lesson', product.lesson_number) }}</span> 60 {{ trans.choice('checkout.minute', 60) }}
+							</div>
+							<div
+								v-if="product.amount > 0"
+								class="flex justify-end"
+							>
+								<currency
+									:value="product.amount/100"
+								/>
+							</div>
+							<div
+								v-else
+								class="flex justify-end font-bold color-green-dark"
+							>Ingyenes</div>
+						</div>
+						<hr class="my-2">
 						<div class="flex justify-end mb-8" v-show="!trialSelected">
 							<div class="flex">
 								<div class="w-28 sm:w-32">
