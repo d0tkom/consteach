@@ -37,6 +37,9 @@ const fallback_locale = window.fallback_locale;
 
 Vue.prototype.trans = new Lang({messages, locale: default_locale, fallback: fallback_locale});
 
+const VueScrollTo = require('vue-scrollto');
+Vue.use(VueScrollTo);
+
 const app = document.getElementById('app');
 
 new Vue({

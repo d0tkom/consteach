@@ -57,14 +57,13 @@
 						</inertia-link>
 					</li>
 					<li>
-						<inertia-link href="/teacher-landing">
-							<c-btn
-								text
-								class=""
-							>
-								{{ trans.get('header.teacher_landing_btn') }}
-							</c-btn>
-						</inertia-link>
+						<c-btn
+							text
+							v-scroll-to="'#teach-with-us'"
+							class=""
+						>
+							{{ trans.get('header.teacher_landing_btn') }}
+						</c-btn>
 					</li>
 				</ul>
 				<div class="flex items-center authBtns">

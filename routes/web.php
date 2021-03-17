@@ -58,6 +58,8 @@ Route::get('/privacy-policy', function() {
     return Inertia::render('PrivacyPolicy');
 });
 
+Route::get('/currency', [CurrencyController::class, 'fetchExchange']);
+
 Route::get('/', function () {
     if (Auth::check()) {
         return redirect('/dashboard');
@@ -81,11 +83,11 @@ Route::get('/', function () {
 
     return Inertia::render('Landing')->with(['availableLanguages' => $availableLanguages]);
 })->name('landing');
-
+/*
 Route::get('/teacher-landing', function () {
     return Inertia::render('TeacherLanding');
 })->name('teacher-landing');
-
+*/
 Route::get('/teacher/{teacher_id}', function ($teacher_id) {
     $appointments = Appointment::where('teacher_id', $teacher_id)->where('active', 1)->get();
 
@@ -164,8 +166,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             break;
     }
     })->name('dashboard');
-
-    Route::get('/currency', [CurrencyController::class, 'fetchExchange']);
 
     Route::get('/teacher-application', function () {
         $teacher = Teacher::where('user_id', Auth::user()->id)->first();

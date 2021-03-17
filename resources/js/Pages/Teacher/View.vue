@@ -497,6 +497,17 @@
 	        },
             submitAppointment() {
                 let self = this;
+	
+	            if (!this.$page.props.user) {
+		            let message = this.trans.get('teacher_profile.no_auth_notification');
+		            this.$toast.info(message);
+		            this.$root.openLoginPopup();
+	            }
+	
+	            if (this.$page.props.user.role !== 'student') {
+		            return false;
+	            }
+                
                 axios.put('/appointment', {
                     params: {
                         start: this.appointmentPopup.data.date_start,
@@ -521,7 +532,7 @@
                     }, 500);
                 })
                 .catch(error => {
-                    if (error.response.status == 423) {
+                    if (error.response.status === 423) {
                          this.$inertia.visit('/checkout/' + this.teacher.id  + '?appointment=' + error.response.data);
                     } else {
 	                    let message = this.trans.get('teacher_profile.submit_appointment_fail_notification');
@@ -531,16 +542,6 @@
             },
             addAppointment: function (eventClickInfo) {
                 let self = this;
-
-                if (!this.$page.props.user) {
-	                let message = this.trans.get('teacher_profile.no_auth_notification');
-	                this.$toast.info(message);
-	                this.$root.openLoginPopup();
-                }
-
-                if (this.$page.props.user.role !== 'student') {
-                    return false;
-                }
 
                 // TODO Check user credit
                 let hasCredit = true;

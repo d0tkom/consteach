@@ -180,7 +180,7 @@
 				</div>
 			</section>
 			
-			<section class="teach-with-us">
+			<section id="teach-with-us" class="teach-with-us">
 				<div class="section-content">
 					<div class="base-line"></div>
 					<div class="base-title pt-4 pb-8">
@@ -231,7 +231,7 @@
 						<c-btn
 							large
 							glow
-							navigate-to="/teacher-landing"
+							@click="teachWithUsClicked"
 						>
 							{{ trans.get('landing.teach_with_us_cta') }}
 						</c-btn>
@@ -319,6 +319,12 @@ export default {
 			}
 			
 			return this.$page.props.availableLanguages.slice(0, 6);
+		}
+	},
+	methods: {
+		teachWithUsClicked() {
+			this.$root.popup.registrationType = 'teacher';
+			this.$root.popup.registration = true;
 		}
 	}
 }
