@@ -84,7 +84,7 @@
 					</c-btn>
 				</inertia-link>
 			</div>
-			<div class="column only-screen">
+			<div class="contact column only-screen">
 				<div class="title font-bold">
 					{{ trans.get('footer.contact_title') }}
 				</div>
