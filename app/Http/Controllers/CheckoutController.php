@@ -46,7 +46,7 @@ class CheckoutController extends Controller
 
         $student->address = $request->input('billing')['address'];
         $student->city = $request->input('billing')['city'];
-        $student->country = $request->input('billing')['state'];
+        $student->country = $request->input('billing')['country'];
         $student->postal = $request->input('billing')['postal'];
 
         $student->save();
@@ -166,7 +166,7 @@ class CheckoutController extends Controller
             ]
         );
 
-        $lesson->increment('booked', 1);
+        $lesson->increment('available', 1);
 
         $lesson->save();
 
@@ -175,6 +175,9 @@ class CheckoutController extends Controller
             $appointment->active = true;
             $appointment->type = 'try';
             $appointment->save();
+
+            $lesson->decrement('available', 1);
+            $lesson->increment('booked', 1);
         }
 
         return true;

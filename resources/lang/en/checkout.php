@@ -9,7 +9,7 @@ return [
     'payment' => 'Pay',
     'address_label' => 'Address',
     'city_label' => 'City',
-    'state_label' => 'State',
+    'country_label' => 'Country',
     'postal_label' => 'Postcode',
     'processing_label' => 'Processing',
     'pay_now_label' => 'Pay now',

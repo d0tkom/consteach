@@ -119,7 +119,7 @@ Route::get('/teachers', function (Request $request) {
             }
         }
     }
-    $teachers = Teacher::with('user', 'appointments', 'availabilities')->where('complete', true)->where('validated', true)->orderBy('one_hour_price', 'ASC')->get();
+    $teachers = Teacher::with('user')->where('complete', true)->where('validated', true)->orderBy('one_hour_price', 'ASC')->get();
     $teachers = CollectionHelper::paginate($teachers, 5);
 
     return Inertia::render('Teacher/List')->with(['all_teachers' => $teachers, 'availableLanguages' => $availableLanguages]);

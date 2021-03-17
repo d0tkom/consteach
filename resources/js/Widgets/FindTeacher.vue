@@ -12,7 +12,7 @@
 					alt="Tanár képe"
 				>
 			</div>
-			<div class="w-full flex flex-col">
+			<div class="cardBody w-full flex flex-col">
 				<div class="flex items-center justify-between mb-4">
 					<div v-if="data.user" class="name text-lg font-bold color-primary-dark flex items-center">
 						<span v-if="false" class="material-icons mr-2 color-green-dark">
@@ -95,17 +95,20 @@
 				<div class="flex justify-center mb-4">
 					<iframe width="360" height="315" :src="data.video_url.replace('watch?v=', 'embed/')" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
-				<div class="calendar mb-4">
-					<FullCalendar
-						:options="calendarOptions"
-					/>
-				</div>
-				<div class="flex justify-center text-center">
-					<span class="material-icons mr-4">public</span>
-					<div class="color-gray text-sm">
-						{{ trans.get('find_teacher.timezone_info') }}
+				<div v-if="false">
+					<div class="calendar mb-4">
+						<FullCalendar
+							:options="calendarOptions"
+						/>
+					</div>
+					<div class="flex justify-center text-center">
+						<span class="material-icons mr-4">public</span>
+						<div class="color-gray text-sm">
+							{{ trans.get('find_teacher.timezone_info') }}
+						</div>
 					</div>
 				</div>
+				
 				<div class="flex justify-center">
 					<c-btn
 						class="mt-4"

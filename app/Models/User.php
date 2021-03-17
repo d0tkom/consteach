@@ -36,6 +36,7 @@ class User extends Authenticatable
         'password',
         'provider_id',
         'role',
+        'currency',
         'spoken_languages',
         'site_language',
         'profile_photo_path'

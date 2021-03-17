@@ -9,7 +9,7 @@ return [
     'payment' => 'Fizetés',
     'address_label' => 'Cím',
     'city_label' => 'Város',
-    'state_label' => 'Megye',
+    'country_label' => 'Ország',
     'postal_label' => 'Irányítószám',
     'processing_label' => 'Folyamatban',
     'pay_now_label' => 'Fizetés',

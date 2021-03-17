@@ -86,7 +86,11 @@
 	position: relative;
 	margin-left: 0 !important;
 	box-sizing: border-box;
-	
+
+	.cardBody {
+		width: calc(100% - 100px);
+	}
+
 	.favoriteBtn {
 		position: absolute;
 		top: 4px;

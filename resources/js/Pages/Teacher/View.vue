@@ -142,7 +142,7 @@
                         -->
                     </div>
                     <div class="col-span-1">
-	                    <div class="card freeLessonCard p-sm">
+	                    <div v-if="$page.props.user.extra.trial_available" class="card freeLessonCard p-sm">
 		                    <div class="blue-text-color mb-6 text-center sm:text-left ">
 			                    <p class="text-lg font-semibold">
 				                    {{ trans.get('teacher_profile.free_lesson_title') }}

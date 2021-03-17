@@ -87,14 +87,16 @@
 							v-model="billing.city"
 							required
 						/>
-						
-						<c-input
-							class="mb-4"
-							type="text"
-							name="state"
-							:label="trans.get('checkout.state_label')"
-							v-model="billing.state"
-							required
+
+
+						<c-select
+							capitalize
+							:data="countries"
+							:label="trans.get('checkout.country_label')"
+							labelKey="name"
+							valueKey="code"
+							:selected="billing.country"
+							v-model="billing.country"
 						/>
 						
 						<c-input
@@ -240,17 +242,17 @@
                 billing: {
                     address: null,
                     city: null,
-                    state: null,
+					country: null,
                     postal: null,
                 },
+				countries: null,
                 stripe: {},
                 cardElement: {},
                 paymentProcessing: false,
-	            locale: window.locale,
+	            locale: window.default_locale,
             }
         },
         async mounted() {
-        	console.log(this.locale);
             this.stripe = await loadStripe('pk_test_51IJzZ5BL1awehvPyAmK3WX8hXKt8NZYxV2q9KFu1VIuO0GFAkt3YIJefhmO2J2cKkt6xuWlnDjUw6ejJYEN4xV2300ss9XpQPd');
             const elements = this.stripe.elements({
 	            locale: 'hu'
@@ -298,6 +300,17 @@
             if (!this.trialSelected) {
             	this.selectProduct(1, this.teacher.one_hour_price, 'HUF');
             }
+
+			this.countries = require('i18n-iso-countries');
+			this.countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
+			this.countries.registerLocale(require('i18n-iso-countries/langs/hu.json'));
+			this.countries.registerLocale(require('i18n-iso-countries/langs/de.json'));
+
+			this.countries = Object.entries(this.countries.getNames(this.locale, {select: 'official'})).map(array => {
+				return {code: array[0], name: array[1]};
+			});
+	
+			this.countries.sort(this.$root.sortAlphabetByName);
         },
         methods: {
         	selectTrial: function () {
