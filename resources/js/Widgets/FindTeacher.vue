@@ -193,6 +193,7 @@ export default {
 		};
 	},
 	created() {
+		/*
 		this.calendarOptions.timeZone = this.$page.props.user === null ? 'local' : this.$page.props.user.timezone;
 		
 		let availabilities = [];
@@ -217,6 +218,7 @@ export default {
 		});
 		
 		this.calendarOptions.events = availabilities.filter(a => !appointments.find(b => b.start === a.start && b.end === a.end));
+		*/
     },
 	methods: {
 		mouseEnter(id) {
