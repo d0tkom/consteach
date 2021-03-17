@@ -188,7 +188,9 @@
                 :key="'abtm-'+ a"
             >
                     <div>
-                        <h2 class="title text-lg color-primary-dark mb-4">{{ trans.get('settings.about_me') }} {{ about_me.locale }}</h2>
+                        <h2 class="title text-lg color-primary-dark mb-4">
+	                        {{ trans.get('settings.about_me') }} <span class="capitalize">{{ $root.languageList[about_me.locale] }}</span>
+                        </h2>
                         <c-text-area
                             :hint="trans.get('settings.min_character', {num: 250})"
                             :max="2000"
@@ -415,7 +417,7 @@
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/hu.json'));
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
 
-            this.languageList = Object.entries(this.languageList.getNames(this.locale, {select: 'official'})).map(array => {
+            this.languageList = Object.entries(this.$root.languageList).map(array => {
                 return {code: array[0], name: array[1]};
             });
 	
@@ -475,11 +477,11 @@
                 this.form.post('/users/' + this.$page.props.user.id, {
                 	preserveScroll: true,
 	                onSuccess: () => {
-                		let messages = this.trans('settings.submit_success_notification');
+                		let messages = this.trans.get('settings.submit_success_notification');
                 		this.$toast.success(messages);
 	                },
 	                onError: () => {
-		                let messages = this.trans('settings.submit_fail_notification');
+		                let messages = this.trans.get('settings.submit_fail_notification');
 		                this.$toast.error(messages);
 	                }
                 });
