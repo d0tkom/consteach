@@ -27,6 +27,58 @@
 		transform: rotate(-45deg);
 		border-radius: 2px;
 	}
+
+	.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
+		min-height: 0;
+	}
+
+	.fc {
+		.fc-toolbar-title {
+			font-size: 1.2em;
+			margin: 0;
+		}
+
+		.fc-scrollgrid thead {
+			display: none;
+		}
+
+		.fc-toolbar.fc-header-toolbar {
+			margin-bottom: 8px;
+		}
+
+		.fc-daygrid-body-natural .fc-daygrid-day-events {
+			margin-bottom: 0;
+		}
+
+		.fc-daygrid-day-events {
+			margin-top: 0;
+		}
+
+		.fc-daygrid-day:not(.fc-day-disabled) {
+			.fc-daygrid-day-top {
+				text-align: center;
+				justify-content: center;
+			}
+			.fc-daygrid-day-events {
+				margin-bottom: 0;
+
+				.fc-daygrid-event-harness {
+					.fc-daygrid-dot-event {
+						pointer-events: none;
+						display: flex;
+						justify-content: center;
+					}
+
+					.fc-event-title {
+						display: none;
+					}
+					&:not(:first-child) {
+						display: none;
+					}
+				}
+			}
+		}
+	}
 }
 
 .teacherWidgetMainCard {
