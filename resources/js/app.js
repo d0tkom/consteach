@@ -58,6 +58,8 @@ new Vue({
             lostPassword: false,
             registrationType: 'student'
         },
+        languageList: null,
+        locale: window.default_locale,
         cookiePolicy: {
             accepted: false
         }
@@ -98,6 +100,13 @@ new Vue({
         });
 
         this.getCurrencyExchange();
+
+        this.languageList = require('@cospired/i18n-iso-languages');
+        this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/en.json'));
+        this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/hu.json'));
+        this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
+
+        this.languageList = this.languageList.getNames(this.locale, {select: 'official'});
     },
     methods: {
         openLoginPopup() {

@@ -4,7 +4,7 @@
 	        <div v-if="noData" class="card flat md">
 		        <div class="card p-sm">
 			        <div class="flex">
-				        <div class="profileImg mr-4">
+				        <div class="profileImg mainProfileImg mr-4">
 					        <img class="blue-border rounded-full overflow-hidden" :src="$page.props.user.profile_photo_url" alt="Profilkép">
 				        </div>
 				        <div class="flex flex-col justify-around">
@@ -27,7 +27,7 @@
             <div v-else class="card flat lg">
                 <div class="card p-sm">
                     <div class="flex">
-                        <div class="profileImg mr-4">
+                        <div class="profileImg mainProfileImg mr-4">
                             <img class="blue-border rounded-full overflow-hidden" :src="$page.props.user.profile_photo_url" alt="Profilkép">
                         </div>
                         <div class="flex flex-col justify-around">
