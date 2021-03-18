@@ -294,7 +294,7 @@
             };
         },
         created() {
-            this.calendarOptions.timeZone = this.$page.props.user === null ? 'local' : this.$page.props.user.timezone;
+            this.calendarOptions.timeZone = this.$page.props.user === null ? 'Europe/Budapest' : this.$page.props.user.timezone;
 
             let self = this;
 

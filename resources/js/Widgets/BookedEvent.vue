@@ -106,7 +106,7 @@ export default {
 				open: false,
 				data: null
 			},
-			timeZone: 'local',
+			timeZone: 'Europe/Budapest',
 			cancelLessonPopup: false,
 			eventNotReadyPopup: false
 		};
