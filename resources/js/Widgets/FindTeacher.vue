@@ -1,8 +1,6 @@
 <template>
 	<div 
 		class="teacherWidget relative"
-		@mouseenter="mouseEnter(data.id)"
-		@mouseleave="mouseLeave(data.id)"
 	>
 		<div class="teacherWidgetMainCard flex justify-start card p-sm">
 			<div class="profileImageWrapper mr-4">

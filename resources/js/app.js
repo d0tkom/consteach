@@ -109,6 +109,12 @@ new Vue({
         this.languageList = this.languageList.getNames(this.locale, {select: 'official'});
     },
     methods: {
+        openRegistrationPopup(type = 'student') {
+            this.popup.lostPassword = false;
+            this.popup.login = false;
+            this.popup.registrationType = type;
+            this.popup.registration = true;
+        },
         getUrlVars() {
             let vars = {};
             window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {

@@ -59,7 +59,7 @@
 					<li>
 						<c-btn
 							text
-							v-scroll-to="'#teach-with-us'"
+							:navigate-to="'/#teach-with-us'"
 							class=""
 						>
 							{{ trans.get('header.teacher_landing_btn') }}
@@ -70,12 +70,12 @@
 					<c-btn
 						class="mr-4"
 						outlined
-						@click="$root.popup.login = true"
+						@click="$root.openLoginPopup"
 					>
 						{{ trans.get('header.login_btn') }}
 					</c-btn>
 					<c-btn
-						@click="$root.popup.registration = true"
+						@click="$root.openRegistrationPopup('student')"
 					>
 						{{ trans.get('header.register_btn') }}
 					</c-btn>
@@ -142,6 +142,7 @@
 							navigate-to="/teachers"
 						>{{ trans.get('header.find_teacher_btn') }}</c-btn>
 					</div>
+					<!--
 					<c-btn
 						lg
 						:icon-only="!mobileMenu"
@@ -151,6 +152,7 @@
 						icon="chat"
 						navigate-to="/messages"
 					>{{ trans.get('header.messages_btn') }}</c-btn>
+					-->
 					<!--
 					<c-btn
 						lg

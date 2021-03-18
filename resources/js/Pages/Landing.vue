@@ -173,7 +173,7 @@
 							large
 							glow
 							icon="person_add"
-							navigate-to="/#registration"
+							@click="$root.openRegistrationPopup"
 						>
 							{{ trans.get('landing.next_level_registration_btn') }}
 						</c-btn>
@@ -263,7 +263,7 @@
 							large
 							glow
 							icon="badge"
-							navigate-to="/#registration"
+							@click="$root.openRegistrationPopup('student')"
 						>
 							{{ trans.get('landing.join_us_cta') }}
 						</c-btn>
@@ -324,8 +324,7 @@ export default {
 	},
 	methods: {
 		teachWithUsClicked() {
-			this.$root.popup.registrationType = 'teacher';
-			this.$root.popup.registration = true;
+			this.$root.openRegistrationPopup('teacher')
 		}
 	}
 }
