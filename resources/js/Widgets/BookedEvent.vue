@@ -1,5 +1,5 @@
 <template>
-	<div class="bookedEvent flex justify-between blue-border">
+	<div class="card bookedEvent flex justify-between blue-border">
 		<div class="profileImageWrapper mr-4">
 			<img
 				class="max-w-none blue-border rounded-full overflow-hidden"

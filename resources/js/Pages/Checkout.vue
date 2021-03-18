@@ -90,6 +90,7 @@
 
 
 						<c-select
+							class="mb-4"
 							capitalize
 							:data="countries"
 							:label="trans.get('checkout.country_label')"

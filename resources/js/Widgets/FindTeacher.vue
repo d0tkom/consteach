@@ -95,19 +95,6 @@
 				<div class="flex justify-center mb-4">
 					<iframe width="360" height="315" :src="data.video_url.replace('watch?v=', 'embed/')" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 				</div>
-				<div v-if="false">
-					<div class="calendar mb-4">
-						<FullCalendar
-							:options="calendarOptions"
-						/>
-					</div>
-					<div class="flex justify-center text-center">
-						<span class="material-icons mr-4">public</span>
-						<div class="color-gray text-sm">
-							{{ trans.get('find_teacher.timezone_info') }}
-						</div>
-					</div>
-				</div>
 				
 				<div class="flex justify-center">
 					<c-btn
@@ -121,14 +108,8 @@
 </template>
 
 <script>
-import FullCalendar from '@fullcalendar/vue';
-import interactionPlugin from '@fullcalendar/interaction';
-import dayGridPlugin from '@fullcalendar/daygrid';
 
 export default {
-	components: {
-		FullCalendar
-	},
 	props: {
 		active: {
 			type: Boolean,
@@ -146,87 +127,13 @@ export default {
 	data() {
 		return {
             locale: window.default_locale,
-			calendarOptions: {
-				validRange: {
-					start: moment().format('YYYY-MM-DD')
-				},
-				dayHeaderContent: ({text}) => {
-					let texts = text.split(' ');
-					return `${texts[0]}\n${texts[1].substring(0,1).toUpperCase()}`;
-				},
-				plugins: [ dayGridPlugin, interactionPlugin ],
-				initialView: 'dayGridMonth',
-				locale: window.default_locale,
-				slotMinTime: '06:00:00',
-				slotMaxTime: '18:00:00',
-				height: 'auto',
-				buttonText: {
-					today:    'mai nap',
-					month:    'hónap',
-					week:     'hét',
-					day:      'nap',
-					list:     'lista'
-				},
-				firstDay: 1,
-				slotDuration: '01:00:00',
-				dayHeaderFormat: {
-					weekday: 'long' ,
-					day: 'numeric',
-					omitCommas: true
-				},
-				slotLabelFormat: {
-					hour: '2-digit',
-					minute: '2-digit',
-					meridiem: 'long'
-				},
-				headerToolbar: {
-					left: 'prev',
-					center: 'title',
-					right: 'next'
-				},
-				events: [],
-				displayEventTime: false,
-				selectable: false,
-				selectOverlap: false,
-				//eventClick: this.addAppointment,
-			}
 		};
 	},
 	created() {
-		/*
-		this.calendarOptions.timeZone = this.$page.props.user === null ? 'local' : this.$page.props.user.timezone;
-		
-		let availabilities = [];
-		
-		Object.values(this.data.availabilities).forEach(availability => {
-			let event = {
-				backgroundColor: '#18A0FB',
-				start: moment.utc(availability.start).tz(this.calendarOptions.timeZone).format(),
-				end: moment.utc(availability.end).tz(this.calendarOptions.timeZone).format(),
-			};
-			availabilities.push(event);
-		});
-		
-		let appointments = [];
-		
-		Object.values(this.data.appointments).forEach(appointment => {
-			let event = {
-				start: moment.utc(appointment.start).tz(this.calendarOptions.timeZone).format(),
-				end: moment.utc(appointment.end).tz(this.calendarOptions.timeZone).format(),
-			};
-			appointments.push(event);
-		});
-		
-		this.calendarOptions.events = availabilities.filter(a => !appointments.find(b => b.start === a.start && b.end === a.end));
-		*/
+
     },
 	methods: {
-		mouseEnter(id) {
-			this.$emit('mouse-enter', id);
-		},
-		mouseLeave(id) {
-			this.$emit('mouse-leave', id);
-		},
+
 	}
 }
 </script>
