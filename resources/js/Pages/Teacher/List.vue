@@ -168,6 +168,13 @@
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/hu.json'));
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
         },
+	    mounted() {
+		    let parameters = this.$root.getUrlVars();
+		
+		    if (parameters['lang']) {
+			    this.filters.language.value = parameters['lang'];
+		    }
+	    },
         watch: {
             'filters.order.value': function (){
                  this.loadFilteredData();
@@ -188,18 +195,18 @@
                     prices: this.filters.price.value,
                     time: this.filters.time.value
                 }})
-                    .then(function (response) {
-                        if (response.data.teachers.current_page < response.data.teachers.last_page) {
-                            self.moreExists = true;
-                        } else {
-                            self.moreExists = false;
-                        }
-                        Object.values(response.data.teachers.data).forEach(teacher => self.teachers.push(teacher));
-                        self.next_page_url = response.data.teachers.next_page_url;
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
+                .then(function (response) {
+                    if (response.data.teachers.current_page < response.data.teachers.last_page) {
+                        self.moreExists = true;
+                    } else {
+                        self.moreExists = false;
+                    }
+                    Object.values(response.data.teachers.data).forEach(teacher => self.teachers.push(teacher));
+                    self.next_page_url = response.data.teachers.next_page_url;
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
             },
             mouseEnter(id) {
                 this.activeTeacher = id;

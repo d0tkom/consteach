@@ -34,7 +34,8 @@
 							{{ trans.get('landing.hero_choose_language') }}
 						</div>
 						<div class="container py-4">
-							<div
+							<inertia-link
+								:href="'/teachers?lang='+language"
 								v-for="language in availableLanguagesFiltered"
 								:key="language"
 								class="flex flex-col text-center items-center justify-center lang show-mobile"
@@ -46,7 +47,7 @@
 								<div class="title capitalize text-xl font-md font-bold">
 									{{ languageList[language] }}
 								</div>
-							</div>
+							</inertia-link>
 						</div>
 						<div class="lang-button-container" v-if="availableLanguagesFiltered.length > 6">
 							<c-btn
