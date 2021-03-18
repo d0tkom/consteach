@@ -31,7 +31,7 @@ return [
     'hour' => 'óra',
     'spoken_languages' => 'Beszélt nyelvek',
     'student' => 'diák',
-    'more_btn' => 'Tovább',
+    'more_btn' => 'Tanár profil',
     'free_lesson_book_btn' => 'Próbaóra foglalás',
     'book_btn' => 'Órafoglalás',
     'chat_btn' => 'Üzenet',

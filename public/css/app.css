@@ -1034,10 +1034,13 @@ body .mainSiteContainer.isLanding .siteContent {
 .findTeacherContainer .actions {
   max-width: 780px;
   margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .findTeacherContainer .top {
   max-width: 780px;
   margin-right: auto;
+  margin-left: auto;
 }
 
 .teacherApplicationContainer .tabs .tabItem.past {
@@ -1138,8 +1141,8 @@ body .mainSiteContainer.isLanding .siteContent {
 }
 
 .teacherProfileImage {
-  width: 90px;
-  height: 90px;
+  width: 120px;
+  height: 120px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -1205,11 +1208,17 @@ body .mainSiteContainer.isLanding .siteContent {
   display: none;
 }
 
+.teacherWidget {
+  margin: 30px 0;
+}
+
 .teacherWidgetMainCard {
   max-width: 780px;
   position: relative;
-  margin-left: 0 !important;
+  margin-left: auto;
+  margin-right: auto;
   box-sizing: border-box;
+  transition: all 0.25s ease-in-out;
 }
 .teacherWidgetMainCard .cardBody {
   width: calc(100% - 100px);
@@ -1222,6 +1231,10 @@ body .mainSiteContainer.isLanding .siteContent {
 .teacherWidgetMainCard .actions {
   width: 300px;
   padding-left: 30px;
+}
+.teacherWidgetMainCard:hover {
+  transform: scale(1.05) translate(0, -2px) !important;
+  box-shadow: 0 6px 20px 0 rgba(24, 160, 251, 0.4) !important;
 }
 
 .fadeMoveIn-enter-active, .fadeMoveIn-leave-active {
