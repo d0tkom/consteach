@@ -8,6 +8,7 @@ use App\Http\Controllers\AvailabilityController;
 use App\Http\Controllers\AppointmentController;
 use App\Helpers\CollectionHelper;
 use App\Http\Controllers\CheckoutController;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use KgBot\LaravelLocalization\Classes\ExportLocalizations;
@@ -88,42 +89,14 @@ Route::get('/teacher-landing', function () {
     return Inertia::render('TeacherLanding');
 })->name('teacher-landing');
 */
-Route::get('/teacher/{teacher_id}', function ($teacher_id) {
-    $appointments = Appointment::where('teacher_id', $teacher_id)->where('active', 1)->get();
-
-    $availabilities = Availability::where('teacher_id', $teacher_id)->get();
-
-    $teacher = Teacher::where('id', $teacher_id)->with('user')->first();
-
-    return Inertia::render('Teacher/View')->with(['teacher' => $teacher, 'appointments' => $appointments, 'availabilities' => $availabilities]);
-})->name('teacher.view');
+Route::get('/teacher/{teacher_id}', [TeacherController::class, 'showTeacherView'])->name('teacher.view');
 
 Route::put('/availability', [AvailabilityController::class, 'store'])->name('availability.store');
 Route::delete('/availability/{availability}', [AvailabilityController::class, 'destroy'])->name('availability.destroy');
 Route::put('/appointment', [AppointmentController::class, 'store'])->name('appointment.store');
 Route::delete('/appointment/{appointment}', [AppointmentController::class, 'destroy'])->name('appointment.destroy');
 
-Route::get('/teachers', function (Request $request) {
-    $teachersAvailableLanguages = Teacher::select(['teaching_languages'])->where('complete', true)->where('validated', true)->get();
-
-    $availableLanguages = [];
-    foreach($teachersAvailableLanguages as $teacherAvailableLanguages) {
-        if (!is_array($teacherAvailableLanguages->teaching_languages)) {
-            continue;
-        }
-
-        foreach($teacherAvailableLanguages->teaching_languages as $teacherAvailableLanguage) {
-
-            if (!in_array($teacherAvailableLanguage['language'], $availableLanguages)) {
-                $availableLanguages[] = $teacherAvailableLanguage['language'];
-            }
-        }
-    }
-    $teachers = Teacher::with('user')->where('complete', true)->where('validated', true)->orderBy('one_hour_price', 'ASC')->get();
-    $teachers = CollectionHelper::paginate($teachers, 5);
-
-    return Inertia::render('Teacher/List')->with(['all_teachers' => $teachers, 'availableLanguages' => $availableLanguages]);
-})->name('teachers');
+Route::get('/teachers', [TeacherController::class, 'showFindTeacher'])->name('teachers');
 
 Route::get('teachers/load-more', [TeacherController::class, 'load_more'])->name('teachers.more');
 
@@ -140,7 +113,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                     return $lesson->teacher->user->first_name;
                 });
 
-            $appointments = Appointment::where('student_id', Auth::user()->extra->id)->where('active', 1)->where('student_approved', 0)->where('teacher_approved', 0)->with(['teacher', 'teacher.user', 'student', 'student.user'])->orderBy('start', 'ASC')->get();
+            $appointments = Appointment::where('student_id', Auth::user()->extra->id)
+                ->where('active', 1)
+                ->where('student_approved', 0)
+                ->where('teacher_approved', 0)
+                ->where('end', '>', Carbon::now())
+                ->with(['teacher', 'teacher.user', 'student', 'student.user'])
+                ->orderBy('start', 'ASC')
+                ->get();
 
             return Inertia::render('Student/Dashboard')->with(['appointments' => $appointments, 'lessons' => $lessons]);
             break;
@@ -167,21 +147,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     }
     })->name('dashboard');
 
-    Route::get('/teacher-application', function () {
-        $teacher = Teacher::where('user_id', Auth::user()->id)->first();
-        $timezones = timezone_identifiers_list();
-        return Inertia::render('Teacher/Application')->with(['teacher' => $teacher, 'timezoneList' => $timezones]);
-    })->name('teacher-application');
+    Route::get('/teacher-application', [TeacherController::class, 'showTeacherApplication'])->name('teacher-application');
 
     Route::post('/checkout/payment', [CheckoutController::class, 'store']);
 
-    Route::get('/checkout/{teacher_id}', function ($teacher_id) {
-        $teacher = Teacher::with('user')->find($teacher_id);
-
-        $appointment = Appointment::find(request()->input('appointment'));
-
-        return Inertia::render('Checkout')->with(['teacher' => $teacher, 'appointment' => $appointment]);
-    })->name('checkout');
+    Route::get('/checkout/{teacher_id}', [CheckoutController::class, 'showCheckout'])->name('checkout');
 
     Route::put('/teacher/{teacher}', [TeacherController::class, 'update'])->name('teacher.update');
     Route::post('/teacher/{teacher}', [TeacherController::class, 'update']);

@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
+use App\Models\Availability;
 use App\Models\Teacher;
 use App\Helpers\CollectionHelper;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class TeacherController extends Controller
 {
@@ -61,6 +64,68 @@ class TeacherController extends Controller
     public function edit(Teacher $teacher)
     {
         //
+    }
+
+    public function showTeacherApplication() {
+        $teacher = Teacher::where('user_id', Auth::user()->id)->first();
+        $timezones = timezone_identifiers_list();
+
+        return Inertia::render('Teacher/Application')->with([
+            'teacher' => $teacher,
+            'timezoneList' => $timezones
+        ]);
+    }
+
+    public function showTeacherView($teacher_id) {
+        $appointments = Appointment::where('teacher_id', $teacher_id)
+            ->where('active', 1)
+            ->where('end', '>', Carbon::now())
+            ->get();
+
+        $availabilities = Availability::where('teacher_id', $teacher_id)
+            ->where('end', '>', Carbon::now())
+            ->get();
+
+        $teacher = Teacher::where('id', $teacher_id)->with('user')->first();
+
+        return Inertia::render('Teacher/View')->with([
+            'teacher' => $teacher,
+            'appointments' => $appointments,
+            'availabilities' => $availabilities
+        ]);
+    }
+
+    public function showFindTeacher(Request $request) {
+        $teachersAvailableLanguages = Teacher::select(['teaching_languages'])
+            ->where('complete', true)
+            ->where('validated', true)
+            ->get();
+
+        $availableLanguages = [];
+        foreach($teachersAvailableLanguages as $teacherAvailableLanguages) {
+            if (!is_array($teacherAvailableLanguages->teaching_languages)) {
+                continue;
+            }
+
+            foreach($teacherAvailableLanguages->teaching_languages as $teacherAvailableLanguage) {
+
+                if (!in_array($teacherAvailableLanguage['language'], $availableLanguages)) {
+                    $availableLanguages[] = $teacherAvailableLanguage['language'];
+                }
+            }
+        }
+        $teachers = Teacher::with('user')
+            ->where('complete', true)
+            ->where('validated', true)
+            ->orderBy('one_hour_price', 'ASC')
+            ->get();
+
+        $teachers = CollectionHelper::paginate($teachers, 5);
+
+        return Inertia::render('Teacher/List')->with([
+            'all_teachers' => $teachers,
+            'availableLanguages' => $availableLanguages
+        ]);
     }
 
     /**

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 use App\Models\Lesson;
 use App\Models\Appointment;
 use Carbon\Carbon;
 use BillingoApiV3Wrapper as BillingoApi;
+use Inertia\Inertia;
 
 class CheckoutController extends Controller
 {
@@ -28,6 +30,16 @@ class CheckoutController extends Controller
     public function create()
     {
         //
+    }
+
+    public function showCheckout($teacher_id) {
+        $teacher = Teacher::with('user')->find($teacher_id);
+        $appointment = Appointment::find(request()->input('appointment'));
+
+        return Inertia::render('Checkout')->with([
+            'teacher' => $teacher,
+            'appointment' => $appointment
+        ]);
     }
 
     /**
