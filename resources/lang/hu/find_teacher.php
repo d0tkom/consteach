@@ -28,6 +28,8 @@ return [
     'price_popup_title' => 'Milyen óradíjjal keresel tanárt? Jelöld be a csúszkán!',
     'price_popup_filter_btn' => 'Szűrés',
 
+    'new_teacher_tag' => 'ÚJ TANÁR',
+
     'hour' => 'óra',
     'spoken_languages' => 'Beszélt nyelvek',
     'student' => 'diák',

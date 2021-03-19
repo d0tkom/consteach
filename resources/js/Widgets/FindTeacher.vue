@@ -47,7 +47,14 @@
 								>{{ language.level }}</c-tag>
 							</div>
 						</div>
-						<div class="text-lg font-bold color-primary-dark mb-2 flex items-center">
+						<div
+							v-if="data.student_count === 0 && data.appointment_count === 0"
+							class="text-lg font-bold color-primary-dark mb-2 flex items-center"
+						>
+							<span class="material-icons mr-4">sports_score</span>
+							{{ trans.get('find_teacher.new_teacher_tag') }}
+						</div>
+						<div v-else class="text-lg font-bold color-primary-dark mb-2 flex items-center">
 							<span class="material-icons mr-4">person</span>
 							{{ data.student_count }} {{ trans.get('find_teacher.student') }} · {{ data.appointment_count }} {{ trans.get('find_teacher.hour') }}
 						</div>
