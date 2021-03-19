@@ -104,12 +104,15 @@
 	}
 
 	body footer .container {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		display: grid;
-
+		flex-direction: column;
 		.column {
 			width: 100%;
 			margin-bottom: 40px;
+
+			.footerSectionContent {
+				display: flex;
+				flex-wrap: wrap;
+			}
 		}
 	}
 
@@ -211,6 +214,12 @@
 	.siteContent {
 		padding: 10px;
 		box-sizing: border-box;
+	}
+
+	.mainSiteContainer.isLanding {
+		.siteContent {
+			padding: 0;
+		}
 	}
 
 	.studentHubContainer {
