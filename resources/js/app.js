@@ -42,6 +42,12 @@ Vue.use(VueScrollTo);
 
 const app = document.getElementById('app');
 
+import VueGtag from "vue-gtag";
+
+Vue.use(VueGtag, {
+    config: { id: "G-0000000000" }
+});
+
 new Vue({
     data: {
         viewport: {
@@ -65,11 +71,23 @@ new Vue({
         }
     },
     watch: {
+        '$inertia'(e) {
+            console.log(e);
+            this.pageChange();
+        },
         'cookiePolicy.accepted'(accepted) {
             this.$cookie.set('cookie-policy', accepted);
         }
     },
     mounted() {
+        window.onpopstate = () => this.pageChange(document.location);
+
+        this.$inertia.on('start', event => this.pageChange(event.detail.visit.url));
+
+        this.$inertia.on('before', () => {
+            scrollLock.enablePageScroll();
+        });
+
         this.cookiePolicy.accepted = this.$cookie.get('cookie-policy') || false;
 
         this.getViewportSize();
@@ -95,10 +113,6 @@ new Vue({
             this.popup.lostPassword = true;
         }
 
-        this.$inertia.on('before', () => {
-            scrollLock.enablePageScroll();
-        });
-
         this.getCurrencyExchange();
 
         this.languageList = require('@cospired/i18n-iso-languages');
@@ -109,6 +123,11 @@ new Vue({
         this.languageList = this.languageList.getNames(this.locale, {select: 'official'});
     },
     methods: {
+        pageChange(url) {
+            this.$gtag.pageview({
+                page_path: url,
+            });
+        },
         openRegistrationPopup(type = 'student') {
             this.popup.lostPassword = false;
             this.popup.login = false;
