@@ -1440,12 +1440,15 @@ body .mainSiteContainer.isLanding .siteContent {
   }
 
   body footer .container {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    display: grid;
+    flex-direction: column;
   }
   body footer .container .column {
     width: 100%;
     margin-bottom: 40px;
+  }
+  body footer .container .column .footerSectionContent {
+    display: flex;
+    flex-wrap: wrap;
   }
 
   footer .container .column:nth-child(3) {
@@ -1541,6 +1544,10 @@ body main .join-us:after {
   .siteContent {
     padding: 10px;
     box-sizing: border-box;
+  }
+
+  .mainSiteContainer.isLanding .siteContent {
+    padding: 0;
   }
 
   .studentHubContainer .mainGrid {

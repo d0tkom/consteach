@@ -578,6 +578,7 @@ export default {
 			}
 
 			if (this.$refs.profile_photo) {
+				console.log();
                 this.form.photo = this.$refs.profile_photo.files[0];
             }
 
