@@ -1,5 +1,5 @@
 <template>
-	<div class="bookedEvent flex justify-between blue-border">
+	<div class="card bookedEvent flex justify-between blue-border">
 		<div class="profileImageWrapper mr-4">
 			<img
 				class="max-w-none blue-border rounded-full overflow-hidden"
@@ -106,7 +106,7 @@ export default {
 				open: false,
 				data: null
 			},
-			timeZone: 'local',
+			timeZone: 'Europe/Budapest',
 			cancelLessonPopup: false,
 			eventNotReadyPopup: false
 		};

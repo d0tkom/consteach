@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Teacher;
 use App\Models\Appointment;
 use App\Models\Availability;
+use App\Models\Teacher;
 use App\Helpers\CollectionHelper;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class TeacherController extends Controller
 {
@@ -57,9 +57,14 @@ class TeacherController extends Controller
      */
     public function show(Teacher $teacher)
     {
-        $appointments = Appointment::where('teacher_id', $teacher->id)->where('active', 1)->get();
+        $appointments = Appointment::where('teacher_id', $teacher->id)
+            ->where('active', 1)
+            ->where('end', '>', Carbon::now())
+            ->get();
 
-        $availabilities = Availability::where('teacher_id', $teacher->id)->get();
+        $availabilities = Availability::where('teacher_id', $teacher->id)
+            ->where('end', '>', Carbon::now())
+            ->get();
 
         $teacher->user;
 

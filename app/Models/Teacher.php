@@ -66,7 +66,10 @@ class Teacher extends Model
 
     public static function getAllLanguages() 
     {
-        $teachersAvailableLanguages = Teacher::select(['teaching_languages'])->get();
+        $teachersAvailableLanguages = Teacher::select(['teaching_languages'])
+            ->where('complete', true)
+            ->where('validated', true)
+            ->get();
 
         $availableLanguages = [];
         foreach($teachersAvailableLanguages as $teacherAvailableLanguages) {

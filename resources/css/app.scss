@@ -198,21 +198,30 @@ th.fc-col-header-cell.fc-day.fc-day-disabled {
 	min-height: 68vh;
 }
 
-.studentHubContainer {
-	img {
-		width: 100px;
-		height: 100px;
-		object-fit: cover;
+.teacherHubContainer, .studentHubContainer {
+	.profileImg, .profileImageWrapper {
+		img {
+			width: 100px;
+			height: 100px;
+			object-fit: cover;
+		}
+	}
+
+	.mainProfileImg {
+		img {
+			width: 120px;
+			height: 120px;
+			object-fit: cover;
+		}
 	}
 }
 
+.fc-v-event .fc-event-title {
+	padding: 4px 8px;
+}
 
-.teacherHubContainer {
-	.profileImg img, .profileImageWrapper img {
-		width: 100px;
-		height: 100px;
-		object-fit: cover;
-	}
+.flag-icon.flag-icon-squared {
+	background-size: cover;
 }
 
 .hr {

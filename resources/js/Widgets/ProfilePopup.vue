@@ -12,6 +12,7 @@
 		>
 			{{ trans.get($page.props.user.role === 'teacher' ? 'header.teacher_hub_btn' : 'header.student_hub_btn') }}
 		</c-btn>
+		<!--
 		<c-btn
 			full
 			class="mb-2"
@@ -21,6 +22,7 @@
 		>
 			{{ trans.get('header.dark_mode_btn') }}
 		</c-btn>
+		-->
 		<c-btn
 			full
 			align-left

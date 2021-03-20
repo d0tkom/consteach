@@ -34,7 +34,8 @@
 							{{ trans.get('landing.hero_choose_language') }}
 						</div>
 						<div class="container py-4">
-							<div
+							<inertia-link
+								:href="'/teachers?lang='+language"
 								v-for="language in availableLanguagesFiltered"
 								:key="language"
 								class="flex flex-col text-center items-center justify-center lang show-mobile"
@@ -46,7 +47,7 @@
 								<div class="title capitalize text-xl font-md font-bold">
 									{{ languageList[language] }}
 								</div>
-							</div>
+							</inertia-link>
 						</div>
 						<div class="lang-button-container" v-if="availableLanguagesFiltered.length > 6">
 							<c-btn
@@ -172,7 +173,7 @@
 							large
 							glow
 							icon="person_add"
-							navigate-to="/#registration"
+							@click="$root.openRegistrationPopup"
 						>
 							{{ trans.get('landing.next_level_registration_btn') }}
 						</c-btn>
@@ -180,7 +181,7 @@
 				</div>
 			</section>
 			
-			<section class="teach-with-us">
+			<section id="teach-with-us" class="teach-with-us">
 				<div class="section-content">
 					<div class="base-line"></div>
 					<div class="base-title pt-4 pb-8">
@@ -231,7 +232,7 @@
 						<c-btn
 							large
 							glow
-							navigate-to="/teacher-landing"
+							@click="teachWithUsClicked"
 						>
 							{{ trans.get('landing.teach_with_us_cta') }}
 						</c-btn>
@@ -262,7 +263,7 @@
 							large
 							glow
 							icon="badge"
-							navigate-to="/#registration"
+							@click="$root.openRegistrationPopup('student')"
 						>
 							{{ trans.get('landing.join_us_cta') }}
 						</c-btn>
@@ -319,6 +320,11 @@ export default {
 			}
 			
 			return this.$page.props.availableLanguages.slice(0, 6);
+		}
+	},
+	methods: {
+		teachWithUsClicked() {
+			this.$root.openRegistrationPopup('teacher')
 		}
 	}
 }

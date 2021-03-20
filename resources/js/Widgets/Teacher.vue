@@ -12,8 +12,8 @@
 				{{ data.teacher.user.first_name }}
 			</div>
 			<div>
-				<span class="name text-lg color-primary-dark">
-					{{ data.teacher.user.country }}
+				<span class="name text-lg color-primary-dark capitalize">
+					{{ $root.languageList[data.teacher.country.toLowerCase()] }}
 				</span>
 				<c-tag class="ml-2" type="success" small>
 					{{ trans.get('dashboard.mother_tongue') }}
@@ -33,9 +33,6 @@
 					<span class="text-lg font-bold">{{ data.finished }}</span>
 				</div>
 			</div>
-		</div>
-		<div class="actions flex flex-col justify-between items-center">
-		
 		</div>
 	</div>
 </template>

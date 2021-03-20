@@ -18,10 +18,8 @@ return [
     'cookie_policy' => 'Süti beállítások',
     'contact_title' => 'Kapcsolat',
     'email_address' => 'info@consteach.com',
-    'facebook_url' => '#',
-    'instagram_url' => '#',
-    'linkedin_in_url' => '#',
-    'twitter_url' => '#',
+    'facebook_url' => 'https://www.facebook.com/consteach/',
+    'instagram_url' => 'https://www.instagram.com/consteach/',
 ];
 
 ?>

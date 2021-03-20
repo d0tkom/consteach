@@ -410,7 +410,6 @@
 
 <script>
 	import AppLayout from "@/Layouts/AppLayout";
-	import countries from '@/Partials/countries'
 	import languages from '@/Partials/languages'
 	import currencies from '@/Partials/currencies'
 	import levels from '@/Partials/levels'
@@ -425,7 +424,7 @@ export default {
 	},
 	data() {
 		return {
-			countries,
+			countries: null,
 			languages,
 			languageList: null,
 			currencies,
@@ -579,6 +578,7 @@ export default {
 			}
 
 			if (this.$refs.profile_photo) {
+				console.log();
                 this.form.photo = this.$refs.profile_photo.files[0];
             }
 

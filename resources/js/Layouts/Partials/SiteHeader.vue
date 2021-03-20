@@ -57,26 +57,25 @@
 						</inertia-link>
 					</li>
 					<li>
-						<inertia-link href="/teacher-landing">
-							<c-btn
-								text
-								class=""
-							>
-								{{ trans.get('header.teacher_landing_btn') }}
-							</c-btn>
-						</inertia-link>
+						<c-btn
+							text
+							:navigate-to="'/#teach-with-us'"
+							class=""
+						>
+							{{ trans.get('header.teacher_landing_btn') }}
+						</c-btn>
 					</li>
 				</ul>
 				<div class="flex items-center authBtns">
 					<c-btn
 						class="mr-4"
 						outlined
-						@click="$root.popup.login = true"
+						@click="$root.openLoginPopup"
 					>
 						{{ trans.get('header.login_btn') }}
 					</c-btn>
 					<c-btn
-						@click="$root.popup.registration = true"
+						@click="$root.openRegistrationPopup('student')"
 					>
 						{{ trans.get('header.register_btn') }}
 					</c-btn>
@@ -143,6 +142,7 @@
 							navigate-to="/teachers"
 						>{{ trans.get('header.find_teacher_btn') }}</c-btn>
 					</div>
+					<!--
 					<c-btn
 						lg
 						:icon-only="!mobileMenu"
@@ -152,6 +152,7 @@
 						icon="chat"
 						navigate-to="/messages"
 					>{{ trans.get('header.messages_btn') }}</c-btn>
+					-->
 					<!--
 					<c-btn
 						lg

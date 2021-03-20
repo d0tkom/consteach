@@ -53,9 +53,11 @@
         "vue-country-flag": "^2.0.3",
         "vue-date-fns": "^2.0.1",
         "vue-flag-icon": "^1.0.6",
+        "vue-gtag": "^1.11.0",
         "vue-moment": "^4.1.0",
         "vue-money-format": "^1.2.1",
         "vue-on-click-outside": "^1.0.3",
+        "vue-scrollto": "^2.20.0",
         "vue-slider-component": "^3.2.11",
         "vue-toast-notification": "^0.6.1"
     }

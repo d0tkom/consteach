@@ -752,7 +752,13 @@ footer .container {
   }
 }
 footer .container .column {
-  margin: 0 auto;
+  width: 24%;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+footer .container .column.contact a {
+  margin-left: 38px;
 }
 footer .container .column .fab {
   color: #2E3A59;
@@ -933,14 +939,14 @@ body .mainSiteContainer.isLanding .siteContent {
   margin-top: 200px;
 }
 .page .top .profileImg {
-  width: 140px;
+  width: 180px;
   margin: auto;
   margin-top: -140px;
   position: relative;
 }
 .page .top .profileImg img {
-  width: 140px;
-  height: 140px;
+  width: 180px;
+  height: 180px;
   border-radius: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -1028,10 +1034,13 @@ body .mainSiteContainer.isLanding .siteContent {
 .findTeacherContainer .actions {
   max-width: 780px;
   margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .findTeacherContainer .top {
   max-width: 780px;
   margin-right: auto;
+  margin-left: auto;
 }
 
 .teacherApplicationContainer .tabs .tabItem.past {
@@ -1051,7 +1060,7 @@ body .mainSiteContainer.isLanding .siteContent {
   right: -10px;
 }
 .teacherApplicationContainer .profileImg img {
-  max-height: 180px;
+  max-height: 200px;
   margin: auto;
 }
 .teacherApplicationContainer .profileImg .profileImageEditIcon.alignCenter .btnContainer {
@@ -1068,7 +1077,7 @@ body .mainSiteContainer.isLanding .siteContent {
   min-width: 200px;
 }
 .bookedEvent .profileImageWrapper {
-  width: 100px;
+  width: 120px;
 }
 
 .teacherProfileImage {
@@ -1121,19 +1130,19 @@ body .mainSiteContainer.isLanding .siteContent {
   border-left: 10px solid #FFCA28;
 }
 .boughtEvent .profileImageWrapper {
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 90px;
 }
 .boughtEvent .profileImageWrapper img {
-  width: 70px !important;
-  height: 70px !important;
+  width: 90px !important;
+  height: 90px !important;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
 .teacherProfileImage {
-  width: 90px;
-  height: 90px;
+  width: 120px;
+  height: 120px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -1161,12 +1170,58 @@ body .mainSiteContainer.isLanding .siteContent {
   transform: rotate(-45deg);
   border-radius: 2px;
 }
+.teacherMorePanel .fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
+  min-height: 0;
+}
+.teacherMorePanel .fc .fc-toolbar-title {
+  font-size: 1.2em;
+  margin: 0;
+}
+.teacherMorePanel .fc .fc-scrollgrid thead {
+  display: none;
+}
+.teacherMorePanel .fc .fc-toolbar.fc-header-toolbar {
+  margin-bottom: 8px;
+}
+.teacherMorePanel .fc .fc-daygrid-body-natural .fc-daygrid-day-events {
+  margin-bottom: 0;
+}
+.teacherMorePanel .fc .fc-daygrid-day-events {
+  margin-top: 0;
+}
+.teacherMorePanel .fc .fc-daygrid-day:not(.fc-day-disabled) .fc-daygrid-day-top {
+  text-align: center;
+  justify-content: center;
+}
+.teacherMorePanel .fc .fc-daygrid-day:not(.fc-day-disabled) .fc-daygrid-day-events {
+  margin-bottom: 0;
+}
+.teacherMorePanel .fc .fc-daygrid-day:not(.fc-day-disabled) .fc-daygrid-day-events .fc-daygrid-event-harness .fc-daygrid-dot-event {
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+}
+.teacherMorePanel .fc .fc-daygrid-day:not(.fc-day-disabled) .fc-daygrid-day-events .fc-daygrid-event-harness .fc-event-title {
+  display: none;
+}
+.teacherMorePanel .fc .fc-daygrid-day:not(.fc-day-disabled) .fc-daygrid-day-events .fc-daygrid-event-harness:not(:first-child) {
+  display: none;
+}
+
+.teacherWidget {
+  margin: 30px 0;
+}
 
 .teacherWidgetMainCard {
   max-width: 780px;
   position: relative;
-  margin-left: 0 !important;
+  margin-left: auto;
+  margin-right: auto;
   box-sizing: border-box;
+  transition: all 0.25s ease-in-out;
+}
+.teacherWidgetMainCard .cardBody {
+  width: calc(100% - 100px);
 }
 .teacherWidgetMainCard .favoriteBtn {
   position: absolute;
@@ -1176,6 +1231,10 @@ body .mainSiteContainer.isLanding .siteContent {
 .teacherWidgetMainCard .actions {
   width: 300px;
   padding-left: 30px;
+}
+.teacherWidgetMainCard:hover {
+  transform: scale(1.05) translate(0, -2px) !important;
+  box-shadow: 0 6px 20px 0 rgba(24, 160, 251, 0.4) !important;
 }
 
 .fadeMoveIn-enter-active, .fadeMoveIn-leave-active {
@@ -1381,12 +1440,15 @@ body .mainSiteContainer.isLanding .siteContent {
   }
 
   body footer .container {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    display: grid;
+    flex-direction: column;
   }
   body footer .container .column {
     width: 100%;
     margin-bottom: 40px;
+  }
+  body footer .container .column .footerSectionContent {
+    display: flex;
+    flex-wrap: wrap;
   }
 
   footer .container .column:nth-child(3) {
@@ -1482,6 +1544,10 @@ body main .join-us:after {
   .siteContent {
     padding: 10px;
     box-sizing: border-box;
+  }
+
+  .mainSiteContainer.isLanding .siteContent {
+    padding: 0;
   }
 
   .studentHubContainer .mainGrid {
@@ -1788,6 +1854,13 @@ body main .join-us:after {
   .teacherHubContainer .walletContainer .walletValue {
     font-size: 1.2em;
   }
+
+  .checkoutContainer {
+    min-width: auto;
+  }
+  .checkoutContainer .checkoutCol {
+    width: 100%;
+  }
 }
 body {
   background: #DEEEF8 !important;
@@ -1932,18 +2005,25 @@ th.fc-col-header-cell.fc-day.fc-day-disabled {
   min-height: 68vh;
 }
 
-.studentHubContainer img {
+.teacherHubContainer .profileImg img, .teacherHubContainer .profileImageWrapper img, .studentHubContainer .profileImg img, .studentHubContainer .profileImageWrapper img {
   width: 100px;
   height: 100px;
   -o-object-fit: cover;
      object-fit: cover;
 }
-
-.teacherHubContainer .profileImg img, .teacherHubContainer .profileImageWrapper img {
-  width: 100px;
-  height: 100px;
+.teacherHubContainer .mainProfileImg img, .studentHubContainer .mainProfileImg img {
+  width: 120px;
+  height: 120px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.fc-v-event .fc-event-title {
+  padding: 4px 8px;
+}
+
+.flag-icon.flag-icon-squared {
+  background-size: cover;
 }
 
 .hr {

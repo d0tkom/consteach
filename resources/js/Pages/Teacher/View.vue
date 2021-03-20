@@ -89,7 +89,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card p-sm">
+                        <div class="card p-sm" id="calendar">
                             <div class="text-md font-bold color-blue-dark mb-4">{{ trans.get('teacher_profile.time_table') }}</div>
                             <FullCalendar :options="calendarOptions" />
 	
@@ -142,7 +142,7 @@
                         -->
                     </div>
                     <div class="col-span-1">
-	                    <div class="card freeLessonCard p-sm">
+	                    <div v-if="$page.props.user ? $page.props.user.extra.trial_available : true" class="card freeLessonCard p-sm">
 		                    <div class="blue-text-color mb-6 text-center sm:text-left ">
 			                    <p class="text-lg font-semibold">
 				                    {{ trans.get('teacher_profile.free_lesson_title') }}
@@ -167,8 +167,9 @@
 		                    <div class="ctaContainer flex flex-col items-end">
 			                    <c-btn
 				                    color="success"
-				                    :navigate-to="route('checkout', teacher.id)"
 				                    icon="sentiment_satisfied_alt"
+				                    @click="clickedFreeLessonBtn"
+				                    v-scroll-to="'#calendar'"
 			                    >{{ trans.get('teacher_profile.free_lesson_btn') }}</c-btn>
 		                    </div>
 	                    </div>
@@ -425,7 +426,7 @@
 		    }
 	    },
         created() {
-            this.calendarOptions.timeZone = this.$page.props.user === null ? 'local' : this.$page.props.user.timezone;
+            this.calendarOptions.timeZone = this.$page.props.user === null ? 'Europe/Budapest' : this.$page.props.user.timezone;
 
             let availabilities = [];
 
@@ -485,6 +486,10 @@
 		    }
 	    },
         methods: {
+        	clickedFreeLessonBtn() {
+		        let message = this.trans.get('teacher_profile.free_lesson_btn_notification');
+		        this.$toast.info(message);
+	        },
         	clickedBuyBtn() {
 		        if (!this.$page.props.user) {
 			        let message = this.trans.get('teacher_profile.no_auth_notification');
@@ -497,6 +502,17 @@
 	        },
             submitAppointment() {
                 let self = this;
+	
+	            if (!this.$page.props.user) {
+		            let message = this.trans.get('teacher_profile.no_auth_notification');
+		            this.$toast.info(message);
+		            this.$root.openLoginPopup();
+	            }
+	
+	            if (this.$page.props.user.role !== 'student') {
+		            return false;
+	            }
+                
                 axios.put('/appointment', {
                     params: {
                         start: this.appointmentPopup.data.date_start,
@@ -521,7 +537,7 @@
                     }, 500);
                 })
                 .catch(error => {
-                    if (error.response.status == 423) {
+                    if (error.response.status === 423) {
                          this.$inertia.visit('/checkout/' + this.teacher.id  + '?appointment=' + error.response.data);
                     } else {
 	                    let message = this.trans.get('teacher_profile.submit_appointment_fail_notification');
@@ -531,16 +547,6 @@
             },
             addAppointment: function (eventClickInfo) {
                 let self = this;
-
-                if (!this.$page.props.user) {
-	                let message = this.trans.get('teacher_profile.no_auth_notification');
-	                this.$toast.info(message);
-	                this.$root.openLoginPopup();
-                }
-
-                if (this.$page.props.user.role !== 'student') {
-                    return false;
-                }
 
                 // TODO Check user credit
                 let hasCredit = true;

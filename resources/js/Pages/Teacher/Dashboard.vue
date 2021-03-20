@@ -5,7 +5,7 @@
                 <div class="card p-sm">
                     <div class="mainInfos flex justify-between">
                         <div class="infoTop flex items-center">
-                            <div class="profileImg blue-border rounded-full overflow-hidden mr-8">
+                            <div class="profileImg mainProfileImg blue-border rounded-full overflow-hidden mr-8">
                                 <img :src="$page.props.user.profile_photo_url" alt="Profilkép">
                             </div>
                             <div class="name text-3xl font-bold color-primary-dark">
@@ -294,7 +294,7 @@
             };
         },
         created() {
-            this.calendarOptions.timeZone = this.$page.props.user === null ? 'local' : this.$page.props.user.timezone;
+            this.calendarOptions.timeZone = this.$page.props.user === null ? 'Europe/Budapest' : this.$page.props.user.timezone;
 
             let self = this;
 

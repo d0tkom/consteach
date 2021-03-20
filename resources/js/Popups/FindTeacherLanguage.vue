@@ -17,7 +17,7 @@
 					v-if="language"
 					:iso="language === 'en' ? 'us' : language"
 				/>
-				<div class="itemName text-center capitalize font-bold text-md mt-4">{{ languageList.getName(language, locale) }}</div>
+				<div class="itemName text-center capitalize font-bold text-md">{{ languageList.getName(language, locale) }}</div>
 			</div>
 			
 			<c-btn
