@@ -63,4 +63,25 @@ class Teacher extends Model
     	$lessons = Lesson::where('teacher_id', $this->id)->get();
     	return count($lessons);
     }
+
+    public static function getAllLanguages() 
+    {
+        $teachersAvailableLanguages = Teacher::select(['teaching_languages'])->get();
+
+        $availableLanguages = [];
+        foreach($teachersAvailableLanguages as $teacherAvailableLanguages) {
+            if (!is_array($teacherAvailableLanguages->teaching_languages)) {
+                continue;
+            }
+
+            foreach($teacherAvailableLanguages->teaching_languages as $teacherAvailableLanguage) {
+
+                if (!in_array($teacherAvailableLanguage['language'], $availableLanguages)) {
+                    $availableLanguages[] = $teacherAvailableLanguage['language'];
+                }
+            }
+        }
+
+        return $availableLanguages;
+    }
 }

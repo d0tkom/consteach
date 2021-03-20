@@ -63,7 +63,7 @@ class UserController extends Controller
 
     /**
      * @param Request $request
-     * @param  \Laravel\Fortify\Contracts\UpdatesUserProfileInformation  $updater
+     * @param  \Laravel\Fortify\Contracts\UpdatesUserProfileInformation $updater
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, UpdatesUserProfileInformation $updater)

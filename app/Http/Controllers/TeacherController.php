@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Teacher;
+use App\Models\Appointment;
+use App\Models\Availability;
 use App\Helpers\CollectionHelper;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 
 class TeacherController extends Controller
@@ -17,7 +20,12 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        $availableLanguages = Teacher::getAllLanguages();
+
+        $teachers = Teacher::with('user')->where('complete', true)->where('validated', true)->orderBy('one_hour_price', 'ASC')->get();
+        $teachers = CollectionHelper::paginate($teachers, 5);
+
+        return Inertia::render('Teacher/List')->with(['all_teachers' => $teachers, 'availableLanguages' => $availableLanguages]);
     }
 
     /**
@@ -49,7 +57,13 @@ class TeacherController extends Controller
      */
     public function show(Teacher $teacher)
     {
-        //
+        $appointments = Appointment::where('teacher_id', $teacher->id)->where('active', 1)->get();
+
+        $availabilities = Availability::where('teacher_id', $teacher->id)->get();
+
+        $teacher->user;
+
+        return Inertia::render('Teacher/View')->with(['teacher' => $teacher, 'appointments' => $appointments, 'availabilities' => $availabilities]);
     }
 
     /**
@@ -175,5 +189,10 @@ class TeacherController extends Controller
         $teachers = CollectionHelper::paginate($teachers, 5);
 
         return response()->json(['teachers' => $teachers]);
+    }
+
+    public function application()
+    {
+        return Inertia::render('Teacher/Application')->with(['teacher' => Auth::user()->extra, 'timezoneList' => timezone_identifiers_list()]);
     }
 }

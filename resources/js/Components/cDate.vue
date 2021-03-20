@@ -37,7 +37,7 @@ export default {
 	},
 	data: function() {
 		return {
-			timeZone: 'local',
+			timeZone: 'Europe/Budapest',
 			default: {
 				basic: 'MMMM DD, YYYY',
 				withDay: 'MMMM DD, YYYY [(]dddd[)]',
