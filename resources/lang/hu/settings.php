@@ -48,6 +48,8 @@ return [
     'submit_success_notification' => 'Sikeresen mentve',
     'submit_fail_notification' => 'Mentés sikertelen',
 
+    'updated_success_notification' => 'Sikeres mentés',
+    'updated_fail_notification' => 'Sikertelen mentés',
 
 
     'change_password_popup_title' => 'Add meg régi és új jelszavad a változtatáshoz!',

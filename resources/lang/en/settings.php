@@ -42,6 +42,9 @@ return [
     'validating_alert_title' => 'Validálás folyamatban',
     'validating_alert_description' => 'A validálásig a főbb funkciók nem elérhetőek.',
 
+    'updated_success_notification' => 'Updated successfully',
+    'updated_fail_notification' => 'Update failed',
+
 ];
 
 ?>

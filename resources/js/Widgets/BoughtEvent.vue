@@ -19,7 +19,7 @@
 				icon="event"
 				outlined
 				medium
-				:navigate-to="'/teacher/' + data.teacher.id"
+				:navigate-to="'/teacher/' + data.teacher.id+'#calendar'"
 			>
 				{{ trans.get('dashboard.bought_event_book_btn') }}
 			</c-btn>

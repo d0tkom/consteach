@@ -1,7 +1,8 @@
 <?php
 
 return [
-    'select_choose' => 'Válassz'
+    'select_choose' => 'Válassz',
+    'native' => 'Anyanyelvi'
 ];
 
 ?>

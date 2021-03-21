@@ -32,7 +32,7 @@
                         <h2 class="title text-lg color-primary-dark mb-4">{{ trans.get('settings.student') }}</h2>
                         <div class="mb-4">
                             <cInput
-                                :error="!!$page.props.errors.first_name"
+                                :error="!!form.errors.first_name"
                                 v-model="form.first_name"
                                 :label="trans.get('settings.first_name_label')"
                             ></cInput>
@@ -40,7 +40,7 @@
                         
                         <div class="mb-4">
                             <cInput
-                                :error="!!$page.props.errors.last_name"
+                                :error="!!form.errors.last_name"
                                 :label="trans.get('settings.last_name_label')"
                                 v-model="form.last_name"
                             ></cInput>
@@ -48,7 +48,7 @@
                         
                         <div class="mb-4">
                             <cInput
-                                :error="!!$page.props.errors.email"
+                                :error="!!form.errors.email"
                                 :label="trans.get('settings.email_label')"
                                 v-model="form.email"
                             ></cInput>
@@ -86,6 +86,7 @@
                     :data="languages"
                     label-key="name"
                     value-key="code"
+	                :error="!!form.errors.site_language"
                     :selected="form.site_language"
                     v-model="form.site_language"
                 />
@@ -95,6 +96,7 @@
                     :data="currencies"
                     label-key="name"
                     value-key="code"
+                    :error="!!form.errors.currency"
                     :selected="form.currency"
                     v-model="form.currency"
                 />
@@ -104,6 +106,7 @@
                     :data="timezones"
                     label-key="name"
                     value-key="code"
+                    :error="!!form.errors.timezone"
                     :selected="form.timezone"
                     v-model="form.timezone"
                 />
@@ -181,6 +184,11 @@
             };
         },
         created() {
+        	if (location.hash === '#updated') {
+        		this.showUserUpdateNotification();
+        		this.$inertia.replace('/settings');
+	        }
+        	
             this.countries = require('i18n-iso-countries');
             this.countries.registerLocale(require('i18n-iso-countries/langs/en.json'));
             this.countries.registerLocale(require('i18n-iso-countries/langs/hu.json'));
@@ -202,19 +210,25 @@
             });
         },
         methods: {
+	        removeHash() {
+			    history.pushState(null, document.title, window.location.pathname + window.location.search);
+		    },
+	        showUserUpdateNotification() {
+		        this.$toast.success(this.trans.get('settings.updated_success_notification'));
+	        },
             submit() {
                 if (this.$refs.photo) {
                     this.form.photo = this.$refs.photo.files[0];
                 }
-
+                
                 this.form.post('/users/' + this.$page.props.user.id, {
                 	preserveScroll: true,
 	                onSuccess: () => {
-		                this.$toast.success('Sikeres mentés');
+		                this.$toast.success(this.trans.get('settings.updated_success_notification'));
 	                },
 	                onError: error => {
                 		console.error(error);
-		                this.$toast.success('Sikertelen mentés');
+		                this.$toast.success(this.trans.get('settings.updated_fail_notification'));
 	                }
                 });
             },

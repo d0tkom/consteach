@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
 
 class UserController extends Controller
@@ -64,11 +65,10 @@ class UserController extends Controller
     /**
      * @param Request $request
      * @param  \Laravel\Fortify\Contracts\UpdatesUserProfileInformation $updater
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, UpdatesUserProfileInformation $updater)
     {
-        //dd($request->input('site_language'), $request->user()->site_language);
         $updater->update($request->user(), $request->all());
 
         return redirect(route('settings'));

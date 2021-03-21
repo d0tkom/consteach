@@ -50,9 +50,9 @@
 		                                                >{{ languageList.getName(language.language, locale) }}</span>
 		                                                <c-tag
 			                                                class="ml-4"
-			                                                type="success"
+			                                                :type="language.level === 'native' ? 'success' : 'primary'"
 			                                                small
-		                                                >{{ language.level }}</c-tag>
+		                                                >{{ language.level === 'native' ? trans.get('other.native') : language.level }}</c-tag>
 	                                                </div>
                                                 </div>
                                             </div>
@@ -437,6 +437,7 @@
 
             Object.values(this.availabilities).forEach(availability => {
                 let event = {
+                	availability_id: availability.id,
 	                backgroundColor: '#18A0FB',
                     start: moment.utc(availability.start).tz(this.calendarOptions.timeZone).format(),
                     end: moment.utc(availability.end).tz(this.calendarOptions.timeZone).format(),
@@ -502,19 +503,27 @@
 		        if (!this.$page.props.user) {
 			        let message = this.trans.get('teacher_profile.no_auth_notification');
 			        this.$toast.info(message);
-			        this.$root.openLoginPopup();
+			        this.$root.openRegistrationPopup();
+			        
+			        this.$root.registrationAddonData = {
+				        teacher_id: this.teacher.id,
+				        availability_id: null
+			        };
+			        
 			        return;
 		        }
 		        
 	            this.$inertia.visit('/checkout/'+this.teacher.id);
 	        },
             submitAppointment() {
-                let self = this;
-	
 	            if (!this.$page.props.user) {
 		            let message = this.trans.get('teacher_profile.no_auth_notification');
 		            this.$toast.info(message);
-		            this.$root.openLoginPopup();
+		            this.$root.registrationAddonData = {
+		                teacher_id: this.teacher.id,
+			            availability_id: this.appointmentPopup.data.availability_id
+		            };
+		            this.$root.openRegistrationPopup();
 	            }
 	
 	            if (this.$page.props.user.role !== 'student') {
@@ -564,11 +573,12 @@
 	                this.$toast.info(message);
                     this.$inertia.visit('/checkout/'+this.teacher.id);
                 }
-
+                
                 this.appointmentPopup.data = {
                     teacher_name: this.teacher.user.first_name + ' ' + this.teacher.user.last_name,
                     date_start: eventClickInfo.event.startStr,
                     date_end: eventClickInfo.event.endStr,
+	                availability_id: eventClickInfo.event.extendedProps.availability_id,
                     eventClickInfo
                 };
 
