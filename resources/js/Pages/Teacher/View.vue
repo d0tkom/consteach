@@ -501,12 +501,10 @@
 	            this.$inertia.visit('/checkout/'+this.teacher.id);
 	        },
             submitAppointment() {
-                let self = this;
-	
 	            if (!this.$page.props.user) {
 		            let message = this.trans.get('teacher_profile.no_auth_notification');
 		            this.$toast.info(message);
-		            this.$root.openLoginPopup();
+		            this.$root.openRegistrationPopup();
 	            }
 	
 	            if (this.$page.props.user.role !== 'student') {
