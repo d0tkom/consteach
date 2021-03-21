@@ -13,14 +13,14 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="/css/landing.css">
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" href="{{ url('css/app.css?ver='.env('ASSET_VERSION', 1)) }}">
 
         @include('partials.favicon')
 
         <!-- Scripts -->
         @routes
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="{{ url('js/app.js?ver='.env('ASSET_VERSION', 1)) }}" defer></script>
         <script>
             window.default_locale = "{{ config('app.locale') }}";
             window.fallback_locale = "{{ config('app.fallback_locale') }}";

@@ -499,7 +499,7 @@
 		        let message = this.trans.get('teacher_profile.free_lesson_btn_notification');
 		        this.$toast.info(message);
 	        },
-        	clickedBuyBtn() {
+	        clickedBuyBtn() {
 		        if (!this.$page.props.user) {
 			        let message = this.trans.get('teacher_profile.no_auth_notification');
 			        this.$toast.info(message);
