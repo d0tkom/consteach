@@ -2,7 +2,7 @@
 
 return [
     'select_choose' => 'Válassz',
-    'native' => 'Anyanyelvi'
+    'native' => 'Anyanyelv'
 ];
 
 ?>

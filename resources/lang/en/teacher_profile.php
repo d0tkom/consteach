@@ -24,6 +24,9 @@ return [
     'filter_calendar' => 'Szűrés napszakra',
     'bookable' => 'Foglalható',
 
+    'calendar_title' => 'Órafoglaláshoz kattints a kék mezőkbe',
+    'calendar_subtitle' => 'Az időpontok az általad megadott időzóna szerint jelennek meg.',
+
     'free_lesson_title' => 'Próbaóra',
     'free_lesson_description' => 'Egyszeri alkalom, 30 perc',
     'free_lesson_btn' => 'INGYENES PRÓBAÓRA'

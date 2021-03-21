@@ -91,7 +91,15 @@
                         </div>
                         <div class="card p-sm" id="calendar">
                             <div class="text-md font-bold color-blue-dark mb-4">{{ trans.get('teacher_profile.time_table') }}</div>
-                            <FullCalendar :options="calendarOptions" />
+	
+	                        <div class="title text-md font-bold color-primary-dark">
+		                        {{ trans.get('teacher_profile.calendar_title') }}
+	                        </div>
+	                        <p class="mb-8">
+		                        {{ trans.get('teacher_profile.calendar_subtitle') }}
+	                        </p>
+	                        
+	                        <FullCalendar :options="calendarOptions" />
 	
 	                        <div class="calendarFooter flex justify-between items-center mt-2">
 		                        <div class="calendarFooterLabels p-4">
