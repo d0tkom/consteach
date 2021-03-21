@@ -108,9 +108,9 @@
 		padding-left: 30px;
 	}
 
-	&:hover {
+	&.listPage:hover {
 		transform: scale(1.05) translate(0, -2px) !important;
-		box-shadow: 0 6px 20px 0 rgba($blue, .4) !important;
+		box-shadow: 0 6px 20px -0 rgba($blue, .4) !important;
 	}
 }
 

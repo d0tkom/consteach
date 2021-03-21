@@ -42,6 +42,8 @@ Vue.use(VueScrollTo);
 
 const app = document.getElementById('app');
 
+import {scroller} from 'vue-scrollto/src/scrollTo'
+
 import VueGtag from "vue-gtag";
 
 Vue.use(VueGtag, {
@@ -123,6 +125,11 @@ new Vue({
         this.languageList = this.languageList.getNames(this.locale, {select: 'official'});
     },
     methods: {
+        scrollToElement(selector) {
+            const firstScrollTo = scroller();
+
+            firstScrollTo(selector);
+        },
         pageChange(url) {
             this.$gtag.pageview({
                 page_path: url,

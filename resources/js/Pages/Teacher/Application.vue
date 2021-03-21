@@ -332,7 +332,7 @@
 	                :key="'abtm-'+ a"
 	            >
                     <div>
-                        <h2 class="title text-lg color-primary-dark mb-4">{{ trans.get('settings.about_me') }} {{ about_me.locale }}</h2>
+                        <h2 class="title text-lg color-primary-dark mb-4">{{ trans.get('settings.about_me') }} <span class="capitalize">{{ $root.languageList[about_me.locale] }}</span></h2>
                         <c-text-area
                             :hint="trans.get('settings.min_character', {num: 250})"
                             :max="2000"

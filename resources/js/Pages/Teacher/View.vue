@@ -463,6 +463,11 @@
 		        this.calendarOptions.slotMinTime = this.filterCalendarTime.start = localStorage_calendarFilter.start;
 		        this.calendarOptions.slotMaxTime = this.filterCalendarTime.end = localStorage_calendarFilter.end;
 	        }
+	        
+	        if (this.location.hash === 'calendar') {
+	        
+	        }
+	        //element.scrollIntoView()
         },
 	    computed: {
 		    aboutMeText() {

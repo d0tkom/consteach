@@ -2,7 +2,7 @@
 	<div 
 		class="teacherWidget relative"
 	>
-		<div class="teacherWidgetMainCard flex flex-col justify-start card p-sm my-4">
+		<div class="teacherWidgetMainCard listPage flex flex-col justify-start card p-sm my-4">
 			<div class="flex mb-4">
 				<div class="profileImageWrapper mr-4">
 					<img
@@ -88,23 +88,6 @@
 				</div>
 			</div>
 		</div>
-		<transition name="fadeMoveIn">
-			<div
-				class="teacherMorePanel p-4 shadow-md blue-border"
-				v-if="active"
-			>
-				<div class="flex justify-center mb-4">
-					<iframe width="360" height="315" :src="data.video_url.replace('watch?v=', 'embed/')" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				</div>
-				
-				<div class="flex justify-center">
-					<c-btn
-						class="mt-4"
-						:navigate-to="'/teacher/' + data.id"
-					>{{ trans.get('find_teacher.profile_btn') }}</c-btn>
-				</div>
-			</div>
-		</transition>
 	</div>
 </template>
 

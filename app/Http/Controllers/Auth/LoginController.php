@@ -35,7 +35,7 @@ class LoginController extends Controller
      * Obtain the user information from the Provider.
      *
      * @param $provider
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function handleProviderCallback($provider)
     {
