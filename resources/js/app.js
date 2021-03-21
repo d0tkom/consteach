@@ -66,6 +66,7 @@ new Vue({
             lostPassword: false,
             registrationType: 'student'
         },
+        registrationAddonData: null,
         languageList: null,
         locale: window.default_locale,
         cookiePolicy: {

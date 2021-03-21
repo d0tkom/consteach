@@ -154,6 +154,8 @@
                     password: '',
                     password_confirmation: '',
                     terms: false,
+	                availability_id: null,
+	                teacher_id: null,
                 })
             }
         },
@@ -170,6 +172,11 @@
 		        this.$root.popup.login = true;
 	        },
             submit() {
+        		if (this.$root.registrationAddonData) {
+        			this.form.teacher_id = this.$root.registrationAddonData.teacher_id;
+        			this.form.availability_id = this.$root.registrationAddonData.availability_id;
+		        }
+        		
                 this.form.post(this.route('register'), {
 	                onFinish: () => {
 		                this.form.reset('password', 'password_confirmation');
@@ -178,6 +185,7 @@
 						this.$emit('close');
 						this.$root.popup.registration = false;
 						this.$toast.success('Sikeres regisztráció');
+						this.$root.registrationAddonData = null;
 					},
 					onError: error => {
 						console.error(error);

@@ -100,7 +100,9 @@
                 form: this.$inertia.form({
                     email: '',
                     password: '',
-                    remember: false
+                    remember: false,
+	                availability_id: null,
+	                teacher_id: null,
                 })
             }
         },
@@ -111,6 +113,11 @@
         		this.$root.popup.registration = true;
 	        },
             submit() {
+	            if (this.$root.registrationAddonData) {
+		            this.form.teacher_id = this.$root.registrationAddonData.teacher_id;
+		            this.form.availability_id = this.$root.registrationAddonData.availability_id;
+	            }
+        		
                 this.form
                     .transform(data => ({
                         ... data,
@@ -124,6 +131,7 @@
                             this.$emit('close');
 	                        this.$root.popup.login = false;
 	                        this.$toast.success('Bejelentkezve');
+	                        this.$root.registrationAddonData = null;
                         },
                         onError: error => {
                         	console.error(error);
