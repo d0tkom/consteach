@@ -18,8 +18,8 @@
 				:class="menu.opened && 'opened'"
 			>
 				<div class="lang flex items-center">
-					<inertia-link
-						:href="$page.url.replace('https://en.', 'https://')"
+					<a
+						:href="'http://local.consteach.hu' + $page.url"
 						class="active"
 					>
 						<c-btn
@@ -28,12 +28,12 @@
 						>
 							HU
 						</c-btn>
-					</inertia-link>
+					</a>
 
 					<span class="separator mx-2"></span>
 					
-					<inertia-link
-						:href="$page.url.replace('https://', 'https://en.')"
+					<a
+						:href="'http://en.local.consteach.hu' + $page.url"
 						class="active"
 					>
 						<c-btn
@@ -42,7 +42,7 @@
 						>
 							EN
 						</c-btn>
-					</inertia-link>
+					</a>
 				</div>
 				<ul class="items-center">
 					<li>

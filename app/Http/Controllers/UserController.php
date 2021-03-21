@@ -68,6 +68,7 @@ class UserController extends Controller
      */
     public function update(Request $request, UpdatesUserProfileInformation $updater)
     {
+        //dd($request->input('site_language'), $request->user()->site_language);
         $updater->update($request->user(), $request->all());
 
         return redirect(route('settings'));

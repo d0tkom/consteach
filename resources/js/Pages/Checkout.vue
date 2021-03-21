@@ -9,7 +9,7 @@
 					</div>
 					<div class="sm:my-4 sm:mx-8 m-2">
 						<div class="mb-2">{{ trans.get('checkout.how_many_hours') }}</div>
-						<label for="e0" v-if="$page.props.user.extra.trial_available" @click="trialSelected = true; selectTrial()">
+						<label for="e0" v-if="$page.props.user.extra.trial_available && appointment" @click="trialSelected = true; selectTrial()">
 							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
 								<input id="e0" class="mt-1 sm:mr-3" type="radio" name="lesson" :checked="trialSelected"/>
 								<div class="text-md font-semibold flex-1 mr-4">{{ trans.get('checkout.free_lesson') }}</div>
