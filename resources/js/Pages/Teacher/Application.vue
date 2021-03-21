@@ -17,156 +17,219 @@
 					</div>
 				</div>
 			</div>
-			<div class="card" v-if="activeTab === 0">
-				<h2 class="title text-lg color-primary-dark mb-4 font-bold">
-					{{ trans.get('teacher_application.user_informations') }}
-				</h2>
-				<div class="content">
-					<form>
-						<div class="mb-4">
-							<cInput
-								v-model="form.first_name"
-								:label="trans.get('teacher_application.first_name_label')"
-								:error="!!$page.props.errors.first_name"
-							></cInput>
-						</div>
-						
-						<div class="mb-4">
-							<cInput
-								:label="trans.get('teacher_application.last_name_label')"
-								v-model="form.last_name"
-								:error="!!$page.props.errors.last_name"
-							></cInput>
-						</div>
-						
-						<div class="mb-4">
-							<cInput
-								readonly
-								:label="trans.get('teacher_application.email_label')"
-								v-model="form.email"
-								:error="!!$page.props.errors.email"
-							></cInput>
-						</div>
-						
-						<div class="mb-4">
-							<c-select
-								capitalize
-								:data="countries"
-								:label="trans.get('teacher_application.country_label')"
-								labelKey="name"
-								valueKey="code"
-								:error="!!$page.props.errors.country"
-								v-model="form.country"
-							/>
-						</div>
-						
-						<div class="mb-4">
-							<c-select
-			                    class="mb-4"
-			                    :label="trans.get('teacher_application.timezone_label')"
-			                    :data="timezones"
-			                    label-key="name"
-			                    value-key="code"
-			                    :error="!!$page.props.errors.timezone"
-			                    :selected="form.timezone"
-			                    v-model="form.timezone"
-			                />
-						</div>
-						
-						<!-- Tanított nyelvek -->
-						<div class="mb-4">
-							<div
-								class="title color-gray mb-2"
-								:class="!!$page.props.errors.teaching_languages && 'text-red-500'"
-							>{{ trans.get('teacher_application.teaching_language') }}</div>
-							<div
-								class="grid md:grid-cols-2 grid-cols-1 gap-4 mb-4"
-								v-for="(language, languageIndex) in form.teaching_languages"
-								:key="languageIndex"
-							>
-								<div>
-									<c-select
-										capitalize
-										:data="languageList"
-										:label="trans.get('teacher_application.language_label')"
-										labelKey="name"
-										valueKey="code"
-										:error="!!$page.props.errors.teaching_languages"
-										v-model="language.language"
-									/>
-								</div>
-								
-								<div>
-									<c-select
-										:data="levels"
-										:label="trans.get('teacher_application.level_label')"
-										labelKey="label"
-										valueKey="code"
-										:error="!!$page.props.errors.teaching_languages"
-										v-model="language.level"
-									/>
-								</div>
-							</div>
-							<c-btn
-								text
-								icon="add"
-								@click="addNewTeachingLanguage"
-							>
-								{{ trans.get('teacher_application.add_language_btn') }}
-							</c-btn>
-						</div>
-						
-						<hr class="mb-4" />
-						
-						<!-- Beszélt nyelvek -->
-						<div>
-							<div
-								class="title color-gray mb-2"
-								:class="!!$page.props.errors.spoken_languages && 'text-red-500'"
-							>{{ trans.get('teacher_application.spoken_language') }}</div>
-							<div
-								class="grid md:grid-cols-2 grid-cols-1 gap-4 mb-4"
-								v-for="(language, languageIndex) in form.spoken_languages"
-								:key="'ltn-'+languageIndex"
-							>
-								<div>
-									<c-select
-										capitalize
-										:data="languageList"
-										:label="trans.get('teacher_application.language_label')"
-										labelKey="name"
-										valueKey="code"
-										:error="!!$page.props.errors.spoken_languages"
-										v-model="language.language"
-									/>
-								</div>
-								
-								<div>
-									<c-select
-										:data="levels"
-										:label="trans.get('teacher_application.level_label')"
-										labelKey="label"
-										valueKey="code"
-										:error="!!$page.props.errors.spoken_languages"
-										v-model="language.level"
-									/>
-								</div>
+			<div v-if="activeTab === 0">
+				<div class="card mb-4">
+					<h2 class="title text-lg color-primary-dark mb-4 font-bold">
+						{{ trans.get('teacher_application.user_informations') }}
+					</h2>
+					<div class="content">
+						<form>
+							<div class="mb-4">
+								<cInput
+									v-model="form.first_name"
+									:label="trans.get('teacher_application.first_name_label')"
+									:error="!!$page.props.errors.first_name"
+								></cInput>
 							</div>
 							
-							<c-btn
-								text
-								icon="add"
-								@click="addNewSpokenLanguage"
-							>
-								{{ trans.get('teacher_application.add_language_btn') }}
-							</c-btn>
-						</div>
-						<c-checkbox
-							class="my-2"
-							v-model="form.adult"
-							:error="!!$page.props.errors.adult"
-						>{{ trans.get('teacher_application.adult_checkbox_label') }}</c-checkbox>
-					</form>
+							<div class="mb-4">
+								<cInput
+									:label="trans.get('teacher_application.last_name_label')"
+									v-model="form.last_name"
+									:error="!!$page.props.errors.last_name"
+								></cInput>
+							</div>
+							
+							<div class="mb-4">
+								<cInput
+									readonly
+									:label="trans.get('teacher_application.email_label')"
+									v-model="form.email"
+									:error="!!$page.props.errors.email"
+								></cInput>
+							</div>
+							
+							<div class="mb-4">
+								<c-select
+									capitalize
+									:data="countries"
+									:label="trans.get('teacher_application.country_label')"
+									labelKey="name"
+									valueKey="code"
+									:error="!!$page.props.errors.country"
+									v-model="form.country"
+								/>
+							</div>
+							
+							<div class="mb-4">
+								<c-select
+									class="mb-4"
+									:label="trans.get('teacher_application.timezone_label')"
+									:data="timezones"
+									label-key="name"
+									value-key="code"
+									:error="!!$page.props.errors.timezone"
+									:selected="form.timezone"
+									v-model="form.timezone"
+								/>
+							</div>
+							
+							<!-- Tanított nyelvek -->
+							<div class="mb-4">
+								<div
+									class="title color-gray mb-2"
+									:class="!!$page.props.errors.teaching_languages && 'text-red-500'"
+								>{{ trans.get('teacher_application.teaching_language') }}</div>
+								<div
+									class="grid md:grid-cols-2 grid-cols-1 gap-4 mb-4"
+									v-for="(language, languageIndex) in form.teaching_languages"
+									:key="languageIndex"
+								>
+									<div>
+										<c-select
+											capitalize
+											:data="languageList"
+											:label="trans.get('teacher_application.language_label')"
+											labelKey="name"
+											valueKey="code"
+											:error="!!$page.props.errors.teaching_languages"
+											v-model="language.language"
+										/>
+									</div>
+									
+									<div>
+										<c-select
+											:data="levels"
+											:label="trans.get('teacher_application.level_label')"
+											labelKey="label"
+											valueKey="code"
+											:error="!!$page.props.errors.teaching_languages"
+											v-model="language.level"
+										/>
+									</div>
+								</div>
+								<c-btn
+									text
+									icon="add"
+									@click="addNewTeachingLanguage"
+								>
+									{{ trans.get('teacher_application.add_language_btn') }}
+								</c-btn>
+							</div>
+							
+							<hr class="mb-4" />
+							
+							<!-- Beszélt nyelvek -->
+							<div>
+								<div
+									class="title color-gray mb-2"
+									:class="!!$page.props.errors.spoken_languages && 'text-red-500'"
+								>{{ trans.get('teacher_application.spoken_language') }}</div>
+								<div
+									class="grid md:grid-cols-2 grid-cols-1 gap-4 mb-4"
+									v-for="(language, languageIndex) in form.spoken_languages"
+									:key="'ltn-'+languageIndex"
+								>
+									<div>
+										<c-select
+											capitalize
+											:data="languageList"
+											:label="trans.get('teacher_application.language_label')"
+											labelKey="name"
+											valueKey="code"
+											:error="!!$page.props.errors.spoken_languages"
+											v-model="language.language"
+										/>
+									</div>
+									
+									<div>
+										<c-select
+											:data="levels"
+											:label="trans.get('teacher_application.level_label')"
+											labelKey="label"
+											valueKey="code"
+											:error="!!$page.props.errors.spoken_languages"
+											v-model="language.level"
+										/>
+									</div>
+								</div>
+								
+								<c-btn
+									text
+									icon="add"
+									@click="addNewSpokenLanguage"
+								>
+									{{ trans.get('teacher_application.add_language_btn') }}
+								</c-btn>
+							</div>
+							
+							<c-checkbox
+								class="my-2"
+								v-model="form.adult"
+								:error="!!$page.props.errors.adult"
+							>{{ trans.get('teacher_application.adult_checkbox_label') }}</c-checkbox>
+						</form>
+					</div>
+				</div>
+				<div class="card md">
+					<!-- Óradíjak -->
+					<h2
+						class="title text-lg font-bold color-primary-dark mb-4 flex"
+					>
+						{{ trans.get('teacher_application.hourly_rates') }}
+						<span
+							class="material-icons cursor-help ml-4"
+							v-tooltip="trans.get('teacher_application.hourly_rates_tooltip')"
+						>help_outline</span>
+					</h2>
+					<div class="grid grid-cols-2 gap-4">
+						<c-input
+							:label="trans.get('teacher_application.one_hour_net')"
+							v-model="form.one_hour_price"
+						/>
+						<c-input
+							readonly
+							:label="trans.get('teacher_application.one_hour_gross')"
+							:value="calculateGrossPrice(form.one_hour_price)"
+						/>
+					</div>
+					<h2
+						class="title text-lg font-bold color-primary-dark mt-8 mb-4 flex"
+					>
+						{{ trans.get('teacher_application.bulk_prices') }}
+						<span
+							class="material-icons cursor-help ml-4"
+							v-tooltip="trans.get('teacher_application.bulk_prices_tooltip')"
+						>help_outline</span>
+					</h2>
+					<div class="grid grid-cols-2 gap-4 mb-4">
+						<c-input
+							:hint="'/'+trans.get('teacher_application.hour')"
+							:label="trans.get('teacher_application.five_hours_net')"
+							:value="calculateHourPrice(form.five_hour_price, 5, true)"
+							@keyup="value => bulkPriceInput(value, 'five_hour_price', 5, true)"
+						/>
+						<c-input
+							:hint="'/'+trans.get('teacher_application.hour')"
+							readonly
+							:label="trans.get('teacher_application.five_hours_gross')"
+							:value="calculateHourPrice(form.five_hour_price, 5, false)"
+						/>
+					</div>
+					<div class="grid grid-cols-2 gap-4">
+						<c-input
+							:hint="'/'+trans.get('teacher_application.hour')"
+							:label="trans.get('teacher_application.ten_hours_net')"
+							:value="calculateHourPrice(form.ten_hour_price, 10, true)"
+							@keyup="value => bulkPriceInput(value, 'ten_hour_price', 10, true)"
+						/>
+						<c-input
+							:hint="'/'+trans.get('teacher_application.hour')"
+							readonly
+							:label="trans.get('teacher_application.ten_hours_gross')"
+							:value="calculateHourPrice(form.ten_hour_price, 10, false)"
+						/>
+					</div>
 				</div>
 			</div>
 			<div class="card" v-if="activeTab === 1">
@@ -325,16 +388,16 @@
 			</div>
 			<div class="card" v-if="activeTab === 3">
 				<h2 class="title text-lg color-primary-dark font-bold">{{ trans.get('teacher_application.about_me_title') }}</h2>
-				<div class="color-blue-dark">{{ trans.get('teacher_application.about_me_instruction') }}</div>
+				<div class="color-blue-dark mb-4">{{ trans.get('teacher_application.about_me_instruction') }}</div>
 				<div
 	                class="card flat md-4"
 	                v-for="(about_me, a) in form.about_me"
 	                :key="'abtm-'+ a"
 	            >
                     <div>
-                        <h2 class="title text-lg color-primary-dark mb-4">{{ trans.get('settings.about_me') }} <span class="capitalize">{{ $root.languageList[about_me.locale] }}</span></h2>
+                        <h2 class="title text-lg color-primary-dark mb-4">{{ trans.get('teacher_application.about_me') }} <span class="capitalize">{{ $root.languageList[about_me.locale] }}</span></h2>
                         <c-text-area
-                            :hint="trans.get('settings.min_character', {num: 250})"
+                            :hint="trans.get('teacher_application.min_character', {num: 250})"
                             :max="2000"
                             class="mb-4"
                             :error="!!$page.props.errors.about_me"
@@ -343,7 +406,6 @@
                     </div>
                 </div>
             </div>
-
 			<div class="card" v-if="activeTab === 4">
 				<h2 class="title text-lg color-primary-dark font-bold">
 					{{ trans.get('teacher_application.verification_title') }}
@@ -431,7 +493,7 @@ export default {
 			timezones: [],
 			levels,
 			locale: window.default_locale,
-			
+			fee: 1.2,
 			languageTemplate: {
 				language: null,
 				level: null
@@ -473,6 +535,9 @@ export default {
 				teaching_languages: [],
 				spoken_languages: [],
 				adult: false,
+				one_hour_price: 0,
+				five_hour_price: 0,
+				ten_hour_price: 0,
 			}),
 		};
 	},
@@ -524,6 +589,31 @@ export default {
 		}
 	},
 	methods: {
+		bulkPriceInput(value, form_item, hours = 1, net = true) {
+			value = parseInt(value, 10);
+			
+			let valueCalculated = value * hours;
+			
+			if (!net) {
+				valueCalculated /= this.fee;
+			}
+			
+			this.$set(this.form, form_item, valueCalculated);
+		},
+		calculateHourPrice(form_item, hours = 1, net) {
+			let value = form_item / hours;
+			
+			if (!net) {
+				value *= this.fee;
+			}
+			
+			return Math.floor(value);
+		},
+		calculateGrossPrice(value) {
+			value = parseInt(value, 10);
+
+			return Math.floor(value * this.fee);
+		},
 		addNewSpokenLanguage() {
 			const languageTemplate = JSON.parse(JSON.stringify(this.languageTemplate));
 			this.form.spoken_languages.push(languageTemplate);

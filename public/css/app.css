@@ -1232,7 +1232,7 @@ body .mainSiteContainer.isLanding .siteContent {
   width: 300px;
   padding-left: 30px;
 }
-.teacherWidgetMainCard:hover {
+.teacherWidgetMainCard.listPage:hover {
   transform: scale(1.05) translate(0, -2px) !important;
   box-shadow: 0 6px 20px 0 rgba(24, 160, 251, 0.4) !important;
 }
@@ -1982,6 +1982,10 @@ th.fc-col-header-cell.fc-day.fc-day-disabled {
 
 .color-green-dark {
   color: #0A7D38;
+}
+
+.color-green-price {
+  color: #10b981;
 }
 
 .color-orange {
