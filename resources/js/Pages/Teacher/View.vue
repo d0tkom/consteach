@@ -50,9 +50,9 @@
 		                                                >{{ languageList.getName(language.language, locale) }}</span>
 		                                                <c-tag
 			                                                class="ml-4"
-			                                                type="success"
+			                                                :type="language.level === 'native' ? 'success' : 'primary'"
 			                                                small
-		                                                >{{ language.level }}</c-tag>
+		                                                >{{ language.level === 'native' ? trans.get('other.native') : language.level }}</c-tag>
 	                                                </div>
                                                 </div>
                                             </div>
@@ -463,11 +463,6 @@
 		        this.calendarOptions.slotMinTime = this.filterCalendarTime.start = localStorage_calendarFilter.start;
 		        this.calendarOptions.slotMaxTime = this.filterCalendarTime.end = localStorage_calendarFilter.end;
 	        }
-	        
-	        if (this.location.hash === 'calendar') {
-	        
-	        }
-	        //element.scrollIntoView()
         },
 	    computed: {
 		    aboutMeText() {

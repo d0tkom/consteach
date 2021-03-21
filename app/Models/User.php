@@ -82,4 +82,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
+
+    protected function defaultProfilePhotoUrl()
+    {
+        return null;
+    }
 }

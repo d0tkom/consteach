@@ -25,7 +25,7 @@
 								:iso="data.country === 'en' ? 'us' : data.country"
 							/>
 						</div>
-						<div class="price font-bold color-green-dark text-lg">
+						<div class="price font-bold color-green-price text-lg">
 							<currency
 								:value="data.one_hour_price"
 							/> / {{ trans.get('find_teacher.hour') }}
@@ -42,9 +42,9 @@
 								<span class="capitalize">{{ $root.languageList[language.language] }}</span>
 								<c-tag
 									class="mr-2"
-									type="success"
+									:type="language.level === 'native' ? 'success' : 'primary'"
 									small
-								>{{ language.level }}</c-tag>
+								>{{ language.level === 'native' ? trans.get('other.native') : language.level }}</c-tag>
 							</div>
 						</div>
 						<div
@@ -82,7 +82,6 @@
 					</c-btn>
 					<c-btn
 						icon="event"
-						class="mb-4"
 						:navigate-to="'/teacher/' + data.id+'#calendar'"
 					>{{ trans.get('find_teacher.book_btn') }}</c-btn>
 				</div>
