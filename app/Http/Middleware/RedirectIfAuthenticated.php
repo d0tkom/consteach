@@ -23,6 +23,7 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
+                //TODO: checkoutos redirect
                 return redirect(RouteServiceProvider::HOME);
             }
         }

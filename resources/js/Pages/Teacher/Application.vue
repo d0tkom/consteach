@@ -257,7 +257,7 @@
 								v-if="form.video_url"
 								width="100%"
 								height="200"
-								:src="form.video_url.replace('watch?v=', 'embed/')"
+								:src="videoUrl"
 								frameborder="0"
 								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 								allowfullscreen
@@ -522,6 +522,11 @@ export default {
 			},
 			deep: true
 		}
+	},
+	computed: {
+		videoUrl() {
+            return 'https://www.youtube.com/embed/' + getVideoId(this.form.video_url).id;
+        }
 	},
 	methods: {
 		addNewSpokenLanguage() {

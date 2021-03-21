@@ -46,6 +46,15 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         }
 
         if ($user->role == 'teacher') {
+            Validator::make($input, [
+                'one_hour_price' => ['bail', 'required', 'numeric', 'min:0', 'not_in:0'],
+            ])->validateWithBag('updateProfileInformation');
+
+            Validator::make($input, [
+                'five_hour_price' => ['bail', 'required', 'numeric', 'min:0', 'not_in:0', 'max:'.$input['one_hour_price']*5],
+                'ten_hour_price' => ['bail', 'required', 'numeric', 'min:0', 'not_in:0', 'max:'.$input['one_hour_price']*10],
+            ])->validateWithBag('updateProfileInformation');
+
             $teacher = Teacher::where('user_id', $user->id)->first();
 
             $teacher->teaching_languages = $input['teaching_languages'];

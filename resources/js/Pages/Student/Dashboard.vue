@@ -2,7 +2,7 @@
     <app-layout>
         <div class="studentHubContainer mt-8">
 	        <div v-if="noData" class="card flat md">
-		        <div class="card p-sm">
+		        <div class="card p-sm" v-if="anyLessonAvailable">
 			        <div class="flex">
 				        <div class="profileImg mainProfileImg mr-4">
 					        <img class="blue-border rounded-full overflow-hidden" :src="$page.props.user.profile_photo_url" alt="Profilkép">
@@ -46,6 +46,7 @@
                             </div>
                             <div class="events">
                                 <booked-event
+                                    @destroy="update"
                                     v-for="(appointment, a) in appointments"
                                     :key="a"
                                     :data="appointment"
@@ -71,9 +72,10 @@
                                 </inertia-link>
                             </div>
                         </div>
-                        <div class="card p-sm">
+                        <div class="card p-sm" v-if="anyLessonAvailable">
                             <div class="color-primary-dark text-lg font-bold mb-4">{{ trans.get('dashboard.bought_lessons') }}</div>
                             <bought-event
+                                v-if="lesson.available > 0"
                                 v-for="(lesson, l) in lessons"
                                 :key="l"
                                 :data="lesson"
@@ -107,16 +109,20 @@
         },
 	    computed: {
 		    noData() {
-		    	if (this.appointments.length) {
-		    		return false;
-			    }
-			
 			    if (this.lessons.length) {
 					return false;
 			    }
 			    
 			    return true;
-		    }
-	    }
+		    },
+            anyLessonAvailable() {
+                return this.lessons.filter(lesson => lesson.available > 0).length > 0;
+            }
+	    },
+        methods: {
+            update: function () {
+                this.$inertia.reload({ only: ['lessons', 'appointments']})
+            }
+        }
     }
 </script>

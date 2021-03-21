@@ -211,7 +211,7 @@
                     :error="!!$page.props.errors.video_url"
                     :label="trans.get('settings.video_url')"
                 />
-                <iframe width="100%" height="315" :src="form.video_url.replace('watch?v=', 'embed/')" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="100%" height="315" :src="videoUrl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         
 	        <!-- Óradíjak -->
@@ -426,6 +426,11 @@
             this.currencies = this.currencies.map(code => {
                 return {code: code, name: code};
             });
+        },
+        computed: {
+            videoUrl() {
+                return 'https://www.youtube.com/embed/' + getVideoId(this.form.video_url).id;
+            }
         },
         methods: {
 	        calculateHourPrice(form_item, hours = 1, net) {

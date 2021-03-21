@@ -122,7 +122,7 @@ class CheckoutController extends Controller
     {
         $appointment = Appointment::find(request()->input('appointment'));
 
-        $teacher->extra;
+        $teacher->user;
 
         return Inertia::render('Checkout')->with(['teacher' => $teacher, 'appointment' => $appointment]);
     }

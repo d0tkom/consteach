@@ -30,7 +30,7 @@
 							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
 								<input id="e2" class="mt-1 sm:mr-3" type="radio" name="lesson" />
 								<div class="text-md font-semibold flex-1 mr-4">5 {{ trans.choice('checkout.lesson', 5) }}</div>
-								<div class="text-md text-gray-500 mr-2">
+								<div class="text-md text-gray-500 mr-2" v-if="teacher.one_hour_price*fee*5 > teacher.five_hour_price">
 									<currency
 										class="line-through"
 										:value="teacher.one_hour_price*fee*5"
@@ -47,7 +47,7 @@
 							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
 								<input id="e3" class="mt-1 sm:mr-3" type="radio" name="lesson" />
 								<div class="text-md font-semibold flex-1 mr-4">10 {{ trans.choice('checkout.lesson', 10) }}</div>
-								<div class="text-md text-gray-500 line-through mr-2">
+								<div class="text-md text-gray-500 mr-2" v-if="teacher.one_hour_price*fee*10 > teacher.ten_hour_price">
 									<currency
 										class="line-through"
 										:value="teacher.one_hour_price*fee*10"
@@ -118,7 +118,7 @@
 			<div class="checkoutCol max-w-md m-4">
 				<div class="p-4 blue-text-color bg-white rounded-xl shadow-md border border-blue-300 items-center relative">
 					<div class="flex">
-						<span class="h-6  rounded-full w-6 border blue-border-color text-center text-md flex flex-col justify-center">3</span>
+						<span class="h-6  rounded-full w-6 border blue-border-color text-center text-md flex flex-col justify-center">{{ trialSelected ? '2' : '3' }}</span>
 						<span class="mx-2 flex flex-col justify-center text-md font-semibold">{{ trans.get('checkout.end_of_checkout') }}</span>
 					</div>
 					

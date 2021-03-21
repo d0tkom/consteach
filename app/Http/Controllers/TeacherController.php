@@ -59,11 +59,11 @@ class TeacherController extends Controller
     {
         $appointments = Appointment::where('teacher_id', $teacher->id)
             ->where('active', 1)
-            ->where('end', '>', Carbon::now())
+            ->where('start', '>', Carbon::now('UTC')->addDays(1))
             ->get();
 
         $availabilities = Availability::where('teacher_id', $teacher->id)
-            ->where('end', '>', Carbon::now())
+            ->where('start', '>', Carbon::now('UTC')->addDays(1))
             ->get();
 
         $teacher->user;
@@ -101,6 +101,9 @@ class TeacherController extends Controller
                 'spoken_languages' => ['required', 'array', 'min:1'],
                 'teaching_languages' => ['required', 'array', 'min:1'],
                 'adult' => ['required', 'accepted'],
+                'one_hour_price' => ['bail', 'required', 'numeric', 'min:0', 'not_in:0'],
+                'five_hour_price' => ['bail', 'required', 'numeric', 'min:0', 'not_in:0', 'max:'.$request->input('one_hour_price')*5],
+                'ten_hour_price' => ['bail', 'required', 'numeric', 'min:0', 'not_in:0', 'max:'.$request->input('one_hour_price')*10],
             ]);
         } elseif ($request->input('step') == 1) {
             $validatedData = $request->validate([

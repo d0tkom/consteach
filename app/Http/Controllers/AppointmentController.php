@@ -115,6 +115,12 @@ class AppointmentController extends Controller
      */
     public function destroy(Appointment $appointment)
     {
+        $lesson = auth()->user()->extra->lessons()->where('teacher_id', $appointment->teacher->id)->first();
+
+        $lesson->decrement('booked', 1);
+        $lesson->increment('available', 1);
+        $lesson->save();
+        
         $appointment->delete();
 
         //TODO: Notification

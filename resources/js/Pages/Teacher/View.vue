@@ -8,7 +8,7 @@
                             <iframe
 	                            class="mb-8 w-full"
 	                            height="400"
-	                            :src="teacher.video_url.replace('watch?v=', 'embed/')"
+	                            :src="videoUrl"
 	                            frameborder="0"
 	                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 	                            allowfullscreen
@@ -153,13 +153,14 @@
 					                    <div class="originalPrice text-gray text-sm">
 						                    <currency
 							                    class="line-through"
-							                    :value="(teacher.one_hour_price*fee)/2"
+							                    :value="(teacher.one_hour_price*fee)"
 						                    />
 						                </div>
 					                    <div class="newPRice text-green-500 text-lg">
 						                    <currency
 							                    :value="0"
 						                    />
+                                             / {{ trans.get('teacher_profile.hour') }}
 					                    </div>
 				                    </div>
 			                    </div>
@@ -190,26 +191,29 @@
 	                                        <currency
 		                                        :value="teacher.one_hour_price*fee"
 	                                        />
+                                             / {{ trans.get('teacher_profile.hour') }}
 	                                    </div>
                                     </div>
                                 </div>
                                 <div class="priceItem sm:flex mb-10">
-                                    <div class="title flex-1 sm:text-left text-center">5 {{ trans.get('teacher_profile.hours') }}</div>
+                                    <div class="title flex-1 sm:text-left text-center">5 {{ trans.get('teacher_profile.hour') }}</div>
                                     <div class="relative">
                                         <div class="value text-green-500 text-lg">
 	                                        <currency
 		                                        :value="(teacher.five_hour_price / 5)*fee"
 	                                        />
+                                             / {{ trans.get('teacher_profile.hour') }}
 	                                   </div>
                                     </div>
                                 </div>
                                 <div class="priceItem sm:flex mb-10">
-                                    <div class="title flex-1 sm:text-left text-center">10 {{ trans.get('teacher_profile.hours') }}</div>
+                                    <div class="title flex-1 sm:text-left text-center">10 {{ trans.get('teacher_profile.hour') }}</div>
                                     <div class="relative">
                                         <div class="value text-green-500 text-lg">
 	                                        <currency
 		                                        :value="(teacher.ten_hour_price / 10)*fee"
 	                                        />
+                                             / {{ trans.get('teacher_profile.hour') }}
 	                                    </div>
                                     </div>
                                 </div>
@@ -251,6 +255,7 @@
     import timeGridPlugin from '@fullcalendar/timegrid';
     import interactionPlugin from '@fullcalendar/interaction';
     import BookAppointment from '@/Popups/BookAppointment';
+    import getVideoId from 'get-video-id';
     
     export default {
         components: {
@@ -483,7 +488,10 @@
 		    		value: text,
 				    full: full
 			    };
-		    }
+		    },
+            videoUrl() {
+                return 'https://www.youtube.com/embed/' + getVideoId(this.teacher.video_url).id;
+            }
 	    },
         methods: {
         	clickedFreeLessonBtn() {

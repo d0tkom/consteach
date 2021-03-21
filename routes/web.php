@@ -15,9 +15,6 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CheckoutController;
 
-use App\Models\Lesson;
-use App\Models\Appointment;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes

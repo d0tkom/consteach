@@ -32,7 +32,7 @@ class DashboardController extends Controller
         	->where('active', 1)
         	->where('student_approved', 0)
         	->where('teacher_approved', 0)
-            ->where('end', '>', Carbon::now())
+            ->where('end', '>', Carbon::now('UTC'))
         	->with(['teacher', 'teacher.user', 'student', 'student.user'])
         	->orderBy('start', 'ASC')
         	->get();
@@ -53,7 +53,7 @@ class DashboardController extends Controller
         	->where('active', 1)
         	->where('student_approved', 0)
         	->where('teacher_approved', 0)
-            ->where('end', '>', Carbon::now())
+            ->where('end', '>', Carbon::now('UTC'))
         	->with(['teacher', 'teacher.user', 'student', 'student.user'])
         	->orderBy('start', 'ASC')
         	->get();
