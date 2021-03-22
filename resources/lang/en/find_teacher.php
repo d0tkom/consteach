@@ -1,21 +1,21 @@
 <?php
 
 return [
-    'document_title' => 'Tanárkeresés',
+    'document_title' => 'Find a teacher',
 
-    'total_teacher' => 'Teachers we recommend',
+    'total_teacher' => 'Recommended Teachers',
     'order_btn' => 'Sorting',
     'language_filter_btn' => 'Language',
     'price_filter_btn' => 'Price',
     'time_filter_btn' => 'Time',
-    'more_teacher_btn' => 'See more teacher',
+    'more_teacher_btn' => 'More teachers',
     'order_popup_title' => 'How to sort teachers?',
     'language_filter_popup_title' => 'What language would you learn?',
     'option-one_hour_price' => 'Price',
     'option-appointment_count' => 'Number of lessons',
     'option-random' => 'Random',
 
-    'day_popup_title' => 'Choose day or time of day',
+    'day_popup_title' => 'Choose day and time of day',
     'day_popup_time_of_day' => 'Time of day',
     'day_popup_day' => 'Day',
     'day_popup_filter_btn' => 'Apply',
@@ -30,9 +30,9 @@ return [
     'price_popup_title' => 'Set your preferred price range on the slider!',
     'price_popup_filter_btn' => 'Apply',
 
-    'hour' => 'hour',
-    'spoken_languages' => 'Spoken languages',
-    'student' => 'student',
+    'hour' => 'hours',
+    'spoken_languages' => 'Speaks',
+    'student' => 'Students',
     'more_btn' => 'More',
     'free_lesson_book_btn' => 'Book Free Trial',
     'book_btn' => 'Book',
