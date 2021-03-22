@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'document_title' => ':name nyelvtanár profilja',
+
     'page_title' => 'Az oktatóról',
     'private_lessons' => 'Magánórák',
     'event' => 'alkalom',

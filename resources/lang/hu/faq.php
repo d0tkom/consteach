@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'document_title' => 'Gyakori kérdések és válaszok',
+    'document_description' => 'oldal leírása',
+
     'title' => 'Gyakori kérdések és válaszok',
 
     'question_01_title' => 'Ingyenes az oldal használata?',

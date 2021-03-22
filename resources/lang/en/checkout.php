@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'document_title' => 'Checkout',
+
     'lessons' => 'Lessons',
     'how_many_hours' => 'How many lessons would you like to buy?',
     'lesson' => 'Lesson|Lesson',

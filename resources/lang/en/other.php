@@ -2,7 +2,8 @@
 
 return [
     'select_choose' => 'Válassz',
-    'native' => 'Native'
+    'native' => 'Native',
+    'document_title_append' => ' - ConsTeach',
 ];
 
 ?>

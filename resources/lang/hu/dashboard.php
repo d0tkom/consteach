@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'student_dashboard_title' => 'Tanulótér',
+    'teacher_dashboard_title' => 'Oktatótér',
+
     'mother_tongue' => 'Anyanyelv',
     'spoken_languages' => 'Beszélt nyelvek',
     'booked_lessons' => 'Lefoglalt óráim',

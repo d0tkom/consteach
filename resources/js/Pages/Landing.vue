@@ -313,6 +313,10 @@ export default {
 		
 		this.languageList = this.languageList.getNames(this.locale, {select: 'official'});
 	},
+	mounted() {
+		let title = this.trans.get('landing.document_title');
+		this.$root.documentTitle(title);
+	},
 	computed: {
 		availableLanguagesFiltered() {
 			if (this.moreLanguages) {

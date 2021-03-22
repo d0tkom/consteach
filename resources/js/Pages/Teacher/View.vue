@@ -492,6 +492,11 @@
 		        this.calendarOptions.slotMaxTime = this.filterCalendarTime.end = localStorage_calendarFilter.end;
 	        }
         },
+	    mounted() {
+        	let name = `${this.teacher.user.first_name} ${this.teacher.user.last_name[0]}.`;
+		    let title = this.trans.get('teacher_profile.document_title', {name});
+		    this.$root.documentTitle(title);
+	    },
 	    computed: {
 		    aboutMeText() {
 		    	let text = null;

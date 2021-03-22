@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'document_title' => 'Fizetés',
+
     'lessons' => 'Tanórák',
     'how_many_hours' => 'Hány órát szeretnél vásárolni?',
     'lesson' => 'Tanóra|Tanóra',

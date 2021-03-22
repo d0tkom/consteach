@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'student_dashboard_title' => 'Lessons and Teachers',
+    'teacher_dashboard_title' => 'Lessons and Students',
+
     'mother_tongue' => 'Native',
     'spoken_languages' => 'Spoken languages',
     'booked_lessons' => 'Booked lessons',

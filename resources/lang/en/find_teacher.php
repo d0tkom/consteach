@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'document_title' => 'Tanárkeresés',
+
     'total_teacher' => 'Teachers we recommend',
     'order_btn' => 'Sorting',
     'language_filter_btn' => 'Language',

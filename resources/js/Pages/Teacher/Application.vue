@@ -543,6 +543,9 @@ export default {
 		};
 	},
 	mounted() {
+		let title = this.trans.get('teacher_application.document_title');
+		this.$root.documentTitle(title);
+		
 		const local_data = localStorage.getItem('teacher-application');
 		if (local_data) {
 			this.form = this.$inertia.form(JSON.parse(local_data));

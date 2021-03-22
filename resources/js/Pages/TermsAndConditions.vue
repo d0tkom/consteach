@@ -46,8 +46,9 @@ export default {
 			
 		};
 	},
-	created() {
-	
+	mounted() {
+		let title = this.trans.get('legal.terms_and_conditions_document_title');
+		this.$root.documentTitle(title);
 	},
 	methods: {
 	

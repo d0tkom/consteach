@@ -107,6 +107,10 @@
             lessons: Array,
             appointments: Array
         },
+	    mounted() {
+        	let title = this.trans.get('dashboard.student_dashboard_title');
+            this.$root.documentTitle(title);
+	    },
 	    computed: {
 		    noData() {
 			    if (this.lessons.length) {

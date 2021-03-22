@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'document_title' => '',
+
     'title' => 'Gyakori kérdések és válaszok',
 
     'question_01_title' => 'Ingyenes az oldal használata?',

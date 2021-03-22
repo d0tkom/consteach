@@ -297,6 +297,9 @@
             });
         },
         created() {
+	        let title = this.trans.get('checkout.document_title');
+	        this.$root.documentTitle(title);
+        	
             this.product.teacher_id = this.$props.teacher.id;
             if (!this.trialSelected) {
             	this.selectProduct(1, this.teacher.one_hour_price, 'HUF');

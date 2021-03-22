@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'document_title' => 'Settings',
+    'document_description' => 'Beállítások oldal leírása',
+
     'profile_informations' => 'Felhasználói adatok',
     'first_name_label' => 'Keresztnév',
     'last_name_label' => 'Családnév',

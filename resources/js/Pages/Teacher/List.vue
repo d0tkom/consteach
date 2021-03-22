@@ -169,8 +169,11 @@
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
         },
 	    mounted() {
+		    let title = this.trans.get('find_teacher.document_title');
+		    this.$root.documentTitle(title);
+      
 		    let parameters = this.$root.getUrlVars();
-		
+		    
 		    if (parameters['lang']) {
 			    this.filters.language.value = parameters['lang'];
 		    }

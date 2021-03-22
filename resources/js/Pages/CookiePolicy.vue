@@ -43,8 +43,9 @@ export default {
 			
 		};
 	},
-	created() {
-	
+	mounted() {
+		let title = this.trans.get('legal.cookie_policy_document_title');
+		this.$root.documentTitle(title);
 	},
 	methods: {
 	

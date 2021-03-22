@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'document_title' => 'ConsTeach nyelvtanulás',
+
     'cookie_title' => 'Our site use Cookies. Do you accept our',
     'cookie_link' => 'Cookie Policy',
     'cookie_btn' => 'Accept',

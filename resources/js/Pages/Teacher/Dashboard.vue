@@ -361,6 +361,10 @@
 		        }, deep: true
 	        }
 	    },
+	    mounted() {
+		    let title = this.trans.get('dashboard.teacher_dashboard_title');
+		    this.$root.documentTitle(title);
+	    },
         methods: {
             selectAllow(selectInfo) {
                 return this.$moment

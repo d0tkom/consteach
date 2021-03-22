@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'document_title' => 'Tanárkeresés',
+    'document_description' => 'oldal leírása',
+
     'total_teacher' => 'Tanárok ebben a szűrésben',
     'order_btn' => 'Rendezés',
     'language_filter_btn' => 'Nyelv',

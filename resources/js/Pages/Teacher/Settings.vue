@@ -397,6 +397,10 @@
                 }),
             };
         },
+	    mounted() {
+		    let title = this.trans.get('settings.document_title');
+		    this.$root.documentTitle(title);
+        },
         created() {
             this.countries = require('i18n-iso-countries');
             this.countries.registerLocale(require('i18n-iso-countries/langs/en.json'));

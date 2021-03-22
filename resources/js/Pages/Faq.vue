@@ -158,6 +158,10 @@ export default {
 		return {
 			openedQuestion: null,
 		};
+	},
+	mounted() {
+		let title = this.trans.get('faq.document_title');
+		this.$root.documentTitle(title);
 	}
 }
 </script>
