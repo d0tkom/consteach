@@ -245,7 +245,8 @@
                 locale: window.default_locale,
 	            calendarOptions: {
 	                validRange: {
-		                start: moment().format('YYYY-MM-DD')
+		                start: moment().format('YYYY-MM-DD'),
+		                end: moment().add(2, 'month').format('YYYY-MM-DD')
 	                },
 		            dayHeaderContent: ({text}) => {
 	                	let texts = text.split(' ');
