@@ -315,7 +315,7 @@ export default {
 	},
 	mounted() {
 		let title = this.trans.get('landing.document_title');
-		this.$root.documentTitle(title);
+		this.$root.documentTitle(title, false);
 	},
 	computed: {
 		availableLanguagesFiltered() {

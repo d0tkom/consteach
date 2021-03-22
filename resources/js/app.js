@@ -139,9 +139,15 @@ new Vue({
         this.languageList = this.languageList.getNames(this.locale, {select: 'official'});
     },
     methods: {
-        documentTitle(title) {
-            let documentTitleAppend = this.trans.get('other.document_title_append');
-            document.title = title + documentTitleAppend;
+        documentTitle(title, append = true) {
+            let finalTitle = title;
+
+            if (append) {
+                let documentTitleAppend = this.trans.get('other.document_title_append');
+                finalTitle = title + documentTitleAppend;
+            }
+
+            document.title = finalTitle;
         },
         scrollToElement(selector) {
             const firstScrollTo = scroller();
