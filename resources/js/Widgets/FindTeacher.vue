@@ -84,6 +84,7 @@
 						{{ trans.get('find_teacher.more_btn') }}
 					</c-btn>
 					<c-btn
+						v-if="!$root.isCurrentUserTeacher"
 						icon="event"
 						:navigate-to="'/teacher/' + data.id+'#calendar'"
 					>{{ trans.get('find_teacher.book_btn') }}</c-btn>

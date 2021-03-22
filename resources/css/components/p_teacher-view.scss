@@ -3,3 +3,10 @@
   background: #EEF6FB;
   border-top: 6px solid #BEDDF0;
 }
+
+.mainGrid {
+	&.currentUserTeacher {
+		max-width: 900px;
+		margin: auto;
+	}
+}

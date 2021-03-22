@@ -475,7 +475,8 @@
 	import languages from '@/Partials/languages'
 	import currencies from '@/Partials/currencies'
 	import levels from '@/Partials/levels'
-
+	import getVideoId from 'get-video-id';
+	
 export default {
 	components: {
 		AppLayout,

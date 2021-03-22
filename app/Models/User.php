@@ -85,6 +85,6 @@ class User extends Authenticatable
 
     protected function defaultProfilePhotoUrl()
     {
-        return null;
+        return '/img/profile_placeholder.jpg';
     }
 }

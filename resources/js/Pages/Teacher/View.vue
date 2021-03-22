@@ -2,7 +2,10 @@
     <app-layout>
         <div class="studentHubContainer mt-8">
             <div class="card flat lg">
-                <div class="mainGrid grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <div
+	                class="mainGrid grid grid-cols-1 gap-4"
+	                :class="!$root.isCurrentUserTeacher ? 'lg:grid-cols-3' : 'currentUserTeacher'"
+                >
                     <div class="col-span-2">
                         <div class="mobileReversedCol card p-sm">
                             <iframe
@@ -89,7 +92,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card p-sm" id="calendar">
+                        <div
+	                        v-if="!$root.isCurrentUserTeacher"
+	                        class="card p-sm"
+	                        id="calendar"
+                        >
                             <div class="text-md font-bold color-blue-dark mb-4">{{ trans.get('teacher_profile.time_table') }}</div>
 	
 	                        <div class="title text-md font-bold color-primary-dark">
@@ -149,7 +156,10 @@
                         </div>
                         -->
                     </div>
-                    <div class="col-span-1">
+                    <div
+	                    v-if="!$root.isCurrentUserTeacher"
+	                    class="col-span-1"
+                    >
 	                    <div v-if="$page.props.user ? $page.props.user.extra.trial_available : true" class="card freeLessonCard p-sm">
 		                    <div class="blue-text-color mb-6 text-center sm:text-left ">
 			                    <p class="text-lg font-semibold">
@@ -182,7 +192,10 @@
 			                    >{{ trans.get('teacher_profile.free_lesson_btn') }}</c-btn>
 		                    </div>
 	                    </div>
-                        <div class="priceTableCard card p-sm">
+                        <div
+	                        v-if="!$root.isCurrentUserTeacher"
+	                        class="priceTableCard card p-sm"
+                        >
                             <div class="blue-text-color mb-6 text-center sm:text-left ">
                                 <p class="text-lg font-semibold">
 	                                {{ trans.get('teacher_profile.private_lessons') }}

@@ -337,6 +337,7 @@
     import ChangePassword from '@/Popups/ChangePassword'
     import DeleteProfile from "@/Popups/DeleteProfile";
     import UpdateProfileInformationForm from "@/Pages/Profile/UpdateProfileInformationForm";
+    import getVideoId from 'get-video-id';
     
     export default {
         components: {

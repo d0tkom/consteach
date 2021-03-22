@@ -194,6 +194,13 @@ new Vue({
             }
 
             return 'timeGridDay';
+        },
+        isCurrentUserTeacher() {
+            if (!this.$page.props.user) {
+                return false;
+            }
+
+            return this.$page.props.user.role === 'teacher';
         }
     },
     render: (h) =>
