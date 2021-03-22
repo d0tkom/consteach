@@ -8,9 +8,12 @@
 			>
 		</div>
 		<div class="w-full flex flex-col">
-			<div class="name text-lg font-bold color-primary-dark">
+			<inertia-link
+				:href="'/teacher/'+data.teacher.id"
+				class="name text-lg font-bold color-primary-dark"
+			>
 				{{ data.teacher.user.first_name }}
-			</div>
+			</inertia-link>
 			<div>
 				<span class="name text-lg color-primary-dark capitalize">
 					{{ $root.languageList[data.teacher.country.toLowerCase()] }}

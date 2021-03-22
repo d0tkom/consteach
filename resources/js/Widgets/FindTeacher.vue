@@ -13,12 +13,15 @@
 				</div>
 				<div class="cardBody w-full flex flex-col">
 					<div class="flex items-center justify-between mb-4">
-						<div v-if="data.user" class="name text-lg font-bold color-primary-dark flex items-center">
-						<span
-							class="capitalize mr-4"
+						<div
+							v-if="data.user"
+							class="name text-lg font-bold color-primary-dark flex items-center"
 						>
-							{{ data.user.first_name }} {{ data.user.last_name[0] }}.
-						</span>
+							<span
+								class="capitalize mr-4"
+							>
+								{{ data.user.first_name }} {{ data.user.last_name[0] }}.
+							</span>
 							<flag
 								v-if="data.country"
 								class="text-2xl shadow-sm flagWide"

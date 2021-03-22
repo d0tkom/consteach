@@ -42,6 +42,14 @@ Vue.use(VueScrollTo);
 
 const app = document.getElementById('app');
 
+import VueProgressBar from 'vue-progressbar'
+
+Vue.use(VueProgressBar, {
+    color: '#7cc9fd',
+    failedColor: 'red',
+    height: '2px'
+})
+
 import {scroller} from 'vue-scrollto/src/scrollTo'
 
 import VueGtag from "vue-gtag";
@@ -74,10 +82,6 @@ new Vue({
         }
     },
     watch: {
-        '$inertia'(e) {
-            console.log(e);
-            this.pageChange();
-        },
         'cookiePolicy.accepted'(accepted) {
             this.$cookie.set('cookie-policy', accepted);
         }
@@ -88,7 +92,16 @@ new Vue({
         this.$inertia.on('start', event => this.pageChange(event.detail.visit.url));
 
         this.$inertia.on('before', () => {
+            this.$Progress.start();
             scrollLock.enablePageScroll();
+        });
+
+        this.$inertia.on('success', () => {
+            this.$Progress.finish();
+        });
+
+        this.$inertia.on('error', () => {
+            this.$Progress.error();
         });
 
         this.cookiePolicy.accepted = this.$cookie.get('cookie-policy') || false;

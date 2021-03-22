@@ -18,6 +18,7 @@
 		        v-if="!$root.cookiePolicy.accepted"
 		    />
 	    </transition>
+	    <vue-progress-bar></vue-progress-bar>
     </div>
 </template>
 
