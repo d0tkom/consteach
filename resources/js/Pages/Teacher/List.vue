@@ -84,15 +84,21 @@
                 </div>
             </div>
             
-            <find-teacher
-                v-for="(teacher, t) in teachers"
-                :key="t"
-                :data="teacher"
-                :trial-available="$page.props.user && $page.props.user.extra ? $page.props.user.extra.trial_available : true"
-                @mouse-enter="id => mouseEnter(id)"
-                @mouse-leave="id => mouseLeave(id)"
-                :active="activeTeacher === teacher.id"
-            />
+	        <div
+		        @mouseenter="mouseEnter(teacher.id)"
+		        @mouseleave="mouseLeave(teacher.id)"
+		        v-for="(teacher, t) in teachers"
+		        :key="t"
+	        >
+		        <find-teacher
+			       
+			        :data="teacher"
+			        :trial-available="$page.props.user && $page.props.user.extra ? $page.props.user.extra.trial_available : true"
+			
+			        :active="activeTeacher === teacher.id"
+		        />
+	        </div>
+
 	        
             <div class="actions flex justify-center">
                 <c-btn
@@ -212,6 +218,7 @@
                 });
             },
             mouseEnter(id) {
+            	console.log('d');
                 this.activeTeacher = id;
             },
             mouseLeave(id) {
