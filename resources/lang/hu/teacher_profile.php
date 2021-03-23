@@ -2,6 +2,7 @@
 
 return [
     'document_title' => ':name nyelvtanár profilja',
+    'document_description' => ':description',
 
     'page_title' => 'Az oktatóról',
     'private_lessons' => 'Magánórák',

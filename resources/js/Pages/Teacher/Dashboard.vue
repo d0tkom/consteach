@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="contentGrid grid grid-cols-1 lg:grid-cols-3 gap-4">
-                    <div class="col-span-2 card p-sm" v-if="appointments.length">
+                    <div class="col-span-2 card p-sm" v-if="appointments && appointments.length">
                         <div class="flex justify-between mb-4">
                             <div class="color-primary-dark text-lg font-bold">{{ trans.get('dashboard.booked_lessons') }}</div>
                         </div>
@@ -109,7 +109,7 @@
                     </div>
                     <!-- Sidebar -->
                     <div class="col-span-1">
-                        <div class="card p-sm" v-if="lessons.length">
+                        <div class="card p-sm" v-if="lessons && lessons.length">
                             <div class="color-primary-dark text-lg font-bold mb-4">{{ trans.get('dashboard.my_students') }}</div>
                             <bought-event
                                 v-for="(lesson, l) in lessons"

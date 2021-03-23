@@ -1,8 +1,13 @@
 <?php
 
 return [
-    'student_dashboard_title' => 'Lessons and Teachers',
-    'teacher_dashboard_title' => 'Lessons and Students',
+    'student_dashboard_title' => 'Tanulótér',
+    'student_dashboard_description' => '',
+    'student_dashboard_image' => '',
+
+    'teacher_dashboard_title' => 'Oktatótér',
+    'teacher_dashboard_description' => '',
+    'teacher_dashboard_image' => '',
 
     'mother_tongue' => 'Native',
     'spoken_languages' => 'Spoken languages',

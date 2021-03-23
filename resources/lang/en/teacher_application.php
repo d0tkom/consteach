@@ -3,6 +3,7 @@
 return [
     'document_title' => 'Tanár jelentkezés',
     'document_description' => 'Oldal leírása',
+    'document_image' => '',
 
     'user_informations' => 'Felhasználói adatok',
     'first_name_label' => 'Keresztnév',

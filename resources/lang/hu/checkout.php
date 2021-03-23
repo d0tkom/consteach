@@ -2,6 +2,8 @@
 
 return [
     'document_title' => 'Fizetés',
+    'document_description' => '',
+    'document_image' => '',
 
     'lessons' => 'Tanórák',
     'how_many_hours' => 'Hány órát szeretnél vásárolni?',

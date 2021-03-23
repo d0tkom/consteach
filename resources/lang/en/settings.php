@@ -3,6 +3,7 @@
 return [
     'document_title' => 'Settings',
     'document_description' => 'Page description',
+    'document_image' => '',
 
     'profile_informations' => 'User Settings',
     'first_name_label' => 'First Name',

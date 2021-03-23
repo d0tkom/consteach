@@ -3,6 +3,7 @@
 return [
     'document_title' => 'Tanárkeresés',
     'document_description' => 'oldal leírása',
+    'document_image' => '',
 
     'total_teacher' => 'Tanárok ebben a szűrésben',
     'order_btn' => 'Rendezés',

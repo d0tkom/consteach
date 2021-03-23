@@ -3,6 +3,7 @@
 return [
     'document_title' => 'Beállítások',
     'document_description' => 'Beállítások oldal leírása',
+    'document_image' => '',
 
     'profile_informations' => 'Felhasználói adatok',
     'first_name_label' => 'Keresztnév',

@@ -1,7 +1,9 @@
 <?php
 
 return [
-    'document_title' => '',
+    'document_title' => 'Gyakori kérdések és válaszok',
+    'document_description' => 'oldal leírása',
+    'document_image' => '',
 
     'title' => 'Gyakori kérdések és válaszok',
 

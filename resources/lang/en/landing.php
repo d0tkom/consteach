@@ -2,6 +2,8 @@
 
 return [
     'document_title' => 'ConsTeach nyelvtanulás',
+    'document_description' => 'oldal leírása',
+    'document_image' => '',
 
     'cookie_title' => 'Our site use Cookies. Do you accept our',
     'cookie_link' => 'Cookie Policy',

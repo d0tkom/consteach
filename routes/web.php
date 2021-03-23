@@ -33,11 +33,43 @@ Route::get('/register', function () { return redirect('/#registration'); })->nam
 Route::get('/forgotten-password', function () { return redirect('/#lost-password'); })->name('forgotten-password');
 
 //Route::get('/teacher-landing', function () { return Inertia::render('TeacherLanding'); })->name('teacher-landing');
-Route::get('/faq', function() { return Inertia::render('Faq'); });
+Route::get('/faq', function() {
+    $meta = [
+        'title' => __('faq.document_title'),
+        'description' => __('faq.document_description'),
+        'img' => __('faq.document_img')
+    ];
 
-Route::get('/terms-and-conditions', function() { return Inertia::render('TermsAndConditions'); });
-Route::get('/cookie-policy', function() { return Inertia::render('CookiePolicy'); });
-Route::get('/privacy-policy', function() { return Inertia::render('PrivacyPolicy'); });
+    return Inertia::render('Faq')->with(['meta' => $meta]);
+});
+
+Route::get('/terms-and-conditions', function() {
+    $meta = [
+        'title' => __('legal.terms_and_conditions_document_title'),
+        'description' => __('legal.terms_and_conditions_document_description'),
+        'img' => __('legal.terms_and_conditions_document_image')
+    ];
+
+    return Inertia::render('TermsAndConditions')->with(['meta' => $meta]);
+});
+Route::get('/cookie-policy', function() {
+    $meta = [
+        'title' => __('legal.cookie_policy_document_title'),
+        'description' => __('legal.cookie_policy_document_description'),
+        'img' => __('legal.cookie_policy_document_image')
+    ];
+
+    return Inertia::render('CookiePolicy')->with(['meta' => $meta]);
+});
+Route::get('/privacy-policy', function() {
+    $meta = [
+        'title' => __('legal.privacy_policy_document_title'),
+        'description' => __('legal.privacy_policy_document_description'),
+        'img' => __('legal.privacy_policy_document_image')
+    ];
+
+    return Inertia::render('PrivacyPolicy')->with(['meta' => $meta]);
+});
 
 Route::put('/availability', [AvailabilityController::class, 'store'])->name('availability.store');
 Route::delete('/availability/{availability}', [AvailabilityController::class, 'destroy'])->name('availability.destroy');

@@ -116,7 +116,7 @@ class CheckoutController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function show(Request $request, Teacher $teacher)
     {
@@ -124,7 +124,17 @@ class CheckoutController extends Controller
 
         $teacher->user;
 
-        return Inertia::render('Checkout')->with(['teacher' => $teacher, 'appointment' => $appointment]);
+        $meta = [
+            'title' => __('checkout.document_title'),
+            'description' => __('checkout.document_description'),
+            'img' => __('checkout.document_img')
+        ];
+
+        return Inertia::render('Checkout')->with([
+            'teacher' => $teacher,
+            'appointment' => $appointment,
+            'meta' => $meta
+        ]);
     }
 
     /**

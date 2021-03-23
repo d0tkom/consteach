@@ -14,12 +14,24 @@ class DashboardController extends Controller
     {
     	$user = Auth::user();
 
-    	if ($user->role == 'student') return Inertia::render('Student/Dashboard')->with($this->renderStudentHub($user));
+        $studentMeta = [
+            'title' => __('dashboard.student_dashboard_title'),
+            'description' => __('dashboard.student_dashboard_description'),
+            'img' => __('dashboard.student_dashboard_img')
+        ];
 
-    	if ($user->role == 'teacher') return Inertia::render('Teacher/Dashboard')->with($this->renderTeacherHub($user));
+        if ($user->role == 'student') return Inertia::render('Student/Dashboard')->with($this->renderStudentHub($user, $studentMeta));
+
+        $teacherMeta = [
+            'title' => __('dashboard.teacher_dashboard_title'),
+            'description' => __('dashboard.teacher_dashboard_description'),
+            'img' => __('dashboard.teacher_dashboard_img')
+        ];
+
+    	if ($user->role == 'teacher') return Inertia::render('Teacher/Dashboard')->with($this->renderTeacherHub($user, $teacherMeta));
     }
 
-    protected function renderStudentHub(User $user)
+    protected function renderStudentHub(User $user, $meta)
     {
     	$lessons = $user->extra->lessons()
             ->with('teacher') 
@@ -37,10 +49,14 @@ class DashboardController extends Controller
         	->orderBy('start', 'ASC')
         	->get();
 
-        return ['appointments' => $appointments, 'lessons' => $lessons];
+        return [
+            'appointments' => $appointments,
+            'lessons' => $lessons,
+            'meta' => $meta
+        ];
     }
 
-    protected function renderTeacherHub(User $user) 
+    protected function renderTeacherHub(User $user, $meta)
     {
     	$lessons = $user->extra->lessons()
             ->with('student') 
@@ -60,6 +76,11 @@ class DashboardController extends Controller
 
         $availabilities = $user->extra->availabilities();
 
-        return ['appointments' => $appointments, 'lessons' => $lessons, 'availabilities' => $availabilities];
+        return [
+            'appointments' => $appointments,
+            'lessons' => $lessons,
+            'availabilities' => $availabilities,
+            'meta' => $meta
+        ];
     }
 }

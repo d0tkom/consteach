@@ -1,7 +1,9 @@
 <?php
 
 return [
-    'document_title' => 'Find a teacher',
+    'document_title' => 'Tanárkeresés',
+    'document_description' => 'oldal leírása',
+    'document_image' => '',
 
     'total_teacher' => 'Recommended Teachers',
     'order_btn' => 'Sorting',

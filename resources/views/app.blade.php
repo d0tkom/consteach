@@ -6,7 +6,16 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="theme-color" content="#18A0FB">
 
-        <title>{{ config('app.name', 'ConsTeach') }}</title>
+        <title>{{ $page['props']['meta']['title'].__('other.document_title_append') }}</title>
+        <meta name="description" content="{{ $page['props']['meta']['description'] }}">
+
+        <meta property="og:type" content="website" />
+
+        <meta property="og:title" content="{{ $page['props']['meta']['title'].__('other.document_title_append') }}" />
+        <meta property="og:description" content="{{ $page['props']['meta']['description'] }}" />
+        <meta property="og:image" content="{{ $page['props']['meta']['img'] }}" />
+        <meta property="og:url" content="{{ url()->full() }}" />
+        <meta property="og:site_name" content="ConsTeach" />
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">

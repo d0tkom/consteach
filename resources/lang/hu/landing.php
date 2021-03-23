@@ -3,6 +3,7 @@
 return [
     'document_title' => 'ConsTeach nyelvtanulás',
     'document_description' => 'oldal leírása',
+    'document_image' => '',
 
     'cookie_title' => 'Oldalunk sütiket használ. Elfogadod a',
     'cookie_link' => 'Sütikezelési szabályzatunkat',
