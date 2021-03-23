@@ -257,6 +257,7 @@
             </div>
         </div>
         <BookAppointment
+	        :loading="appointmentPopup.loading"
             v-model="appointmentPopup.open"
             :data="appointmentPopup.data"
             @submit="submitAppointment"
@@ -382,6 +383,7 @@
 	            aboutMeOpened: false,
                 appointmentPopup: {
                     open: false,
+	                loading: false,
                     data: {
                         teacher_name: null,
                         date_start: null,
@@ -556,7 +558,9 @@
 	            if (this.$page.props.user.role !== 'student') {
 		            return false;
 	            }
-                
+             
+	            this.appointmentPopup.loading = true;
+	            
                 axios.put('/appointment', {
                     params: {
                         start: this.appointmentPopup.data.date_start,
@@ -579,9 +583,13 @@
                             eventClickInfo: null
                         };
                     }, 500);
+                    
+	                this.appointmentPopup.loading = false;
                 })
                 .catch(error => {
-                    if (error.response.status === 423) {
+	                this.appointmentPopup.loading = false;
+	
+	                if (error.response.status === 423) {
                          this.$inertia.visit('/checkout/' + this.teacher.id  + '?appointment=' + error.response.data);
                     } else {
 	                    let message = this.trans.get('teacher_profile.submit_appointment_fail_notification');

@@ -3,14 +3,229 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="26ec1af2-7b2c-490f-937f-842dba45277b" name="Default Changelist" comment="Friss Teacher HUB változtatások">
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Notifications/AppointmentBooked.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Notifications/UserRegistered.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/en/mail-appointment_booked.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/en/mail-user_registered.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/en/mail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/hu/mail-appointment_booked.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/hu/mail-user_registered.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/hu/mail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/mails/teacher/appointment_booked.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/mails/user/registered.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/button.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/layout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/message.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/panel.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/subcopy.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/table.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/themes/default.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/button.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/footer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/layout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/message.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/panel.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/subcopy.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/table.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/vendor/notifications/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_06_03_2021__17_03.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_06_03_2021__17_03.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/consteach.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/consteach.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_14_2021_2_52_AM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2021_10_20_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2021_10_20_PM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2021_11_36_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2021_11_36_PM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_22_PM_[Default_Changelist]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_22_PM_[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_22_PM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_27_PM_[Default_Changelist]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_27_PM_[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_27_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_27_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_34_PM_[Default_Changelist]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_34_PM_[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_34_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_34_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_8_32_PM_[Default_Changelist]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_8_32_PM_[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_8_32_PM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/error_fix.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/error_fix.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/error_fix/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/error_fix/shelved.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webResources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webResources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.phpstorm.meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.styleci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.styleci.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ide_helper_models.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/PasswordValidationRules.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/PasswordValidationRules.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/ResetUserPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/ResetUserPassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/UpdateUserPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/UpdateUserPassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/UpdateUserProfileInformation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/UpdateUserProfileInformation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Jetstream/DeleteUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Jetstream/DeleteUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Jetstream/RemoveTeamMember.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Jetstream/RemoveTeamMember.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/InitDb.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/InitDb.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/CollectionHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/CollectionHelper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AvailabilityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AvailabilityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CurrencyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CurrencyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LessonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LessonController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MessageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SettingsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SettingsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/StudentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TeacherController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/EncryptCookies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/EncryptCookies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/LangMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/LangMiddleware.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/PreventRequestsDuringMaintenance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/PreventRequestsDuringMaintenance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectByUserLang.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectByUserLang.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/TeacherRegistered.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/TeacherRegistered.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/TeacherVerified.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/TeacherVerified.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/TrimStrings.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/TrimStrings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/TrustHosts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/TrustHosts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/TrustProxies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Appointment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Appointment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Availability.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Availability.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Lesson.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Lesson.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Message.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Student.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Student.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Teacher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/TeamInvitation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/TeamInvitation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/FortifyServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/FortifyServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/JetstreamServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/JetstreamServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/View/Components/GuestLayout.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/Components/GuestLayout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/artisan" beforeDir="false" afterPath="$PROJECT_DIR$/artisan" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/billingo-api-v3-wrapper.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/billingo-api-v3-wrapper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/broadcasting.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/broadcasting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/cache.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/cache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/cors.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/cors.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/fortify.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/fortify.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/hashing.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/hashing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/jetstream.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/jetstream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/logging.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/logging.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/queue.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/queue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/sanctum.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/sanctum.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/zoom.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/zoom.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/database/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/AppointmentFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AppointmentFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/AvailabilityFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AvailabilityFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/LessonFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/LessonFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/OrderFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/OrderFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/StudentFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/StudentFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/TeacherFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/TeacherFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_05_03_000001_create_customer_columns.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_05_03_000001_create_customer_columns.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_05_03_000002_create_subscriptions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_05_03_000002_create_subscriptions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_05_03_000003_create_subscription_items_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_05_03_000003_create_subscription_items_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_12_193501_create_sessions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_12_193501_create_sessions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_20_194844_create_teachers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_20_194844_create_teachers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_20_194857_create_students_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_20_194857_create_students_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_20_194918_create_messages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_20_194918_create_messages_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_20_195531_create_lessons_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_20_195531_create_lessons_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_20_204351_create_availabilities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_20_204351_create_availabilities_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_20_204358_create_appointments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_20_204358_create_appointments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_19_111904_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_19_111904_create_orders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/OrderSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/OrderSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/landing.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/landing.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Montserrat_300_normal.eot" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/Montserrat_300_normal.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Montserrat_300_normal.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/Montserrat_300_normal.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Montserrat_300_normal.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/Montserrat_300_normal.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Montserrat_300_normal.woff" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/Montserrat_300_normal.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/Montserrat_300_normal.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/Montserrat_300_normal.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIcons-Regular.eot" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIcons-Regular.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIcons-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIcons-Regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIcons-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIcons-Regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIcons-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIcons-Regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsOutlined-Regular.eot" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsOutlined-Regular.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsOutlined-Regular.otf" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsOutlined-Regular.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsOutlined-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsOutlined-Regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsOutlined-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsOutlined-Regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsRound-Regular.eot" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsRound-Regular.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsRound-Regular.otf" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsRound-Regular.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsRound-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsRound-Regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsRound-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsRound-Regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsSharp-Regular.eot" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsSharp-Regular.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsSharp-Regular.otf" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsSharp-Regular.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsSharp-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsSharp-Regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsSharp-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsSharp-Regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsTwoTone-Regular.eot" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsTwoTone-Regular.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsTwoTone-Regular.otf" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsTwoTone-Regular.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsTwoTone-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsTwoTone-Regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsTwoTone-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsTwoTone-Regular.woff2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/ad.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/ad.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/ae.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/ae.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/af.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/af.svg" afterDir="false" />
@@ -523,12 +738,363 @@
       <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/za.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/za.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/zm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/zm.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/zw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/zw.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/GlobeAndBook1.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/GlobeAndBook1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/GlobeAndBook2.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/GlobeAndBook2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/TeachWithUsBgLight.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/TeachWithUsBgLight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/TopLineMobileLight.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/TopLineMobileLight.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/TopLineScreenLight.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/TopLineScreenLight.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/Wave1MobileLight.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/Wave1MobileLight.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/Wave1ScreenLight.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/Wave1ScreenLight.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/Wave2MobileLight.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/Wave2MobileLight.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/Wave2ScreenLight.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/Wave2ScreenLight.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/bg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/bg.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/calendar_empty_slot.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/calendar_empty_slot.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/circle1.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/circle1.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/circle2.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/circle2.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/circle3.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/circle3.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/circle4.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/circle4.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/circle5.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/circle5.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/circle5_dark.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/circle5_dark.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/circle5_light.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/circle5_light.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/circle6.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/circle6.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/circle6_dark.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/circle6_dark.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/circle6_light.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/circle6_light.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/circle7.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/circle7.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/circle7_dark.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/circle7_dark.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/circle7_light.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/circle7_light.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/facebook_icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/facebook_icon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/favicon/apple-touch-icon-114x114.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/favicon/apple-touch-icon-114x114.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/favicon/apple-touch-icon-120x120.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/favicon/apple-touch-icon-120x120.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/favicon/apple-touch-icon-144x144.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/favicon/apple-touch-icon-144x144.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/favicon/apple-touch-icon-152x152.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/favicon/apple-touch-icon-152x152.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/favicon/apple-touch-icon-57x57.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/favicon/apple-touch-icon-57x57.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/favicon/apple-touch-icon-60x60.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/favicon/apple-touch-icon-60x60.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/favicon/apple-touch-icon-72x72.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/favicon/apple-touch-icon-72x72.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/favicon/apple-touch-icon-76x76.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/favicon/apple-touch-icon-76x76.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/favicon/favicon-128.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/favicon/favicon-128.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/favicon/favicon-16x16.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/favicon/favicon-16x16.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/favicon/favicon-196x196.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/favicon/favicon-196x196.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/favicon/favicon-32x32.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/favicon/favicon-32x32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/favicon/favicon-96x96.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/favicon/favicon-96x96.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/favicon/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/favicon/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/favicon/mstile-144x144.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/favicon/mstile-144x144.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/favicon/mstile-150x150.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/favicon/mstile-150x150.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/favicon/mstile-310x150.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/favicon/mstile-310x150.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/favicon/mstile-310x310.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/favicon/mstile-310x310.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/favicon/mstile-70x70.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/favicon/mstile-70x70.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flag_ES.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flag_ES.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flag_FIN.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flag_FIN.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flag_FR.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flag_FR.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flag_G.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flag_G.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flag_GB.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flag_GB.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flag_GR.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flag_GR.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flag_IT.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flag_IT.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flag_NL.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flag_NL.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flag_P.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flag_P.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flag_RO.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flag_RO.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flag_RU.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flag_RU.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flag_S.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flag_S.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flags/flag_de.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flags/flag_de.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flags/flag_en.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flags/flag_en.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flags/flag_es.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flags/flag_es.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flags/flag_fin.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flags/flag_fin.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flags/flag_fr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flags/flag_fr.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flags/flag_gr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flags/flag_gr.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flags/flag_it.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flags/flag_it.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flags/flag_nl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flags/flag_nl.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flags/flag_p.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flags/flag_p.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flags/flag_ro.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flags/flag_ro.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flags/flag_ru.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flags/flag_ru.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/flags/flag_s.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/flags/flag_s.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/footer_bg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/footer_bg.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/girl.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/girl.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/girl.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/girl.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/girl_dark.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/girl_dark.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/girl_light.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/girl_light.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/google_logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/google_logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/instagram_icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/instagram_icon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/landing_tree.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/landing_tree.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/landing_wave_bottom.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/landing_wave_bottom.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/landing_wave_white_bottom.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/landing_wave_white_bottom.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/landing_wave_white_top.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/landing_wave_white_top.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/level_up_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/level_up_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/level_up_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/level_up_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/level_up_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/level_up_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/linkedin_icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/linkedin_icon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/moon.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/moon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/profile_img_test.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/profile_img_test.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/profile_photo_tip_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/profile_photo_tip_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/profile_photo_tip_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/profile_photo_tip_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/profile_photo_tip_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/profile_photo_tip_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/profile_placeholder.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/profile_placeholder.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/resume-studies.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/resume-studies.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/sand_glass.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/sand_glass.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/student_icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/student_icon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/sun.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/sun.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/twitter_icon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/twitter_icon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/web.config" beforeDir="false" afterPath="$PROJECT_DIR$/public/web.config" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/assets/js/ll_messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/ll_messages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/auth.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/auth.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/btn.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/btn.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/checkbox.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/checkbox.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/date.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/date.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/input.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/input.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/l_app-layout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/l_app-layout.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/p_cancel-lesson.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/p_cancel-lesson.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/p_change-password.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/p_change-password.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/p_checkout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/p_checkout.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/p_cookie.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/p_cookie.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/p_delete-profile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/p_delete-profile.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/p_find-teacher-day.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/p_find-teacher-day.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/p_find-teacher-language.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/p_find-teacher-language.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/p_find-teacher-order.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/p_find-teacher-order.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/p_find-teacher-price.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/p_find-teacher-price.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/p_lesson-not-ready.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/p_lesson-not-ready.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/p_site-footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/p_site-footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/p_site-header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/p_site-header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/p_student-settings.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/p_student-settings.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/p_teacher-hub.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/p_teacher-hub.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/p_teacher-list.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/p_teacher-list.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/p_teacher-settings.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/p_teacher-settings.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/p_teacher-view.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/p_teacher-view.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/p_teacher_application.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/p_teacher_application.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/popup.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/popup.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/select.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/select.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/slider.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/slider.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/tag.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/tag.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/textarea.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/textarea.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/thread.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/thread.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/threads.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/threads.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/tooltip.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/tooltip.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/w_booked-event.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/w_booked-event.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/w_bought-event.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/w_bought-event.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/css/components/w_find-teacher.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/w_find-teacher.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/w_profile-popup.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/w_profile-popup.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/w_teacher.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/w_teacher.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/components/w_wallet.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/components/w_wallet.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/fonts/Montserrat/Montserrat_300_normal.eot" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/fonts/Montserrat/Montserrat_300_normal.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/fonts/Montserrat/Montserrat_300_normal.svg" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/fonts/Montserrat/Montserrat_300_normal.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/fonts/Montserrat/Montserrat_300_normal.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/fonts/Montserrat/Montserrat_300_normal.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/fonts/Montserrat/Montserrat_300_normal.woff" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/fonts/Montserrat/Montserrat_300_normal.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/fonts/Montserrat/Montserrat_300_normal.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/fonts/Montserrat/Montserrat_300_normal.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/fonts/Montserrat/fonts.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/fonts/Montserrat/fonts.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/landing.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/landing.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/partials/base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/partials/base.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/partials/full_calendar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/partials/full_calendar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/partials/responsive.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/partials/responsive.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/partials/variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/partials/variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/Currency.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/Currency.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/Thread.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/Thread.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/Threads.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/Threads.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/cBtn.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/cBtn.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/cCheckbox.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/cCheckbox.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/cDate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/cDate.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/cInput.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/cInput.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/cPopUp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/cPopUp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/cSelect.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/cSelect.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/cSlider.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/cSlider.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/cTag.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/cTag.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Components/cTextArea.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/cTextArea.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/ActionMessage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/ActionMessage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/ActionSection.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/ActionSection.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/ApplicationLogo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/ApplicationLogo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/ApplicationMark.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/ApplicationMark.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/AuthenticationCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/AuthenticationCard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/AuthenticationCardLogo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/AuthenticationCardLogo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/Button.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/Button.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/Checkbox.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/Checkbox.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/ConfirmationModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/ConfirmationModal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/ConfirmsPassword.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/ConfirmsPassword.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/DangerButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/DangerButton.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/DialogModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/DialogModal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/Dropdown.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/Dropdown.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/DropdownLink.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/DropdownLink.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/FormSection.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/FormSection.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/Input.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/Input.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/InputError.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/InputError.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/Label.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/Label.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/Modal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/Modal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/NavLink.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/NavLink.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/ResponsiveNavLink.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/ResponsiveNavLink.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/SecondaryButton.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/SecondaryButton.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/SectionBorder.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/SectionBorder.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/SectionTitle.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/SectionTitle.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/ValidationErrors.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/ValidationErrors.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/Welcome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/Welcome.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Layouts/AppLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Layouts/AppLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Layouts/Partials/CookiePanel.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Layouts/Partials/CookiePanel.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Layouts/Partials/Logo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Layouts/Partials/Logo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Layouts/Partials/SiteFooter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Layouts/Partials/SiteFooter.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Layouts/Partials/SiteHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Layouts/Partials/SiteHeader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Mixins/InteractsWithErrorBags.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Mixins/InteractsWithErrorBags.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/API/ApiTokenManager.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/API/ApiTokenManager.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/API/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/API/Index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/ConfirmPassword.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/ConfirmPassword.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/ForgotPassword.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/ForgotPassword.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/Register.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/ResetPassword.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/ResetPassword.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/TwoFactorChallenge.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/TwoFactorChallenge.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/VerifyEmail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/VerifyEmail.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Checkout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Checkout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/CookiePolicy.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/CookiePolicy.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Faq.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Faq.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Landing.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Landing.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Landing/LoginPopup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Landing/LoginPopup.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Landing/LostPasswordPopup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Landing/LostPasswordPopup.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Landing/RegisterPopup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Landing/RegisterPopup.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/PrivacyPolicy.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/PrivacyPolicy.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Profile/DeleteUserForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Profile/DeleteUserForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Profile/LogoutOtherBrowserSessionsForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Profile/LogoutOtherBrowserSessionsForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Profile/Show.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Profile/Show.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Profile/TwoFactorAuthenticationForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Profile/TwoFactorAuthenticationForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Profile/UpdatePasswordForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Profile/UpdatePasswordForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Profile/UpdateProfileInformationForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Profile/UpdateProfileInformationForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Student/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Student/Dashboard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Student/Settings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Student/Settings.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teacher/Application.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teacher/Application.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teacher/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teacher/Dashboard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teacher/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teacher/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teacher/Settings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teacher/Settings.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Teacher/View.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Teacher/View.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/TeacherLanding.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/TeacherLanding.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Pages/TermsAndConditions.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/TermsAndConditions.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Partials/clickOutside.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Partials/clickOutside.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Partials/countries.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Partials/countries.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Partials/currencies.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Partials/currencies.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Partials/languages.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Partials/languages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Partials/levels.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Partials/levels.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Partials/timezones.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Partials/timezones.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Popups/BookAppointment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Popups/BookAppointment.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Popups/CancelLesson.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Popups/CancelLesson.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Popups/ChangePassword.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Popups/ChangePassword.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Popups/DeleteAvailability.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Popups/DeleteAvailability.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Popups/DeleteProfile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Popups/DeleteProfile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Popups/FindTeacherDay.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Popups/FindTeacherDay.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Popups/FindTeacherLanguage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Popups/FindTeacherLanguage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Popups/FindTeacherOrder.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Popups/FindTeacherOrder.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Popups/FindTeacherPrice.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Popups/FindTeacherPrice.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Popups/LessonNotReady.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Popups/LessonNotReady.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Popups/StudentAppointment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Popups/StudentAppointment.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Widgets/BookedEvent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Widgets/BookedEvent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Widgets/BoughtEvent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Widgets/BoughtEvent.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Widgets/FindTeacher.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Widgets/FindTeacher.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Widgets/ProfilePopup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Widgets/ProfilePopup.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Widgets/Teacher.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Widgets/Teacher.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/Widgets/Wallet.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Widgets/Wallet.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/dateFilters.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/dateFilters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/globalComponents.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/globalComponents.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/notification.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/de/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/de/pagination.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de/passwords.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/de/passwords.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de/titles.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/de/titles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/de/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/de/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/checkout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/faq.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/faq.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/find_teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/find_teacher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/landing.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/landing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/legal.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/legal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/other.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/other.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/pagination.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/passwords.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/passwords.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/student_appointment_popup.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/student_appointment_popup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/teacher_application.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/teacher_application.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/teacher_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/teacher_profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/titles.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/titles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/auth.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/hu/checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/checkout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/faq.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/faq.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/find_teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/find_teacher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/landing.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/landing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/legal.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/legal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/other.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/other.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/pagination.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/passwords.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/passwords.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/settings.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/settings.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/student_appointment_popup.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/student_appointment_popup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/teacher_application.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/teacher_application.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/teacher_landing.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/teacher_landing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/teacher_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/teacher_profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/titles.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/titles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/forgot-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/forgot-password.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/reset-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/reset-password.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/two-factor-challenge.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/two-factor-challenge.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify-email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify-email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/guest.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/guest.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/favicon.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/favicon.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/action-message.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/action-message.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/action-section.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/action-section.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/application-logo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/application-logo.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/application-mark.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/application-mark.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/authentication-card-logo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/authentication-card-logo.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/authentication-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/authentication-card.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/button.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/button.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/confirmation-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/confirmation-modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/confirms-password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/confirms-password.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/danger-button.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/danger-button.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/dialog-modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/dialog-modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/dropdown-link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/dropdown-link.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/dropdown.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/form-section.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/form-section.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/input-error.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/input-error.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/input.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/input.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/label.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/label.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/nav-link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/nav-link.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/responsive-nav-link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/responsive-nav-link.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/secondary-button.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/secondary-button.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/section-border.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/section-border.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/section-title.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/section-title.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/switchable-team.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/switchable-team.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/validation-errors.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/validation-errors.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/channels.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/channels.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/console.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/console.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.php" beforeDir="false" afterPath="$PROJECT_DIR$/server.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/app/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/app/public/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/app/public/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/clockwork/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/clockwork/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/cache/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/cache/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/cache/data/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/sessions/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/testing/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/testing/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/CreatesApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/CreatesApplication.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/ExampleTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -578,70 +1144,8 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" />
-        <option value="$PROJECT_DIR$/config/services.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController" />
-        <option value="$PROJECT_DIR$/app/Http/Middleware/LangMiddleware.php" />
-        <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
-        <option value="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" />
-        <option value="$PROJECT_DIR$/webpack.mix.js" />
-        <option value="$PROJECT_DIR$/resources/js/bootstrap.js" />
-        <option value="$PROJECT_DIR$/resources/lang/en/titles.php" />
-        <option value="$PROJECT_DIR$/resources/lang/de/titles.php" />
-        <option value="$PROJECT_DIR$/resources/js/Pages/Teacher/Calendar.vue" />
-        <option value="$PROJECT_DIR$/resources/js/Pages/Teacher/Invoices.vue" />
-        <option value="$PROJECT_DIR$/resources/js/Pages/Teacher/Settings.vue" />
-        <option value="$PROJECT_DIR$/resources/js/Pages/Teacher/Students.vue" />
-        <option value="$PROJECT_DIR$/resources/js/Pages/Dashboard.vue" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_10_20_184358_create_appointments_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_10_20_195531_create_lessons_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_10_20_194351_create_availabilities_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_10_20_194857_create_students_table.php" />
-        <option value="$PROJECT_DIR$/resources/js/Pages/Teacher/Dashboard.vue" />
-        <option value="$PROJECT_DIR$/resources/js/Pages/Student/Students.vue" />
-        <option value="$PROJECT_DIR$/resources/js/Pages/Student/Settings.vue" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/resources/js/app.js" />
-        <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
-        <option value="$PROJECT_DIR$/database/factories/UserFactory.php" />
-        <option value="$PROJECT_DIR$/resources/js/Layouts/AppLayout.vue" />
-        <option value="$PROJECT_DIR$/resources/js/Layouts/StudentLayout.vue" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Middleware/HandleInertiaRequests.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
-        <option value="$PROJECT_DIR$/app/Models/User.php" />
-        <option value="$PROJECT_DIR$/resources/js/Components/Student/EditProfileData.vue" />
-        <option value="$PROJECT_DIR$/resources/js/Pages/Student/Dashboard.vue" />
-        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/app.blade.php" />
-        <option value="$PROJECT_DIR$/resources/lang/de/passwords.php" />
-        <option value="$PROJECT_DIR$/resources/lang/hu/passwords.php" />
-        <option value="$PROJECT_DIR$/resources/lang/hu/forms.php" />
-        <option value="$PROJECT_DIR$/resources/lang/hu/titles.php" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
-    <package-json value="$PROJECT_DIR$/package.json" />
-  </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths>
-      <path value="$PROJECT_DIR$/package.json" />
-    </packageJsonPaths>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -872,260 +1376,17 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Actions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Actions" type="462c0819:PsiDirectoryNode" />
-              <item name="Fortify" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Middleware" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Providers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="factories" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="seeders" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="Components" type="462c0819:PsiDirectoryNode" />
-              <item name="Student" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="Jetstream" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="Layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="Pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="Pages" type="462c0819:PsiDirectoryNode" />
-              <item name="Student" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="Pages" type="462c0819:PsiDirectoryNode" />
-              <item name="Teacher" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="de" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="en" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-              <item name="hu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="consteach" type="b2602c69:ProjectViewProjectNode" />
-              <item name="consteach" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang/hu" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang/en" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -1139,15 +1400,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="I:\html\consteach_2\resources\js\Pages" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/lang/en" />
+      <recent name="$PROJECT_DIR$/app/Notifications" />
       <recent name="I:\html\consteach\resources\lang\hu" />
       <recent name="I:\html\consteach_2\resources\js\Pages" />
       <recent name="I:\html\consteach_2\resources\js\Widgets" />
-      <recent name="I:\html\consteach_2\resources\js\Popups" />
-      <recent name="C:\MAMP\htdocs\consteach\resources\js\Pages\Student" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="I:\html\consteach_2\resources\js\Pages" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
@@ -1212,223 +1473,26 @@
       <workItem from="1615912868828" duration="19000" />
       <workItem from="1615920051436" duration="8086000" />
       <workItem from="1615990786101" duration="5607000" />
-    </task>
-    <task id="LOCAL-00002" summary="cSelect fix">
-      <created>1614651236310</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1614651236310</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Find teacher nyelv szűrőnél legyen flag">
-      <created>1614653759919</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1614653759919</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Find teacher ár filternél gombra nyomásra menjen a kérés + Footer design fix + Lefal public site">
-      <created>1614744849471</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1614744849471</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Új flag ikonok + Legal oldal szétszedve + Header inertia linkek">
-      <created>1614827165356</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1614827165356</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Cookie policy">
-      <created>1614905038302</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1614905038302</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Teacher waiting room validálásig translated">
-      <created>1615157349003</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1615157349003</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Student hub fejlécbe nemkell anyanyelv/beszélt nyelv">
-      <created>1615157504675</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1615157504675</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Student hub jelentkezések között az órakezdés popupban nemjó a dátum">
-      <created>1615159179895</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1615159179895</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Tanár preview oldalon calendar színmagyarázat + szűrő">
-      <created>1615162113973</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1615162113973</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Tanárkeresés oldal - tanárkártyán a zászlók legyenek téglalap alakúak">
-      <created>1615162439946</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1615162439946</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Landing Page polish">
-      <created>1615162839592</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1615162839592</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Checkout bankkártya input css">
-      <created>1615163816198</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1615163816198</updated>
-    </task>
-    <task id="LOCAL-00014" summary="landing page -Válassz nyelvet polish">
-      <created>1615164032196</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1615164032196</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Tanár landing page - A JELENTKEZEM gomb a diák landing page-re redirectel a tanár regisztráció helyett">
-      <created>1615164925295</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1615164925295</updated>
-    </task>
-    <task id="LOCAL-00016" summary="FAQ oldal sitebuild">
-      <created>1615167635768</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1615167635768</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Próbaóra flow">
-      <created>1615168889147</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1615168889147</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Nyelviesítés">
-      <created>1615173089347</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1615173089347</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Header Nyelviesítés rollback -- fix">
-      <created>1615174225844</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1615174225844</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Bug fixes">
-      <created>1615174615928</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1615174615928</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Student header - Tanárkeresés ikon hozzáadása">
-      <created>1615234385368</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1615234385368</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Teacher hub fixek">
-      <created>1615239164932</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1615239164932</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Friss Teacher HUB változtatások">
-      <created>1615304274751</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1615304274751</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Find teacher oldalon nincs nyíl a jobboldali kártyán">
-      <created>1615333732364</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1615333732364</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Landing polish">
-      <created>1615402554744</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1615402554744</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Favicon">
-      <created>1615417164242</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1615417164242</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Calendar szépséghiba">
-      <created>1615417519663</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1615417519663</updated>
-    </task>
-    <task id="LOCAL-00028" summary="error fix">
-      <created>1615417764358</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1615417764358</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Reszponzív javítások + Teacher application javítás">
-      <created>1615427266445</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1615427266445</updated>
-    </task>
-    <task id="LOCAL-00030" summary="footer_bg.svg feltöltése">
-      <created>1615427297468</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1615427297468</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Tanár foglalási naptár design">
-      <created>1615516983876</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1615516983876</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Tanár összegmegadó ex-slider frontend - tooltip npm package hozzáadva">
-      <created>1615519511212</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1615519511212</updated>
+      <workItem from="1616027636513" duration="102000" />
+      <workItem from="1616027800549" duration="10839000" />
+      <workItem from="1616041875114" duration="129000" />
+      <workItem from="1616074419702" duration="84000" />
+      <workItem from="1616156071834" duration="3292000" />
+      <workItem from="1616175281805" duration="6399000" />
+      <workItem from="1616267222029" duration="3510000" />
+      <workItem from="1616285333551" duration="210000" />
+      <workItem from="1616285558633" duration="979000" />
+      <workItem from="1616341918073" duration="7625000" />
+      <workItem from="1616354633172" duration="6225000" />
+      <workItem from="1616362825858" duration="6889000" />
+      <workItem from="1616370819912" duration="7930000" />
+      <workItem from="1616381164597" duration="5000" />
+      <workItem from="1616434276255" duration="623000" />
+      <workItem from="1616452691515" duration="1681000" />
+      <workItem from="1616469267984" duration="5406000" />
+      <workItem from="1616531800992" duration="37000" />
+      <workItem from="1616534747970" duration="366000" />
+      <workItem from="1616535821320" duration="6449000" />
     </task>
     <task id="LOCAL-00033" summary="Settings design fix">
       <created>1615565670915</created>
@@ -1556,59 +1620,225 @@
       <option name="project" value="LOCAL" />
       <updated>1615995337342</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Főoldal válasz nyelvet dobjon át a leszűrt tanárlistára">
+      <created>1616030617678</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1616030617679</updated>
+    </task>
+    <task id="LOCAL-00052" summary="DB rendberakásához artisan command (student@example.com, teacher@example.com, első 20 teacher validálása) - php artisan init:db">
+      <created>1616032544697</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1616032544697</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Kivenni a calendar szarokat find a teacherből">
+      <created>1616033760757</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1616033760757</updated>
+    </task>
+    <task id="LOCAL-00054" summary="moment.js helyeken local helyett Europe/Budapest">
+      <created>1616033983562</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1616033983562</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Tanítani szeretnék menü fix + Footer social hivatkozások fix">
+      <created>1616035505992</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1616035505992</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Link fixek">
+      <created>1616036805649</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1616036805649</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Új tanárkártya design mini-naptár és videópanel nélkül">
+      <created>1616039046656</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1616039046656</updated>
+    </task>
+    <task id="LOCAL-00058" summary="minor bug - árnyékok hiánya">
+      <created>1616039339168</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1616039339168</updated>
+    </task>
+    <task id="LOCAL-00059" summary="minor bug - árnyékok hiánya">
+      <created>1616039350730</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1616039350730</updated>
+    </task>
+    <task id="LOCAL-00060" summary="mobile - footer átrendezés">
+      <created>1616157954959</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1616157954959</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Amíg a tanárnak nem volt 1 órája se megtartva használjuk az ÚJ TANÁR kiírást az órákra/diákokra (a 0 diák 0 óra szarul néz ki)">
+      <created>1616158963966</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1616158963966</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Profile photo upload fix">
+      <created>1616177717069</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1616177717070</updated>
+    </task>
+    <task id="LOCAL-00063" summary="wb.php clear + Lefoglalt óra múltban">
+      <created>1616180768079</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1616180768079</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Google analytics">
+      <created>1616182718505</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1616182718505</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Teacher Application about me formázása (HU- en - magyar angol)&#10;+ Inertia redirect fix">
+      <created>1616350426682</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1616350426682</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Tanár keresés slab">
+      <created>1616356948263</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1616356948264</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Tanár ár megadás opció a verifikáció alatt">
+      <created>1616360553005</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1616360553005</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Időpontfoglalás nem regisztrált diákként - bejelentkezés popup helyett a regisztráció nyíljon meg">
+      <created>1616360917859</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1616360917859</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Nem regisztrált diák foglalni akar időpontot, regisztráció után ne a dashboardra dobjuk hanem a checkoutra ahol véglegesíteni tudja a próbaóra foglalást">
+      <created>1616365394866</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1616365394866</updated>
+    </task>
+    <task id="LOCAL-00070" summary="mobile - méretezés, igazítás">
+      <created>1616369946220</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1616369946220</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Tanárkereső - ÚJ TANÁR font size kissebbre pls">
+      <created>1616370114418</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1616370114418</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Órafoglalás tanárprofilon - hasonlóan a tanárok naptárához ide is illeszzünk be egy rövid leírást az alábbi szöveggel (lásd comment)">
+      <created>1616370479619</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1616370479619</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Fehér ívet lejjebb tolni minden oldalon (kivéve landing page)">
+      <created>1616371030365</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1616371030366</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Progress bar + Diák dashboard - Tanár neve legyen kattintható lefoglalt és tanáraim panel alatt, redirect: tanár profil">
+      <created>1616372540271</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1616372540271</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Tanár header - tanárkeresés ikon hozzáadása">
+      <created>1616374142057</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1616374142057</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Tanárok - 2 hónappal lehessen csak előre menni a naptárban">
+      <created>1616375453124</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1616375453124</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Document Title frontenden">
+      <created>1616378698735</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1616378698735</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Document Title landing fix">
+      <created>1616378882574</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1616378882574</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Tanárkártyákhoz videó opció visszarakása">
+      <created>1616471981943</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1616471981943</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Tanárkártyákhoz videó opció visszarakása style">
+      <created>1616471997028</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1616471997028</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Document title backend">
+      <created>1616474519740</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1616474519740</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42367000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2707889" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32944915" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32944915" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25799572" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32944915" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
@@ -1628,313 +1858,42 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Favicon" />
-    <MESSAGE value="Calendar szépséghiba" />
-    <MESSAGE value="error fix" />
-    <MESSAGE value="Reszponzív javítások + Teacher application javítás" />
-    <MESSAGE value="footer_bg.svg feltöltése" />
-    <MESSAGE value="Tanár foglalási naptár design" />
-    <MESSAGE value="Tanár összegmegadó ex-slider frontend - tooltip npm package hozzáadva" />
-    <MESSAGE value="Settings design fix" />
-    <MESSAGE value="Reszponzív javítások" />
-    <MESSAGE value="A Resumé szekciót elhalasztottuk, kérlek vegyétek le a teszt oldalról egyelőre" />
-    <MESSAGE value="Icon csere" />
-    <MESSAGE value="Outerglow" />
-    <MESSAGE value="Reszponzív + Fehér-világoskék gradiens háttér (amit a landing page-n használunk) használata minden más oldalon" />
-    <MESSAGE value="Tanár validálás első lépcsőnél nem menti el a rendszer a származási helyet" />
-    <MESSAGE value="Valutaváltás + Nyelviesítés" />
-    <MESSAGE value="Nyelviesítés" />
-    <MESSAGE value="Regisztráció popup nem regisztrált időpontfoglalás esetén" />
-    <MESSAGE value="Óra folglalás visszaigazoló popup autentikáció nélkül nem jelenik meg." />
-    <MESSAGE value="Footer végleges - sortörés" />
-    <MESSAGE value="Profile képek nagyítása desktopon és mobilon" />
-    <MESSAGE value="Ingyenes próbaóra - Checkoutnál fizetés helyett &quot;Foglalás&quot; legyen" />
-    <MESSAGE value="Ingyenes próbaóra foglalás scrollozzon a naptárhoz" />
-    <MESSAGE value="Tanár about me nyelv formázás" />
-    <MESSAGE value="Flag-ek néha levágódnak" />
-    <MESSAGE value="Find a teacher calendar összefoglaló widget" />
-    <option name="LAST_COMMIT_MESSAGE" value="Find a teacher calendar összefoglaló widget" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Link fixek" />
+    <MESSAGE value="Új tanárkártya design mini-naptár és videópanel nélkül" />
+    <MESSAGE value="minor bug - árnyékok hiánya" />
+    <MESSAGE value="mobile - footer átrendezés" />
+    <MESSAGE value="Amíg a tanárnak nem volt 1 órája se megtartva használjuk az ÚJ TANÁR kiírást az órákra/diákokra (a 0 diák 0 óra szarul néz ki)" />
+    <MESSAGE value="Profile photo upload fix" />
+    <MESSAGE value="wb.php clear + Lefoglalt óra múltban" />
+    <MESSAGE value="Google analytics" />
+    <MESSAGE value="Teacher Application about me formázása (HU- en - magyar angol)&#10;+ Inertia redirect fix" />
+    <MESSAGE value="Tanár keresés slab" />
+    <MESSAGE value="Tanár ár megadás opció a verifikáció alatt" />
+    <MESSAGE value="Időpontfoglalás nem regisztrált diákként - bejelentkezés popup helyett a regisztráció nyíljon meg" />
+    <MESSAGE value="Nem regisztrált diák foglalni akar időpontot, regisztráció után ne a dashboardra dobjuk hanem a checkoutra ahol véglegesíteni tudja a próbaóra foglalást" />
+    <MESSAGE value="mobile - méretezés, igazítás" />
+    <MESSAGE value="Tanárkereső - ÚJ TANÁR font size kissebbre pls" />
+    <MESSAGE value="Órafoglalás tanárprofilon - hasonlóan a tanárok naptárához ide is illeszzünk be egy rövid leírást az alábbi szöveggel (lásd comment)" />
+    <MESSAGE value="Fehér ívet lejjebb tolni minden oldalon (kivéve landing page)" />
+    <MESSAGE value="Progress bar + Diák dashboard - Tanár neve legyen kattintható lefoglalt és tanáraim panel alatt, redirect: tanár profil" />
+    <MESSAGE value="Tanár header - tanárkeresés ikon hozzáadása" />
+    <MESSAGE value="Tanárok - 2 hónappal lehessen csak előre menni a naptárban" />
+    <MESSAGE value="Document Title frontenden" />
+    <MESSAGE value="Document Title landing fix" />
+    <MESSAGE value="Tanárkártyákhoz videó opció visszarakása" />
+    <MESSAGE value="Tanárkártyákhoz videó opció visszarakása style" />
+    <MESSAGE value="Document title backend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Document title backend" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Authenticate.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/Pages/Teacher/Settings.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/Pages/Teacher/Students.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/Mixins/InteractsWithErrorBags.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="13" column="6" lean-forward="true" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/Pages/Dashboard.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/Pages/Student/Teachers.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/Pages/Teacher/Dashboard.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="19" column="62" selection-start-line="11" selection-start-column="20" selection-end-line="19" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/Jetstream/Button.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/Jetstream/Welcome.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="19" column="51" lean-forward="true" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/Jetstream/Input.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="18" column="20" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="20" />
-          <folding>
-            <element signature="e#25#78#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/factories/UserFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/Layouts/AppLayout.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="146" selection-start-line="146" selection-end-line="146" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/Pages/Student/Settings.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" column="98" selection-start-line="10" selection-start-column="98" selection-end-line="10" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-65">
-          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/Jetstream/FormSection.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="64" column="3" selection-start-line="64" selection-start-column="3" selection-end-line="64" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/Jetstream/ActionMessage.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/Jetstream/ActionSection.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/Jetstream/ApplicationLogo.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="574" column="13" selection-start-line="574" selection-start-column="13" selection-end-line="574" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/HandleInertiaRequests" />
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/HandleInertiaRequests.php" />
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2210">
-          <caret line="86" column="51" selection-start-line="86" selection-start-column="51" selection-end-line="86" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/LangMiddleware.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/PreventRequestsDuringMaintenance.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/EncryptCookies.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/JetstreamServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/FortifyServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/Components/Student/EditProfileData.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="910">
-          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/Pages/Student/Dashboard.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="45" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1040">
-          <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1248">
-          <caret line="48" column="80" selection-start-line="48" selection-start-column="80" selection-end-line="48" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="962">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Student.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-260">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/de/auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/de/passwords.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/hu/passwords.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="15" column="44" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/en/titles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/Layouts/StudentLayout.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="17" column="65" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/hu/auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="16" column="83" lean-forward="true" selection-start-line="16" selection-start-column="83" selection-end-line="16" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/hu/forms.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/hu/validation.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/hu/titles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+  <component name="WindowStateProjectService">
+    <state x="458" y="209" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616541978817">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="458" y="209" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1616541978817" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1616540234426">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1616540234426" />
   </component>
 </project>

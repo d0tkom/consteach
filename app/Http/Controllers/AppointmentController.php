@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\Teacher;
+use App\Notifications\AppointmentBooked;
+use Auth;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use MacsiDigital\Zoom\Facades\Zoom;
@@ -65,7 +68,9 @@ class AppointmentController extends Controller
             $lesson->increment('booked', 1);
 
             $lesson->save();
-            //TODO: Notification
+
+            $teacher = Teacher::with('user')->find($lesson->teacher_id);
+            $teacher->user->notify(new AppointmentBooked($appointment));
         } else {
             return response($appointment->id, 423);
         }

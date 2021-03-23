@@ -1,8 +1,11 @@
 <?php
 
+use App\Notifications\UserRegistered;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+
+use App\Models\User;
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CurrencyController;

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Notifications\UserRegistered;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -86,5 +87,13 @@ class User extends Authenticatable
     protected function defaultProfilePhotoUrl()
     {
         return '/img/profile_placeholder.jpg';
+    }
+
+    public static function boot() {
+        parent::boot();
+
+        static::created(function($item) {
+            $item->notify(new UserRegistered($item));
+        });
     }
 }
