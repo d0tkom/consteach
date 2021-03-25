@@ -44,7 +44,6 @@ export default {
 	data: function() {
 		return {
 			active: this.value,
-			loading: false,
 		};
 	},
 	computed: {

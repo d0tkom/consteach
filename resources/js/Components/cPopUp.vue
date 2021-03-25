@@ -64,8 +64,10 @@ export default {
 		lockBody(value) {
 			if (value) {
 				scrollLock.disablePageScroll();
+				$('header').addClass('scrollLock');
 			} else {
 				scrollLock.enablePageScroll();
+				$('header').removeClass('scrollLock');
 			}
 		}
 	}

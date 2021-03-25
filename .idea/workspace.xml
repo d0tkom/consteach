@@ -23,38 +23,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26ec1af2-7b2c-490f-937f-842dba45277b" name="Default Changelist" comment="Friss Teacher HUB változtatások">
-      <change afterPath="$PROJECT_DIR$/app/Notifications/AppointmentBooked.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Notifications/UserRegistered.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/mail-appointment_booked.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/mail-user_registered.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/mail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/hu/mail-appointment_booked.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/hu/mail-user_registered.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/hu/mail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/mails/teacher/appointment_booked.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/mails/user/registered.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/button.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/header.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/layout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/message.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/panel.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/subcopy.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/table.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/themes/default.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/button.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/header.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/layout.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/message.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/panel.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/subcopy.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/table.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/vendor/notifications/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_06_03_2021__17_03.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Laravel_06_03_2021__17_03.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/consteach.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/consteach.iml" afterDir="false" />
@@ -63,30 +31,19 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_14_2021_2_52_AM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2021_10_20_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2021_10_20_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2021_11_36_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_15_2021_11_36_PM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_22_PM_[Default_Changelist]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_22_PM_[Default_Changelist]/shelved.patch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_22_PM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_27_PM_[Default_Changelist]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_27_PM_[Default_Changelist]/shelved.patch" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_27_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_27_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_34_PM_[Default_Changelist]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_34_PM_[Default_Changelist]/shelved.patch" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_34_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_11_34_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_8_32_PM_[Default_Changelist]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_8_32_PM_[Default_Changelist]/shelved.patch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_7_2021_8_32_PM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/error_fix.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/error_fix.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/error_fix/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/error_fix/shelved.patch" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/webResources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webResources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.phpstorm.meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/.phpstorm.meta.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.styleci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.styleci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper_models.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/PasswordValidationRules.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/PasswordValidationRules.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/ResetUserPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/ResetUserPassword.php" afterDir="false" />
@@ -135,6 +92,8 @@
       <change beforePath="$PROJECT_DIR$/app/Models/Teacher.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Teacher.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/TeamInvitation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/TeamInvitation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Notifications/AppointmentBooked.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/AppointmentBooked.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Notifications/UserRegistered.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/UserRegistered.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
@@ -145,7 +104,6 @@
       <change beforePath="$PROJECT_DIR$/app/View/Components/GuestLayout.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/Components/GuestLayout.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/artisan" beforeDir="false" afterPath="$PROJECT_DIR$/artisan" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
@@ -167,7 +125,6 @@
       <change beforePath="$PROJECT_DIR$/config/session.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/session.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/zoom.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/zoom.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/database/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/factories/AppointmentFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AppointmentFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/factories/AvailabilityFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AvailabilityFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/factories/LessonFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/LessonFactory.php" afterDir="false" />
@@ -175,28 +132,11 @@
       <change beforePath="$PROJECT_DIR$/database/factories/StudentFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/StudentFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/factories/TeacherFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/TeacherFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_200000_add_two_factor_columns_to_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_05_03_000001_create_customer_columns.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_05_03_000001_create_customer_columns.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_05_03_000002_create_subscriptions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_05_03_000002_create_subscriptions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_05_03_000003_create_subscription_items_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_05_03_000003_create_subscription_items_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_14_000001_create_personal_access_tokens_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_12_193501_create_sessions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_12_193501_create_sessions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_20_194844_create_teachers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_20_194844_create_teachers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_20_194857_create_students_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_20_194857_create_students_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_20_194918_create_messages_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_20_194918_create_messages_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_20_195531_create_lessons_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_20_195531_create_lessons_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_20_204351_create_availabilities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_20_204351_create_availabilities_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_20_204358_create_appointments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_20_204358_create_appointments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_19_111904_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_19_111904_create_orders_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/OrderSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/OrderSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/landing.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/landing.css" afterDir="false" />
@@ -226,14 +166,6 @@
       <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsTwoTone-Regular.otf" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsTwoTone-Regular.otf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsTwoTone-Regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsTwoTone-Regular.woff" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsTwoTone-Regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/vendor/material-icons/iconMaterialIconsTwoTone-Regular.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/ad.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/ad.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/ae.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/ae.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/af.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/af.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/ag.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/ag.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/ai.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/ai.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/al.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/al.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/am.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/am.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/ao.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/ao.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/aq.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/aq.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/ar.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/ar.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/as.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/as.svg" afterDir="false" />
@@ -482,14 +414,6 @@
       <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/za.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/za.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/zm.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/zm.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/zw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/1x1/zw.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/ad.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/ad.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/ae.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/ae.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/af.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/af.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/ag.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/ag.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/ai.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/ai.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/al.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/al.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/am.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/am.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/ao.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/ao.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/aq.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/aq.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/ar.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/ar.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/as.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/vendor/flag-icon-css/flags/4x3/as.svg" afterDir="false" />
@@ -903,8 +827,6 @@
       <change beforePath="$PROJECT_DIR$/resources/js/Components/cSlider.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/cSlider.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Components/cTag.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/cTag.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Components/cTextArea.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Components/cTextArea.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/ActionMessage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/ActionMessage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/ActionSection.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/ActionSection.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/ApplicationLogo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/ApplicationLogo.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/ApplicationMark.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/ApplicationMark.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/AuthenticationCard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/AuthenticationCard.vue" afterDir="false" />
@@ -935,7 +857,6 @@
       <change beforePath="$PROJECT_DIR$/resources/js/Layouts/Partials/SiteFooter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Layouts/Partials/SiteFooter.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Layouts/Partials/SiteHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Layouts/Partials/SiteHeader.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Mixins/InteractsWithErrorBags.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Mixins/InteractsWithErrorBags.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/API/ApiTokenManager.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/API/ApiTokenManager.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Pages/API/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/API/Index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/ConfirmPassword.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/ConfirmPassword.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/Pages/Auth/ForgotPassword.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Auth/ForgotPassword.vue" afterDir="false" />
@@ -1009,6 +930,9 @@
       <change beforePath="$PROJECT_DIR$/resources/lang/en/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/en/landing.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/landing.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/en/legal.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/legal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/mail-appointment_booked.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/mail-appointment_booked.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/mail-user_registered.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/mail-user_registered.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/mail.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/en/other.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/other.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/en/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/pagination.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/en/passwords.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/passwords.php" afterDir="false" />
@@ -1027,6 +951,9 @@
       <change beforePath="$PROJECT_DIR$/resources/lang/hu/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/hu/landing.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/landing.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/hu/legal.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/legal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/mail-appointment_booked.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/mail-appointment_booked.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/mail-user_registered.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/mail-user_registered.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/hu/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/mail.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/hu/other.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/other.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/hu/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/pagination.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/hu/passwords.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/hu/passwords.php" afterDir="false" />
@@ -1045,9 +972,9 @@
       <change beforePath="$PROJECT_DIR$/resources/views/auth/two-factor-challenge.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/two-factor-challenge.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/verify-email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify-email.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/guest.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/guest.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mails/teacher/appointment_booked.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mails/teacher/appointment_booked.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/mails/user/registered.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mails/user/registered.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/favicon.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/favicon.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/action-message.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/action-message.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/action-section.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/action-section.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/application-logo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/application-logo.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/application-mark.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/application-mark.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/authentication-card-logo.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/authentication-card-logo.blade.php" afterDir="false" />
@@ -1072,22 +999,29 @@
       <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/switchable-team.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/switchable-team.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/validation-errors.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/validation-errors.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/mail/html/button.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/button.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/mail/html/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/mail/html/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/mail/html/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/mail/html/message.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/message.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/mail/html/panel.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/panel.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/mail/html/subcopy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/subcopy.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/mail/html/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/mail/html/themes/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/mail/html/themes/default.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/mail/text/button.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/button.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/mail/text/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/mail/text/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/mail/text/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/mail/text/message.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/message.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/mail/text/panel.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/panel.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/mail/text/subcopy.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/subcopy.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/mail/text/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/mail/text/table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/notifications/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/notifications/email.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/channels.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/channels.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/console.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/console.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.php" beforeDir="false" afterPath="$PROJECT_DIR$/server.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/app/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app/public/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/app/public/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/clockwork/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/clockwork/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/cache/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/cache/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/cache/data/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/sessions/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/sessions/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/testing/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/testing/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/framework/views/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/framework/views/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/logs/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/CreatesApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/CreatesApplication.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" afterDir="false" />
@@ -1492,14 +1426,9 @@
       <workItem from="1616469267984" duration="5406000" />
       <workItem from="1616531800992" duration="37000" />
       <workItem from="1616534747970" duration="366000" />
-      <workItem from="1616535821320" duration="6449000" />
-    </task>
-    <task id="LOCAL-00033" summary="Settings design fix">
-      <created>1615565670915</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1615565670915</updated>
+      <workItem from="1616535821320" duration="6859000" />
+      <workItem from="1616611342715" duration="4266000" />
+      <workItem from="1616632599216" duration="1136000" />
     </task>
     <task id="LOCAL-00034" summary="Reszponzív javítások">
       <created>1615687617463</created>
@@ -1837,7 +1766,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616474519740</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="Email notification funckió elkezdve. User regisztrációnál megy a levél, és foglalásnál a tanárnak">
+      <created>1616543967093</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1616543967095</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1859,7 +1795,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Link fixek" />
     <MESSAGE value="Új tanárkártya design mini-naptár és videópanel nélkül" />
     <MESSAGE value="minor bug - árnyékok hiánya" />
     <MESSAGE value="mobile - footer átrendezés" />
@@ -1884,16 +1819,7 @@
     <MESSAGE value="Tanárkártyákhoz videó opció visszarakása" />
     <MESSAGE value="Tanárkártyákhoz videó opció visszarakása style" />
     <MESSAGE value="Document title backend" />
-    <option name="LAST_COMMIT_MESSAGE" value="Document title backend" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="458" y="209" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616541978817">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="458" y="209" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1616541978817" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1616540234426">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1616540234426" />
+    <MESSAGE value="Email notification funckió elkezdve. User regisztrációnál megy a levél, és foglalásnál a tanárnak" />
+    <option name="LAST_COMMIT_MESSAGE" value="Email notification funckió elkezdve. User regisztrációnál megy a levél, és foglalásnál a tanárnak" />
   </component>
 </project>

@@ -724,6 +724,9 @@ header .headerContainer .profilePopupContainer:hover .profilePopupWidget {
   pointer-events: initial;
   top: 40px;
 }
+header.scrollLock {
+  padding-right: 28px;
+}
 
 body.scrollLock header {
   padding-right: 27px;
@@ -1875,6 +1878,7 @@ body {
   font-family: "Montserrat", sans-serif;
   width: 100vw;
   overflow-x: hidden;
+  padding-right: 0 !important;
 }
 body .pageBg {
   min-height: 120vh;
@@ -1918,6 +1922,18 @@ body .pageBg:after {
 
 .fc .fc-col-header-cell-cushion {
   white-space: break-spaces;
+}
+
+.fc-timegrid-col.fc-day:not(.fc-day-disabled) {
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+  background: transparent !important;
+  border-color: white;
+}
+
+.fc-timegrid-cols table tbody tr {
+  background: #e4f3fe;
 }
 
 body .fc-theme-standard td {

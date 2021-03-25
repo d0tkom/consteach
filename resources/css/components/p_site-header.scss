@@ -32,6 +32,10 @@ header {
 			}
 		}
 	}
+
+	&.scrollLock {
+		padding-right: 28px;
+	}
 }
 
 body.scrollLock {
