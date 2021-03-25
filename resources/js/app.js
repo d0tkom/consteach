@@ -101,7 +101,7 @@ new Vue({
         });
 
         this.$inertia.on('error', () => {
-            this.$Progress.error();
+            this.$Progress.fail();
         });
 
         this.cookiePolicy.accepted = this.$cookie.get('cookie-policy') || false;

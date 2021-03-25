@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\LessonBoughtTeacher;
 use Illuminate\Http\Request;
 use App\Models\Lesson;
 use App\Models\Appointment;
@@ -105,6 +106,8 @@ class CheckoutController extends Controller
             BillingoApi::api('Document')->sendInvoice($invoice_id)->getResponse();
 
             BillingoApi::api('Product')->delete($product_id)->getResponse();
+
+            $lesson->teacher->user->notify(new LessonBoughtTeacher($lesson));
 
             return $order;
         } catch (\Exception $e) {
