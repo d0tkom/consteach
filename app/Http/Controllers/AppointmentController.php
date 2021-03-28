@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use App\Models\Teacher;
-use App\Notifications\AppointmentBooked;
+use App\Notifications\FreeAppointmentBookedStudent;
 use App\Notifications\AppointmentDeletedStudent;
 use Auth;
 use Illuminate\Http\Request;
@@ -71,7 +71,7 @@ class AppointmentController extends Controller
             $lesson->save();
 
             $teacher = Teacher::with('user')->find($lesson->teacher_id);
-            $teacher->user->notify(new AppointmentBooked($appointment));
+            $teacher->user->notify(new FreeAppointmentBookedStudent($appointment));
         } else {
             return response($appointment->id, 423);
         }

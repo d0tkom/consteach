@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\FreeAppointmentBookedStudent;
+use App\Notifications\FreeAppointmentBookedTeacher;
 use App\Notifications\LessonBoughtTeacher;
 use Illuminate\Http\Request;
 use App\Models\Lesson;
@@ -197,6 +199,9 @@ class CheckoutController extends Controller
 
             $lesson->decrement('available', 1);
             $lesson->increment('booked', 1);
+
+            $appointment->teacher->user->notify(new FreeAppointmentBookedTeacher($appointment));
+            $appointment->student->user->notify(new FreeAppointmentBookedStudent($appointment));
         }
 
         return true;
