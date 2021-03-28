@@ -612,7 +612,7 @@
                 }
                 
                 this.appointmentPopup.data = {
-                    teacher_name: this.teacher.user.first_name + ' ' + this.teacher.user.last_name,
+                    teacher_name: this.teacher.user.first_name + ' ' + this.teacher.user.last_name[0]+'.',
                     date_start: eventClickInfo.event.startStr,
                     date_end: eventClickInfo.event.endStr,
 	                availability_id: eventClickInfo.event.extendedProps.availability_id,
