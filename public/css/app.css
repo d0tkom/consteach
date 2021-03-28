@@ -833,6 +833,29 @@ body .mainSiteContainer.isLanding .siteContent {
   margin-top: 60px !important;
 }
 
+.helpAction {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 56px;
+  height: 56px;
+  background: #18A0FB;
+  border: 2px solid white;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 34px;
+  color: white;
+  z-index: 22;
+  transition: all 0.25s;
+}
+.helpAction:hover {
+  transform: scale(1.06);
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
 .color-green {
   color: #B9F29E;
 }
