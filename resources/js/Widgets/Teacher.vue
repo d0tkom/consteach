@@ -15,7 +15,7 @@
 				{{ data.teacher.user.first_name }}
 			</inertia-link>
 			<div
-				class="mr-4 mb-2"
+				class="mr-2 mb-2"
 				v-for="(language, l) in data.teacher.teaching_languages"
 				:key="l"
 			>

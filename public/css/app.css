@@ -553,9 +553,12 @@
   padding: 4px 8px;
   font-size: 14px;
 }
+.tagContainer.rounded {
+  border-radius: 20px;
+}
 .tagContainer.primary {
-  background: #18A0FB;
-  color: white;
+  background: #d2ebff;
+  color: #174696;
 }
 .tagContainer.success {
   background: #B9F29E;
@@ -566,8 +569,14 @@
   color: white;
 }
 .tagContainer.outlined {
-  border: 2px solid #18A0FB;
-  color: #18A0FB;
+  border: 2px solid #d2ebff;
+  color: #d2ebff;
+}
+.tagContainer.priceTag {
+  border: 2px solid #10b981;
+  color: #10b981;
+  background: white;
+  font-weight: bold;
 }
 
 .textAreaContainer .inputLabel {
@@ -1899,8 +1908,8 @@ body {
   background: #DEEEF8 !important;
   color: #174696;
   font-family: "Montserrat", sans-serif;
-  width: 100vw;
-  overflow-x: hidden;
+  width: 100vw !important;
+  overflow-x: hidden !important;
   padding-right: 0 !important;
 }
 body .pageBg {

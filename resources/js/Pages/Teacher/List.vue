@@ -218,7 +218,6 @@
                 });
             },
             mouseEnter(id) {
-            	console.log('d');
                 this.activeTeacher = id;
             },
             mouseLeave(id) {

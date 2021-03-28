@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Notifications\UserRegistered;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -98,7 +99,7 @@ Route::post('/teacher/{teacher}', [TeacherController::class, 'update']);
 Route::get('teachers/load-more', [TeacherController::class, 'load_more'])->name('teachers.more');
 Route::get('/teachers/filter', [TeacherController::class, 'filter'])->name('teachers.filter');
 
-Route::resource('/users', ContactController::class);
+Route::resource('/users', UserController::class);
 
 Route::get('login/{provider}', [LoginController::class, 'redirectToProvider'])->name('google.login');
 Route::get('login/{provider}/callback', [LoginController::class, 'handleProviderCallback']);

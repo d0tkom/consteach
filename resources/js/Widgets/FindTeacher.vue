@@ -28,17 +28,20 @@
 								:iso="data.country === 'en' ? 'us' : data.country"
 							/>
 						</div>
-						<div class="price font-bold color-green-price text-lg">
+						<c-tag
+							rounded
+							priceTag
+						>
 							<currency
 								:value="data.one_hour_price"
 							/> / {{ trans.get('find_teacher.hour') }}
-						</div>
+						</c-tag>
 					</div>
 					<div>
 						<div class="flex items-center mb-2">
 							<span class="material-icons mr-4">school</span>
 							<div
-								class="mr-4"
+								class="mr-2"
 								v-for="(language, l) in data.teaching_languages"
 								:key="l"
 							>

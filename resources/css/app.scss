@@ -55,8 +55,8 @@ body {
 	background: #DEEEF8 !important;
 	color: $blue-dark;
 	font-family: 'Montserrat', sans-serif;
-	width: 100vw;
-	overflow-x: hidden;
+	width: 100vw !important;
+	overflow-x: hidden !important;
 	padding-right: 0 !important;
 
 	.pageBg {

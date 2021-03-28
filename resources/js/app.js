@@ -152,7 +152,7 @@ new Vue({
             let hashedElementTop = hashedElement.offset().top;
             $("html, body").animate({
                 scrollTop: hashedElementTop - 70
-            }, 1500);
+            }, 600);
         },
         documentTitle(title, append = true) {
             let finalTitle = title;
