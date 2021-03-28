@@ -139,6 +139,21 @@ new Vue({
         this.languageList = this.languageList.getNames(this.locale, {select: 'official'});
     },
     methods: {
+        initHashScroll() {
+            if (!location.hash) {
+                return;
+            }
+
+            let hashedElement = $(location.hash);
+            if (!hashedElement) {
+                return;
+            }
+
+            let hashedElementTop = hashedElement.offset().top;
+            $("html, body").animate({
+                scrollTop: hashedElementTop - 70
+            }, 1500);
+        },
         documentTitle(title, append = true) {
             let finalTitle = title;
 

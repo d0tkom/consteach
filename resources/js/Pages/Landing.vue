@@ -316,6 +316,8 @@ export default {
 	mounted() {
 		let title = this.trans.get('landing.document_title');
 		this.$root.documentTitle(title, false);
+		
+		this.$root.initHashScroll();
 	},
 	computed: {
 		availableLanguagesFiltered() {

@@ -455,8 +455,6 @@
 		    }
 	    },
         created() {
-	        
-        	
             this.calendarOptions.timeZone = this.$page.props.user == null ? 'Europe/Budapest' : this.$page.props.user.timezone;
 
             let availabilities = [];
@@ -500,6 +498,8 @@
         	let name = `${this.teacher.user.first_name} ${this.teacher.user.last_name[0]}.`;
 		    let title = this.trans.get('teacher_profile.document_title', {name});
 		    this.$root.documentTitle(title);
+		
+		    this.$root.initHashScroll();
 	    },
 	    computed: {
 		    aboutMeText() {
