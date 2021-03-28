@@ -14,13 +14,17 @@
 			>
 				{{ data.teacher.user.first_name }}
 			</inertia-link>
-			<div>
-				<span class="name text-lg color-primary-dark capitalize">
-					{{ $root.languageList[data.teacher.country.toLowerCase()] }}
-				</span>
-				<c-tag class="ml-2" type="success" small>
-					{{ trans.get('dashboard.mother_tongue') }}
-				</c-tag>
+			<div
+				class="mr-4 mb-2"
+				v-for="(language, l) in data.teacher.teaching_languages"
+				:key="l"
+			>
+				<span class="capitalize">{{ $root.languageList[language.language] }}</span>
+				<c-tag
+					class="mr-2"
+					:type="language.level === 'native' ? 'success' : 'primary'"
+					small
+				>{{ language.level === 'native' ? trans.get('other.native') : language.level }}</c-tag>
 			</div>
 			<div class="mt-4">
 				<div class="stat mb-2 flex justify-between items-center">
