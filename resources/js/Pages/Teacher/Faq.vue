@@ -22,7 +22,7 @@
 				</c-btn>
 			</div>
 			
-			<div class="tabs flex my-8">
+			<div class="tabs flex-col sm:flex-row flex my-8 items-center">
 				<c-btn
 					class="m-2"
 					:outlined="$page.component !== 'Student/Faq'"
@@ -35,7 +35,7 @@
 				>{{ trans.get('faq_teacher.faq_tab_teacher') }}</c-btn>
 			</div>
 
-			<div class="grid grid-cols-2 gap-4">
+			<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 				<div class="card">
 					<h1 class="title text-xl font-bold mb-2">{{ trans.get('faq_teacher.question_01_title') }}</h1>
 					<p
