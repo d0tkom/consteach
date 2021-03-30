@@ -188,8 +188,7 @@ class TeacherController extends Controller
             $teachers = $teachers->get();
             $teachers->sortBy(request()->input('order_by'));
         } elseif (request()->input('order_by') == 'random') {
-            $teachers = $teachers->get();
-            $teachers->random();
+            $teachers = $teachers->inRandomOrder()->get();
         }
 
         if (json_decode(request()->input('time'))->timeOfDay) {

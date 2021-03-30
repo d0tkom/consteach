@@ -98,7 +98,18 @@
 			        :active="activeTeacher === teacher.id"
 		        />
 	        </div>
-
+			<div
+				v-if="teachers.length === 0"
+				class="flex items-center justify-center flex-col mt-28"
+			>
+				<span class="material-icons color-primary" style="font-size: 100px">search_off</span>
+				<h2
+					class="title text-xl my-4"
+				>{{ trans.get('find_teacher.no_result_title') }}</h2>
+				<c-btn
+					@click="resetFilters()"
+				>{{ trans.get('find_teacher.no_result_btn') }}</c-btn>
+			</div>
 	        
             <div class="actions flex justify-center">
                 <c-btn
@@ -196,6 +207,15 @@
              },
         },
         methods: {
+			resetFilters() {
+					this.filters.order.value = 'random';
+					this.filters.language.value = null;
+					this.filters.price.value = [0,15000];
+					this.filters.time.value = {
+						timeOfDay: [],
+						day: []
+					};
+			},
             loadMoreTeacher() {
                 let self = this;
                 axios.get(self.next_page_url, {params: {

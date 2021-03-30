@@ -17,6 +17,9 @@ return [
     'option-appointment_count' => 'Number of lessons',
     'option-random' => 'Random',
 
+    'no_result_title' => 'Ebben a szűrésben nem található tanár',
+    'no_result_btn' => 'Szűrések törlése',
+
     'day_popup_title' => 'Choose day and time of day',
     'day_popup_time_of_day' => 'Time of day',
     'day_popup_day' => 'Day',

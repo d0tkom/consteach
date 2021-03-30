@@ -17,6 +17,9 @@ return [
     'option-appointment_count' => 'Megtartott órák száma',
     'option-random' => 'Véletlenszerű',
 
+    'no_result_title' => 'Ebben a szűrésben nem található tanár',
+    'no_result_btn' => 'Szűrések törlése',
+
     'day_popup_title' => 'Szűrj nap vagy napszak alapján!',
     'day_popup_time_of_day' => 'Napszak',
     'day_popup_day' => 'Nap',
