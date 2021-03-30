@@ -623,4 +623,56 @@
 			width: 100%;
 		}
 	}
+
+	body {
+		.helpAction {
+			font-size: 24px;
+			bottom: 20px;
+			right: 20px;
+			width: 38px;
+			height: 38px;
+		}
+
+		.findTeacherContainer {
+			.teacherWidget {
+				.cardBody {
+					width: 100%;
+					.mainInfoContainer {
+						flex-direction: column;
+						margin-left: 100px;
+						.name {
+							font-size: 22px;
+							margin-bottom: 10px;
+						}
+					}
+
+					.languagesInfo {
+						flex-wrap: wrap;
+
+						.languageTag {
+							margin-bottom: 8px;
+						}
+					}
+				}
+
+				.profileImageWrapper {
+					position: absolute;
+					left: 10px;
+
+					img {
+						width: 80px;
+						height: 80px;
+					}
+				}
+
+				.teacherWidgetTop {
+					margin-bottom: 0px;
+				}
+
+				.teacherWidgetBottom {
+					flex-direction: column;
+				}
+			}
+		}
+	}
 }

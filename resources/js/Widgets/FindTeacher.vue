@@ -3,7 +3,7 @@
 		class="teacherWidget relative"
 	>
 		<div class="teacherWidgetMainCard listPage flex flex-col justify-start card p-sm my-4">
-			<div class="flex mb-4">
+			<div class="teacherWidgetTop flex mb-4">
 				<div class="profileImageWrapper mr-4">
 					<img
 						class="teacherProfileImage max-w-none blue-border rounded-full overflow-hidden mt-4"
@@ -12,7 +12,7 @@
 					>
 				</div>
 				<div class="cardBody w-full flex flex-col">
-					<div class="flex items-center justify-between mb-4">
+					<div class="mainInfoContainer items-center justify-between mb-4">
 						<div
 							v-if="data.user"
 							class="name text-lg font-bold color-primary-dark flex items-center"
@@ -38,10 +38,10 @@
 						</c-tag>
 					</div>
 					<div>
-						<div class="flex items-center mb-2">
+						<div class="languagesInfo flex items-center mb-2">
 							<span class="material-icons mr-4">school</span>
 							<div
-								class="mr-2"
+								class="mr-2 languageTag"
 								v-for="(language, l) in data.teaching_languages"
 								:key="l"
 							>
@@ -75,7 +75,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="flex">
+			<div class="teacherWidgetBottom flex">
 				<div class="color-gray my-1" v-html="data.about_me[0].text"></div>
 				<div class="actions flex flex-col justify-end items-center">
 					<c-btn
