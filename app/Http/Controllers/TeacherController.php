@@ -69,12 +69,14 @@ class TeacherController extends Controller
     {
         $appointments = Appointment::where('teacher_id', $teacher->id)
             ->where('active', 1)
-            ->where('start', '>', Carbon::now('UTC')->addDays(1))->get();
+            ->where('start', '>', Carbon::now('UTC')->addDays(1));
 
+        $appointments = $appointments->get();
 
         $availabilities = Availability::where('teacher_id', $teacher->id)
-            ->where('start', '>', Carbon::now('UTC')->addDays(1))->get();
+            ->where('start', '>', Carbon::now('UTC')->addDays(1));
 
+        $availabilities = $availabilities->get();
 
         $teacher->user;
 

@@ -573,10 +573,10 @@
   color: #d2ebff;
 }
 .tagContainer.priceTag {
-  border: 2px solid #10b981;
   color: #10b981;
   background: white;
   font-weight: bold;
+  font-size: 20px;
 }
 
 .textAreaContainer .inputLabel {
@@ -1902,6 +1902,45 @@ body main .join-us:after {
   }
   .checkoutContainer .checkoutCol {
     width: 100%;
+  }
+
+  body .helpAction {
+    font-size: 24px;
+    bottom: 20px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+  }
+  body .findTeacherContainer .teacherWidget .cardBody {
+    width: 100%;
+  }
+  body .findTeacherContainer .teacherWidget .cardBody .mainInfoContainer {
+    flex-direction: column;
+    margin-left: 100px;
+  }
+  body .findTeacherContainer .teacherWidget .cardBody .mainInfoContainer .name {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  body .findTeacherContainer .teacherWidget .cardBody .languagesInfo {
+    flex-wrap: wrap;
+  }
+  body .findTeacherContainer .teacherWidget .cardBody .languagesInfo .languageTag {
+    margin-bottom: 8px;
+  }
+  body .findTeacherContainer .teacherWidget .profileImageWrapper {
+    position: absolute;
+    left: 10px;
+  }
+  body .findTeacherContainer .teacherWidget .profileImageWrapper img {
+    width: 80px;
+    height: 80px;
+  }
+  body .findTeacherContainer .teacherWidget .teacherWidgetTop {
+    margin-bottom: 0px;
+  }
+  body .findTeacherContainer .teacherWidget .teacherWidgetBottom {
+    flex-direction: column;
   }
 }
 body {
