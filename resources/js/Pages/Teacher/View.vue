@@ -171,7 +171,7 @@
 					                    <div class="originalPrice text-gray text-sm">
 						                    <currency
 							                    class="line-through"
-							                    :value="(teacher.one_hour_price*fee)"
+							                    :value="(teacher.one_hour_price*$root.fee)"
 						                    />
 						                </div>
 					                    <div class="newPRice text-green-500 text-lg">
@@ -210,7 +210,7 @@
                                     <div class="relative">
                                         <div class="value text-green-500 text-lg">
 	                                        <currency
-		                                        :value="teacher.one_hour_price*fee"
+		                                        :value="teacher.one_hour_price*$root.fee"
 	                                        />
                                              / {{ trans.get('teacher_profile.hour') }}
 	                                    </div>
@@ -221,7 +221,7 @@
                                     <div class="relative">
                                         <div class="value text-green-500 text-lg">
 	                                        <currency
-		                                        :value="(teacher.five_hour_price / 5)*fee"
+		                                        :value="(teacher.five_hour_price / 5)*$root.fee"
 	                                        />
                                              / {{ trans.get('teacher_profile.hour') }}
 	                                   </div>
@@ -232,7 +232,7 @@
                                     <div class="relative">
                                         <div class="value text-green-500 text-lg">
 	                                        <currency
-		                                        :value="(teacher.ten_hour_price / 10)*fee"
+		                                        :value="(teacher.ten_hour_price / 10)*$root.fee"
 	                                        />
                                              / {{ trans.get('teacher_profile.hour') }}
 	                                    </div>
@@ -298,7 +298,6 @@
         data() {
             return {
 	            aboutMeMaxChar: 1000,
-	            fee: 1.2,
 	            filterCalendarTime: {
 		            start: '06:00:00',
 		            end: '18:00:00',

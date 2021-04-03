@@ -79,7 +79,8 @@ new Vue({
         locale: window.default_locale,
         cookiePolicy: {
             accepted: false
-        }
+        },
+        fee: 1.2,
     },
     watch: {
         'cookiePolicy.accepted'(accepted) {

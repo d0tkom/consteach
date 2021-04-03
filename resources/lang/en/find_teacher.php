@@ -35,7 +35,7 @@ return [
     'price_popup_title' => 'Set your preferred price range on the slider!',
     'price_popup_filter_btn' => 'Apply',
 
-    'hour' => 'hours',
+    'hour' => 'hour',
     'spoken_languages' => 'Speaks',
     'student' => 'Students',
     'more_btn' => 'More',

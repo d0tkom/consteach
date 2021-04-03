@@ -494,7 +494,6 @@ export default {
 			timezones: [],
 			levels,
 			locale: window.default_locale,
-			fee: 1.2,
 			languageTemplate: {
 				language: null,
 				level: null
@@ -604,7 +603,7 @@ export default {
 			let valueCalculated = value * hours;
 			
 			if (!net) {
-				valueCalculated /= this.fee;
+				valueCalculated /= this.$root.fee;
 			}
 			
 			this.$set(this.form, form_item, valueCalculated);
@@ -613,7 +612,7 @@ export default {
 			let value = form_item / hours;
 			
 			if (!net) {
-				value *= this.fee;
+				value *= this.$root.fee;
 			}
 			
 			return Math.floor(value);
@@ -621,7 +620,7 @@ export default {
 		calculateGrossPrice(value) {
 			value = parseInt(value, 10);
 
-			return Math.floor(value * this.fee);
+			return Math.floor(value * this.$root.fee);
 		},
 		addNewSpokenLanguage() {
 			const languageTemplate = JSON.parse(JSON.stringify(this.languageTemplate));
@@ -632,7 +631,6 @@ export default {
 			this.form.teaching_languages.push(languageTemplate);
 		},
 		submit() {
-			//TODO: reset localStorage
 			this.form.post('/users/' + this.$page.props.user.id, {
 				preserveScroll: true, 
 				onSuccess: () => {

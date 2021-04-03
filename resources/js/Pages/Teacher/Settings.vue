@@ -363,8 +363,6 @@
 	            photoPreview: null,
 	            
                 saving: false,
-
-                fee: 1.20,
                 
                 removeAccountPopup: false,
                 changePasswordPopup: false,
@@ -442,7 +440,7 @@
 	        	let value = form_item / hours;
 		        
 	        	if (!net) {
-	        		value *= this.fee;
+	        		value *= this.$root.fee;
 		        }
 	        	
 	        	return Math.floor(value);
@@ -451,16 +449,16 @@
 	        	let valueCalculated = value * hours;
 		        
 		        if (!net) {
-			        valueCalculated /= this.fee;
+			        valueCalculated /= this.$root.fee;
 		        }
 
 		        this.$set(this.form, form_item, valueCalculated);
 	        },
 	        calculateGrossPrice(value) {
-	        	return Math.floor(value * this.fee);
+	        	return Math.floor(value * this.$root.fee);
 	        },
 	        grossPriceInput(formItem, value) {
-		        formItem = value / this.fee;
+		        formItem = value / this.$root.fee;
 	        },
 	        updatePhotoPreview() {
 		        const reader = new FileReader();

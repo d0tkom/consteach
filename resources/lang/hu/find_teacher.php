@@ -37,7 +37,7 @@ return [
 
     'new_teacher_tag' => 'ÚJ TANÁR',
 
-    'hour' => 'óra',
+    'hour' => 'órától',
     'spoken_languages' => 'Beszélt nyelvek',
     'student' => 'diák',
     'more_btn' => 'Tanár profil',

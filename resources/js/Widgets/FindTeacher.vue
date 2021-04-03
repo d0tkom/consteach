@@ -33,7 +33,7 @@
 							priceTag
 						>
 							<currency
-								:value="data.one_hour_price"
+								:value="lowestPrice"
 							/> / {{ trans.get('find_teacher.hour') }}
 						</c-tag>
 					</div>
@@ -133,6 +133,17 @@ export default {
     },
 	methods: {
 
+	},
+	computed: {
+		lowestPrice() {
+			let prices = [
+				this.data.one_hour_price,
+				this.data.five_hour_price / 5,
+				this.data.ten_hour_price / 10
+			];
+
+			return Math.max(...prices) * this.$root.fee;
+		}
 	}
 }
 </script>
