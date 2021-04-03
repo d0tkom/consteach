@@ -12,7 +12,7 @@
 					>
 				</div>
 				<div class="cardBody w-full flex flex-col">
-					<div class="mainInfoContainer items-center justify-between mb-4">
+					<div class="mainInfoContainer flex items-center justify-between mb-4">
 						<div
 							v-if="data.user"
 							class="name text-lg font-bold color-primary-dark flex items-center"
