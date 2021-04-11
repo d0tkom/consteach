@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'footer' => 'Minden jog fenntartva.',
+    'footer' => 'All rights reserved.',
 ];
 
 ?>
