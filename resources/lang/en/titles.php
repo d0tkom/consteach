@@ -13,10 +13,10 @@ return [
     |
     */
 
-    'profile' => 'Profil',
-    'calendar' => 'Naptár',
-    'settings' => 'Beállítások',
-    'invoices' => 'Nyugták',
-    'students' => 'Diákok',
+    'profile' => 'Profile',
+    'calendar' => 'Timetable',
+    'settings' => 'Settings',
+    'invoices' => 'Invoices',
+    'students' => 'Students',
 
 ];
