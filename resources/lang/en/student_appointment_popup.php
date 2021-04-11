@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'popup_title' => 'Foglalás részletei:',
-    'close' => 'Bezárás',
-    'delete_appointment_btn' => 'Foglalás törlése',
-    'delete_appointment_approve_btn' => 'Megerősítés'
+    'popup_title' => 'Booking details:',
+    'close' => 'Close',
+    'delete_appointment_btn' => 'Delete lesson',
+    'delete_appointment_approve_btn' => 'Confirm'
 ];
 
 ?>
