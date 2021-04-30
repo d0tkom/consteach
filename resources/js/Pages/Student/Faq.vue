@@ -10,13 +10,14 @@
 				<p v-html="trans.get('faq_student.contact_description')"></p>
 				<c-text-area
 					:hint="trans.get('faq_student.contact_max_char')"
-					:max="250"
+					:max="1000"
 					class="mb-4"
 					v-model="contact.text"
 				/>
 				<c-btn
 					:loading="contact.loading"
 					@click="submitContactForm"
+					:disabled="contact.text.length > 1000 || contact.text.length < 3"
 				>
 					{{ trans.get('faq_student.contact_btn') }}
 				</c-btn>
@@ -189,7 +190,7 @@ export default {
 			openedQuestion: null,
 			contact: {
 				loading: false,
-				text: null,
+				text: '',
 			}
 		};
 	},

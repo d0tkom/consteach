@@ -10,7 +10,7 @@ return [
     'contact_title' => 'Kapcsolat',
     'contact_description' => 'Technikai problémád adódott vagy észrevételed, kérdésed van az oldal működésével kapcsolatban?<br/><br/> Írj nekünk, mi kézséggel válaszolunk.',
     'contact_placeholder' => 'Ide írhatod a véleményed...',
-    'contact_max_char' => 'Legfeljebb 250 karakter',
+    'contact_max_char' => 'Legfeljebb 1000 karakter',
     'contact_btn' => 'Üzenet küldése',
     'contact_submitted_success_notification' => 'Üzenet elküldve',
     'contact_submitted_fail_notification' => 'Üzenet küldése sikertelen',

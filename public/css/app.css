@@ -8,7 +8,7 @@
         url(/fonts/Montserrat_300_normal.woff2?6a8d2ba63c0dae00c009f9739e768fee) format('woff2'), 
         url(/fonts/Montserrat_300_normal.woff?9b4b3b99a863c8e80006435ddb1a2e19) format('woff'), 
         url(/fonts/Montserrat_300_normal.ttf?1f5a58b470293107a9bd738234ee3502) format('truetype'), 
-        url(/fonts/Montserrat_300_normal.svg?2063da5e2bc2212a4cf7c2d1388dd6c6#Montserrat_300_normal) format('svg'); /* http://fonts.gstatic.com/l/font?kit=JTURjIg1_i6t8kCHKm45_cJD7gw&skey=1ce67628c9aa416a&v=v15#Montserrat */
+        url(/fonts/Montserrat_300_normal.svg?0c3783781c48cfcea845562c50927569#Montserrat_300_normal) format('svg'); /* http://fonts.gstatic.com/l/font?kit=JTURjIg1_i6t8kCHKm45_cJD7gw&skey=1ce67628c9aa416a&v=v15#Montserrat */
 }
 
 .btnContainer .cBtn {
@@ -25,6 +25,10 @@
   border: 2px solid transparent;
   font-weight: bold;
   letter-spacing: 1.1px;
+}
+.btnContainer .cBtn.disabled {
+  opacity: 0.4 !important;
+  pointer-events: none !important;
 }
 .btnContainer .cBtn .btnContent {
   line-height: 1;
@@ -1275,7 +1279,6 @@ body .mainSiteContainer.isLanding .siteContent {
   margin-left: 0;
 }
 .teacherWidgetMainCard.listPage:hover {
-  transform: scale(1.01) translate(0, -2px) !important;
   box-shadow: 0 6px 20px 0 rgba(24, 160, 251, 0.4) !important;
 }
 
@@ -1285,7 +1288,6 @@ body .mainSiteContainer.isLanding .siteContent {
 
 .fadeMoveIn-enter, .fadeMoveIn-leave-to {
   opacity: 0;
-  top: 20px;
 }
 
 .fadeMoveIn-leave-to {
