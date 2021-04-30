@@ -17,6 +17,7 @@
 				<c-btn
 					:loading="contact.loading"
 					@click="submitContactForm"
+					:disabled="contact.text.length > 1000 || contact.text.length < 3"
 				>
 					{{ trans.get('faq_teacher.contact_btn') }}
 				</c-btn>
@@ -189,7 +190,7 @@ export default {
 			openedQuestion: null,
 			contact: {
 				loading: false,
-				text: null
+				text: ''
 			}
 		};
 	},
