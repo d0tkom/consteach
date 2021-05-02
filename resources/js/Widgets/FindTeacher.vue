@@ -76,7 +76,7 @@
 				</div>
 			</div>
 			<div class="teacherWidgetBottom flex">
-				<div class="color-gray my-1" v-html="data.about_me[0].text"></div>
+				<div class="color-gray my-1" v-html="description"></div>
 				<div class="actions flex flex-col justify-end items-center">
 					<c-btn
 						v-if="!$root.isCurrentUserTeacher"
@@ -143,6 +143,13 @@ export default {
 			];
 
 			return Math.max(...prices) * this.$root.fee;
+		},
+		description() {
+			if (this.data.about_me[0].text.length <= 350) {
+				return this.data.about_me[0].text;
+			}
+
+			return this.data.about_me[0].text.substring(0, 350);
 		}
 	}
 }

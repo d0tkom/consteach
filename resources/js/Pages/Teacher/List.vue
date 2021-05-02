@@ -91,10 +91,8 @@
 		        :key="t"
 	        >
 		        <find-teacher
-			       
 			        :data="teacher"
 			        :trial-available="$page.props.user && $page.props.user.extra ? $page.props.user.extra.trial_available : true"
-			
 			        :active="activeTeacher === teacher.id"
 		        />
 	        </div>
@@ -251,19 +249,19 @@
                     prices: this.filters.price.value,
                     time: this.filters.time.value
                 }})
-                    .then(function (response) {
-                        if (response.data.teachers.current_page < response.data.teachers.last_page) {
-                            self.moreExists = true;
-                        } else {
-                            self.moreExists = false;
-                        }
-                        self.teachers = response.data.teachers.data;
-                        self.next_page_url = response.data.teachers.next_page_url;
-                        self.total = response.data.teachers.total;
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
+                .then(function (response) {
+                    if (response.data.teachers.current_page < response.data.teachers.last_page) {
+                        self.moreExists = true;
+                    } else {
+                        self.moreExists = false;
+                    }
+                    self.teachers = response.data.teachers.data;
+                    self.next_page_url = response.data.teachers.next_page_url;
+                    self.total = response.data.teachers.total;
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
             }
         }
     }

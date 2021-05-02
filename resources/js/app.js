@@ -29,9 +29,6 @@ import VTooltip from 'v-tooltip'
 
 Vue.use(VTooltip)
 
-import CountryFlag from 'vue-country-flag';
-Vue.component('country-flag', CountryFlag)
-
 const default_locale = window.default_locale;
 const fallback_locale = window.fallback_locale;
 
