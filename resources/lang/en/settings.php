@@ -37,11 +37,11 @@ return [
     'five_hours_net' => '5 hours - Net',
     'five_hours_gross' => '5 hours - Gross',
 
-    'ten_hours_net' => '10 óra - Net',
-    'ten_hours_gross' => '10 óra - Gross',
+    'ten_hours_net' => '10 hours - Net',
+    'ten_hours_gross' => '10 hours - Gross',
 
-    'twenty_hours_net' => '20 óra - Net',
-    'twenty_hours_gross' => '20 óra - Gross',
+    'twenty_hours_net' => '20 hours - Net',
+    'twenty_hours_gross' => '20 hours - Gross',
 
     'validating_alert_title' => 'Validation in progress.',
     'validating_alert_description' => 'Main teacher functions are unavailable until validation is done.',

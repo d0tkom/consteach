@@ -78,7 +78,6 @@ class Teacher extends Model
             }
 
             foreach($teacherAvailableLanguages->teaching_languages as $teacherAvailableLanguage) {
-
                 if (!in_array($teacherAvailableLanguage['language'], $availableLanguages)) {
                     $availableLanguages[] = $teacherAvailableLanguage['language'];
                 }

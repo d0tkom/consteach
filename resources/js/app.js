@@ -37,7 +37,7 @@ Vue.prototype.trans = new Lang({messages, locale: default_locale, fallback: fall
 const VueScrollTo = require('vue-scrollto');
 Vue.use(VueScrollTo);
 
-const app = document.getElementById('app');
+var CountryLanguage = require('country-language');
 
 import VueProgressBar from 'vue-progressbar'
 
@@ -54,6 +54,8 @@ import VueGtag from "vue-gtag";
 Vue.use(VueGtag, {
     config: { id: "G-0000000000" }
 });
+
+const app = document.getElementById('app');
 
 new Vue({
     data: {
@@ -137,17 +139,32 @@ new Vue({
         this.languageList = this.languageList.getNames(this.locale, {select: 'official'});
     },
     methods: {
+        getCountryCode(languageCode) {
+            return languageCode;
+            /*
+            CountryLanguage.getLanguageMsLocales(languageCode, function (countries) {
+                if (err) {
+                    console.error(err);
+                } else {
+                    console.log(countries);
+                    return countries[0].code_2;
+                }
+            });
+
+             */
+        },
         initHashScroll() {
             if (!location.hash) {
                 return;
             }
 
             let hashedElement = $(location.hash);
-            if (!hashedElement) {
+            if (!hashedElement || !hashedElement.offset()) {
                 return;
             }
 
             let hashedElementTop = hashedElement.offset().top;
+
             $("html, body").animate({
                 scrollTop: hashedElementTop - 70
             }, 600);

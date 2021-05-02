@@ -5,11 +5,15 @@
 		<div class="teacherWidgetMainCard listPage flex flex-col justify-start card p-sm my-4">
 			<div class="teacherWidgetTop flex mb-4">
 				<div class="profileImageWrapper mr-4">
-					<img
-						class="teacherProfileImage max-w-none blue-border rounded-full overflow-hidden mt-4"
-						:src="data.user.profile_photo_url"
-						alt="Tanár képe"
+					<inertia-link
+						:href="'/teacher/' + data.id"
 					>
+						<img
+							class="teacherProfileImage max-w-none blue-border rounded-full overflow-hidden mt-4"
+							:src="data.user.profile_photo_url"
+							alt="Tanár képe"
+						>
+					</inertia-link>
 				</div>
 				<div class="cardBody w-full flex flex-col">
 					<div class="mainInfoContainer flex items-center justify-between mb-4">
@@ -17,11 +21,15 @@
 							v-if="data.user"
 							class="name text-lg font-bold color-primary-dark flex items-center"
 						>
-							<span
-								class="capitalize mr-4"
+							<inertia-link
+								:href="'/teacher/' + data.id"
 							>
-								{{ data.user.first_name }} {{ data.user.last_name[0] }}.
-							</span>
+								<span
+									class="capitalize mr-4"
+								>
+									{{ data.user.first_name }} {{ data.user.last_name[0] }}.
+								</span>
+							</inertia-link>
 							<flag
 								v-if="data.country"
 								class="text-2xl shadow-sm flagWide"
@@ -78,11 +86,14 @@
 			<div class="teacherWidgetBottom flex">
 				<div class="color-gray my-1" v-html="description"></div>
 				<div class="actions flex flex-col justify-end items-center">
-					<c-btn
+					<inertia-link
 						v-if="!$root.isCurrentUserTeacher"
-						icon="event"
-						:navigate-to="'/teacher/' + data.id+'#calendar'"
-					>{{ trans.get('find_teacher.book_btn') }}</c-btn>
+						href="'/teacher/' + data.id+'#calendar'"
+					>
+						<c-btn
+							icon="event"
+						>{{ trans.get('find_teacher.book_btn') }}</c-btn>
+					</inertia-link>
 				</div>
 			</div>
 		</div>
