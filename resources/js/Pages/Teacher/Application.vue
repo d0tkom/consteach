@@ -230,6 +230,20 @@
 							:value="calculateHourPrice(form.ten_hour_price, 10, false)"
 						/>
 					</div>
+					<div class="grid grid-cols-2 gap-4">
+						<c-input
+							:hint="'/'+trans.get('teacher_application.hour')"
+							:label="trans.get('teacher_application.twenty_hours_net')"
+							:value="calculateHourPrice(form.twenty_hour_price, 20, true)"
+							@keyup="value => bulkPriceInput(value, 'twenty_hour_price', 20, true)"
+						/>
+						<c-input
+							:hint="'/'+trans.get('teacher_application.hour')"
+							readonly
+							:label="trans.get('teacher_application.twenty_hours_gross')"
+							:value="calculateHourPrice(form.twenty_hour_price, 20, false)"
+						/>
+					</div>
 				</div>
 			</div>
 			<div class="card" v-if="activeTab === 1">
@@ -538,6 +552,7 @@ export default {
 				one_hour_price: 0,
 				five_hour_price: 0,
 				ten_hour_price: 0,
+				twenty_hour_price: 0,
 			}),
 		};
 	},

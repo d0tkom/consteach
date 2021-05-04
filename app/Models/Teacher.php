@@ -29,6 +29,7 @@ class Teacher extends Model
         'one_hour_price',
         'five_hour_price',
         'ten_hour_price',
+        'twenty_hour_price',
         'completed',
 	];
 

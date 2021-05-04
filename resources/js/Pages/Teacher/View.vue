@@ -232,12 +232,23 @@
                                     <div class="relative">
                                         <div class="value text-green-500 text-lg">
 	                                        <currency
-		                                        :value="(teacher.ten_hour_price / 10)*$root.fee"
+		                                        :value="(teacher.ten_hour_price / 10) * $root.fee"
 	                                        />
                                              / {{ trans.get('teacher_profile.hour') }}
 	                                    </div>
                                     </div>
                                 </div>
+	                            <div class="priceItem sm:flex mb-10">
+		                            <div class="title flex-1 sm:text-left text-center">20 {{ trans.get('teacher_profile.hour') }}</div>
+		                            <div class="relative">
+			                            <div class="value text-green-500 text-lg">
+				                            <currency
+					                            :value="(teacher.twenty_hour_price / 20) * $root.fee"
+				                            />
+				                            / {{ trans.get('teacher_profile.hour') }}
+			                            </div>
+		                            </div>
+	                            </div>
                             </div>
                             <div class="actions flex flex-col items-end">
                                 <c-btn

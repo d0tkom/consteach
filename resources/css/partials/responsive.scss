@@ -21,6 +21,12 @@
 	}
 }
 
+@media all and (max-width: 1210px) and (min-width: 640px) {
+  .mainSiteContainer {
+    padding: 0 20px;
+  }
+}
+
 @media all and (max-width: 1366px) {
 	body main .top .flex .right .landingTree {
 		width: 110px;

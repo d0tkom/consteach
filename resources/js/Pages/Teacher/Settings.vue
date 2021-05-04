@@ -273,6 +273,20 @@
 			            :value="calculateHourPrice(form.ten_hour_price, 10, false)"
 		            />
 	            </div>
+	            <div class="grid grid-cols-2 gap-4">
+		            <c-input
+			            :hint="'/'+trans.get('settings.hour')"
+			            :label="trans.get('settings.twenty_hours_net')"
+			            :value="calculateHourPrice(form.twenty_hour_price, 20, true)"
+			            @keyup="value => bulkPriceInput(value, 'twenty_hour_price', 20, true)"
+		            />
+		            <c-input
+			            :hint="'/'+trans.get('settings.hour')"
+			            readonly
+			            :label="trans.get('settings.twenty_hours_gross')"
+			            :value="calculateHourPrice(form.twenty_hour_price, 20, false)"
+		            />
+	            </div>
             </div>
             
             <!-- Beállítások -->
@@ -389,6 +403,7 @@
                     one_hour_price: this.teacher.one_hour_price,
                     five_hour_price: this.teacher.five_hour_price,
                     ten_hour_price: this.teacher.ten_hour_price,
+                    twenty_hour_price: this.teacher.twenty_hour_price,
                 }, {
                     bag: 'updateUser',
                     resetOnSuccess: true,

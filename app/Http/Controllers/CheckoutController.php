@@ -63,7 +63,6 @@ class CheckoutController extends Controller
             $payment = $user->charge(
                 $request->input('product')['amount'],
                 $request->input('product')['payment_method']
-
             );
 
             $payment = $payment->asStripePaymentIntent();

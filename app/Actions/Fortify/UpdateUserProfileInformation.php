@@ -53,6 +53,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             Validator::make($input, [
                 'five_hour_price' => ['bail', 'required', 'numeric', 'min:0', 'not_in:0', 'max:'.$input['one_hour_price']*5],
                 'ten_hour_price' => ['bail', 'required', 'numeric', 'min:0', 'not_in:0', 'max:'.$input['one_hour_price']*10],
+                'twenty_hour_price' => ['bail', 'required', 'numeric', 'min:0', 'not_in:0', 'max:'.$input['one_hour_price']*20],
             ])->validateWithBag('updateProfileInformation');
 
             $teacher = Teacher::where('user_id', $user->id)->first();
@@ -65,9 +66,10 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $teacher->one_hour_price = $input['one_hour_price'] ?? 0;
             $teacher->five_hour_price = $input['five_hour_price'] ?? 0;
             $teacher->ten_hour_price = $input['ten_hour_price'] ?? 0;
+            $teacher->twenty_hour_price = $input['twenty_hour_price'] ?? 0;
 
             $teacher->save();
-        }        
+        }
     }
 
     /**

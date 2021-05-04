@@ -88,7 +88,7 @@
 				<div class="actions flex flex-col justify-end items-center">
 					<inertia-link
 						v-if="!$root.isCurrentUserTeacher"
-						href="'/teacher/' + data.id+'#calendar'"
+						:href="'/teacher/' + data.id+'#calendar'"
 					>
 						<c-btn
 							icon="event"

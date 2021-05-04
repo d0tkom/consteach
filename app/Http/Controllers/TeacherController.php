@@ -129,6 +129,7 @@ class TeacherController extends Controller
                 'one_hour_price' => ['bail', 'required', 'numeric', 'min:0', 'not_in:0'],
                 'five_hour_price' => ['bail', 'required', 'numeric', 'min:0', 'not_in:0', 'max:'.$request->input('one_hour_price')*5],
                 'ten_hour_price' => ['bail', 'required', 'numeric', 'min:0', 'not_in:0', 'max:'.$request->input('one_hour_price')*10],
+                'twenty_hour_price' => ['bail', 'required', 'numeric', 'min:0', 'not_in:0', 'max:'.$request->input('one_hour_price')*20],
             ]);
         } elseif ($request->input('step') == 1) {
             $validatedData = $request->validate([

@@ -60,6 +60,23 @@
 								</div>
 							</div>
 						</label>
+						<label for="e4" @click="trialSelected = false; selectProduct(20, teacher.twenty_hour_price, 'HUF')">
+							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
+								<input id="e4" class="mt-1 sm:mr-3" type="radio" name="lesson" />
+								<div class="text-md font-semibold flex-1 mr-4">20 {{ trans.choice('checkout.lesson', 20) }}</div>
+								<div class="text-md text-gray-500 mr-2" v-if="teacher.one_hour_price*$root.fee*20 > teacher.twenty_hour_price">
+									<currency
+										class="line-through"
+										:value="teacher.one_hour_price*$root.fee*20"
+									/>
+								</div>
+								<div class="text-green-500 text-md">
+									<currency
+										:value="teacher.twenty_hour_price*$root.fee"
+									/>
+								</div>
+							</div>
+						</label>
 					</div>
 				</div>
 				

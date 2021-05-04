@@ -30,6 +30,7 @@ class TeacherFactory extends Factory
             'one_hour_price' => $this->faker->numberBetween($min = 1000, $max = 9000),
             'five_hour_price' => $this->faker->numberBetween($min = 5000, $max = 45000),
             'ten_hour_price' => $this->faker->numberBetween($min = 10000, $max = 90000),
+            'twenty_hour_price' => $this->faker->numberBetween($min = 15000, $max = 135000),
         ];
     }
 
