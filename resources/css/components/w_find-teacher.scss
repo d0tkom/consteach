@@ -108,9 +108,11 @@
 		padding-left: 30px;
 	}
 
-	&.listPage:hover {
-		transform: scale(1.05) translate(0, -2px) !important;
-		box-shadow: 0 6px 20px -0 rgba($blue, .4) !important;
+	&.listPage {
+		margin-left: 0;
+		&:hover {
+			box-shadow: 0 6px 20px -0 rgba($blue, .4) !important;
+		}
 	}
 }
 
@@ -120,7 +122,6 @@
 }
 .fadeMoveIn-enter, .fadeMoveIn-leave-to {
 	opacity: 0;
-	top: 20px;
 }
 .fadeMoveIn-leave-to {
 	transition: all .1s;

@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Notifications\StudentRegistered;
+use App\Notifications\TeacherRegistered;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -85,6 +87,18 @@ class User extends Authenticatable
 
     protected function defaultProfilePhotoUrl()
     {
-        return null;
+        return '/img/profile_placeholder.jpg';
+    }
+
+    public static function boot() {
+        parent::boot();
+
+        static::created(function($user) {
+            if ($user->role === 'student') {
+                $user->notify(new StudentRegistered());
+            } else {
+                $user->notify(new TeacherRegistered());
+            }
+        });
     }
 }

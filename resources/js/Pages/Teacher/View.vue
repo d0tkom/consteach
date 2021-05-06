@@ -2,7 +2,10 @@
     <app-layout>
         <div class="studentHubContainer mt-8">
             <div class="card flat lg">
-                <div class="mainGrid grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <div
+	                class="mainGrid grid grid-cols-1 gap-4"
+	                :class="!$root.isCurrentUserTeacher ? 'lg:grid-cols-3' : 'currentUserTeacher'"
+                >
                     <div class="col-span-2">
                         <div class="mobileReversedCol card p-sm">
                             <iframe
@@ -89,9 +92,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card p-sm" id="calendar">
+                        <div
+	                        v-if="!$root.isCurrentUserTeacher"
+	                        class="card p-sm"
+	                        id="calendar"
+                        >
                             <div class="text-md font-bold color-blue-dark mb-4">{{ trans.get('teacher_profile.time_table') }}</div>
-                            <FullCalendar :options="calendarOptions" />
+	
+	                        <div class="title text-md font-bold color-primary-dark">
+		                        {{ trans.get('teacher_profile.calendar_title') }}
+	                        </div>
+	                        <p class="mb-8">
+		                        {{ trans.get('teacher_profile.calendar_subtitle') }}
+	                        </p>
+	                        
+	                        <FullCalendar :options="calendarOptions" />
 	
 	                        <div class="calendarFooter flex justify-between items-center mt-2">
 		                        <div class="calendarFooterLabels p-4">
@@ -141,7 +156,10 @@
                         </div>
                         -->
                     </div>
-                    <div class="col-span-1">
+                    <div
+	                    v-if="!$root.isCurrentUserTeacher"
+	                    class="col-span-1"
+                    >
 	                    <div v-if="$page.props.user ? $page.props.user.extra.trial_available : true" class="card freeLessonCard p-sm">
 		                    <div class="blue-text-color mb-6 text-center sm:text-left ">
 			                    <p class="text-lg font-semibold">
@@ -153,7 +171,7 @@
 					                    <div class="originalPrice text-gray text-sm">
 						                    <currency
 							                    class="line-through"
-							                    :value="(teacher.one_hour_price*fee)"
+							                    :value="(teacher.one_hour_price*$root.fee)"
 						                    />
 						                </div>
 					                    <div class="newPRice text-green-500 text-lg">
@@ -174,7 +192,10 @@
 			                    >{{ trans.get('teacher_profile.free_lesson_btn') }}</c-btn>
 		                    </div>
 	                    </div>
-                        <div class="priceTableCard card p-sm">
+                        <div
+	                        v-if="!$root.isCurrentUserTeacher"
+	                        class="priceTableCard card p-sm"
+                        >
                             <div class="blue-text-color mb-6 text-center sm:text-left ">
                                 <p class="text-lg font-semibold">
 	                                {{ trans.get('teacher_profile.private_lessons') }}
@@ -189,7 +210,7 @@
                                     <div class="relative">
                                         <div class="value text-green-500 text-lg">
 	                                        <currency
-		                                        :value="teacher.one_hour_price*fee"
+		                                        :value="teacher.one_hour_price*$root.fee"
 	                                        />
                                              / {{ trans.get('teacher_profile.hour') }}
 	                                    </div>
@@ -200,7 +221,7 @@
                                     <div class="relative">
                                         <div class="value text-green-500 text-lg">
 	                                        <currency
-		                                        :value="(teacher.five_hour_price / 5)*fee"
+		                                        :value="(teacher.five_hour_price / 5)*$root.fee"
 	                                        />
                                              / {{ trans.get('teacher_profile.hour') }}
 	                                   </div>
@@ -211,12 +232,23 @@
                                     <div class="relative">
                                         <div class="value text-green-500 text-lg">
 	                                        <currency
-		                                        :value="(teacher.ten_hour_price / 10)*fee"
+		                                        :value="(teacher.ten_hour_price / 10) * $root.fee"
 	                                        />
                                              / {{ trans.get('teacher_profile.hour') }}
 	                                    </div>
                                     </div>
                                 </div>
+	                            <div class="priceItem sm:flex mb-10">
+		                            <div class="title flex-1 sm:text-left text-center">20 {{ trans.get('teacher_profile.hour') }}</div>
+		                            <div class="relative">
+			                            <div class="value text-green-500 text-lg">
+				                            <currency
+					                            :value="(teacher.twenty_hour_price / 20) * $root.fee"
+				                            />
+				                            / {{ trans.get('teacher_profile.hour') }}
+			                            </div>
+		                            </div>
+	                            </div>
                             </div>
                             <div class="actions flex flex-col items-end">
                                 <c-btn
@@ -236,6 +268,7 @@
             </div>
         </div>
         <BookAppointment
+	        :loading="appointmentPopup.loading"
             v-model="appointmentPopup.open"
             :data="appointmentPopup.data"
             @submit="submitAppointment"
@@ -276,7 +309,6 @@
         data() {
             return {
 	            aboutMeMaxChar: 1000,
-	            fee: 1.2,
 	            filterCalendarTime: {
 		            start: '06:00:00',
 		            end: '18:00:00',
@@ -361,6 +393,7 @@
 	            aboutMeOpened: false,
                 appointmentPopup: {
                     open: false,
+	                loading: false,
                     data: {
                         teacher_name: null,
                         date_start: null,
@@ -370,7 +403,8 @@
                 },
                 calendarOptions: {
 	                validRange: {
-		                start: moment().format('YYYY-MM-DD')
+		                start: moment().format('YYYY-MM-DD'),
+		                end: moment().add(2, 'month').format('YYYY-MM-DD')
 	                },
 	                dayHeaderContent: ({text}) => {
 		                let texts = text.split(' ');
@@ -470,6 +504,13 @@
 		        this.calendarOptions.slotMaxTime = this.filterCalendarTime.end = localStorage_calendarFilter.end;
 	        }
         },
+	    mounted() {
+        	let name = `${this.teacher.user.first_name} ${this.teacher.user.last_name[0]}.`;
+		    let title = this.trans.get('teacher_profile.document_title', {name});
+		    this.$root.documentTitle(title);
+		
+		    this.$root.initHashScroll();
+	    },
 	    computed: {
 		    aboutMeText() {
 		    	let text = null;
@@ -499,7 +540,7 @@
 		        let message = this.trans.get('teacher_profile.free_lesson_btn_notification');
 		        this.$toast.info(message);
 	        },
-        	clickedBuyBtn() {
+	        clickedBuyBtn() {
 		        if (!this.$page.props.user) {
 			        let message = this.trans.get('teacher_profile.no_auth_notification');
 			        this.$toast.info(message);
@@ -529,7 +570,9 @@
 	            if (this.$page.props.user.role !== 'student') {
 		            return false;
 	            }
-                
+             
+	            this.appointmentPopup.loading = true;
+	            
                 axios.put('/appointment', {
                     params: {
                         start: this.appointmentPopup.data.date_start,
@@ -552,9 +595,13 @@
                             eventClickInfo: null
                         };
                     }, 500);
+                    
+	                this.appointmentPopup.loading = false;
                 })
                 .catch(error => {
-                    if (error.response.status === 423) {
+	                this.appointmentPopup.loading = false;
+	
+	                if (error.response.status === 423) {
                          this.$inertia.visit('/checkout/' + this.teacher.id  + '?appointment=' + error.response.data);
                     } else {
 	                    let message = this.trans.get('teacher_profile.submit_appointment_fail_notification');
@@ -575,7 +622,7 @@
                 }
                 
                 this.appointmentPopup.data = {
-                    teacher_name: this.teacher.user.first_name + ' ' + this.teacher.user.last_name,
+                    teacher_name: this.teacher.user.first_name + ' ' + this.teacher.user.last_name[0]+'.',
                     date_start: eventClickInfo.event.startStr,
                     date_end: eventClickInfo.event.endStr,
 	                availability_id: eventClickInfo.event.extendedProps.availability_id,

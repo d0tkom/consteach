@@ -84,15 +84,30 @@
                 </div>
             </div>
             
-            <find-teacher
-                v-for="(teacher, t) in teachers"
-                :key="t"
-                :data="teacher"
-                :trial-available="$page.props.user && $page.props.user.extra ? $page.props.user.extra.trial_available : true"
-                @mouse-enter="id => mouseEnter(id)"
-                @mouse-leave="id => mouseLeave(id)"
-                :active="activeTeacher === teacher.id"
-            />
+	        <div
+		        @mouseenter="mouseEnter(teacher.id)"
+		        @mouseleave="mouseLeave(teacher.id)"
+		        v-for="(teacher, t) in teachers"
+		        :key="t"
+	        >
+		        <find-teacher
+			        :data="teacher"
+			        :trial-available="$page.props.user && $page.props.user.extra ? $page.props.user.extra.trial_available : true"
+			        :active="activeTeacher === teacher.id"
+		        />
+	        </div>
+			<div
+				v-if="teachers.length === 0"
+				class="flex items-center justify-center flex-col mt-28"
+			>
+				<span class="material-icons color-primary" style="font-size: 100px">search_off</span>
+				<h2
+					class="title text-xl my-4"
+				>{{ trans.get('find_teacher.no_result_title') }}</h2>
+				<c-btn
+					@click="resetFilters()"
+				>{{ trans.get('find_teacher.no_result_btn') }}</c-btn>
+			</div>
 	        
             <div class="actions flex justify-center">
                 <c-btn
@@ -169,8 +184,11 @@
             this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
         },
 	    mounted() {
+		    let title = this.trans.get('find_teacher.document_title');
+		    this.$root.documentTitle(title);
+      
 		    let parameters = this.$root.getUrlVars();
-		
+		    
 		    if (parameters['lang']) {
 			    this.filters.language.value = parameters['lang'];
 		    }
@@ -187,6 +205,15 @@
              },
         },
         methods: {
+			resetFilters() {
+					this.filters.order.value = 'random';
+					this.filters.language.value = null;
+					this.filters.price.value = [0,15000];
+					this.filters.time.value = {
+						timeOfDay: [],
+						day: []
+					};
+			},
             loadMoreTeacher() {
                 let self = this;
                 axios.get(self.next_page_url, {params: {
@@ -222,19 +249,19 @@
                     prices: this.filters.price.value,
                     time: this.filters.time.value
                 }})
-                    .then(function (response) {
-                        if (response.data.teachers.current_page < response.data.teachers.last_page) {
-                            self.moreExists = true;
-                        } else {
-                            self.moreExists = false;
-                        }
-                        self.teachers = response.data.teachers.data;
-                        self.next_page_url = response.data.teachers.next_page_url;
-                        self.total = response.data.teachers.total;
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
+                .then(function (response) {
+                    if (response.data.teachers.current_page < response.data.teachers.last_page) {
+                        self.moreExists = true;
+                    } else {
+                        self.moreExists = false;
+                    }
+                    self.teachers = response.data.teachers.data;
+                    self.next_page_url = response.data.teachers.next_page_url;
+                    self.total = response.data.teachers.total;
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
             }
         }
     }

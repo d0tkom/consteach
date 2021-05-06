@@ -131,7 +131,7 @@
 					>
 						{{ trans.get($page.props.user.role === 'teacher' ? 'header.teacher_hub_btn' : 'header.student_hub_btn') }}
 					</c-btn>
-					<div v-if="$page.props.user != null && $page.props.user.role === 'student'">
+					<div>
 						<c-btn
 							lg
 							:icon-only="!mobileMenu"

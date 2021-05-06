@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\FreeAppointmentBookedStudent;
+use App\Notifications\FreeAppointmentBookedTeacher;
+use App\Notifications\LessonBoughtTeacher;
 use Illuminate\Http\Request;
 use App\Models\Lesson;
 use App\Models\Appointment;
@@ -60,7 +63,6 @@ class CheckoutController extends Controller
             $payment = $user->charge(
                 $request->input('product')['amount'],
                 $request->input('product')['payment_method']
-
             );
 
             $payment = $payment->asStripePaymentIntent();
@@ -106,6 +108,8 @@ class CheckoutController extends Controller
 
             BillingoApi::api('Product')->delete($product_id)->getResponse();
 
+            $lesson->teacher->user->notify(new LessonBoughtTeacher($lesson));
+
             return $order;
         } catch (\Exception $e) {
             return response()->json(['message' => $e->getMessage()], 500);
@@ -116,7 +120,7 @@ class CheckoutController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function show(Request $request, Teacher $teacher)
     {
@@ -124,7 +128,17 @@ class CheckoutController extends Controller
 
         $teacher->user;
 
-        return Inertia::render('Checkout')->with(['teacher' => $teacher, 'appointment' => $appointment]);
+        $meta = [
+            'title' => __('checkout.document_title'),
+            'description' => __('checkout.document_description'),
+            'img' => __('checkout.document_img')
+        ];
+
+        return Inertia::render('Checkout')->with([
+            'teacher' => $teacher,
+            'appointment' => $appointment,
+            'meta' => $meta
+        ]);
     }
 
     /**
@@ -184,6 +198,9 @@ class CheckoutController extends Controller
 
             $lesson->decrement('available', 1);
             $lesson->increment('booked', 1);
+
+            $appointment->teacher->user->notify(new FreeAppointmentBookedTeacher($appointment));
+            $appointment->student->user->notify(new FreeAppointmentBookedStudent($appointment));
         }
 
         return true;
@@ -222,7 +239,7 @@ class CheckoutController extends Controller
     public function createProduct($order)
     {
         $product = [
-            'name' => $order->lesson_number . ' Tanóra',
+            'name' => trans_choice('bill.lesson', $order->lesson_number),
             'net_unit_price' => intval(round(($order->total - $order->total/1.2)/100)),
             'currency' => 'HUF',
             'unit_price_type' => 'gross',

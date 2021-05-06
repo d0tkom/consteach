@@ -18,6 +18,16 @@
 		        v-if="!$root.cookiePolicy.accepted"
 		    />
 	    </transition>
+	    <vue-progress-bar></vue-progress-bar>
+
+		<inertia-link
+			v-if="$page.component !== 'Student/Faq' && $page.component !== 'Teacher/Faq'"
+
+			href="/faq-student"
+			class="helpAction"
+		>
+			?
+		</inertia-link>
     </div>
 </template>
 

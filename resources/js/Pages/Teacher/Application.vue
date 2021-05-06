@@ -230,6 +230,20 @@
 							:value="calculateHourPrice(form.ten_hour_price, 10, false)"
 						/>
 					</div>
+					<div class="grid grid-cols-2 gap-4">
+						<c-input
+							:hint="'/'+trans.get('teacher_application.hour')"
+							:label="trans.get('teacher_application.twenty_hours_net')"
+							:value="calculateHourPrice(form.twenty_hour_price, 20, true)"
+							@keyup="value => bulkPriceInput(value, 'twenty_hour_price', 20, true)"
+						/>
+						<c-input
+							:hint="'/'+trans.get('teacher_application.hour')"
+							readonly
+							:label="trans.get('teacher_application.twenty_hours_gross')"
+							:value="calculateHourPrice(form.twenty_hour_price, 20, false)"
+						/>
+					</div>
 				</div>
 			</div>
 			<div class="card" v-if="activeTab === 1">
@@ -475,7 +489,8 @@
 	import languages from '@/Partials/languages'
 	import currencies from '@/Partials/currencies'
 	import levels from '@/Partials/levels'
-
+	import getVideoId from 'get-video-id';
+	
 export default {
 	components: {
 		AppLayout,
@@ -493,7 +508,6 @@ export default {
 			timezones: [],
 			levels,
 			locale: window.default_locale,
-			fee: 1.2,
 			languageTemplate: {
 				language: null,
 				level: null
@@ -538,10 +552,14 @@ export default {
 				one_hour_price: 0,
 				five_hour_price: 0,
 				ten_hour_price: 0,
+				twenty_hour_price: 0,
 			}),
 		};
 	},
 	mounted() {
+		let title = this.trans.get('teacher_application.document_title');
+		this.$root.documentTitle(title);
+		
 		const local_data = localStorage.getItem('teacher-application');
 		if (local_data) {
 			this.form = this.$inertia.form(JSON.parse(local_data));
@@ -600,7 +618,7 @@ export default {
 			let valueCalculated = value * hours;
 			
 			if (!net) {
-				valueCalculated /= this.fee;
+				valueCalculated /= this.$root.fee;
 			}
 			
 			this.$set(this.form, form_item, valueCalculated);
@@ -609,7 +627,7 @@ export default {
 			let value = form_item / hours;
 			
 			if (!net) {
-				value *= this.fee;
+				value *= this.$root.fee;
 			}
 			
 			return Math.floor(value);
@@ -617,7 +635,7 @@ export default {
 		calculateGrossPrice(value) {
 			value = parseInt(value, 10);
 
-			return Math.floor(value * this.fee);
+			return Math.floor(value * this.$root.fee);
 		},
 		addNewSpokenLanguage() {
 			const languageTemplate = JSON.parse(JSON.stringify(this.languageTemplate));
@@ -628,7 +646,6 @@ export default {
 			this.form.teaching_languages.push(languageTemplate);
 		},
 		submit() {
-			//TODO: reset localStorage
 			this.form.post('/users/' + this.$page.props.user.id, {
 				preserveScroll: true, 
 				onSuccess: () => {

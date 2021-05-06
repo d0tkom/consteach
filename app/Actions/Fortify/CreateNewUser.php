@@ -52,6 +52,7 @@ class CreateNewUser implements CreatesNewUsers
                 'one_hour_price' => 0,
                 'five_hour_price' => 0,
                 'ten_hour_price' => 0,
+                'twenty_hour_price' => 0,
             ]);
         } else {
             Student::create([

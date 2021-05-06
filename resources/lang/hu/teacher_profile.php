@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'document_title' => ':name nyelvtanár profilja',
+    'document_description' => ':description',
+
     'page_title' => 'Az oktatóról',
     'private_lessons' => 'Magánórák',
     'event' => 'alkalom',
@@ -32,6 +35,9 @@ return [
 
     'submit_appointment_success_notification' => 'Időpont lefoglalva',
     'submit_appointment_fail_notification' => 'Időpont foglalása sikertelen',
+
+    'calendar_title' => 'Órafoglaláshoz kattints a kék mezőkbe',
+    'calendar_subtitle' => 'Az időpontok az általad megadott időzóna szerint jelennek meg.',
 
     'no_auth_notification' => 'A folytatáshoz jelentkezz be vagy regisztrálj!',
     'no_credit_notification' => 'A foglaláshoz vásárolj kreditet a tanárhoz!',

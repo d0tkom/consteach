@@ -63,6 +63,11 @@ export default {
 			default: 'text'
 		}
 	},
+	watch: {
+		value() {
+			this.value_ = this.value;
+		}
+	},
 	data: function() {
 		return {
 			value_: this.value

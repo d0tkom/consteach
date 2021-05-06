@@ -8,6 +8,7 @@
 			<div class="date">{{ date }}</div>
 			<div class="time text-2xl mb-4">{{ time }}</div>
 			<c-btn
+				:loading="loading"
 				@click="$emit('submit')"
 			>{{ trans.get('teacher_profile.lesson_book_btn') }}</c-btn>
 		</div>
@@ -26,6 +27,10 @@ export default {
 			type: String,
 			default: 'locale'
 		},
+		loading: {
+			type: Boolean,
+			default: false
+		},
 		data: {
 			type: Object,
 			default() {
@@ -39,7 +44,6 @@ export default {
 	data: function() {
 		return {
 			active: this.value,
-			loading: false,
 		};
 	},
 	computed: {

@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'document_title' => 'Tanárkeresés',
+    'document_description' => 'oldal leírása',
+    'document_image' => '',
+
     'total_teacher' => 'Tanárok ebben a szűrésben',
     'order_btn' => 'Rendezés',
     'language_filter_btn' => 'Nyelv',
@@ -12,6 +16,9 @@ return [
     'option-one_hour_price' => 'Ár',
     'option-appointment_count' => 'Megtartott órák száma',
     'option-random' => 'Véletlenszerű',
+
+    'no_result_title' => 'Ebben a szűrésben nem található tanár',
+    'no_result_btn' => 'Szűrések törlése',
 
     'day_popup_title' => 'Szűrj nap vagy napszak alapján!',
     'day_popup_time_of_day' => 'Napszak',
@@ -30,7 +37,7 @@ return [
 
     'new_teacher_tag' => 'ÚJ TANÁR',
 
-    'hour' => 'óra',
+    'hour' => 'órától',
     'spoken_languages' => 'Beszélt nyelvek',
     'student' => 'diák',
     'more_btn' => 'Tanár profil',

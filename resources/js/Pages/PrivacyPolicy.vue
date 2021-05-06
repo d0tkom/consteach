@@ -44,8 +44,9 @@ export default {
 			
 		};
 	},
-	created() {
-	
+	mounted() {
+		let title = this.trans.get('legal.privacy_policy_document_title');
+		this.$root.documentTitle(title);
 	},
 	methods: {
 	

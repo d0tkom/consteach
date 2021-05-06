@@ -8,9 +8,13 @@
 			>
 		</div>
 		<div class="bookedEventInfo w-full flex flex-col">
-			<div class="name text-2xl font-bold color-primary-dark mb-2">
-				{{ fromTeacher ? data.student.user.first_name : data.teacher.user.first_name }}
-			</div>
+			<inertia-link
+				:href="'/teacher/'+data.teacher.id"
+			>
+				<div class="name text-2xl font-bold color-primary-dark mb-2">
+					{{ fromTeacher ? data.student.user.first_name : data.teacher.user.first_name }}
+				</div>
+			</inertia-link>
 			<div>
 				<c-date
 					with-day

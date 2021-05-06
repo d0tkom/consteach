@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\Teacher;
+use App\Notifications\AppointmentBooked;
+use App\Notifications\AppointmentDeletedTeacher;
+use App\Notifications\FreeAppointmentBookedStudent;
+use App\Notifications\AppointmentDeletedStudent;
+use Auth;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
@@ -40,17 +46,17 @@ class AppointmentController extends Controller
     {
 
         $appointment = Appointment::create(
-                [
-                    'teacher_id' => $request->input('params')['teacher_id'],
-                    'student_id' => auth()->user()->extra->id,
-                    'start' => Carbon::create($request->input('params')['start'])->tz('UTC'),
-                    'end' => Carbon::create($request->input('params')['end'])->tz('UTC'),
-                    'type' => 'normal',
-                    'active' => false,
-                    'student_approved' => false,
-                    'teacher_approved' => false,
-                ]
-            );
+            [
+                'teacher_id' => $request->input('params')['teacher_id'],
+                'student_id' => auth()->user()->extra->id,
+                'start' => Carbon::create($request->input('params')['start'])->tz('UTC'),
+                'end' => Carbon::create($request->input('params')['end'])->tz('UTC'),
+                'type' => 'normal',
+                'active' => false,
+                'student_approved' => false,
+                'teacher_approved' => false,
+            ]
+        );
 
         $this->createMeeting($appointment);
 
@@ -66,7 +72,9 @@ class AppointmentController extends Controller
             $lesson->increment('booked', 1);
 
             $lesson->save();
-            //TODO: Notification
+
+            $teacher = $appointment->teacher;
+            $teacher->user->notify(new AppointmentBooked($appointment));
         } else {
             return response($appointment->id, 423);
         }
@@ -116,15 +124,18 @@ class AppointmentController extends Controller
      */
     public function destroy(Appointment $appointment)
     {
+        $appointmentCopy = $appointment;
+
         $lesson = auth()->user()->extra->lessons()->where('teacher_id', $appointment->teacher->id)->first();
 
         $lesson->decrement('booked', 1);
         $lesson->increment('available', 1);
         $lesson->save();
-        
+
         $appointment->delete();
 
-        //TODO: Notification
+        $appointmentCopy->teacher->user->notify(new AppointmentDeletedTeacher($appointmentCopy));
+        $appointmentCopy->student->user->notify(new AppointmentDeletedStudent($appointmentCopy));
     }
 
     public function createMeeting(Appointment $appointment)

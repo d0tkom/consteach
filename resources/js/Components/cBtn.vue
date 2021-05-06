@@ -7,6 +7,7 @@
 				outlined && 'outlined',
 				circle && 'circle',
 				error && 'error',
+				disabled && 'disabled',
 				text && 'text',
 				small && 'small',
 				medium && 'medium',
@@ -77,6 +78,10 @@ export default {
 			default: false
 		},
 		medium: {
+			type: Boolean,
+			default: false
+		},
+		disabled: {
 			type: Boolean,
 			default: false
 		},

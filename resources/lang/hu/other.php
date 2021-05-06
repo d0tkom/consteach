@@ -2,7 +2,8 @@
 
 return [
     'select_choose' => 'Válassz',
-    'native' => 'Anyanyelvi'
+    'native' => 'Anyanyelv',
+    'document_title_append' => ' - ConsTeach',
 ];
 
 ?>

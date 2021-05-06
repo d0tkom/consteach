@@ -29,9 +29,6 @@ import VTooltip from 'v-tooltip'
 
 Vue.use(VTooltip)
 
-import CountryFlag from 'vue-country-flag';
-Vue.component('country-flag', CountryFlag)
-
 const default_locale = window.default_locale;
 const fallback_locale = window.fallback_locale;
 
@@ -40,7 +37,15 @@ Vue.prototype.trans = new Lang({messages, locale: default_locale, fallback: fall
 const VueScrollTo = require('vue-scrollto');
 Vue.use(VueScrollTo);
 
-const app = document.getElementById('app');
+var CountryLanguage = require('country-language');
+
+import VueProgressBar from 'vue-progressbar'
+
+Vue.use(VueProgressBar, {
+    color: '#7cc9fd',
+    failedColor: 'red',
+    height: '2px'
+})
 
 import {scroller} from 'vue-scrollto/src/scrollTo'
 
@@ -49,6 +54,8 @@ import VueGtag from "vue-gtag";
 Vue.use(VueGtag, {
     config: { id: "G-0000000000" }
 });
+
+const app = document.getElementById('app');
 
 new Vue({
     data: {
@@ -71,13 +78,10 @@ new Vue({
         locale: window.default_locale,
         cookiePolicy: {
             accepted: false
-        }
+        },
+        fee: 1.2,
     },
     watch: {
-        '$inertia'(e) {
-            console.log(e);
-            this.pageChange();
-        },
         'cookiePolicy.accepted'(accepted) {
             this.$cookie.set('cookie-policy', accepted);
         }
@@ -88,7 +92,16 @@ new Vue({
         this.$inertia.on('start', event => this.pageChange(event.detail.visit.url));
 
         this.$inertia.on('before', () => {
+            this.$Progress.start();
             scrollLock.enablePageScroll();
+        });
+
+        this.$inertia.on('success', () => {
+            this.$Progress.finish();
+        });
+
+        this.$inertia.on('error', () => {
+            this.$Progress.fail();
         });
 
         this.cookiePolicy.accepted = this.$cookie.get('cookie-policy') || false;
@@ -126,6 +139,46 @@ new Vue({
         this.languageList = this.languageList.getNames(this.locale, {select: 'official'});
     },
     methods: {
+        getCountryCode(languageCode) {
+            return languageCode;
+            /*
+            CountryLanguage.getLanguageMsLocales(languageCode, function (countries) {
+                if (err) {
+                    console.error(err);
+                } else {
+                    console.log(countries);
+                    return countries[0].code_2;
+                }
+            });
+
+             */
+        },
+        initHashScroll() {
+            if (!location.hash) {
+                return;
+            }
+
+            let hashedElement = $(location.hash);
+            if (!hashedElement || !hashedElement.offset()) {
+                return;
+            }
+
+            let hashedElementTop = hashedElement.offset().top;
+
+            $("html, body").animate({
+                scrollTop: hashedElementTop - 70
+            }, 600);
+        },
+        documentTitle(title, append = true) {
+            let finalTitle = title;
+
+            if (append) {
+                let documentTitleAppend = this.trans.get('other.document_title_append');
+                finalTitle = title + documentTitleAppend;
+            }
+
+            document.title = finalTitle;
+        },
         scrollToElement(selector) {
             const firstScrollTo = scroller();
 
@@ -181,6 +234,13 @@ new Vue({
             }
 
             return 'timeGridDay';
+        },
+        isCurrentUserTeacher() {
+            if (!this.$page.props.user) {
+                return false;
+            }
+
+            return this.$page.props.user.role === 'teacher';
         }
     },
     render: (h) =>

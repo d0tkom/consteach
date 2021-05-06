@@ -1,5 +1,7 @@
 <template>
-	<div class="tagContainer" :class="[type, small && 'small']">
+	<div
+		class="tagContainer"
+		:class="[type, rounded && 'rounded', priceTag && 'priceTag', small && 'small']">
 		<slot />
 	</div>
 </template>
@@ -13,6 +15,14 @@ export default {
 			default: 'primary'
 		},
 		small: {
+			type: Boolean,
+			default: false
+		},
+		rounded: {
+			type: Boolean,
+			default: false
+		},
+		priceTag: {
 			type: Boolean,
 			default: false
 		}

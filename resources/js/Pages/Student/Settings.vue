@@ -183,6 +183,10 @@
                 }),
             };
         },
+	    mounted() {
+		    let title = this.trans.get('settings.document_title');
+		    this.$root.documentTitle(title);
+	    },
         created() {
         	if (location.hash === '#updated') {
         		this.showUserUpdateNotification();

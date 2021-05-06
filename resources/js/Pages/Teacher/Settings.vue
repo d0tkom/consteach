@@ -273,6 +273,20 @@
 			            :value="calculateHourPrice(form.ten_hour_price, 10, false)"
 		            />
 	            </div>
+	            <div class="grid grid-cols-2 gap-4">
+		            <c-input
+			            :hint="'/'+trans.get('settings.hour')"
+			            :label="trans.get('settings.twenty_hours_net')"
+			            :value="calculateHourPrice(form.twenty_hour_price, 20, true)"
+			            @keyup="value => bulkPriceInput(value, 'twenty_hour_price', 20, true)"
+		            />
+		            <c-input
+			            :hint="'/'+trans.get('settings.hour')"
+			            readonly
+			            :label="trans.get('settings.twenty_hours_gross')"
+			            :value="calculateHourPrice(form.twenty_hour_price, 20, false)"
+		            />
+	            </div>
             </div>
             
             <!-- Beállítások -->
@@ -337,6 +351,7 @@
     import ChangePassword from '@/Popups/ChangePassword'
     import DeleteProfile from "@/Popups/DeleteProfile";
     import UpdateProfileInformationForm from "@/Pages/Profile/UpdateProfileInformationForm";
+    import getVideoId from 'get-video-id';
     
     export default {
         components: {
@@ -362,8 +377,6 @@
 	            photoPreview: null,
 	            
                 saving: false,
-
-                fee: 1.20,
                 
                 removeAccountPopup: false,
                 changePasswordPopup: false,
@@ -390,11 +403,16 @@
                     one_hour_price: this.teacher.one_hour_price,
                     five_hour_price: this.teacher.five_hour_price,
                     ten_hour_price: this.teacher.ten_hour_price,
+                    twenty_hour_price: this.teacher.twenty_hour_price,
                 }, {
                     bag: 'updateUser',
                     resetOnSuccess: true,
                 }),
             };
+        },
+	    mounted() {
+		    let title = this.trans.get('settings.document_title');
+		    this.$root.documentTitle(title);
         },
         created() {
             this.countries = require('i18n-iso-countries');
@@ -437,7 +455,7 @@
 	        	let value = form_item / hours;
 		        
 	        	if (!net) {
-	        		value *= this.fee;
+	        		value *= this.$root.fee;
 		        }
 	        	
 	        	return Math.floor(value);
@@ -446,16 +464,16 @@
 	        	let valueCalculated = value * hours;
 		        
 		        if (!net) {
-			        valueCalculated /= this.fee;
+			        valueCalculated /= this.$root.fee;
 		        }
 
 		        this.$set(this.form, form_item, valueCalculated);
 	        },
 	        calculateGrossPrice(value) {
-	        	return Math.floor(value * this.fee);
+	        	return Math.floor(value * this.$root.fee);
 	        },
 	        grossPriceInput(formItem, value) {
-		        formItem = value / this.fee;
+		        formItem = value / this.$root.fee;
 	        },
 	        updatePhotoPreview() {
 		        const reader = new FileReader();

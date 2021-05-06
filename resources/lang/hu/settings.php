@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'document_title' => 'Beállítások',
+    'document_description' => 'Beállítások oldal leírása',
+    'document_image' => '',
+
     'profile_informations' => 'Felhasználói adatok',
     'first_name_label' => 'Keresztnév',
     'last_name_label' => 'Családnév',
@@ -27,8 +31,8 @@ return [
     'hourly_rates_tooltip' => 'Állítsd be milyen óradíjjal szeretnél dolgozni. A nettó ár az, ami 1 óra tanításért jóváíródik a számládon, a bruttó ár pedig azt az összeget takarja, amit a diák fizet 1 óráért. Bármelyik rubrika kitöltése automatikusan frissíti a másikat.',
     'video_url' => 'Youtube link',
 
-    'one_hour_net' => '60 perc - nettó',
-    'one_hour_gross' => '60 perc - bruttó',
+    'one_hour_net' => '1 óra - nettó',
+    'one_hour_gross' => '1 óra - bruttó',
 
     'bulk_prices' => 'Csomagkedvezményes óradíjaim',
     'bulk_prices_tooltip' => 'Diákjaid óra-csomagot is vásárolhatnak nálad, amihez beállíthatsz kedvezményt, hogy jobban megérje nekik egyszerre több órát vásárolni. Kedvezmény beállítása nem kötelező, amennyiben az alábbi mezőket üresen hagyod, az óradíjad csomagvásárlás esetén változatlan marad.',

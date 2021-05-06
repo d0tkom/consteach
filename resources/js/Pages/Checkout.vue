@@ -21,7 +21,7 @@
 								<div class="text-md font-semibold flex-1 mr-4">1 {{ trans.choice('checkout.lesson', 1) }}</div>
 								<div class="text-green-500 text-md">
 									<currency
-										:value="teacher.one_hour_price*fee"
+										:value="teacher.one_hour_price*$root.fee"
 									/>
 								</div>
 							</div>
@@ -30,15 +30,15 @@
 							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
 								<input id="e2" class="mt-1 sm:mr-3" type="radio" name="lesson" />
 								<div class="text-md font-semibold flex-1 mr-4">5 {{ trans.choice('checkout.lesson', 5) }}</div>
-								<div class="text-md text-gray-500 mr-2" v-if="teacher.one_hour_price*fee*5 > teacher.five_hour_price">
+								<div class="text-md text-gray-500 mr-2" v-if="teacher.one_hour_price*$root.fee*5 > teacher.five_hour_price">
 									<currency
 										class="line-through"
-										:value="teacher.one_hour_price*fee*5"
+										:value="teacher.one_hour_price*$root.fee*5"
 									/>
 								</div>
 								<div class="text-green-500 text-md">
 									<currency
-										:value="teacher.five_hour_price*fee"
+										:value="teacher.five_hour_price*$root.fee"
 									/>
 								</div>
 							</div>
@@ -47,15 +47,32 @@
 							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
 								<input id="e3" class="mt-1 sm:mr-3" type="radio" name="lesson" />
 								<div class="text-md font-semibold flex-1 mr-4">10 {{ trans.choice('checkout.lesson', 10) }}</div>
-								<div class="text-md text-gray-500 mr-2" v-if="teacher.one_hour_price*fee*10 > teacher.ten_hour_price">
+								<div class="text-md text-gray-500 mr-2" v-if="teacher.one_hour_price*$root.fee*10 > teacher.ten_hour_price">
 									<currency
 										class="line-through"
-										:value="teacher.one_hour_price*fee*10"
+										:value="teacher.one_hour_price*$root.fee*10"
 									/>
 								</div>
 								<div class="text-green-500 text-md">
 									<currency
-										:value="teacher.ten_hour_price*fee"
+										:value="teacher.ten_hour_price*$root.fee"
+									/>
+								</div>
+							</div>
+						</label>
+						<label for="e4" @click="trialSelected = false; selectProduct(20, teacher.twenty_hour_price, 'HUF')">
+							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
+								<input id="e4" class="mt-1 sm:mr-3" type="radio" name="lesson" />
+								<div class="text-md font-semibold flex-1 mr-4">20 {{ trans.choice('checkout.lesson', 20) }}</div>
+								<div class="text-md text-gray-500 mr-2" v-if="teacher.one_hour_price*$root.fee*20 > teacher.twenty_hour_price">
+									<currency
+										class="line-through"
+										:value="teacher.one_hour_price*$root.fee*20"
+									/>
+								</div>
+								<div class="text-green-500 text-md">
+									<currency
+										:value="teacher.twenty_hour_price*$root.fee"
 									/>
 								</div>
 							</div>
@@ -230,7 +247,6 @@
         },
         data() {
             return {
-            	fee: 1.2,
             	trialSelected: this.$page.props.user.extra ? this.$page.props.user.extra.trial_available : true,
                 product: {
                     lesson_number: null,
@@ -297,6 +313,9 @@
             });
         },
         created() {
+	        let title = this.trans.get('checkout.document_title');
+	        this.$root.documentTitle(title);
+        	
             this.product.teacher_id = this.$props.teacher.id;
             if (!this.trialSelected) {
             	this.selectProduct(1, this.teacher.one_hour_price, 'HUF');
@@ -325,8 +344,8 @@
         	},
             selectProduct: function (lesson_number, amount, currency) {
                 this.product.lesson_number = lesson_number;
-                this.product.amount = amount*this.fee*100;
-                this.product.fee = (amount*this.fee-amount)*100;
+                this.product.amount = amount*this.$root.fee*100;
+                this.product.fee = (amount*this.$root.fee-amount)*100;
                 this.product.currency = currency;
             },
             async processPayment() {

@@ -684,18 +684,21 @@ body {
 					background: linear-gradient( 0deg, #6288c8 0%, #2f4467 100%);
 				}
 			}
+
+            @media screen and (max-width: 800px) {
+	              .nextLevelIcon-1 {
+		              width: 60px;
+		              height: 91px;
+	              }
+            }
 			.container {
-				max-width: 270px;
 				margin: 0 auto;
-				@media screen and (min-width: $break-point1) {
-					max-width: $break-point1;
-				}
 				.line {
 					display: flex;
 					align-items: center;
 					margin-bottom: 20px;
 					.icon {
-						max-width: 80px;
+						width: 100%;
 						margin: 0 20px;
 						@media screen and (min-width: $break-point1) {
 							max-width: 100%;

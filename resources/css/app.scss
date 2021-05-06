@@ -55,11 +55,12 @@ body {
 	background: #DEEEF8 !important;
 	color: $blue-dark;
 	font-family: 'Montserrat', sans-serif;
-	width: 100vw;
-	overflow-x: hidden;
+	width: 100vw !important;
+	overflow-x: hidden !important;
+	padding-right: 0 !important;
 
 	.pageBg {
-		min-height: 100vh;
+		min-height: 120vh;
 		position: absolute;
 		top: 60px;
 		left: 0;
@@ -104,6 +105,19 @@ body {
 
 .fc .fc-col-header-cell-cushion {
 	white-space: break-spaces;
+}
+
+
+.fc-timegrid-col.fc-day:not(.fc-day-disabled) {
+	position: relative;
+	z-index: 10;
+	cursor: pointer;
+	background: transparent !important;
+	border-color: white;
+}
+
+.fc-timegrid-cols table tbody tr {
+	background: #e4f3fe;
 }
 
 body .fc-theme-standard td {

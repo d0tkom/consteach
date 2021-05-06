@@ -8,9 +8,13 @@
 			>
 		</div>
 		<div class="w-full flex flex-col">
-			<div class="name text-md font-bold color-primary-dark">
-				{{ fromTeacher ? data.student.user.first_name : data.teacher.user.first_name }}
-			</div>
+			<inertia-link
+				:href="'/teacher/'+data.teacher.id"
+			>
+				<div class="name text-md font-bold color-primary-dark">
+					{{ fromTeacher ? data.student.user.first_name : data.teacher.user.first_name }}
+				</div>
+			</inertia-link>
 			<div class="mb-4 text-sm">
 				<b>{{ data.available }}</b> {{ trans.get('dashboard.bought_event_available') }}
 			</div>

@@ -29,6 +29,7 @@ class Teacher extends Model
         'one_hour_price',
         'five_hour_price',
         'ten_hour_price',
+        'twenty_hour_price',
         'completed',
 	];
 
@@ -78,7 +79,6 @@ class Teacher extends Model
             }
 
             foreach($teacherAvailableLanguages->teaching_languages as $teacherAvailableLanguage) {
-
                 if (!in_array($teacherAvailableLanguage['language'], $availableLanguages)) {
                     $availableLanguages[] = $teacherAvailableLanguage['language'];
                 }

@@ -12,8 +12,27 @@ class SettingsController extends Controller
     {
     	$user = Auth::user();
 
-    	if ($user->role == 'student') return Inertia::render('Student/Settings')->with(['timezoneList' => timezone_identifiers_list()]);
+        $studentMeta = [
+            'title' => __('settings.document_title'),
+            'description' => __('settings.document_description'),
+            'img' => __('settings.document_img')
+        ];
 
-    	if ($user->role == 'teacher') return Inertia::render('Teacher/Settings')->with(['teacher' => $user->extra, 'timezoneList' => timezone_identifiers_list()]);
+    	if ($user->role == 'student') return Inertia::render('Student/Settings')->with([
+    	    'timezoneList' => timezone_identifiers_list(),
+            'meta' => $studentMeta
+        ]);
+
+        $teacherMeta = [
+            'title' => __('settings.document_title'),
+            'description' => __('settings.document_description'),
+            'img' => __('settings.document_img')
+        ];
+
+    	if ($user->role == 'teacher') return Inertia::render('Teacher/Settings')->with([
+    	    'teacher' => $user->extra,
+            'timezoneList' => timezone_identifiers_list(),
+            'meta' => $teacherMeta
+        ]);
     }
 }

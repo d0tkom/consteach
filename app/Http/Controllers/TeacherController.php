@@ -17,7 +17,7 @@ class TeacherController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function index()
     {
@@ -26,7 +26,17 @@ class TeacherController extends Controller
         $teachers = Teacher::with('user')->where('complete', true)->where('validated', true)->orderBy('one_hour_price', 'ASC')->get();
         $teachers = CollectionHelper::paginate($teachers, 5);
 
-        return Inertia::render('Teacher/List')->with(['all_teachers' => $teachers, 'availableLanguages' => $availableLanguages]);
+        $meta = [
+            'title' => __('find_teacher.document_title'),
+            'description' => __('find_teacher.document_description'),
+            'img' => __('find_teacher.document_img')
+        ];
+
+        return Inertia::render('Teacher/List')->with([
+            'all_teachers' => $teachers,
+            'availableLanguages' => $availableLanguages,
+            'meta' => $meta
+        ]);
     }
 
     /**
@@ -54,22 +64,37 @@ class TeacherController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Teacher  $teacher
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function show(Teacher $teacher)
     {
         $appointments = Appointment::where('teacher_id', $teacher->id)
             ->where('active', 1)
-            ->where('start', '>', Carbon::now('UTC')->addDays(1))
-            ->get();
+            ->where('start', '>', Carbon::now('UTC')->addHours(12));
+
+        $appointments = $appointments->get();
 
         $availabilities = Availability::where('teacher_id', $teacher->id)
-            ->where('start', '>', Carbon::now('UTC')->addDays(1))
-            ->get();
+            ->where('start', '>', Carbon::now('UTC')->addHours(12));
+
+        $availabilities = $availabilities->get();
 
         $teacher->user;
 
-        return Inertia::render('Teacher/View')->with(['teacher' => $teacher, 'appointments' => $appointments, 'availabilities' => $availabilities]);
+        $name = $teacher->user->first_name." ".$teacher->user->last_name[0].".";
+
+        $meta = [
+            'title' => __('teacher_profile.document_title', ['name' => $name]),
+            'description' => __('teacher_profile.document_description'),
+            'img' => __('teacher_profile.document_img')
+        ];
+
+        return Inertia::render('Teacher/View')->with([
+            'teacher' => $teacher,
+            'appointments' => $appointments,
+            'availabilities' => $availabilities,
+            'meta' => $meta,
+        ]);
     }
 
     /**
@@ -105,6 +130,7 @@ class TeacherController extends Controller
                 'one_hour_price' => ['bail', 'required', 'numeric', 'min:0', 'not_in:0'],
                 'five_hour_price' => ['bail', 'required', 'numeric', 'min:0', 'not_in:0', 'max:'.$request->input('one_hour_price')*5],
                 'ten_hour_price' => ['bail', 'required', 'numeric', 'min:0', 'not_in:0', 'max:'.$request->input('one_hour_price')*10],
+                'twenty_hour_price' => ['bail', 'required', 'numeric', 'min:0', 'not_in:0', 'max:'.$request->input('one_hour_price')*20],
             ]);
         } elseif ($request->input('step') == 1) {
             $validatedData = $request->validate([
@@ -166,8 +192,7 @@ class TeacherController extends Controller
             $teachers = $teachers->get();
             $teachers->sortBy(request()->input('order_by'));
         } elseif (request()->input('order_by') == 'random') {
-            $teachers = $teachers->get();
-            $teachers->random();
+            $teachers = $teachers->inRandomOrder()->get();
         }
 
         if (json_decode(request()->input('time'))->timeOfDay) {
@@ -202,6 +227,16 @@ class TeacherController extends Controller
 
     public function application()
     {
-        return Inertia::render('Teacher/Application')->with(['teacher' => Auth::user()->extra, 'timezoneList' => timezone_identifiers_list()]);
+        $meta = [
+            'title' => __('teacher_application.document_title'),
+            'description' => __('teacher_application.document_description'),
+            'img' => __('teacher_application.document_img')
+        ];
+
+        return Inertia::render('Teacher/Application')->with([
+            'teacher' => Auth::user()->extra,
+            'timezoneList' => timezone_identifiers_list(),
+            'meta' => $meta
+        ]);
     }
 }

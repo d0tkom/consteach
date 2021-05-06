@@ -1,8 +1,9 @@
 <?php
 
 return [
-    'select_choose' => 'Válassz',
-    'native' => 'Native'
+    'select_choose' => 'Choose',
+    'native' => 'Native',
+    'document_title_append' => ' - ConsTeach',
 ];
 
 ?>

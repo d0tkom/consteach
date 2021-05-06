@@ -107,13 +107,17 @@
             lessons: Array,
             appointments: Array
         },
+	    mounted() {
+        	let title = this.trans.get('dashboard.student_dashboard_title');
+            this.$root.documentTitle(title);
+	    },
 	    computed: {
 		    noData() {
-			    if (this.lessons.length) {
-					return false;
+		    	if (!this.lessons) {
+		    		return true;
 			    }
-			    
-			    return true;
+		    	
+			    return !this.lessons.length;
 		    },
             anyLessonAvailable() {
                 return this.lessons.filter(lesson => lesson.available > 0).length > 0;

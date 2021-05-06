@@ -11,7 +11,7 @@
 							{{ trans.get('footer.language') }}
 						</c-btn>
 					</inertia-link>
-					<inertia-link href="/faq">
+					<inertia-link href="/faq-student">
 						<c-btn
 							text
 						>

@@ -11,8 +11,8 @@ return [
     'register_btn' => 'Regisztráció',
     'logout_btn' => 'Kijelentkezés',
 
-    'teacher_hub_btn' => 'Oktatótér',
-    'student_hub_btn' => 'Tanulótér',
+    'teacher_hub_btn' => 'Órák és diákok',
+    'student_hub_btn' => 'Órák és tanárok',
     'settings_btn' => 'Beállítások',
 
     'wallet_total' => 'Pénzfelvétel',

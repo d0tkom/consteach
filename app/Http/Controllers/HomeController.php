@@ -17,6 +17,12 @@ class HomeController extends Controller
 
 	    $availableLanguages = Teacher::getAllLanguages();
 
-	    return Inertia::render('Landing')->with(['availableLanguages' => $availableLanguages]);
+	    $meta = [
+	        'title' => __('landing.document_title'),
+            'description' => __('landing.document_description'),
+            'img' => __('landing.document_img')
+        ];
+
+	    return Inertia::render('Landing')->with(['availableLanguages' => $availableLanguages, 'meta' => $meta]);
     }
 }

@@ -16,26 +16,28 @@
 		</div>
 		
 		<div class="socialLogin">
-			<c-btn
-				class="mb-4"
-				full
-				color="facebook"
-				icon="facebook"
-				:navigate-to="'/login/facebook/?user_role=' + form.teacher ? 'student' : 'teacher'"
-			>{{ trans.get('auth.login_with_facebook_btn') }}</c-btn>
+			<a href="/login/facebook">
+				<c-btn
+					class="mb-4"
+					full
+					color="facebook"
+					icon="facebook"
+				>{{ trans.get('auth.login_with_facebook_btn') }}</c-btn>
+			</a>
 			
-			<c-btn
-				full
-				outlined
-				:navigate-to="'/login/google/?user_role=' + form.teacher ? 'student' : 'teacher'"
-			>
-				<div class="flex items-center">
-					<div class="googleIconContainer mr-4">
-						<img src="/img/google_logo.svg" alt="Google logo">
+			<a href="/login/google">
+				<c-btn
+					full
+					outlined
+				>
+					<div class="flex items-center">
+						<div class="googleIconContainer mr-4">
+							<img src="/img/google_logo.svg" alt="Google logo">
+						</div>
+						<span>{{ trans.get('auth.login_with_google_btn') }}</span>
 					</div>
-					<span>{{ trans.get('auth.login_with_google_btn') }}</span>
-				</div>
-			</c-btn>
+				</c-btn>
+			</a>
 		</div>
 		
 		<div class="hr">{{ trans.get('auth.login_social_or_email') }}</div>
