@@ -8,6 +8,7 @@ use App\Models\Teacher;
 use App\Helpers\CollectionHelper;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 

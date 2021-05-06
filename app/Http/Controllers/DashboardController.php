@@ -23,8 +23,9 @@ class DashboardController extends Controller
     {
     	$lessons = $user->extra->lessons()
             ->with('teacher') 
-            ->get()
-            ->sortBy(function($lesson, $key) {
+            ->get();
+            
+        $lessons->sortBy(function($lesson, $key) {
                 return $lesson->teacher->user->first_name;
             });
 
