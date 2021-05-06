@@ -239,7 +239,7 @@ class CheckoutController extends Controller
     public function createProduct($order)
     {
         $product = [
-            'name' => $order->lesson_number . ' Tanóra',
+            'name' => trans_choice('bill.lesson', $order->lesson_number),
             'net_unit_price' => intval(round(($order->total - $order->total/1.2)/100)),
             'currency' => 'HUF',
             'unit_price_type' => 'gross',
