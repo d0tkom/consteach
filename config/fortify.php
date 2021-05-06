@@ -61,7 +61,13 @@ return [
     |
     */
 
-    'home' => RouteServiceProvider::HOME,
+    'home' => function () {
+        if (request()->input('teacher_id')) {
+            return '/checkout/'.request()->input('teacher_id');
+        }
+
+        return '/dashboard';
+    },
 
     /*
     |--------------------------------------------------------------------------
