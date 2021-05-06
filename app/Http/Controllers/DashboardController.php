@@ -33,6 +33,7 @@ class DashboardController extends Controller
 
     protected function renderStudentHub(User $user, $meta)
     {
+
         $lessons = $user->extra->lessons()
             ->with('teacher')
             ->get();

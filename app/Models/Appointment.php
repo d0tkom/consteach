@@ -36,10 +36,6 @@ class Appointment extends Model
 
     public function getMeetingUrlAttribute()
     {
-        if ($this->meeting_id === null) {
-            return $this->meeting_id;
-        }
-
-        return Zoom::meeting()->find($this->meeting_id)->join_url;
+        return $this->meeting_id;
     }
 }

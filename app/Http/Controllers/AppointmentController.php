@@ -11,6 +11,7 @@ use App\Notifications\AppointmentDeletedStudent;
 use Auth;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Http;
 use MacsiDigital\Zoom\Facades\Zoom;
 
 class AppointmentController extends Controller
@@ -139,25 +140,18 @@ class AppointmentController extends Controller
 
     public function createMeeting(Appointment $appointment)
     {
-        $meeting = Zoom::meeting()->make([
-            'topic' => 'Nyelvóra',
-            'type' => 2,
-            'start_time' => $appointment->start_time,
-            'duration' => 2
-        ]);
 
-        $meeting->settings()->make([
-            'host_video' => false,
-            'participant_video' => true,
-            'join_before_host' => true,
-            'jbh_time' => 10,
-            'approval_type' => 2,
-            'meeting_authentication' => false,
-        ]);
+        $response = Http::withHeaders([
+                'Authorization' => 'Bearer ea311513c0e75440e2493d89c71097c0a0af06eb3206b1b603eaaca9cfb29d34',
+                'Content-Type' => 'application/json'
+            ])
+            ->post('https://api.daily.co/v1/rooms', [
+                'properties' => [
+                    'enable_network_ui' => false
+                ],
+            ]);
 
-        Zoom::user()->find('totand92@gmail.com')->meetings()->save($meeting);
-
-        $appointment->meeting_id = $meeting->id;
+        $appointment->meeting_id = $response->json()['url'];
 
         $appointment->save();
     }
