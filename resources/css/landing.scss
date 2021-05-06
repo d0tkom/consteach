@@ -684,6 +684,13 @@ body {
 					background: linear-gradient( 0deg, #6288c8 0%, #2f4467 100%);
 				}
 			}
+
+            @media screen and (max-width: 800px) {
+	              .nextLevelIcon-1 {
+		              width: 60px;
+		              height: 91px;
+	              }
+            }
 			.container {
 				margin: 0 auto;
 				.line {

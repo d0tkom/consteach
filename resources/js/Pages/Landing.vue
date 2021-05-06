@@ -130,7 +130,13 @@
 					<div class="container">
 						<div class="line pb-10">
 							<div class="icon flex justify-center">
-								<img src="/img/level_up_1.png" alt="circle1">
+								<img
+									class="nextLevelIcon-1"
+									width="87"
+									height="133"
+									src="/img/level_up_1.png"
+									alt="circle1"
+								>
 							</div>
 							<div class="content">
 								<div class="title font-bold text-2xl mb-4">
@@ -151,12 +157,22 @@
 								</p>
 							</div>
 							<div class="icon flex justify-center">
-								<img src="/img/level_up_2.png" alt="circle2">
+								<img
+									width="155"
+									height="155"
+									src="/img/level_up_2.png"
+									alt="circle2"
+								>
 							</div>
 						</div>
 						<div class="line pb-10">
 							<div class="icon flex justify-center">
-								<img src="/img/level_up_3.png" alt="circle3">
+								<img
+									width="155"
+									height="155"
+									src="/img/level_up_3.png"
+									alt="circle3"
+								>
 							</div>
 							<div class="content">
 								<div class="title font-bold text-2xl mb-4">
