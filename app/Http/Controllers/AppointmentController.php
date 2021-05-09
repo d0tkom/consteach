@@ -147,7 +147,8 @@ class AppointmentController extends Controller
             ])
             ->post('https://api.daily.co/v1/rooms', [
                 'properties' => [
-                    'enable_network_ui' => false
+                    'enable_network_ui' => false,
+                    'enable_chat' => true
                 ],
             ]);
 
