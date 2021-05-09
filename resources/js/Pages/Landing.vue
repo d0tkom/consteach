@@ -42,7 +42,7 @@
 							>
 								<flag
 									class="flagImg rounded-full mb-4 text-8xl shadow-md"
-									:iso="language === 'en' ? 'us' : language"
+									:iso="$root.getCountryCode(language)"
 								/>
 								<div class="title capitalize text-xl font-md font-bold">
 									{{ languageList[language] }}
@@ -208,7 +208,7 @@
 							<div class="icon flex justify-center">
 								<img src="/img/circle5.svg" alt="circle5">
 							</div>
-							<div class="content">
+							<div class="content w-full md:w-1/2">
 								<div class="title text-2xl font-bold mb-4">
 									{{ trans.get('landing.teach_with_us_card_1_title') }}
 								</div>
@@ -221,7 +221,7 @@
 							<div class="icon flex justify-center">
 								<img src="/img/circle6.svg" alt="circle6">
 							</div>
-							<div class="content">
+							<div class="content w-1/2">
 								<div class="title text-2xl font-bold mb-4">
 									{{ trans.get('landing.teach_with_us_card_2_title') }}
 								</div>
@@ -234,7 +234,7 @@
 							<div class="icon flex justify-center">
 								<img src="/img/circle7.svg" alt="circle7">
 							</div>
-							<div class="content">
+							<div class="content w-1/2">
 								<div class="title text-2xl font-bold mb-4">
 									{{ trans.get('landing.teach_with_us_card_3_title') }}
 								</div>

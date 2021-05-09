@@ -258,7 +258,7 @@
                 billing: {
                     address: null,
                     city: null,
-					country: null,
+					country: "HU",
                     postal: null,
                 },
 				countries: null,
