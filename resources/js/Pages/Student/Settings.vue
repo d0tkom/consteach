@@ -232,7 +232,7 @@
 	                },
 	                onError: error => {
                 		console.error(error);
-		                this.$toast.success(this.trans.get('settings.updated_fail_notification'));
+		                this.$toast.error(this.trans.get('settings.updated_fail_notification'));
 	                }
                 });
             },
