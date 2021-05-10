@@ -84,7 +84,7 @@
 				</div>
 			</div>
 			<div class="teacherWidgetBottom flex">
-				<div class="color-gray my-1" v-html="description"></div>
+				<div class="color-gray my-1" v-if="description" v-html="description"></div>
 				<div class="actions flex flex-col justify-end items-center">
 					<inertia-link
 						v-if="!$root.isCurrentUserTeacher"
@@ -156,11 +156,28 @@ export default {
 			return Math.max(...prices) * this.$root.fee;
 		},
 		description() {
-			if (this.data.about_me[0].text.length <= 350) {
-				return this.data.about_me[0].text;
+			let aboutMe = this.data.about_me;
+
+			let languageIndex = {
+				'hu': 0,
+				'en': 1
+			};
+
+			if (!aboutMe[languageIndex[this.$root.siteLanguage]]) {
+				return null;
 			}
 
-			return this.data.about_me[0].text.substring(0, 350);
+			let currentAboutMe = aboutMe[languageIndex[this.$root.siteLanguage]];
+
+			if (!currentAboutMe.text) {
+				return null;
+			}
+
+			if (currentAboutMe.text.length <= 350) {
+				return currentAboutMe.text;
+			}
+
+			return currentAboutMe.text.substring(0, 350);
 		}
 	}
 }

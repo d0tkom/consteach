@@ -8,11 +8,19 @@
 			>
 		</div>
 		<div class="w-full flex flex-col">
+			<div
+				v-if="fromTeacher"
+			>
+				<div class="name text-md font-bold color-primary-dark">
+					{{ data.student.user.first_name }}
+				</div>
+			</div>
 			<inertia-link
+				v-if="!fromTeacher && data.teacher"
 				:href="'/teacher/'+data.teacher.id"
 			>
 				<div class="name text-md font-bold color-primary-dark">
-					{{ fromTeacher ? data.student.user.first_name : data.teacher.user.first_name }}
+					{{ data.teacher.user.first_name }}
 				</div>
 			</inertia-link>
 			<div class="mb-4 text-sm">

@@ -397,6 +397,9 @@ new Vue({
         }
     },
     computed: {
+        siteLanguage() {
+            return this.$page.props.user.site_language;
+        },
         calendarType() {
             if (this.viewport.w > 700) {
                 return 'timeGridWeek';
