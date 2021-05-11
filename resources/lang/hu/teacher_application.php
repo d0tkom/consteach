@@ -28,12 +28,12 @@ return [
     'bulk_prices_tooltip' => 'Diákjaid óra-csomagot is vásárolhatnak nálad, amihez beállíthatsz kedvezményt, hogy jobban megérje nekik egyszerre több órát vásárolni. Kedvezmény beállítása nem kötelező, amennyiben az alábbi mezőket üresen hagyod, az óradíjad csomagvásárlás esetén változatlan marad.',
     'hour' => 'óra',
 
-    'five_hours_net' => '5 óra - nettó',
-    'five_hours_gross' => '5 óra - bruttó',
-    'ten_hours_net' => '10 óra - nettó',
-    'ten_hours_gross' => '10 óra - bruttó',
-    'twenty_hours_net' => '20 óra - nettó',
-    'twenty_hours_gross' => '20 óra - bruttó',
+    'five_hours_net' => '5 óra - nettó (Ft)',
+    'five_hours_gross' => '5 óra - bruttó (Ft)',
+    'ten_hours_net' => '10 óra - nettó (Ft)',
+    'ten_hours_gross' => '10 óra - bruttó (Ft)',
+    'twenty_hours_net' => '20 óra - nettó (Ft)',
+    'twenty_hours_gross' => '20 óra - bruttó (Ft)',
 
 
     'spoken_language' => 'Beszélt nyelv',

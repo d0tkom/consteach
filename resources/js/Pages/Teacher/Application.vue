@@ -414,7 +414,7 @@
                             :hint="trans.get('teacher_application.min_character', {num: 250})"
                             :max="2000"
                             class="mb-4"
-                            :error="!!$page.props.errors.about_me"
+                            :error="!!$page.props.errors['about_me.'+a+'.text']"
                             v-model="about_me.text"
                         />
                     </div>
