@@ -16,7 +16,7 @@
 				</div>
 			</inertia-link>
 			<div class="mb-4 text-sm">
-				<b>{{ data.available }}</b> {{ trans.get('dashboard.bought_event_available') }}
+				<b>{{ fromTeacher ? data.student.available_lessons : data.teacher.available_lessons }}</b> {{ trans.get('dashboard.bought_event_available') }}
 			</div>
 			<c-btn
 				v-if="!fromTeacher"

@@ -13,7 +13,7 @@ class Teacher extends Model
 {
     use HasFactory;
 
-    protected $appends = ['appointment_count', 'student_count'];
+    protected $appends = ['appointment_count', 'student_count', 'available_payout', 'booked_lessons', 'available_lessons', 'finished_lessons'];
 
     protected $casts = [
         'teaching_languages' => 'array',
@@ -59,6 +59,19 @@ class Teacher extends Model
     	return count($appointments);
     }
 
+    public function getAvailablePayoutAttribute()
+    {
+        $lessons = Lesson::where('teacher_id', $this->id)->where('payout_available', true)->get();
+
+        $total = 0;
+
+        foreach ($lessons as $lesson) {
+            $total += $lesson->price;
+        }
+
+        return $total/100;
+    }
+
     public function getStudentCountAttribute()
     {
     	$lessons = Lesson::where('teacher_id', $this->id)->get();
@@ -86,5 +99,23 @@ class Teacher extends Model
         }
 
         return $availableLanguages;
+    }
+
+    public function getBookedLessonsAttribute()
+    {
+        $lessons = Lesson::where('teacher_id', $this->id)->where('status', 1)->get();
+        return count($lessons);
+    }
+
+    public function getAvailableLessonsAttribute()
+    {
+        $lessons = Lesson::where('teacher_id', $this->id)->where('status', 0)->get();
+        return count($lessons);
+    }
+
+    public function getFinishedLessonsAttribute()
+    {
+        $lessons = Lesson::where('teacher_id', $this->id)->where('status', 2)->get();
+        return count($lessons);
     }
 }

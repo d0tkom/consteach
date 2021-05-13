@@ -12,6 +12,8 @@ class Student extends Model
 {
     use HasFactory;
 
+    protected $appends = ['trial_available', 'booked_lessons', 'available_lessons', 'finished_lessons'];
+
     protected $fillable = [
     	'user_id',
     	'wanted_language',
@@ -39,5 +41,23 @@ class Student extends Model
     public function getTrialAvailableAttribute()
     {
         return $this->appointments()->where('type', 'try')->count() > 0 ? false : true;
+    }
+
+    public function getBookedLessonsAttribute()
+    {
+        $lessons = Lesson::where('student_id', $this->id)->where('status', 1)->get();
+        return count($lessons);
+    }
+
+    public function getAvailableLessonsAttribute()
+    {
+        $lessons = Lesson::where('student_id', $this->id)->where('status', 0)->get();
+        return count($lessons);
+    }
+
+    public function getFinishedLessonsAttribute()
+    {
+        $lessons = Lesson::where('student_id', $this->id)->where('status', 2)->get();
+        return count($lessons);
     }
 }

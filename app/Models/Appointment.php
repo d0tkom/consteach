@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Teacher;
 use App\Models\Student;
+use App\Models\Lesson;
 use MacsiDigital\Zoom\Facades\Zoom;
 
 class Appointment extends Model
@@ -15,6 +16,7 @@ class Appointment extends Model
     protected $fillable = [
         'student_id',
         'teacher_id',
+        'lesson_id',
         'type',
         'start',
         'end',
@@ -32,6 +34,11 @@ class Appointment extends Model
     public function student()
     {
     	return $this->belongsTo(Student::class);
+    }
+
+    public function lesson()
+    {
+        return $this->belongsTo(Lesson::class);
     }
 
     public function getMeetingUrlAttribute()

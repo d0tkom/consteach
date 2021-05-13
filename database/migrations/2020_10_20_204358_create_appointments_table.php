@@ -17,6 +17,7 @@ class CreateAppointmentsTable extends Migration
             $table->id();
             $table->foreignId('student_id')->constrained();
             $table->foreignId('teacher_id')->constrained();
+            $table->foreignId('lesson_id')->constrained()->nullable();
             $table->string('type');
             $table->dateTime('start');
             $table->dateTime('end');

@@ -91,6 +91,7 @@ Route::delete('/availability/{availability}', [AvailabilityController::class, 'd
 
 Route::put('/appointment', [AppointmentController::class, 'store'])->name('appointment.store');
 Route::delete('/appointment/{appointment}', [AppointmentController::class, 'destroy'])->name('appointment.destroy');
+Route::post('/appointment/meeting/{appointment}', [AppointmentController::class, 'startMeeting'])->name('appointment.meeting.start');
 
 Route::get('/teachers', [TeacherController::class, 'index'])->name('teachers');
 Route::get('teacher/{teacher}', [TeacherController::class, 'show'])->name('teacher.view');
@@ -112,6 +113,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::post('/checkout/payment', [CheckoutController::class, 'store']);
     Route::get('/checkout/{teacher}', [CheckoutController::class, 'show'])->name('checkout');
+    Route::post('/checkout/payout/{teacher}', [CheckoutController::class, 'payout']);
 
     Route::middleware(['teacher.registered', 'teacher.verified'])->group(function () {
 

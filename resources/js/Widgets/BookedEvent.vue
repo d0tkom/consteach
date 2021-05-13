@@ -120,11 +120,26 @@ export default {
 			if (this.isEventInPast) {
 				return false;
 			}
+
+			var type = fromTeacher ? 'teacher' : 'student';
 			
 			if (this.isEventLive) {
-				window.open(this.data.meeting_url, '_blank');
+				axios.post('/appointment/meeting/' + this.data.id, {type: type})
+				.then(response => {
+					window.open(this.data.meeting_url, '_blank');
+				})
+				.catch(error => {
+					console.error(error);
+				});
+				
 			} else {
-				window.open(this.data.meeting_url, '_blank');
+				axios.post('/appointment/meeting/' + this.data.id, {type: type})
+				.then(response => {
+					window.open(this.data.meeting_url, '_blank');
+				})
+				.catch(error => {
+					console.error(error);
+				});
 				//this.eventNotReadyPopup = true;
 			}
 		},

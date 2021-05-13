@@ -35,6 +35,7 @@ class DashboardController extends Controller
     {
 
         $lessons = $user->extra->lessons()
+            ->distinct('teacher_id')
             ->with('teacher')
             ->get();
 
@@ -61,6 +62,7 @@ class DashboardController extends Controller
     protected function renderTeacherHub(User $user, $meta)
     {
         $lessons = $user->extra->lessons()
+            ->distinct('student_id')
             ->with('student')
             ->get();
 

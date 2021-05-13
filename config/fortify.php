@@ -61,13 +61,7 @@ return [
     |
     */
 
-    'home' => function () {
-        if (request()->input('teacher_id')) {
-            return '/checkout/'.request()->input('teacher_id');
-        }
-
-        return '/dashboard';
-    },
+    'home' => '/dashboard',
 
     /*
     |--------------------------------------------------------------------------

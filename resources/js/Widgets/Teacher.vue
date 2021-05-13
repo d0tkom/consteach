@@ -29,15 +29,15 @@
 			<div class="mt-4">
 				<div class="stat mb-2 flex justify-between items-center">
 					<span class="text-md">{{ trans.get('dashboard.teacher_widget_booked_lessons') }}</span>
-					<span class="text-lg font-bold">{{ data.booked }}</span>
+					<span class="text-lg font-bold">{{ data.teacher.booked_lessons }}</span>
 				</div>
 				<div class="stat orange mb-2 flex justify-between items-center">
 					<span class="text-md">{{ trans.get('dashboard.teacher_widget_bought_lessons') }}</span>
-					<span class="text-lg font-bold">{{ data.available }}</span>
+					<span class="text-lg font-bold">{{ data.teacher.available_lessons }}</span>
 				</div>
 				<div class="stat purple mb-2 flex justify-between items-center">
 					<span class="text-md">{{ trans.get('dashboard.teacher_widget_finished_lessons') }}</span>
-					<span class="text-lg font-bold">{{ data.finished }}</span>
+					<span class="text-lg font-bold">{{ data.teacher.finished_lessons }}</span>
 				</div>
 			</div>
 		</div>

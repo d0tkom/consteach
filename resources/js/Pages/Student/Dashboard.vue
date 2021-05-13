@@ -105,6 +105,7 @@
         },
         props: {
             lessons: Array,
+            teachers: Array,
             appointments: Array
         },
 	    mounted() {

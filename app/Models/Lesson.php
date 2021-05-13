@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Teacher;
 use App\Models\Student;
+use App\Models\Appointment;
 
 class Lesson extends Model
 {
@@ -24,5 +25,10 @@ class Lesson extends Model
     public function student()
     {
     	return $this->belongsTo(Student::class);
+    }
+
+    public function appointment()
+    {
+        return $this->hasOne(Appointment::class);
     }
 }

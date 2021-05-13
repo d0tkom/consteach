@@ -35,6 +35,28 @@ class CheckoutController extends Controller
         //
     }
 
+    public function payout(Teacher $teacher)
+    {
+        $lessons = Lesson::where('teacher_id', $teacher->id)->where('payout_available', true)->get();
+
+        $total = 0;
+
+        foreach ($lessons as $lesson) {
+            $total += $lesson->price;
+            $lesson->payout_available = false;
+            $lesson->save();
+        }
+
+        $stripe = new \Stripe\StripeClient(
+          'sk_test_51IJzZ5BL1awehvPy6xxZZPUyNeMwVsPt7VGyZvXSHqlnMfFcwyrQTKrMYIdotQ3rd35WNsOuD8vDLcMzgHQ2zvhY00AzZSsPHz'
+        );
+        $stripe->transfers->create([
+          'amount' => $total,
+          'currency' => 'huf',
+          'destination' => 'acct_1IMXxLPa5GXoFOqk'
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -83,23 +105,27 @@ class CheckoutController extends Controller
 
             $invoice_id = $this->createInvoice($order, $product_id);
 
-            $lesson = Lesson::firstOrCreate(
-                [
-                    'student_id' => $student->id,
-                    'teacher_id' => $request->input('product')['teacher_id']
-                ]
-            );
+            $lesson = 0;
 
-            $lesson->increment('available', $request->input('product')['lesson_number']);
+            for ($i = 0; $i < $request->input('product')['lesson_number']; $i++) {
+                $lesson = Lesson::create(
+                    [
+                        'student_id' => $student->id,
+                        'teacher_id' => $request->input('product')['teacher_id'],
+                        'price' => $payment->charges->data[0]->amount/1.2,
+                        'status' => 0
+                    ]
+                );
+            }
 
             if ($request->input('appointment') != null) {
                 $appointment = Appointment::where('id', $request->input('appointment')['id'])->first();
                 $appointment->active = true;
                 $appointment->type = 'normal';
+                $appointment->lesson_id = $lesson->id;
                 $appointment->save();
 
-                $lesson->decrement('available', 1);
-                $lesson->increment('booked', 1);
+                $lesson->status = 1;
             }
 
             $lesson->save();
@@ -179,25 +205,24 @@ class CheckoutController extends Controller
     {
         $user = auth()->user();
 
-        $lesson = Lesson::firstOrCreate(
+        $lesson = Lesson::create(
             [
                 'student_id' => $student_id,
-                'teacher_id' => request()->input('product')['teacher_id']
+                'teacher_id' => request()->input('product')['teacher_id'],
+                'price' => $payment->charges->data[0]->amount/1.2,
+                'status' => 0
             ]
         );
-
-        $lesson->increment('available', 1);
-
-        $lesson->save();
 
         if ($appointment_id != null) {
             $appointment = Appointment::where('id', $appointment_id)->first();
             $appointment->active = true;
             $appointment->type = 'try';
+            $appointment->lesson_id = $lesson->id;
             $appointment->save();
 
-            $lesson->decrement('available', 1);
-            $lesson->increment('booked', 1);
+            $lesson->status = 1;
+            $lesson->save();
 
             $appointment->teacher->user->notify(new FreeAppointmentBookedTeacher($appointment));
             $appointment->student->user->notify(new FreeAppointmentBookedStudent($appointment));

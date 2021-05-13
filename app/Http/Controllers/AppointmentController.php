@@ -60,16 +60,15 @@ class AppointmentController extends Controller
 
         $this->createMeeting($appointment);
 
-        $lesson = auth()->user()->extra->lessons()->where('teacher_id', $request->input('params')['teacher_id'])->first();
+        $lesson = auth()->user()->extra->lessons()->where('teacher_id', $request->input('params')['teacher_id'])->->where('status', 0)->first();
 
-
-        if ($lesson != null && $lesson->available > 0) {
+        if ($lesson != null) {
             $appointment->active = true;
+            $appointment->lesson_id = $lesson->id;
 
             $appointment->save();
 
-            $lesson->decrement('available', 1);
-            $lesson->increment('booked', 1);
+            $lesson->status = 1;
 
             $lesson->save();
 
@@ -154,5 +153,23 @@ class AppointmentController extends Controller
         $appointment->meeting_id = $response->json()['url'];
 
         $appointment->save();
+    }
+
+    public function startMeeting(Appointment $appointment)
+    {
+        if (input('params')['type'] == 'teacher') {
+            $appointment->teacher_approved = true;
+            $appointment->save();
+        } else {
+            $appointment->student_approved = true;
+            $appointment->save();
+        }
+
+        if ($appointment->student_approved && $appointment->teacher_approved) {
+            $lesson = $appointment->lesson;
+            $lesson->payout_available = true;
+            $lesson->status = 2;
+            $lesson->save();
+        }
     }
 }
