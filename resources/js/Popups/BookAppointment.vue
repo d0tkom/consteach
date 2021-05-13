@@ -51,7 +51,7 @@ export default {
 			return this.$moment.utc(this.data.date_start).tz(this.timeZone).format('YYYY. MMMM DD.');
 		},
 		time() {
-			return this.$moment.utc(this.data.date_start).tz(this.timeZone).format('hh:mm');
+			return this.$moment.utc(this.data.date_start).tz(this.timeZone).format('HH:mm');
 		}
 	},
 }
