@@ -31,20 +31,20 @@ return [
     'hourly_rates_tooltip' => 'Állítsd be milyen óradíjjal szeretnél dolgozni. A nettó ár az, ami 1 óra tanításért jóváíródik a számládon, a bruttó ár pedig azt az összeget takarja, amit a diák fizet 1 óráért. Bármelyik rubrika kitöltése automatikusan frissíti a másikat.',
     'video_url' => 'Youtube link',
 
-    'one_hour_net' => '1 óra - nettó',
-    'one_hour_gross' => '1 óra - bruttó',
+    'one_hour_net' => '1 óra - nettó (Ft)',
+    'one_hour_gross' => '1 óra - bruttó (Ft)',
 
     'bulk_prices' => 'Csomagkedvezményes óradíjaim',
     'bulk_prices_tooltip' => 'Diákjaid óra-csomagot is vásárolhatnak nálad, amihez beállíthatsz kedvezményt, hogy jobban megérje nekik egyszerre több órát vásárolni. Kedvezmény beállítása nem kötelező, amennyiben az alábbi mezőket üresen hagyod, az óradíjad csomagvásárlás esetén változatlan marad.',
 
-    'five_hours_net' => '5 óra - nettó',
-    'five_hours_gross' => '5 óra - bruttó',
+    'five_hours_net' => '5 óra - nettó (Ft)',
+    'five_hours_gross' => '5 óra - bruttó (Ft)',
 
-    'ten_hours_net' => '10 óra - nettó',
-    'ten_hours_gross' => '10 óra - bruttó',
+    'ten_hours_net' => '10 óra - nettó (Ft)',
+    'ten_hours_gross' => '10 óra - bruttó (Ft)',
 
-    'twenty_hours_net' => '20 óra - nettó',
-    'twenty_hours_gross' => '20 óra - bruttó',
+    'twenty_hours_net' => '20 óra - nettó (Ft)',
+    'twenty_hours_gross' => '20 óra - bruttó (Ft)',
 
     'validating_alert_title' => 'Validálás folyamatban',
     'validating_alert_description' => 'A validálásig a főbb funkciók nem elérhetőek.',

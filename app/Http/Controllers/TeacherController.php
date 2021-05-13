@@ -143,6 +143,7 @@ class TeacherController extends Controller
         } elseif ($request->input('step') == 3) {
             $validatedData = $request->validate([
                 'about_me' => ['required', 'array'],
+                "about_me.*.text"    => ["required", "min:250"],
             ]);
         } else {
             /*$validatedData = $request->validate([

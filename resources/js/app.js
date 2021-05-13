@@ -80,6 +80,28 @@ new Vue({
             accepted: false
         },
         fee: 1.2,
+        languageToCountry: {
+            'hu': 'hu',
+            'es': 'es',
+            "am": "hy",
+            "cz": "cs",
+            "dk": "da",
+            "ee": "et",
+            "gr": "el",
+            "ff": "ful",
+            "il": "he",
+            "io": "ido",
+            "jp": "ja",
+            "ge": "ka",
+            "lo": "lao",
+            "se": "sv",
+            "si": "sl",
+            "rs": "sr",
+            "tw": "tvi",
+            "ua": "uk",
+            "vn": "vi",
+            "cn": "zh",
+        }
     },
     watch: {
         'cookiePolicy.accepted'(accepted) {
@@ -140,18 +162,13 @@ new Vue({
     },
     methods: {
         getCountryCode(languageCode) {
-            return languageCode;
-            /*
-            CountryLanguage.getLanguageMsLocales(languageCode, function (countries) {
-                if (err) {
-                    console.error(err);
-                } else {
-                    console.log(countries);
-                    return countries[0].code_2;
-                }
-            });
+            console.log(languageCode);
+            if (!this.languageToCountry[languageCode]) {
+                return null;
+            }
 
-             */
+
+            return this.languageToCountry[languageCode];
         },
         initHashScroll() {
             if (!location.hash) {
@@ -228,6 +245,9 @@ new Vue({
         }
     },
     computed: {
+        siteLanguage() {
+            return this.$page.props.user.site_language;
+        },
         calendarType() {
             if (this.viewport.w > 700) {
                 return 'timeGridWeek';

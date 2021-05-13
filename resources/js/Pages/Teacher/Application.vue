@@ -186,6 +186,7 @@
 						<c-input
 							:label="trans.get('teacher_application.one_hour_net')"
 							v-model="form.one_hour_price"
+							:error="!!$page.props.errors.one_hour_price"
 						/>
 						<c-input
 							readonly
@@ -208,6 +209,7 @@
 							:label="trans.get('teacher_application.five_hours_net')"
 							:value="calculateHourPrice(form.five_hour_price, 5, true)"
 							@keyup="value => bulkPriceInput(value, 'five_hour_price', 5, true)"
+							:error="!!$page.props.errors.five_hour_price"
 						/>
 						<c-input
 							:hint="'/'+trans.get('teacher_application.hour')"
@@ -222,6 +224,7 @@
 							:label="trans.get('teacher_application.ten_hours_net')"
 							:value="calculateHourPrice(form.ten_hour_price, 10, true)"
 							@keyup="value => bulkPriceInput(value, 'ten_hour_price', 10, true)"
+							:error="!!$page.props.errors.ten_hour_price"
 						/>
 						<c-input
 							:hint="'/'+trans.get('teacher_application.hour')"
@@ -236,6 +239,7 @@
 							:label="trans.get('teacher_application.twenty_hours_net')"
 							:value="calculateHourPrice(form.twenty_hour_price, 20, true)"
 							@keyup="value => bulkPriceInput(value, 'twenty_hour_price', 20, true)"
+							:error="!!$page.props.errors.twenty_hour_price"
 						/>
 						<c-input
 							:hint="'/'+trans.get('teacher_application.hour')"
@@ -414,7 +418,7 @@
                             :hint="trans.get('teacher_application.min_character', {num: 250})"
                             :max="2000"
                             class="mb-4"
-                            :error="!!$page.props.errors.about_me"
+                            :error="!!$page.props.errors['about_me.'+a+'.text']"
                             v-model="about_me.text"
                         />
                     </div>

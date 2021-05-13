@@ -105,7 +105,6 @@
 							required
 						/>
 
-
 						<c-select
 							class="mb-4"
 							capitalize
@@ -141,7 +140,7 @@
 					
 					<div class="m-4 text-center">
 						<img class="object-cover mx-auto h-14 w-14 rounded-full m-auto" :src="teacher.user.profile_photo_url" alt="Tanár profilképe">
-						<span class="mx-2 font-semibold">{{ teacher.user.first_name }} {{ teacher.user.last_name }}</span>
+						<span class="mx-2 font-semibold">{{ teacher.user.first_name }} {{ teacher.user.last_name[0] }}.</span>
 					</div>
 
 					<div class="m-4 text-center" v-if="appointment">
@@ -259,7 +258,7 @@
                 billing: {
                     address: null,
                     city: null,
-					country: null,
+					country: "HU",
                     postal: null,
                 },
 				countries: null,

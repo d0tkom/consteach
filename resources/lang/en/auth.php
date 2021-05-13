@@ -13,6 +13,15 @@ return [
     |
     */
 
+	'validation_field_required' => 'Mező kitöltése szükséges: :attribute',
+	'validation_required' => 'Mező kitöltése szükséges: :attribute',
+	'validation_unique' => 'Az email cím már regisztrálva van',
+	'validation_password.confirmed' => 'A két megadott jelszó nem egyezik',
+	'validation_first_name' => 'Keresztnév',
+	'validation_last_name' => 'Vezetéknév',
+	'validation_email' => 'Email',
+	'validation_password' => 'Jelszó megadása kötelező',
+
     'failed' => 'There\'s no account with the info you provided.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 

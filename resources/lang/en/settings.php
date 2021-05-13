@@ -34,14 +34,14 @@ return [
 
     'bulk_prices' => 'Package hourly rate',
 
-    'five_hours_net' => '5 hours - Net',
-    'five_hours_gross' => '5 hours - Gross',
+    'five_hours_net' => '5 hours - Net (HUF)',
+    'five_hours_gross' => '5 hours - Gross (HUF)',
 
-    'ten_hours_net' => '10 hours - Net',
-    'ten_hours_gross' => '10 hours - Gross',
+    'ten_hours_net' => '10 hours - Net (HUF)',
+    'ten_hours_gross' => '10 hours - Gross (HUF)',
 
-    'twenty_hours_net' => '20 hours - Net',
-    'twenty_hours_gross' => '20 hours - Gross',
+    'twenty_hours_net' => '20 hours - Net (HUF)',
+    'twenty_hours_gross' => '20 hours - Gross (HUF)',
 
     'validating_alert_title' => 'Validation in progress.',
     'validating_alert_description' => 'Main teacher functions are unavailable until validation is done.',

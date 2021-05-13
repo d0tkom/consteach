@@ -19,7 +19,7 @@
 			>
 				<div class="lang flex items-center">
 					<a
-						:href="'http://local.consteach.hu' + $page.url"
+						:href="window.app_url + $page.url"
 						class="active"
 					>
 						<c-btn
@@ -33,7 +33,7 @@
 					<span class="separator mx-2"></span>
 					
 					<a
-						:href="'http://en.local.consteach.hu' + $page.url"
+						:href="window.app_en_url + $page.url"
 						class="active"
 					>
 						<c-btn
@@ -239,6 +239,7 @@ export default {
 	},
 	data() {
 		return {
+			window,
 			walletOpened: false,
 			menu: {
 				opened: false

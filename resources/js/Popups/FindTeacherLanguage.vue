@@ -62,6 +62,13 @@ export default {
 	},
 	methods: {
 		optionClick(value) {
+			if (this.value === value) {
+				this.$emit('change', null);
+				this.$emit('change-active', false);
+
+				return;
+			}
+
 			this.$emit('change', value);
 			this.$emit('change-active', false);
 		}
