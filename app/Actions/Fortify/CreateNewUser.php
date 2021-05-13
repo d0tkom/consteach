@@ -26,6 +26,15 @@ class CreateNewUser implements CreatesNewUsers
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
+        ], [
+	        'required' => __('auth.validation_required'),
+	        'unique' => __('auth.validation_unique'),
+	        'password.confirmed' => __('auth.validation_password')
+        ], [
+	        'first_name' => __('auth.validation_first_name'),
+	        'last_name' => __('auth.validation_last_name'),
+	        'email' => __('auth.validation_email'),
+	        'password' => __('auth.validation_password'),
         ])->validate();
 
         $role = $input['teacher'] ? 'teacher' : 'student';

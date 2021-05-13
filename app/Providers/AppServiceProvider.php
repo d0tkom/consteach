@@ -2,8 +2,13 @@
 
 namespace App\Providers;
 
+use App\Http\Services\Alloweds;
+use App\Http\Services\Categories;
+use App\Http\Services\Owners;
+use \Auth;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class AppServiceProvider extends ServiceProvider
 {

@@ -53,6 +53,6 @@ export default {
 		time() {
 			return this.$moment.utc(this.data.date_start).tz(this.timeZone).format('HH:mm');
 		}
-	},
+	}
 }
 </script>
