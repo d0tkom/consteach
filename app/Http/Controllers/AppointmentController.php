@@ -60,7 +60,7 @@ class AppointmentController extends Controller
 
         $this->createMeeting($appointment);
 
-        $lesson = auth()->user()->extra->lessons()->where('teacher_id', $request->input('params')['teacher_id'])->->where('status', 0)->first();
+        $lesson = auth()->user()->extra->lessons()->where('teacher_id', $request->input('params')['teacher_id'])->where('status', 0)->first();
 
         if ($lesson != null) {
             $appointment->active = true;
