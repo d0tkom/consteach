@@ -81,8 +81,8 @@ new Vue({
         },
         fee: 1.2,
         languageToCountry: {
-            'hu': 'hu',
-            'es': 'es',
+            "hu": "hu",
+            "es": "es",
             "am": "hy",
             "cz": "cs",
             "dk": "da",
@@ -101,6 +101,14 @@ new Vue({
             "ua": "uk",
             "vn": "vi",
             "cn": "zh",
+            "en": "en",
+            "de": "de",
+            "fr": "fr",
+            "it": "it",
+            "ru": "ru",
+            "nl": "nl",
+            "sa": "ar",
+            "no": "no"
         }
     },
     watch: {
