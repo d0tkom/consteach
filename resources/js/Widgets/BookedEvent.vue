@@ -45,7 +45,7 @@
 			>
 				{{ trans.get('dashboard.booked_event_join_btn') }}
 			</c-btn>
-			<c-btn
+			<!--<c-btn
 				full
 				small
 				icon="chat"
@@ -54,7 +54,7 @@
 				v-if="!isEventInPast"
 			>
 				{{ trans.get('dashboard.booked_event_chat_btn') }}
-			</c-btn>
+			</c-btn>-->
 			<c-btn
 				small
 				text
@@ -121,7 +121,7 @@ export default {
 				return false;
 			}
 
-			var type = fromTeacher ? 'teacher' : 'student';
+			var type = this.fromTeacher ? 'teacher' : 'student';
 			
 			if (this.isEventLive) {
 				axios.post('/appointment/meeting/' + this.data.id, {type: type})

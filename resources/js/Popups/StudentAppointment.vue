@@ -8,7 +8,7 @@
 			<div
 				class="font-bold text-xl mb-2"
 				v-if="data.student"
-			>{{ data.student.user.first_name }} {{ data.student.user.last_name }}</div>
+			>{{ data.teacher.user.first_name }} {{ data.teacher.user.last_name }}</div>
 			<div class="date">{{ date }}</div>
 			<div class="time text-2xl mb-4">{{ time }}</div>
 			<div class="actions flex w-full px-6 mt-6 max-w-sm justify-center">

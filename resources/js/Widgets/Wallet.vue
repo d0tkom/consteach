@@ -4,10 +4,15 @@
 		:class="{opened}"
 	>
 		<div class="font-bold text-md color-primary-dark">{{ trans.get('header.wallet_total') }}</div>
-		<div class="value text-xl color-green-dark font-bold">15 000 HUF</div>
+
+		<div class="value text-xl color-green-dark font-bold">
+			<currency
+                :value="$page.props.user.extra.available_payout"
+            />
+		</div>
 		<c-btn
 			icon="payments"
-			navigate-to="/wallet"
+			@click.prevent="payout()"
 		>
 			{{ trans.get('header.payment_btn') }}
 		</c-btn>
@@ -40,7 +45,17 @@ export default {
 				this.opened = false;
 				this.$emit('input', false);
 			}
-		}
+		},
+		payout() {
+            axios.post('/checkout/payout/' + this.$page.props.user.extra.id)
+            .then(response => {
+                //this.$toast.success(message);
+            })
+            .catch(error => {
+                console.error(error);
+                //this.$toast.error(message);
+            });
+        },
 	}
 }
 </script>

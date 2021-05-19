@@ -60,7 +60,7 @@ class AppointmentController extends Controller
 
         $this->createMeeting($appointment);
 
-        $lesson = auth()->user()->extra->lessons()->where('teacher_id', $request->input('params')['teacher_id'])->->where('status', 0)->first();
+        $lesson = auth()->user()->extra->lessons()->where('teacher_id', $request->input('params')['teacher_id'])->where('status', 0)->first();
 
         if ($lesson != null) {
             $appointment->active = true;
@@ -125,10 +125,9 @@ class AppointmentController extends Controller
     {
         $appointmentCopy = $appointment;
 
-        $lesson = auth()->user()->extra->lessons()->where('teacher_id', $appointment->teacher->id)->first();
+        $lesson = $appointment->lesson;
 
-        $lesson->decrement('booked', 1);
-        $lesson->increment('available', 1);
+        $lesson->status = 0;
         $lesson->save();
 
         $appointment->delete();
@@ -158,7 +157,7 @@ class AppointmentController extends Controller
 
     public function startMeeting(Appointment $appointment)
     {
-        if (input('params')['type'] == 'teacher') {
+        if (request()->input('type') == 'teacher') {
             $appointment->teacher_approved = true;
             $appointment->save();
         } else {

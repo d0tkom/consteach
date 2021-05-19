@@ -93,6 +93,8 @@ Route::put('/appointment', [AppointmentController::class, 'store'])->name('appoi
 Route::delete('/appointment/{appointment}', [AppointmentController::class, 'destroy'])->name('appointment.destroy');
 Route::post('/appointment/meeting/{appointment}', [AppointmentController::class, 'startMeeting'])->name('appointment.meeting.start');
 
+Route::get('/test', [CheckoutController::class, 'index'])->name('test');
+
 Route::get('/teachers', [TeacherController::class, 'index'])->name('teachers');
 Route::get('teacher/{teacher}', [TeacherController::class, 'show'])->name('teacher.view');
 Route::put('/teacher/{teacher}', [TeacherController::class, 'update'])->name('teacher.update');

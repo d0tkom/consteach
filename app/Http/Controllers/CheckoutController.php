@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Lesson;
 use App\Models\Appointment;
 use App\Models\Teacher;
+use Illuminate\Support\Facades\Http;
 use Inertia\Inertia;
 use Carbon\Carbon;
 use BillingoApiV3Wrapper as BillingoApi;
@@ -22,7 +23,35 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        //
+
+        $stripe = new \Stripe\StripeClient(
+            'sk_test_51IJzZ5BL1awehvPy6xxZZPUyNeMwVsPt7VGyZvXSHqlnMfFcwyrQTKrMYIdotQ3rd35WNsOuD8vDLcMzgHQ2zvhY00AzZSsPHz'
+        );
+        $account = $stripe->accounts->create([
+            'type' => 'express',
+            'country' => auth()->user()->extra->country
+        ]);
+
+        $stripe = new \Stripe\StripeClient(
+          'sk_test_51IJzZ5BL1awehvPy6xxZZPUyNeMwVsPt7VGyZvXSHqlnMfFcwyrQTKrMYIdotQ3rd35WNsOuD8vDLcMzgHQ2zvhY00AzZSsPHz'
+        );
+        $url = $stripe->accountLinks->create([
+          'account' => $account->id,
+          'refresh_url' => 'https://test.consteach.hu/connect',
+          'return_url' => 'https://test.consteach.hu/connect',
+          'type' => 'account_onboarding',
+        ]);
+
+        return redirect($url->url);
+
+        dd($url);
+
+        $stripe = new \Stripe\StripeClient(
+          'sk_test_51IJzZ5BL1awehvPy6xxZZPUyNeMwVsPt7VGyZvXSHqlnMfFcwyrQTKrMYIdotQ3rd35WNsOuD8vDLcMzgHQ2zvhY00AzZSsPHz'
+        );
+        $test = $stripe->accounts->all(['limit' => 3]);
+
+        dd($test);
     }
 
     /**
@@ -33,6 +62,22 @@ class CheckoutController extends Controller
     public function create()
     {
         //
+    }
+
+    public function createStripeSellerAccount()
+    {
+        $stripe = new \Stripe\StripeClient(
+            'sk_test_51IJzZ5BL1awehvPy6xxZZPUyNeMwVsPt7VGyZvXSHqlnMfFcwyrQTKrMYIdotQ3rd35WNsOuD8vDLcMzgHQ2zvhY00AzZSsPHz'
+        );
+        $stripe->accounts->create([
+            'type' => 'express',
+            'country' => auth()->user()->extra->country,
+            'email' => auth()->user()->email,
+            'capabilities' => [
+                'card_payments' => ['requested' => true],
+                'transfers' => ['requested' => true],
+            ],
+        ]);
     }
 
     public function payout(Teacher $teacher)
@@ -209,7 +254,7 @@ class CheckoutController extends Controller
             [
                 'student_id' => $student_id,
                 'teacher_id' => request()->input('product')['teacher_id'],
-                'price' => $payment->charges->data[0]->amount/1.2,
+                'price' => 0,
                 'status' => 0
             ]
         );

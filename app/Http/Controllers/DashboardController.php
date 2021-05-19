@@ -37,7 +37,7 @@ class DashboardController extends Controller
         $lessons = $user->extra->lessons()
             ->distinct('teacher_id')
             ->with('teacher')
-            ->get();
+            ->get()->unique('teacher_id');
 
         $lessons->sortBy(function($lesson) {
             return $lesson->teacher->user->first_name;
@@ -45,8 +45,10 @@ class DashboardController extends Controller
 
         $appointments = $user->extra->appointments()
             ->where('active', 1)
-            ->where('student_approved', 0)
-            ->where('teacher_approved', 0)
+            ->where(function ($query) {
+                $query->where('student_approved', 0)
+                    ->orWhere('teacher_approved', 0);
+            })
             ->where('end', '>', Carbon::now('UTC'))
             ->with(['teacher', 'teacher.user', 'student', 'student.user'])
             ->orderBy('start', 'ASC')
@@ -64,7 +66,7 @@ class DashboardController extends Controller
         $lessons = $user->extra->lessons()
             ->distinct('student_id')
             ->with('student')
-            ->get();
+            ->get()->unique('student_id');
 
         $lessons->sortBy(function($lesson) {
             return $lesson->student->user->first_name;
@@ -72,8 +74,10 @@ class DashboardController extends Controller
 
         $appointments = $user->extra->appointments()
             ->where('active', 1)
-            ->where('student_approved', 0)
-            ->where('teacher_approved', 0)
+            ->where(function ($query) {
+                $query->where('student_approved', 0)
+                    ->orWhere('teacher_approved', 0);
+            })
             ->where('end', '>', Carbon::now('UTC'))
             ->with(['teacher', 'teacher.user', 'student', 'student.user'])
             ->orderBy('start', 'ASC')

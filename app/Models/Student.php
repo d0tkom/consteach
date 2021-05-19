@@ -19,10 +19,6 @@ class Student extends Model
     	'wanted_language',
     ];
 
-    protected $appends = [
-        'trial_available'
-    ];
-
     public function user()
     {
     	return $this->belongsTo(User::class);

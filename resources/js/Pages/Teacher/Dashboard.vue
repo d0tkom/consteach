@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="walletContainer flex flex-col justify-center" @click="payout()">
+                        <div class="walletContainer flex flex-col justify-center">
                             <div class="flex items-center">
                                 <span class="walletIcon material-icons mr-2 text-2xl">account_balance_wallet</span>
                                 <span class="walletValue font-bold text-2xl">
@@ -366,16 +366,6 @@
 		    this.$root.documentTitle(title);
 	    },
         methods: {
-            payout() {
-                axios.post('/checkout/payout/' + $page.props.user.extra.id)
-                .then(response => {
-                    //this.$toast.success(message);
-                })
-                .catch(error => {
-                    console.error(error);
-                    //this.$toast.error(message);
-                });
-            },
             selectAllow(selectInfo) {
                 return this.$moment
                     .utc(selectInfo.startStr)

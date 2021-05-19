@@ -18,7 +18,7 @@ class CreateLessonsTable extends Migration
             $table->foreignId('student_id')->constrained();
             $table->foreignId('teacher_id')->constrained();
             $table->integer('status')->default(0);
-            $table->float('price');
+            $table->float('price')->default(0);
             $table->boolean('payout_available')->default(false);
             $table->timestamps();
         });
