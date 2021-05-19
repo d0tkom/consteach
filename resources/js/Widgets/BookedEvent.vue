@@ -167,7 +167,7 @@ export default {
 		},
 		isEventLive() {
 			const startDate = this.$moment.utc(this.data.start, 'YYYY-MM-DD HH:mm:ss').tz(this.timeZone).subtract(10, 'minutes');;
-			const endDate = this.$moment.utc(this.data.start, 'YYYY-MM-DD HH:mm:ss').tz(this.timeZone).add(this.data.length, 'minutes');
+			const endDate = this.$moment.utc(this.data.start, 'YYYY-MM-DD HH:mm:ss').tz(this.timeZone).add(60, 'minutes');
 			
 			const range = this.$moment.range(startDate, endDate);
 			
