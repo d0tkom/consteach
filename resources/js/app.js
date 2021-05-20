@@ -101,7 +101,7 @@ new Vue({
             "ua": "uk",
             "vn": "vi",
             "cn": "zh",
-            "en": "en",
+            "gb": "en",
             "de": "de",
             "fr": "fr",
             "it": "it",
