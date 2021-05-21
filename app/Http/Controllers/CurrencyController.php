@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 class CurrencyController extends Controller
 {
     public function fetchExchange() {
-        $response = Http::get('https://data.fixer.io/api/latest?base=HUF');
+        $response = Http::get('https:/api.exchangerate.host/latest?base=HUF');
 
         if ($response->failed()) {
             return response()->json([

@@ -29,15 +29,15 @@
 			<div class="mt-4">
 				<div class="stat mb-2 flex justify-between items-center">
 					<span class="text-md">{{ trans.get('dashboard.teacher_widget_booked_lessons') }}</span>
-					<span class="text-lg font-bold">{{ data.teacher.booked_lessons }}</span>
+					<span class="text-lg font-bold">{{ calcBookedLessons() }}</span>
 				</div>
 				<div class="stat orange mb-2 flex justify-between items-center">
 					<span class="text-md">{{ trans.get('dashboard.teacher_widget_bought_lessons') }}</span>
-					<span class="text-lg font-bold">{{ data.teacher.available_lessons }}</span>
+					<span class="text-lg font-bold">{{ calcAvailableLessons() }}</span>
 				</div>
 				<div class="stat purple mb-2 flex justify-between items-center">
 					<span class="text-md">{{ trans.get('dashboard.teacher_widget_finished_lessons') }}</span>
-					<span class="text-lg font-bold">{{ data.teacher.finished_lessons }}</span>
+					<span class="text-lg font-bold">{{ calcFinishedLessons() }}</span>
 				</div>
 			</div>
 		</div>
@@ -49,6 +49,26 @@
 export default {
 	props: {
 		data: Object
+	},
+	methods: {
+		calcBookedLessons: function () {
+			let filtered = this.data.teacher.lessons.filter(lesson => {
+				return lesson.student_id == this.$page.props.user.extra.id && lesson.status == 1;
+			});
+			return filtered.length; 
+		},
+		calcAvailableLessons: function () {
+			let filtered = this.data.teacher.lessons.filter(lesson => {
+				return lesson.student_id == this.$page.props.user.extra.id && lesson.status == 0;
+			});
+			return filtered.length; 
+		},
+		calcFinishedLessons: function () {
+			let filtered = this.data.teacher.lessons.filter(lesson => {
+				return lesson.student_id == this.$page.props.user.extra.id && lesson.status == 2;
+			});
+			return filtered.length; 
+		}
 	}
 }
 </script>

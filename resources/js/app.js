@@ -101,7 +101,7 @@ new Vue({
             "ua": "uk",
             "vn": "vi",
             "cn": "zh",
-            "gb": "en",
+            "en": "gb",
             "de": "de",
             "fr": "fr",
             "it": "it",
@@ -254,7 +254,7 @@ new Vue({
     },
     computed: {
         siteLanguage() {
-            return this.$page.props.user.site_language;
+            return this.$page.props.user ? this.$page.props.user.site_language : 'hu';
         },
         calendarType() {
             if (this.viewport.w > 700) {

@@ -36,7 +36,7 @@ class DashboardController extends Controller
 
         $lessons = $user->extra->lessons()
             ->distinct('teacher_id')
-            ->with('teacher')
+            ->with('teacher', 'teacher.lessons')
             ->get()->unique('teacher_id');
 
         $lessons->sortBy(function($lesson) {
