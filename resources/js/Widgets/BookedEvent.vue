@@ -133,14 +133,7 @@ export default {
 				});
 				
 			} else {
-				axios.post('/appointment/meeting/' + this.data.id, {type: type})
-				.then(response => {
-					window.open(this.data.meeting_url, '_blank');
-				})
-				.catch(error => {
-					console.error(error);
-				});
-				//this.eventNotReadyPopup = true;
+				this.eventNotReadyPopup = true;
 			}
 		},
 		deleteAppointment() {
