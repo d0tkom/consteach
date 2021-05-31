@@ -9,7 +9,7 @@ return [
     'cookie_link' => 'Sütikezelési szabályzatunkat',
     'cookie_btn' => 'Elfogadom',
 
-    'hero_title' => 'Online, személyesen neked',
+    'hero_title' => 'Online, személyesen, neked',
     'hero_subtitle' => 'Találj hozzád illő tanárt és tanulj nyelvet otthonról!',
     'hero_cta' => 'INGYENES PRÓBAÓRA',
     'hero_choose_language' => 'VÁLASSZ NYELVET!',
