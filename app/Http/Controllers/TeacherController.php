@@ -134,7 +134,7 @@ class TeacherController extends Controller
             ]);
         } elseif ($request->input('step') == 1) {
             $validatedData = $request->validate([
-                'photo' => ['required', 'image', 'max:2048'],
+                'photo' => ['required', 'file', 'max:2048'],
             ]);
         } elseif ($request->input('step') == 2) {
             $validatedData = $request->validate([
