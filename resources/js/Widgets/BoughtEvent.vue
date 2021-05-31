@@ -35,14 +35,14 @@
 			>
 				{{ trans.get('dashboard.bought_event_book_btn') }}
 			</c-btn>
-			<c-btn
+			<!-- <c-btn
 				v-else
 				icon="chat"
 				outlined
 				medium
 			>
 				{{ trans.get('dashboard.bought_event_chat_btn') }}
-			</c-btn>
+			</c-btn> -->
 		</div>
 	</div>
 </template>
