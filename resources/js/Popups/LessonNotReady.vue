@@ -14,7 +14,7 @@
 		<div class="text-center my-4">
 			{{ trans.get('dashboard.lesson_not_ready_description') }}
 		</div>
-		<div class="actions flex justify-center">
+		<!-- <div class="actions flex justify-center">
 			<c-btn
 				outlined
 				icon="chat"
@@ -22,7 +22,7 @@
 			>
 				{{ trans.get('dashboard.lesson_not_ready_chat_btn') }}
 			</c-btn>
-		</div>
+		</div> -->
 	</c-pop-up>
 </template>
 
