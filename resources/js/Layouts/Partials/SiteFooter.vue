@@ -65,14 +65,14 @@
 					{{ trans.get('footer.policies_title') }}
 				</div>
 				<div class="footerSectionContent">
-					<inertia-link href="/privacy-policy">
+					<inertia-link href="/privacy_policy.pdf" target="_blank">
 						<c-btn
 							text
 						>
 							{{ trans.get('footer.privacy') }}
 						</c-btn>
 					</inertia-link>
-					<inertia-link href="/terms-and-conditions">
+					<inertia-link href="/terms_and_conditions.pdf" target="_blank">
 						<c-btn
 							text
 						>
