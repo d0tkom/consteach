@@ -5,18 +5,18 @@ return [
     'document_description' => 'oldal leírása',
     'document_image' => '',
 
-    'title' => 'Gyakori kérdések és válaszok',
+    'title' => 'Contact us & FAQ',
 
-    'contact_title' => 'Kapcsolat',
-    'contact_description' => 'Technikai problémád adódott vagy észrevételed, kérdésed van az oldal működésével kapcsolatban?<br/><br/> Írj nekünk, mi kézséggel válaszolunk.',
-    'contact_placeholder' => 'Ide írhatod a véleményed...',
-    'contact_max_char' => 'Legfeljebb 1000 karakter',
-    'contact_btn' => 'Üzenet küldése',
-    'contact_submitted_success_notification' => 'Üzenet elküldve',
-    'contact_submitted_fail_notification' => 'Üzenet küldése sikertelen',
+    'contact_title' => 'Contact us',
+    'contact_description' => 'Would you like to report a technical issue or do you have a question?<br/><br/> Contact us now!',
+    'contact_placeholder' => 'Type your question here...',
+    'contact_max_char' => 'Max. 1000 characters',
+    'contact_btn' => 'Send message',
+    'contact_submitted_success_notification' => 'Message sent',
+    'contact_submitted_fail_notification' => 'Can\'t send message',
 
-    'faq_tab_teacher' => 'Gyakori kérdések tanároknak',
-    'faq_tab_student' => 'Gyakori kérdések diákoknak',
+    'faq_tab_teacher' => 'FAQ for Teachers',
+    'faq_tab_student' => 'FAQ for Students',
 
     'question_01_title' => 'What time zone do the appointments appear in?',
     'question_01_description' => 'The appoinrments are displayed in Budapest (CET) time zone. ',
