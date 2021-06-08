@@ -18,23 +18,23 @@ return [
     'faq_tab_teacher' => 'Gyakori kérdések tanároknak',
     'faq_tab_student' => 'Gyakori kérdések diákoknak',
 
-    'question_01_title' => 'Ingyenes az oldal használata?',
-    'question_01_description' => 'Óráimon pozitív, megerősítő, kötetlen légkör biztosítja a gyorsabb nyelvi fejlődést. A humort fontosnak tartom a magánéletben és a nyelvórán is, meggyőződésem, hogy eredményesebben lehessen, hiszen így lehet minden jó és jó és jó és jó és jó',
+    'question_01_title' => 'Milyen időzóna szerint jelennek meg az időpontok?',
+    'question_01_description' => 'Az időpontok Budapest (CET) időzóna szerint jelennek meg.',
 
-    'question_02_title' => 'Biztos ingyenes az oldal használata?',
-    'question_02_description' => 'Óráimon pozitív, megerősítő, kötetlen légkör biztosítja a gyorsabb nyelvi fejlődést. A humort fontosnak tartom a magánéletben és a nyelvórán is, meggyőződésem, hogy eredményesebben lehessen, hiszen így lehet minden jó és jó és jó és jó és jó',
+    'question_02_title' => 'Hogyan lehet újraegyeztetni/lemondani az órát?',
+    'question_02_description' => 'Órát lemondani a tanulói profilodnál a lefoglalt óráim menüpont alatt az "óra lemondása" gombra kattintva tudsz.',
 
-    'question_03_title' => 'Nem ingyenes az oldal használata?',
-    'question_03_description' => 'Óráimon pozitív, megerősítő, kötetlen légkör biztosítja a gyorsabb nyelvi fejlődést. A humort fontosnak tartom a magánéletben és a nyelvórán is, meggyőződésem, hogy eredményesebben lehessen, hiszen így lehet minden jó és jó és jó és jó és jó',
+    'question_03_title' => 'Hogyan/hol zajlik az óra?',
+    'question_03_description' => 'Az óra a Consteach saját class room programján keresztül zajlik. (Amennyiben problémába ütközöl a class room használata során, kérjük jelezd felénk.)',
 
-    'question_04_title' => 'Ingyenes az oldal használata?',
-    'question_04_description' => 'Óráimon pozitív, megerősítő, kötetlen légkör biztosítja a gyorsabb nyelvi fejlődést. A humort fontosnak tartom a magánéletben és a nyelvórán is, meggyőződésem, hogy eredményesebben lehessen, hiszen így lehet minden jó és jó és jó és jó és jó',
+    'question_04_title' => 'Mit kell tudni a próbaóráról?',
+    'question_04_description' => 'A próbaóra egy 30 perces, kötetlen óra, melynek célja a diák szintjének és igényeinek felmérése, az oktatás és a szolgáltatás kipróbálása.',
 
-    'question_05_title' => 'Ingyenes az oldal használata?',
-    'question_05_description' => 'Óráimon pozitív, megerősítő, kötetlen légkör biztosítja a gyorsabb nyelvi fejlődést. A humort fontosnak tartom a magánéletben és a nyelvórán is, meggyőződésem, hogy eredményesebben lehessen, hiszen így lehet minden jó és jó és jó és jó és jó',
+    'question_05_title' => 'Hogyan tudok fizetni?',
+    'question_05_description' => 'Sikeres próbaóra után 1, 5 vagy 20 órás csomagjaink közül tudsz választani, melyet a tanári profil oldalán tudsz megvásárolni.',
 
-    'question_06_title' => 'Ingyenes az oldal használata?',
-    'question_06_description' => 'Óráimon pozitív, megerősítő, kötetlen légkör biztosítja a gyorsabb nyelvi fejlődést. A humort fontosnak tartom a magánéletben és a nyelvórán is, meggyőződésem, hogy eredményesebben lehessen, hiszen így lehet minden jó és jó és jó és jó és jó',
+    'question_06_title' => 'Hogyan jelezzek egy problémát?',
+    'question_06_description' => 'Amennyiben problémád adódik, a probléma jelentése gombbal tudsz üzenetet írni nekünk.',
 
     'more_btn' => 'Tovább',
     'less_btn' => 'Röviden',
