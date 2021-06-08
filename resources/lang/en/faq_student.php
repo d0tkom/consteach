@@ -18,23 +18,23 @@ return [
     'faq_tab_teacher' => 'Gyakori kérdések tanároknak',
     'faq_tab_student' => 'Gyakori kérdések diákoknak',
 
-    'question_01_title' => 'Ingyenes az oldal használata?',
-    'question_01_description' => 'Óráimon pozitív, megerősítő, kötetlen légkör biztosítja a gyorsabb nyelvi fejlődést. A humort fontosnak tartom a magánéletben és a nyelvórán is, meggyőződésem, hogy eredményesebben lehessen, hiszen így lehet minden jó és jó és jó és jó és jó',
+    'question_01_title' => 'What time zone do the appointments appear in?',
+    'question_01_description' => 'The appoinrments are displayed in Budapest (CET) time zone. ',
 
-    'question_02_title' => 'Biztos ingyenes az oldal használata?',
-    'question_02_description' => 'Óráimon pozitív, megerősítő, kötetlen légkör biztosítja a gyorsabb nyelvi fejlődést. A humort fontosnak tartom a magánéletben és a nyelvórán is, meggyőződésem, hogy eredményesebben lehessen, hiszen így lehet minden jó és jó és jó és jó és jó',
+    'question_02_title' => 'How can I reschedule / cancel a lesson?',
+    'question_02_description' => 'You can cancel a lesson on your student profile by clicking on the "cancel lesson" button under the menu item  "my booked hours". ',
 
-    'question_03_title' => 'Nem ingyenes az oldal használata?',
-    'question_03_description' => 'Óráimon pozitív, megerősítő, kötetlen légkör biztosítja a gyorsabb nyelvi fejlődést. A humort fontosnak tartom a magánéletben és a nyelvórán is, meggyőződésem, hogy eredményesebben lehessen, hiszen így lehet minden jó és jó és jó és jó és jó',
+    'question_03_title' => 'How and where does the lesson take place?',
+    'question_03_description' => 'The lesson takes place through Consteach\'s own classroom program. (If you have any problems using the classroom, please let us know.)',
 
-    'question_04_title' => 'Ingyenes az oldal használata?',
-    'question_04_description' => 'Óráimon pozitív, megerősítő, kötetlen légkör biztosítja a gyorsabb nyelvi fejlődést. A humort fontosnak tartom a magánéletben és a nyelvórán is, meggyőződésem, hogy eredményesebben lehessen, hiszen így lehet minden jó és jó és jó és jó és jó',
+    'question_04_title' => 'What do I need to know about the trial lesson?',
+    'question_04_description' => 'The trial lesson is a 30-minute informal/casual lesson, which is designed to asses a student\'s level and needs while also allowing the student to try out learning through our service/platform. ',
 
-    'question_05_title' => 'Ingyenes az oldal használata?',
-    'question_05_description' => 'Óráimon pozitív, megerősítő, kötetlen légkör biztosítja a gyorsabb nyelvi fejlődést. A humort fontosnak tartom a magánéletben és a nyelvórán is, meggyőződésem, hogy eredményesebben lehessen, hiszen így lehet minden jó és jó és jó és jó és jó',
+    'question_05_title' => 'How can I pay?',
+    'question_05_description' => 'After a successful trial lesson, you can choose from our 1, 5, or 20 hours packages, which you can purchase on the profile page of the teacher. ',
 
-    'question_06_title' => 'Ingyenes az oldal használata?',
-    'question_06_description' => 'Óráimon pozitív, megerősítő, kötetlen légkör biztosítja a gyorsabb nyelvi fejlődést. A humort fontosnak tartom a magánéletben és a nyelvórán is, meggyőződésem, hogy eredményesebben lehessen, hiszen így lehet minden jó és jó és jó és jó és jó',
+    'question_06_title' => 'How do I report a problem?',
+    'question_06_description' => 'If there is a problem, you can write a message to us with the "report a problem" button. ',
 
     'more_btn' => 'Tovább',
     'less_btn' => 'Röviden',
