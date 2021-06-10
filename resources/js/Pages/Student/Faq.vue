@@ -175,6 +175,29 @@
 						@click="openedQuestion = null"
 					>{{ trans.get('faq_student.less_btn') }}</c-btn>
 				</div>
+				<div class="card">
+					<h1 class="title text-xl font-bold mb-2">{{ trans.get('faq_student.question_07_title') }}</h1>
+					<p
+						v-if="openedQuestion === 6"
+					>{{ trans.get('faq_student.question_07_description') }}</p>
+					<p
+						v-else
+					>{{ trans.get('faq_student.question_07_description').substring(0, 100) }}</p>
+					<c-btn
+						v-if="openedQuestion !== 6"
+						text
+						class="mt-2"
+						icon="keyboard_arrow_right"
+						@click="openedQuestion = 6"
+					>{{ trans.get('faq_student.more_btn') }}</c-btn>
+					<c-btn
+						v-else
+						text
+						class="mt-2"
+						icon="keyboard_arrow_up"
+						@click="openedQuestion = null"
+					>{{ trans.get('faq_student.less_btn') }}</c-btn>
+				</div>
 			</div>
 		</div>
 	</app-layout>
