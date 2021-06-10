@@ -175,7 +175,7 @@
 						@click="openedQuestion = null"
 					>{{ trans.get('faq_student.less_btn') }}</c-btn>
 				</div>
-				<div class="card">
+				<!-- <div class="card">
 					<h1 class="title text-xl font-bold mb-2">{{ trans.get('faq_student.question_07_title') }}</h1>
 					<p
 						v-if="openedQuestion === 6"
@@ -197,7 +197,7 @@
 						icon="keyboard_arrow_up"
 						@click="openedQuestion = null"
 					>{{ trans.get('faq_student.less_btn') }}</c-btn>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</app-layout>

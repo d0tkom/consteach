@@ -12,11 +12,6 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
-	"Whoops" => "Hoppá",
-    "Whoops!" => "Hoppá!",
-    "Whoops! Something went wrong." => "Hoppá! Valami rosszul sült el.",
-
 	'validation_field_required' => 'Mező kitöltése szükséges: :attribute',
 	'validation_required' => 'Mező kitöltése szükséges: :attribute',
 	'validation_unique' => 'Az email cím már regisztrálva van',
@@ -43,6 +38,10 @@ return [
     'password_label' => 'Jelszó',
     'password_confirmation_label' => 'Jelszó ismét',
     'remember_label' => 'Emlékezz rám',
+    'privacy_part_1' => 'A regisztrációval elfogadom az oldal',
+    'privacy_part_2' => 'és az',
+    'privacy' => 'Adatkezelési Szabályzatot',
+    'terms' => 'Általános Szerződési Feltételeit',
 
     'login_btn' => 'Bejelentkezés',
     'register_btn' => 'Regisztráció',

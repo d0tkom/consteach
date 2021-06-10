@@ -12,7 +12,7 @@ class ContactController extends Controller
 {
     public function submitForm(Request $request) {
         $message = $request->message;
-        $email = 'email@example.com';
+        $email = 'info@consteach.com';
 
         if (!$message) {
             return response()->json(['error' => 'message_not_specified'], 400);

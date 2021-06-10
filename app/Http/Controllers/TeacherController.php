@@ -146,9 +146,9 @@ class TeacherController extends Controller
                 "about_me.*.text"    => ["required", "min:250"],
             ]);
         } else {
-            /*$validatedData = $request->validate([
-                'validation_photo' => ['required', 'file', 'image'], //TODO: WTF legyen ezzel 
-            ]);*/
+            $validatedData = $request->validate([
+                'validation_photo' => ['required', 'file', 'max:2048'],
+            ]);
         }
 
         return redirect(route('teacher-application'));

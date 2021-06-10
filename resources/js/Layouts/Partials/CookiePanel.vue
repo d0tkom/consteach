@@ -2,10 +2,11 @@
 	<div class="cookiePanel p-4 shadow-md">
 		<div class="color-primary-dark font-bold pr-16">
 			{{ trans.get('landing.cookie_title') }}
-			<inertia-link
+			<a
 				class="color-primary"
-				href="/cookie-policy"
-			>{{ trans.get('landing.cookie_link') }}?</inertia-link>
+				href="/privacy_policy.pdf"
+				target="_blank"
+			>{{ trans.get('landing.cookie_link') }}?</a>
 		</div>
 		<div class="flex justify-center mt-4">
 			<c-btn

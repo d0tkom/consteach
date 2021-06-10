@@ -68,12 +68,12 @@
 					<c-btn
 						text
 					>
-						<a style="color: #18A0FB" href="/privacy_policy.pdf">{{ trans.get('footer.privacy') }}</a>
+						<a style="color: #18A0FB" target="_blank" href="/privacy_policy.pdf">{{ trans.get('footer.privacy') }}</a>
 					</c-btn>
 					<c-btn
 						text
 					>
-						<a style="color: #18A0FB" href="/terms_and_conditions.pdf">{{ trans.get('footer.terms_of_use') }}</a>
+						<a style="color: #18A0FB" target="_blank" href="/terms_and_conditions.pdf">{{ trans.get('footer.terms_of_use') }}</a>
 					</c-btn>
 					<!-- <inertia-link href="/privacy_policy.pdf" target="_blank">
 						<c-btn

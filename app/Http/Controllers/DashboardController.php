@@ -56,7 +56,7 @@ class DashboardController extends Controller
 
         return [
             'appointments' => $appointments,
-            'lessons' => $lessons,
+            'lessons' => array_values($lessons->toArray()),
             'meta' => $meta
         ];
     }

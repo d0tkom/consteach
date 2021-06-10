@@ -62,14 +62,14 @@
                             >
                                 {{ trans.get('settings.change_password_btn') }}
                             </c-btn>
-                            <c-btn
+                            <!-- <c-btn
                                 outlined
                                 color="error"
                                 icon="delete"
                                 @click="removeAccountPopup = true"
                             >
                                 {{ trans.get('settings.delete_account_btn') }}
-                            </c-btn>
+                            </c-btn> -->
                         </div>
                     </form>
                 </div>

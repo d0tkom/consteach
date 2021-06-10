@@ -39,6 +39,10 @@ return [
     'password_label' => 'Password',
     'password_confirmation_label' => 'Password again',
     'remember_label' => 'Remember me',
+    'privacy_part_1' => 'By registering I agree with the',
+    'privacy_part_2' => 'and with the',
+    'privacy' => 'Privacy Policy',
+    'terms' => 'Terms and Conditions',
 
     'login_btn' => 'Log in',
     'register_btn' => 'Sign up',
