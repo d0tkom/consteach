@@ -35,6 +35,9 @@ return [
 
     'question_06_title' => 'Hogyan jelezzek egy problémát?',
     'question_06_description' => 'Amennyiben problémád adódik, a probléma jelentése gombbal tudsz üzenetet írni nekünk.',
+    
+    'question_07_title' => 'Hogyan jelezzek egy problémát?',
+    'question_07_description' => 'Amennyiben problémád adódik, a probléma jelentése gombbal tudsz üzenetet írni nekünk.',
 
     'more_btn' => 'Tovább',
     'less_btn' => 'Röviden',
