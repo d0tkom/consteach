@@ -77,12 +77,12 @@ class CheckoutController extends Controller
                 'type' => 'account_onboarding',
             ]);
 
-            return redirect($onboardLink->url);
+            return $onboardLink->url;
         }
 
         $loginLink = $stripe->account->createLoginLink($user->partner_id);
 
-        return redirect($loginLink->url);
+        return $loginLink->url;
     }
 
     public function saveStripeAccount($token)

@@ -49,6 +49,7 @@ export default {
 		payout() {
             axios.post('/checkout/payout/' + this.$page.props.user.extra.id)
             .then(response => {
+            	console.log(response)
                 //this.$toast.success(message);
             })
             .catch(error => {
