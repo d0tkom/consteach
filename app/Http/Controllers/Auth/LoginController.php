@@ -29,6 +29,7 @@ class LoginController extends Controller
      */
     public function redirectToProvider($provider)
     {
+        dd(request());
         session(['user_role' => request('teacher') ? 'teacher' : 'student']);
         return Socialite::driver($provider)->redirect();
     }
@@ -42,8 +43,6 @@ class LoginController extends Controller
     public function handleProviderCallback($provider)
     {
         $socialite_user = Socialite::driver($provider)->user();
-
-        dd(session('user_role'));
 
         $user = User::where('provider_id', $socialite_user->getId())->first();
 
