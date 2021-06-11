@@ -56,17 +56,16 @@ class CheckoutController extends Controller
     {
         $user = auth()->user();
 
+        $stripe = new \Stripe\StripeClient(
+            'sk_test_51IJzZ5BL1awehvPy6xxZZPUyNeMwVsPt7VGyZvXSHqlnMfFcwyrQTKrMYIdotQ3rd35WNsOuD8vDLcMzgHQ2zvhY00AzZSsPHz'
+        );
+
         if (!$teacher->finished_onboarding) {
             $token = Str::random();
             $teacher->stripe_token = $token;
             $teacher->save();
 
             if (!$user->partner_id) {
-
-                $stripe = new \Stripe\StripeClient(
-                    'sk_test_51IJzZ5BL1awehvPy6xxZZPUyNeMwVsPt7VGyZvXSHqlnMfFcwyrQTKrMYIdotQ3rd35WNsOuD8vDLcMzgHQ2zvhY00AzZSsPHz'
-                );
-                
                 $user->partner_id = $this->createStripeSellerAccount($stripe)->id;
                 $user->save();
             }
