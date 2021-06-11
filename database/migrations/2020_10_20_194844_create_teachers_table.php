@@ -23,6 +23,8 @@ class CreateTeachersTable extends Migration
             $table->float('five_hour_price');
             $table->float('ten_hour_price');
             $table->float('twenty_hour_price');
+            $table->string('stripe_token')->nullable();
+            $table->boolean('finished_onboarding')->default(false);
             $table->boolean('complete')->default(false);
             $table->boolean('validated')->default(false);
             $table->foreignId('user_id')->constrained();

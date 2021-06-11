@@ -10,6 +10,7 @@ use App\Models\Lesson;
 use App\Models\Appointment;
 use App\Models\Teacher;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Carbon\Carbon;
 use BillingoApiV3Wrapper as BillingoApi;
@@ -23,35 +24,7 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-
-        $stripe = new \Stripe\StripeClient(
-            'sk_test_51IJzZ5BL1awehvPy6xxZZPUyNeMwVsPt7VGyZvXSHqlnMfFcwyrQTKrMYIdotQ3rd35WNsOuD8vDLcMzgHQ2zvhY00AzZSsPHz'
-        );
-        $account = $stripe->accounts->create([
-            'type' => 'express',
-            'country' => auth()->user()->extra->country
-        ]);
-
-        $stripe = new \Stripe\StripeClient(
-          'sk_test_51IJzZ5BL1awehvPy6xxZZPUyNeMwVsPt7VGyZvXSHqlnMfFcwyrQTKrMYIdotQ3rd35WNsOuD8vDLcMzgHQ2zvhY00AzZSsPHz'
-        );
-        $url = $stripe->accountLinks->create([
-          'account' => $account->id,
-          'refresh_url' => 'https://test.consteach.hu/connect',
-          'return_url' => 'https://test.consteach.hu/connect',
-          'type' => 'account_onboarding',
-        ]);
-
-        return redirect($url->url);
-
-        dd($url);
-
-        $stripe = new \Stripe\StripeClient(
-          'sk_test_51IJzZ5BL1awehvPy6xxZZPUyNeMwVsPt7VGyZvXSHqlnMfFcwyrQTKrMYIdotQ3rd35WNsOuD8vDLcMzgHQ2zvhY00AzZSsPHz'
-        );
-        $test = $stripe->accounts->all(['limit' => 3]);
-
-        dd($test);
+        //
     }
 
     /**
@@ -64,12 +37,9 @@ class CheckoutController extends Controller
         //
     }
 
-    public function createStripeSellerAccount()
+    public function createStripeSellerAccount($stripe)
     {
-        $stripe = new \Stripe\StripeClient(
-            'sk_test_51IJzZ5BL1awehvPy6xxZZPUyNeMwVsPt7VGyZvXSHqlnMfFcwyrQTKrMYIdotQ3rd35WNsOuD8vDLcMzgHQ2zvhY00AzZSsPHz'
-        );
-        $stripe->accounts->create([
+        $account = $stripe->accounts->create([
             'type' => 'express',
             'country' => auth()->user()->extra->country,
             'email' => auth()->user()->email,
@@ -78,6 +48,56 @@ class CheckoutController extends Controller
                 'transfers' => ['requested' => true],
             ],
         ]);
+
+        return $account;
+    }
+
+    public function reditectToStripe(Teacher $teacher)
+    {
+        $user = auth()->user();
+
+        if (!$teacher->finished_onboarding) {
+            $token = Str::random();
+            $teacher->stripe_token = $token;
+            $teacher->save();
+
+            if (!$user->partner_id) {
+
+                $stripe = new \Stripe\StripeClient(
+                    'sk_test_51IJzZ5BL1awehvPy6xxZZPUyNeMwVsPt7VGyZvXSHqlnMfFcwyrQTKrMYIdotQ3rd35WNsOuD8vDLcMzgHQ2zvhY00AzZSsPHz'
+                );
+                
+                $user->partner_id = $this->createStripeSellerAccount($stripe)->id;
+                $user->save();
+            }
+
+            $onboardLink = $stripe->accountLinks->create([
+                'account' => $user->partner_id,
+                'refresh_url' => route('stripe.redirect', ['teacher' => $teacher->id]),
+                'return_url' => route('stripe.save', ['token' => $token]),
+                'type' => 'account_onboarding',
+            ]);
+
+            return redirect($onboardLink->url);
+        }
+
+        $loginLink = $stripe->account->createLoginLink($user->partner_id);
+
+        return redirect($loginLink->url);
+    }
+
+    public function saveStripeAccount($token)
+    {
+        $teacher = Teacher::where('stripe_token', $token)->first();
+
+        if (is_null($teacher->stripe_token)) {
+            abort(404);
+        }
+
+        $teacher->finished_onboarding = true;
+        $teacher->save();
+
+        return redirect('/dashbaord');
     }
 
     public function payout(Teacher $teacher)

@@ -47,15 +47,14 @@ export default {
 			}
 		},
 		payout() {
-			window.location.replace('https://consteach.thefraktal.com/test');
-            /*axios.post('/checkout/payout/' + this.$page.props.user.extra.id)
+            axios.post('/checkout/payout/' + this.$page.props.user.extra.id)
             .then(response => {
                 //this.$toast.success(message);
             })
             .catch(error => {
                 console.error(error);
                 //this.$toast.error(message);
-            });*/
+            });
         },
 	}
 }
