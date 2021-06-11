@@ -29,7 +29,7 @@ class LoginController extends Controller
      */
     public function redirectToProvider($provider)
     {
-        dd(request());
+        dd(request('teacher'));
         session(['user_role' => request('teacher') ? 'teacher' : 'student']);
         return Socialite::driver($provider)->redirect();
     }
