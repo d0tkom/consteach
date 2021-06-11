@@ -61,7 +61,7 @@ class LoginController extends Controller
             if (session('user_role') == 'teacher') {
                 Teacher::create([
                     'user_id' => $user->id,
-                    'completed' => false,
+                    'complete' => false,
                     'validated' => false
                 ]);
             } else {
