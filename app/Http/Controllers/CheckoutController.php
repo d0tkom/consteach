@@ -80,7 +80,7 @@ class CheckoutController extends Controller
             return $onboardLink->url;
         }
 
-        $loginLink = $stripe->account->createLoginLink($user->partner_id);
+        $loginLink = $stripe->accounts->createLoginLink($user->partner_id);
 
         return $loginLink->url;
     }
