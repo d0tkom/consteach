@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Request;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\App;
 use App\Models\Student;
 use App\Models\Teacher;
 
@@ -52,7 +53,7 @@ class LoginController extends Controller
                 'provider_id' => $socialite_user->getId(),
                 'role' => session('user_role'),
                 'currency' => 'HUF',
-                'site_language' => 'hu',
+                'site_language' => App::getLocale(),
                 'timezone' => 'Europe/Budapest'
                 //'token' => $user->token
             ]);

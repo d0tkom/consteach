@@ -89,13 +89,13 @@
 							{{ trans.get('footer.terms_of_use') }}
 						</c-btn>
 					</inertia-link> -->
-					<inertia-link href="/cookie-policy">
+					<!-- <inertia-link href="/cookie-policy">
 						<c-btn
 							text
 						>
 							{{ trans.get('footer.cookie_policy') }}
 						</c-btn>
-					</inertia-link>
+					</inertia-link> -->
 				</div>
 			</div>
 			<div class="contact column only-screen">

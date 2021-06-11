@@ -153,7 +153,7 @@ export default {
 	},
 	computed: {
 		isEventInPast() {
-			let dateMoment = this.$moment.utc(this.data.start).tz(this.timeZone).add(this.data.length, 'minutes');
+			let dateMoment = this.$moment.utc(this.data.start).tz(this.timeZone).add(60, 'minutes');
 			let dDiff = this.$moment().diff(dateMoment);
 			
 			return dDiff > 0;

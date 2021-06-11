@@ -8,6 +8,7 @@ use App\Models\Teacher;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
+use Illuminate\Support\Facades\App;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -45,7 +46,7 @@ class CreateNewUser implements CreatesNewUsers
             'email' => $input['email'],
             'currency' => 'HUF',
             'timezone' => 'Europe/Budapest',
-            'site_language' => 'hu',
+            'site_language' => App::getLocale(),
             'profile_photo_path' => '',
             'role' => $role,
             'password' => Hash::make($input['password']),

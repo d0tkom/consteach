@@ -11,9 +11,9 @@
 				lesson-start
 			/>
 		</div>
-		<div class="text-center my-4">
+		<!-- <div class="text-center my-4">
 			{{ trans.get('dashboard.lesson_not_ready_description') }}
-		</div>
+		</div> -->
 		<!-- <div class="actions flex justify-center">
 			<c-btn
 				outlined

@@ -80,7 +80,7 @@
 					</div>
 				</div>
 				
-				<div class="p-4 m-4 blue-text-color bg-white rounded-xl shadow-md border border-blue-300 items-center relative" v-show="!trialSelected">
+				<div class="p-4 m-4 blue-text-color bg-white rounded-xl shadow-md border border-blue-300 items-center relative" :class="{invisible: trialSelected }">
 					<div class="flex">
 						<span class="h-6  rounded-full w-6 border blue-border-color text-center text-md flex flex-col justify-center">2</span>
 						<span class="mx-2 flex flex-col justify-center text-md font-semibold">{{ trans.get('checkout.payment') }}</span>
