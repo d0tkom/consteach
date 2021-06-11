@@ -30,7 +30,7 @@ class Teacher extends Model
         'five_hour_price',
         'ten_hour_price',
         'twenty_hour_price',
-        'completed',
+        'complete',
 	];
 
     public function lessons()

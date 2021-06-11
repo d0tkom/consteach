@@ -61,8 +61,14 @@ class LoginController extends Controller
             if (session('user_role') == 'teacher') {
                 Teacher::create([
                     'user_id' => $user->id,
-                    'complete' => false,
-                    'validated' => false
+                    'about_me' => json_encode(array()),
+                    'country' => 'HU',
+                    'teaching_languages' => json_encode(array()),
+                    'video_url' => '',
+                    'one_hour_price' => 0,
+                    'five_hour_price' => 0,
+                    'ten_hour_price' => 0,
+                    'twenty_hour_price' => 0,
                 ]);
             } else {
                 Student::create([
@@ -79,3 +85,4 @@ class LoginController extends Controller
         return redirect($this->redirectTo);
     }
 }
+
