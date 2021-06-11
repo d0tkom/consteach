@@ -30,7 +30,7 @@ return [
     'lesson_not_ready_description' => 'Ha szeretnél üzenetet küldeni tanárodnak azt itt teheted meg:',
     'lesson_not_ready_chat_btn' => 'Üzenet',
 
-    'fresh_start_title' => 'Üdv a Costeach-nél!',
+    'fresh_start_title' => 'Üdv a Consteach-nél!',
     'fresh_start_description' => 'Nincs más dolgod mint kiválasztani azt a tanárt aki a te igényeidnek a leginkább megfelel, időpontot foglalni és kezdődhet a tanulás!',
     'fresh_start_search_teacher_btn' => 'Tanárt keresek',
 
