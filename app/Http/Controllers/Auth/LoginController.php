@@ -43,6 +43,8 @@ class LoginController extends Controller
     {
         $socialite_user = Socialite::driver($provider)->user();
 
+        dd(session('user_role'));
+
         $user = User::where('provider_id', $socialite_user->getId())->first();
 
         if (!$user) {
