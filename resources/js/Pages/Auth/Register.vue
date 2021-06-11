@@ -16,7 +16,7 @@
 		</div>
 		
 		<div class="socialLogin">
-			<a href="/login/facebook">
+			<a :href="'/login/facebook?teacher='+form.teacher">
 				<c-btn
 					class="mb-4"
 					full
@@ -25,7 +25,7 @@
 				>{{ trans.get('auth.login_with_facebook_btn') }}</c-btn>
 			</a>
 			
-			<a href="/login/google">
+			<a :href="'/login/google?teacher='+form.teacher">
 				<c-btn
 					full
 					outlined
