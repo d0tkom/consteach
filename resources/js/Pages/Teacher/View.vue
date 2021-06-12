@@ -257,10 +257,10 @@
                                     icon="account_balance_wallet"
                                 >{{ trans.get('teacher_profile.buy_btn') }}</c-btn>
 
-                                <c-btn
+                                <!-- <c-btn
                                     outlined
                                     icon="chat"
-                                >{{ trans.get('teacher_profile.message_btn') }}</c-btn>
+                                >{{ trans.get('teacher_profile.message_btn') }}</c-btn> -->
                             </div>
                         </div>
                     </div>
