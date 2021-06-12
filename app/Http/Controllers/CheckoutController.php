@@ -96,7 +96,7 @@ class CheckoutController extends Controller
         $teacher->finished_onboarding = true;
         $teacher->save();
 
-        return redirect('/dashbaord');
+        return redirect('/dashboard');
     }
 
     public function payout(Teacher $teacher)
