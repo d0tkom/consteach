@@ -171,12 +171,6 @@ class CheckoutController extends Controller
 
             $order->save();
 
-            $partner_id = $this->createOrUpdateInvoicePartner();
-
-            $product_id = $this->createProduct($order);
-
-            $invoice_id = $this->createInvoice($order, $product_id);
-
             $lesson = 0;
 
             for ($i = 0; $i < $request->input('product')['lesson_number']; $i++) {
@@ -202,6 +196,12 @@ class CheckoutController extends Controller
 
             $lesson->save();
 
+            $partner_id = $this->createOrUpdateInvoicePartner();
+
+            $product_id = $this->createProduct($order);
+
+            $invoice_id = $this->createInvoice($order, $product_id);
+            
             BillingoApi::api('Document')->sendInvoice($invoice_id)->getResponse();
 
             BillingoApi::api('Product')->delete($product_id)->getResponse();
