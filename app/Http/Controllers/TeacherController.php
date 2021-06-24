@@ -70,7 +70,7 @@ class TeacherController extends Controller
     {
         $appointments = Appointment::where('teacher_id', $teacher->id)
             ->where('active', 1)
-            ->where('start', '>', Carbon::now('UTC')->addHours(12));
+            ->where('start', '>', Carbon::now('UTC')/*->addHours(12)*/);
 
         $appointments = $appointments->get();
 
