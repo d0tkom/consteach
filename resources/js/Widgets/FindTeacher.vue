@@ -84,7 +84,7 @@
 				</div>
 			</div>
 			<div class="teacherWidgetBottom flex">
-				<div class="color-gray my-1" v-if="description" v-html="description"></div>
+				<div class="color-gray my-1" v-if="description" v-html="description + '...'"></div>
 				<div class="actions flex flex-col justify-end items-center">
 					<inertia-link
 						v-if="!$root.isCurrentUserTeacher"
@@ -163,11 +163,11 @@ export default {
 				'en': 1
 			};
 
-			if (!aboutMe[languageIndex[this.$root.siteLanguage]]) {
+			if (!aboutMe[languageIndex[this.$root.locale]]) {
 				return null;
 			}
 
-			let currentAboutMe = aboutMe[languageIndex[this.$root.siteLanguage]];
+			let currentAboutMe = aboutMe[languageIndex[this.$root.locale]];
 
 			if (!currentAboutMe.text) {
 				return null;
