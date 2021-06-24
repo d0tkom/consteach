@@ -89,7 +89,7 @@ new Vue({
             "ee": "et",
             "gr": "el",
             "ff": "ful",
-            "il": "he",
+            "he": "il",
             "io": "ido",
             "jp": "ja",
             "ge": "ka",
@@ -107,7 +107,7 @@ new Vue({
             "it": "it",
             "ru": "ru",
             "nl": "nl",
-            "sa": "ar",
+            "ar": "sa",
             "no": "no"
         }
     },
