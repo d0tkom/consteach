@@ -16,7 +16,7 @@
 				<flag
 					class="text-6xl rounded-full flagImg mb-4 shadow-sm"
 					v-if="language"
-					:iso="language === 'en' ? 'us' : language"
+					:iso="$root.getCountryCode(language)"
 				/>
 				<div class="itemName text-center capitalize font-bold text-md">{{ languageList.getName(language, locale) }}</div>
 			</div>
