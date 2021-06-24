@@ -32,7 +32,7 @@
                         >
 	                        <flag
 		                        class="flagImg rounded-full"
-		                        :iso="filters.language.value === 'en' ? 'us' : filters.language.value"
+		                        :iso="$root.getCountryCode(language)"
 	                        />
 	                        {{ trans.get('find_teacher.language_filter_btn') }}
                         </c-btn>
