@@ -37,6 +37,7 @@
 							<inertia-link
 								:href="'/teachers?lang='+language"
 								v-for="language in availableLanguagesFiltered"
+								v-if="language"
 								:key="language"
 								class="flex flex-col text-center items-center justify-center lang show-mobile"
 							>

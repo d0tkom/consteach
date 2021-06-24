@@ -9,6 +9,7 @@
 				class="languageItem mb-6 rounded-xl py-2 flex cursor-pointer flex-col items-center justify-center"
 				:class="value === language && 'selected'"
 				v-for="language in languages"
+				v-if="language"
 				:key="language"
 				@click="optionClick(language)"
 			>
