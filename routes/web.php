@@ -100,6 +100,9 @@ Route::post('/teacher/{teacher}', [TeacherController::class, 'update']);
 Route::get('teachers/load-more', [TeacherController::class, 'load_more'])->name('teachers.more');
 Route::get('/teachers/filter', [TeacherController::class, 'filter'])->name('teachers.filter');
 
+Route::get('/teachers/validation', [TeacherController::class, 'validation'])->name('teachers.validation');
+Route::post('/teachers/validate/{teacher}', [TeacherController::class, 'validateTeacher'])->name('teachers.validate');
+
 Route::resource('/users', UserController::class);
 
 Route::get('login/{provider}', [LoginController::class, 'redirectToProvider'])->name('google.login');
@@ -113,7 +116,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::post('/checkout/payment', [CheckoutController::class, 'store']);
     Route::get('/checkout/{teacher}', [CheckoutController::class, 'show'])->name('checkout');
-    Route::post('/checkout/payout/{teacher}', [CheckoutController::class, 'reditectToStripe'])->name('stripe.redirect');
+    Route::post('/checkout/payout/{teacher}', [CheckoutController::class, 'payout'])->name('stripe.payout');
     Route::get('/connect/{token}', [CheckoutController::class, 'saveStripeAccount'])->name('stripe.save');
 
     Route::middleware(['teacher.registered', 'teacher.verified'])->group(function () {

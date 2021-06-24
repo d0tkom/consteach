@@ -31,7 +31,7 @@ export default {
 	data() {
 		return {
 			opened: false,
-			clickListener: null
+			clickListener: null,
 		};
 	},
 	watch: {
@@ -50,6 +50,7 @@ export default {
             axios.post('/checkout/payout/' + this.$page.props.user.extra.id)
             .then(response => {
             	window.location.replace(response.data);
+            	
                 //this.$toast.success(message);
             })
             .catch(error => {

@@ -240,4 +240,22 @@ class TeacherController extends Controller
             'meta' => $meta
         ]);
     }
+
+    public function validation()
+    {
+        $teachers = Teacher::with('user')->where('complete', true)->where('validated', false)->get();
+
+
+        return Inertia::render('Teacher/Validate')->with([
+            'all_teachers' => $teachers,
+        ]);
+    }
+
+    public function validateTeacher(Teacher $teacher)
+    {
+        $teacher->validated = true;
+        $teacher->save();
+
+        return back();
+    }
 }

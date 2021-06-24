@@ -57,7 +57,7 @@ class CheckoutController extends Controller
         $user = auth()->user();
 
         $stripe = new \Stripe\StripeClient(
-            'sk_test_51IJzZ5BL1awehvPy6xxZZPUyNeMwVsPt7VGyZvXSHqlnMfFcwyrQTKrMYIdotQ3rd35WNsOuD8vDLcMzgHQ2zvhY00AzZSsPHz'
+            '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'
         );
 
         if (!$teacher->finished_onboarding) {
@@ -72,7 +72,7 @@ class CheckoutController extends Controller
 
             $onboardLink = $stripe->accountLinks->create([
                 'account' => $user->partner_id,
-                'refresh_url' => route('stripe.redirect', ['teacher' => $teacher->id]),
+                'refresh_url' => route('stripe.payout', ['teacher' => $teacher->id]),
                 'return_url' => route('stripe.save', ['token' => $token]),
                 'type' => 'account_onboarding',
             ]);
@@ -101,24 +101,32 @@ class CheckoutController extends Controller
 
     public function payout(Teacher $teacher)
     {
-        $lessons = Lesson::where('teacher_id', $teacher->id)->where('payout_available', true)->get();
+        $user = auth()->user();
 
-        $total = 0;
+        if (!$user->partner_id) {
+            return $this->reditectToStripe($teacher);
+        } else {
+            $lessons = Lesson::where('teacher_id', $teacher->id)->where('payout_available', true)->get();
 
-        foreach ($lessons as $lesson) {
-            $total += $lesson->price;
-            $lesson->payout_available = false;
-            $lesson->save();
+            $total = 0;
+
+            foreach ($lessons as $lesson) {
+                $total += $lesson->price;
+                $lesson->payout_available = false;
+                $lesson->save();
+            }
+
+            $stripe = new \Stripe\StripeClient(
+              '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'
+            );
+            $stripe->transfers->create([
+              'amount' => $total,
+              'currency' => 'huf',
+              'destination' => $teacher->user->partner_id
+            ]);
+
+            return $this->reditectToStripe($teacher);
         }
-
-        $stripe = new \Stripe\StripeClient(
-          'sk_test_51IJzZ5BL1awehvPy6xxZZPUyNeMwVsPt7VGyZvXSHqlnMfFcwyrQTKrMYIdotQ3rd35WNsOuD8vDLcMzgHQ2zvhY00AzZSsPHz'
-        );
-        $stripe->transfers->create([
-          'amount' => $total,
-          'currency' => 'huf',
-          'destination' => 'acct_1IMXxLPa5GXoFOqk'
-        ]);
     }
 
     /**
