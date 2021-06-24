@@ -16,7 +16,7 @@ return [
     'option-one_hour_price' => 'Price',
     'option-appointment_count' => 'Number of lessons',
     'option-random' => 'Random',
-    'new_teacher_tag' => 'New teacher'
+    'new_teacher_tag' => 'New teacher',
 
     'no_result_title' => 'Ebben a szűrésben nem található tanár',
     'no_result_btn' => 'Szűrések törlése',
