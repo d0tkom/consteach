@@ -329,6 +329,8 @@ export default {
 		this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
 		
 		this.languageList = this.languageList.getNames(this.locale, {select: 'official'});
+
+		this.availableLanguages[3] = 'it';
 	},
 	mounted() {
 		let title = this.trans.get('landing.document_title');
