@@ -107,7 +107,7 @@ new Vue({
             "it": "it",
             "ru": "ru",
             "nl": "nl",
-            "sa": "ar",
+            "ar": "sa",
             "no": "no"
         }
     },
