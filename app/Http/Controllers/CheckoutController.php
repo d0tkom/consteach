@@ -110,8 +110,6 @@ class CheckoutController extends Controller
 
             $total = 0;
 
-            dd($lessons);
-
             foreach ($lessons as $lesson) {
                 $total += $lesson->price;
                 $lesson->payout_available = false;
