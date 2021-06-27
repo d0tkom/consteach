@@ -106,9 +106,11 @@ class CheckoutController extends Controller
         if (!$user->finished_onboarding) {
             return $this->reditectToStripe($teacher);
         } else {
-            $lessons = Lesson::where('teacher_id', $teacher->id)->where('payout_available', true)->get();
+            $lessons = Lesson::where('teacher_id', $teacher->id)->where('payout_available', 1)->get();
 
             $total = 0;
+
+            dd($lessons);
 
             foreach ($lessons as $lesson) {
                 $total += $lesson->price;
