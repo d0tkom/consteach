@@ -167,7 +167,6 @@ class TeacherController extends Controller
 
     public function load_more(Request $request)
     {
-        dd($request);
         $teachers = Teacher::with('user')->where('complete', true)->where('validated', true)->orderBy('one_hour_price', 'ASC')->get();
         $teachers = CollectionHelper::paginate($teachers, 5);
 

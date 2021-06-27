@@ -45,10 +45,6 @@ class DashboardController extends Controller
 
         $appointments = $user->extra->appointments()
             ->where('active', 1)
-            ->where(function ($query) {
-                $query->where('student_approved', 0)
-                    ->orWhere('teacher_approved', 0);
-            })
             ->where('end', '>', Carbon::now('UTC'))
             ->with(['teacher', 'teacher.user', 'student', 'student.user'])
             ->orderBy('start', 'ASC')
@@ -74,10 +70,6 @@ class DashboardController extends Controller
 
         $appointments = $user->extra->appointments()
             ->where('active', 1)
-            ->where(function ($query) {
-                $query->where('student_approved', 0)
-                    ->orWhere('teacher_approved', 0);
-            })
             ->where('end', '>', Carbon::now('UTC'))
             ->with(['teacher', 'teacher.user', 'student', 'student.user'])
             ->orderBy('start', 'ASC')
