@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'subject' => 'Órád lemondva',
-    'title' => 'Egy diák órát foglalt hozzád',
-    'description' => 'Jajj de jó',
+    'subject' => 'Óra lemondva',
+    'title' => 'Egyik diákod elhalasztott egy lefoglalt órát.',
+    'description' => 'Látogasd meg profilodat!',
     'cta_url' => '/dashboard',
     'cta_btn' => 'Órák és diákok',
 ];
