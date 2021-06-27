@@ -103,7 +103,7 @@ class CheckoutController extends Controller
     {
         $user = auth()->user();
 
-        if (!$user->finished_onboarding) {
+        if (!$teacher->finished_onboarding) {
             return $this->reditectToStripe($teacher);
         } else {
             $lessons = Lesson::where('teacher_id', $teacher->id)->where('payout_available', 1)->get();
