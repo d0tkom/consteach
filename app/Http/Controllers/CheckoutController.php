@@ -178,7 +178,7 @@ class CheckoutController extends Controller
                     [
                         'student_id' => $student->id,
                         'teacher_id' => $request->input('product')['teacher_id'],
-                        'price' => ($payment->charges->data[0]->amount)/1.2,
+                        'price' => ($payment->charges->data[0]->amount)/1.2/$request->input('product')['lesson_number'],
                         'status' => 0
                     ]
                 );
