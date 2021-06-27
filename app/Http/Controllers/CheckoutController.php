@@ -108,22 +108,24 @@ class CheckoutController extends Controller
         } else {
             $lessons = Lesson::where('teacher_id', $teacher->id)->where('payout_available', 1)->get();
 
-            $total = 0;
+            if ($lessons) {
+                $total = 0;
 
-            foreach ($lessons as $lesson) {
-                $total += $lesson->price/100;
-                $lesson->payout_available = false;
-                $lesson->save();
+                foreach ($lessons as $lesson) {
+                    $total += $lesson->price/100;
+                    $lesson->payout_available = false;
+                    $lesson->save();
+                }
+
+                $stripe = new \Stripe\StripeClient(
+                  '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'
+                );
+                $stripe->transfers->create([
+                  'amount' => $total,
+                  'currency' => 'huf',
+                  'destination' => $teacher->user->partner_id
+                ]);
             }
-
-            $stripe = new \Stripe\StripeClient(
-              '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'
-            );
-            $stripe->transfers->create([
-              'amount' => $total,
-              'currency' => 'huf',
-              'destination' => $teacher->user->partner_id
-            ]);
 
             return $this->reditectToStripe($teacher);
         }
