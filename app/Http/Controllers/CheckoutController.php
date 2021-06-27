@@ -196,7 +196,7 @@ class CheckoutController extends Controller
 
             $lesson->save();
 
-            $partner_id = $this->createOrUpdateInvoicePartner();
+            /*$partner_id = $this->createOrUpdateInvoicePartner();
 
             $product_id = $this->createProduct($order);
 
@@ -204,7 +204,7 @@ class CheckoutController extends Controller
             
             BillingoApi::api('Document')->sendInvoice($invoice_id)->getResponse();
 
-            BillingoApi::api('Product')->delete($product_id)->getResponse();
+            BillingoApi::api('Product')->delete($product_id)->getResponse();*/
 
             $lesson->teacher->user->notify(new LessonBoughtTeacher($lesson));
 
