@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'subject' => 'Fiókod validálva',
-    'title' => 'Egy diák órát foglalt hozzád',
-    'description' => 'Jajj de jó',
+    'subject' => 'Tanárfiók validálva',
+    'title' => 'Sikeres validálás',
+    'description' => 'Jelentkezésedet csapatunk ellenőrizte és elfogadta!',
     'cta_url' => '/dashboard',
     'cta_btn' => 'Órák és diákok',
 ];
