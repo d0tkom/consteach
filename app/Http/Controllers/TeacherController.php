@@ -179,6 +179,15 @@ class TeacherController extends Controller
 
     public function filter(Request $request)
     {
+
+        if ($request->session()->has('session_rand')) {
+            if((time() - $request->session()->get('session_rand')) > 3600){
+                $request->session()->put('session_rand', time());
+            }
+        } else {
+            $request->session()->put('session_rand', time());
+        }
+
         $teachers = Teacher::where('complete', true)->where('validated', true)->whereBetween('one_hour_price', [request()->input('prices')[0], request()->input('prices')[1]])
             ->with(['user', 'availabilities']);
 
@@ -193,7 +202,7 @@ class TeacherController extends Controller
             $teachers = $teachers->get();
             $teachers->sortBy(request()->input('order_by'));
         } elseif (request()->input('order_by') == 'random') {
-            $teachers = $teachers->inRandomOrder()->get();
+            $teachers = $teachers->inRandomOrder($request->session()->get('session_rand'))->get();
         }
 
         if (json_decode(request()->input('time'))->timeOfDay) {
