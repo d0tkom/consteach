@@ -1,11 +1,11 @@
 <?php
 
 return [
-    'subject' => 'Ingyenes órát foglaltál',
-    'title' => 'Ingyenes órát foglaltál',
-    'description' => 'Jajj de jó',
+    'subject' => 'Sikeres próbaórafoglalás',
+    'title' => 'Sikeres időpontfoglalás próbaórára',
+    'description' => 'Látogasd meg profilodat!',
     'cta_url' => '/dashboard',
-    'cta_btn' => 'Órák és diákok',
+    'cta_btn' => 'Órák és tanárok',
 ];
 
 ?>
