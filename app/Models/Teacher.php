@@ -74,7 +74,7 @@ class Teacher extends Model
 
     public function getStudentCountAttribute()
     {
-    	$lessons = Lesson::where('teacher_id', $this->id)->get();
+    	$lessons = Lesson::where('teacher_id', $this->id)->get()->groupBy('student_id');
     	return count($lessons);
     }
 

@@ -28,7 +28,7 @@ return [
     'free_lesson_pay_btn' => 'Foglalás',
     'payment_info_label' => 'Fizetési adatok',
     'bank_card_info_label' => 'Bankkártya adatok',
-    'footer_info' => 'Oldalunkon minden vásárlás HUF-ban történik. Az Ön bankja szabályzatának és irányelveinek megfelelően külföldi tranzakciós díjak merülhetnek fel a vásárlás során. Csomagvásárlás esetén időpontfoglalás szükséges a tanórák megkezdéséhez. Vásárlás után 14 nappal a visszatérítés csak letanulható ConsTeach Kreditben lehetséges. A ConsTeach Kredit készpénzértékkel nem rendelkezik.',
+    'footer_info' => 'Oldalunkon minden vásárlás HUF-ban történik. Az Ön bankja szabályzatának és irányelveinek megfelelően külföldi tranzakciós díjak merülhetnek fel a vásárlás során. Csomagvásárlás esetén időpontfoglalás szükséges a tanórák megkezdéséhez.',
     'transaction_success_notification' => 'Sikeres tranzakció',
     'transaction_fail_notification' => 'Sikertelen tranzakció',
 ];

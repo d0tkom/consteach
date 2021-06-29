@@ -170,7 +170,6 @@ new Vue({
     },
     methods: {
         getCountryCode(languageCode) {
-            console.log(languageCode);
             if (!this.languageToCountry[languageCode]) {
                 return null;
             }

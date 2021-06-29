@@ -103,27 +103,29 @@ class CheckoutController extends Controller
     {
         $user = auth()->user();
 
-        if (!$user->finished_onboarding) {
+        if (!$teacher->finished_onboarding) {
             return $this->reditectToStripe($teacher);
         } else {
-            $lessons = Lesson::where('teacher_id', $teacher->id)->where('payout_available', true)->get();
+            $lessons = Lesson::where('teacher_id', $teacher->id)->where('payout_available', 1)->get();
 
-            $total = 0;
+            if ($lessons) {
+                $total = 0;
 
-            foreach ($lessons as $lesson) {
-                $total += $lesson->price;
-                $lesson->payout_available = false;
-                $lesson->save();
+                foreach ($lessons as $lesson) {
+                    $total += $lesson->price/100;
+                    $lesson->payout_available = false;
+                    $lesson->save();
+                }
+
+                $stripe = new \Stripe\StripeClient(
+                  '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'
+                );
+                $stripe->transfers->create([
+                  'amount' => $total,
+                  'currency' => 'huf',
+                  'destination' => $teacher->user->partner_id
+                ]);
             }
-
-            $stripe = new \Stripe\StripeClient(
-              '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'
-            );
-            $stripe->transfers->create([
-              'amount' => $total,
-              'currency' => 'huf',
-              'destination' => $teacher->user->partner_id
-            ]);
 
             return $this->reditectToStripe($teacher);
         }
@@ -178,7 +180,7 @@ class CheckoutController extends Controller
                     [
                         'student_id' => $student->id,
                         'teacher_id' => $request->input('product')['teacher_id'],
-                        'price' => $payment->charges->data[0]->amount/1.2,
+                        'price' => ($payment->charges->data[0]->amount)/1.2/$request->input('product')['lesson_number'],
                         'status' => 0
                     ]
                 );
@@ -196,7 +198,7 @@ class CheckoutController extends Controller
 
             $lesson->save();
 
-            $partner_id = $this->createOrUpdateInvoicePartner();
+            /*$partner_id = $this->createOrUpdateInvoicePartner();
 
             $product_id = $this->createProduct($order);
 
@@ -204,7 +206,7 @@ class CheckoutController extends Controller
             
             BillingoApi::api('Document')->sendInvoice($invoice_id)->getResponse();
 
-            BillingoApi::api('Product')->delete($product_id)->getResponse();
+            BillingoApi::api('Product')->delete($product_id)->getResponse();*/
 
             $lesson->teacher->user->notify(new LessonBoughtTeacher($lesson));
 

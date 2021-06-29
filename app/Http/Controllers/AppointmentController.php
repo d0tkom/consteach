@@ -145,6 +145,7 @@ class AppointmentController extends Controller
             ])
             ->post('https://api.daily.co/v1/rooms', [
                 'properties' => [
+                    'max_participants' => 2,
                     'enable_network_ui' => false,
                     'enable_chat' => true
                 ],

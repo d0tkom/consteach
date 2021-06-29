@@ -32,7 +32,7 @@
                         >
 	                        <flag
 		                        class="flagImg rounded-full"
-		                        :iso="$root.getCountryCode(language)"
+		                        :iso="$root.getCountryCode(filters.language.value)"
 	                        />
 	                        {{ trans.get('find_teacher.language_filter_btn') }}
                         </c-btn>
@@ -148,7 +148,7 @@
                 languageList: null,
                 total: this.all_teachers.total,
                 locale: window.default_locale,
-                next_page_url: this.all_teachers.next_page_url ? this.all_teachers.next_page_url.replace('teachers', 'teachers/load-more') : null,
+                next_page_url: this.all_teachers.next_page_url ? this.all_teachers.next_page_url.replace('teachers', 'teachers/filter') : null,
                 filters: {
                     order: {
                         active: false,

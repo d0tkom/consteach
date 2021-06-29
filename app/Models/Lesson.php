@@ -14,7 +14,10 @@ class Lesson extends Model
 
     protected $fillable = [
     	'student_id',
-    	'teacher_id'
+    	'teacher_id',
+        'price',
+        'status',
+        'payout_available'
     ];
 
     public function teacher()
