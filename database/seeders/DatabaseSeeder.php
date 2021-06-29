@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Faker\Factory;
 use Carbon\Carbon;
+use Mail;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,6 +16,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+	    Mail::fake();
+
          \App\Models\User::factory(100)->create()->each(function ($user) {
          	if ($user->role == 'teacher') {
          		\App\Models\Teacher::factory(1)->create(['user_id' => $user->id])->each(function ($teacher) {
