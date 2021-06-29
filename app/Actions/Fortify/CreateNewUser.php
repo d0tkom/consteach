@@ -27,10 +27,12 @@ class CreateNewUser implements CreatesNewUsers
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
+	        'terms' => ['accepted'],
         ], [
 	        'required' => __('auth.validation_required'),
 	        'unique' => __('auth.validation_unique'),
-	        'password.confirmed' => __('auth.validation_password')
+	        'password.confirmed' => __('auth.validation_password'),
+	        'accepted' => __('auth.validation_accepted'),
         ], [
 	        'first_name' => __('auth.validation_first_name'),
 	        'last_name' => __('auth.validation_last_name'),

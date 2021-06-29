@@ -20,6 +20,7 @@ return [
 	'validation_last_name' => 'Vezetéknév',
 	'validation_email' => 'Email',
 	'validation_password' => 'Jelszó megadása kötelező',
+	'validation_accepted' => 'Az ÁSZF elfogadása kötelező.',
 
     'failed' => 'A megadott adatok alapján nem található a fiók.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',

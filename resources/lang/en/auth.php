@@ -20,7 +20,8 @@ return [
 	'validation_first_name' => 'Keresztnév',
 	'validation_last_name' => 'Vezetéknév',
 	'validation_email' => 'Email',
-	'validation_password' => 'Jelszó megadása kötelező',
+	'validation_password' => 'Jelszó',
+	'validation_accepted' => 'The terms must be accepted.',
 
     'failed' => 'There\'s no account with the info you provided.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',

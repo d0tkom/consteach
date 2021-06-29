@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
+use Session;
 
 class TeacherController extends Controller
 {
@@ -23,7 +24,15 @@ class TeacherController extends Controller
     {
         $availableLanguages = Teacher::getAllLanguages();
 
-        $teachers = Teacher::with('user')->where('complete', true)->where('validated', true)->orderBy('one_hour_price', 'ASC')->get();
+        $randomOrderSeed = time();
+        Session::put('teacher_list_random_seed', $randomOrderSeed);
+
+        $teachers = Teacher::with('user')
+            ->where('complete', true)
+            ->where('validated', true)
+            ->inRandomOrder($randomOrderSeed)
+            ->get();
+
         $teachers = CollectionHelper::paginate($teachers, 5);
 
         $meta = [
@@ -167,7 +176,14 @@ class TeacherController extends Controller
 
     public function load_more(Request $request)
     {
-        $teachers = Teacher::with('user')->where('complete', true)->where('validated', true)->orderBy('one_hour_price', 'ASC')->get();
+	    $randomOrderSeed = Session::get('teacher_list_random_seed') ?: 1;
+
+        $teachers = Teacher::with('user')
+	        ->where('complete', true)
+	        ->where('validated', true)
+            ->inRandomOrder($randomOrderSeed)
+	        ->get();
+
         $teachers = CollectionHelper::paginate($teachers, 5);
 
         if ($request->ajax()) {
@@ -179,8 +195,13 @@ class TeacherController extends Controller
 
     public function filter(Request $request)
     {
-        $teachers = Teacher::where('complete', true)->where('validated', true)->whereBetween('one_hour_price', [request()->input('prices')[0], request()->input('prices')[1]])
-            ->with(['user', 'availabilities']);
+        $priceFrom = $request->prices[0];
+        $priceTo = $request->prices[1];
+
+        $teachers = Teacher::where('complete', true)
+	        ->where('validated', true)
+	        ->whereBetween('one_hour_price', [$priceFrom, $priceTo])
+	        ->with(['user', 'availabilities']);
 
         if (request()->input('language')) {
             $teachers->where('teaching_languages', 'LIKE', '%"language": "'.request()->input('language').'"%');
@@ -193,7 +214,9 @@ class TeacherController extends Controller
             $teachers = $teachers->get();
             $teachers->sortBy(request()->input('order_by'));
         } elseif (request()->input('order_by') == 'random') {
-            $teachers = $teachers->inRandomOrder()->get();
+	        $randomOrderSeed = Session::get('teacher_list_random_seed') ?: 1;
+
+            $teachers = $teachers->inRandomOrder($randomOrderSeed)->get();
         }
 
         if (json_decode(request()->input('time'))->timeOfDay) {

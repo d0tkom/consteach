@@ -96,9 +96,13 @@
             <div class="mb-4">
                 <jet-label for="terms">
                     <div class="flex items-center">
-                        <div class="ml-2">
-                            {{ trans.get('auth.privacy_part_1') }} <a href="/terms_and_conditions.pdf" target="_blank" style="color: #18A0FB">{{ trans.get('auth.terms') }}</a> {{ trans.get('auth.privacy_part_2') }} <a href="/privacy_policy.pdf" target="_blank" style="color: #18A0FB">{{ trans.get('auth.privacy') }}</a>.
-                        </div>
+                        <c-checkbox
+	                        class="my-2 flex items-start"
+	                        v-model="form.terms"
+	                        :error="!!$page.props.errors.terms"
+                        >
+	                        {{ trans.get('auth.privacy_part_1') }} <a href="/terms_and_conditions.pdf" target="_blank" style="color: #18A0FB">{{ trans.get('auth.terms') }}</a> {{ trans.get('auth.privacy_part_2') }} <a href="/privacy_policy.pdf" target="_blank" style="color: #18A0FB">{{ trans.get('auth.privacy') }}</a>.
+                        </c-checkbox>
                     </div>
                 </jet-label>
             </div>
