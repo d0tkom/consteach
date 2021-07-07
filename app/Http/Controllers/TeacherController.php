@@ -268,7 +268,6 @@ class TeacherController extends Controller
     {
         $teachers = Teacher::with('user')->where('complete', true)->where('validated', false)->get();
 
-
         return Inertia::render('Teacher/Validate')->with([
             'all_teachers' => $teachers,
         ]);

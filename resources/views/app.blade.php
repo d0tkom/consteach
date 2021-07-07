@@ -6,14 +6,17 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="theme-color" content="#18A0FB">
 
-        <title>{{ $page['props']['meta']['title'].__('other.document_title_append') }}</title>
-        <meta name="description" content="{{ $page['props']['meta']['description'] }}">
+        <title>{{ isset($page['props']['meta']['title']) ? $page['props']['meta']['title'].__('other.document_title_append') : __('other.document_title_append') }}</title>
+        <meta name="description" content="{{ isset($page['props']['meta']['description']) ? $page['props']['meta']['description'] : '' }}">
 
         <meta property="og:type" content="website" />
 
+        @if(isset($page['props']['meta']))
         <meta property="og:title" content="{{ $page['props']['meta']['title'].__('other.document_title_append') }}" />
         <meta property="og:description" content="{{ $page['props']['meta']['description'] }}" />
         <meta property="og:image" content="{{ $page['props']['meta']['img'] }}" />
+        @endif
+
         <meta property="og:url" content="{{ url()->full() }}" />
         <meta property="og:site_name" content="ConsTeach" />
 

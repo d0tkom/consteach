@@ -14,7 +14,7 @@
 				@click="optionClick(language)"
 			>
 				<flag
-					class="text-6xl rounded-full flagImg mb-4 shadow-sm"
+					class="text-6xl rounded-full flagImg mb-4 shadow-lg"
 					v-if="language"
 					:iso="$root.getCountryCode(language)"
 				/>

@@ -98,7 +98,6 @@ new Vue({
             "si": "sl",
             "rs": "sr",
             "tw": "tvi",
-            "ua": "uk",
             "vn": "vi",
             "cn": "zh",
             "en": "gb",
@@ -108,7 +107,8 @@ new Vue({
             "ru": "ru",
             "nl": "nl",
             "ar": "sa",
-            "no": "no"
+            "no": "no",
+            "uk": "ua"
         }
     },
     watch: {
