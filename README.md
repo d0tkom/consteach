@@ -36,7 +36,7 @@ User extra fix:
     
     vendor/laravel/jetstream/src/Http/Middleware/ShareInertiaData.php
 
-    44. $request->user()->extra();
+    44. $request->user()->extra;
 
 ### Nylevi file-ok pusholása
 
