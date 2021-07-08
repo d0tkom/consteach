@@ -20,7 +20,9 @@ class DashboardController extends Controller
             'img' => __('dashboard.student_dashboard_img')
         ];
 
-        if ($user->role == 'student') return Inertia::render('Student/Dashboard')->with($this->renderStudentHub($user, $studentMeta));
+        if ($user->role == 'student') {
+	        return Inertia::render('Student/Dashboard')->with($this->renderStudentHub($user, $studentMeta));
+        }
 
         $teacherMeta = [
             'title' => __('dashboard.teacher_dashboard_title'),
@@ -28,7 +30,9 @@ class DashboardController extends Controller
             'img' => __('dashboard.teacher_dashboard_img')
         ];
 
-    	if ($user->role == 'teacher') return Inertia::render('Teacher/Dashboard')->with($this->renderTeacherHub($user, $teacherMeta));
+    	if ($user->role == 'teacher') {
+		    return Inertia::render('Teacher/Dashboard')->with($this->renderTeacherHub($user, $teacherMeta));
+	    }
     }
 
     protected function renderStudentHub(User $user, $meta)
@@ -68,6 +72,11 @@ class DashboardController extends Controller
             return $lesson->student->user->first_name;
         });
 
+	    $lessons_converted = [];
+	    foreach($lessons as $lesson) {
+		    $lessons_converted[] = $lesson;
+	    }
+
         $appointments = $user->extra->appointments()
             ->where('active', 1)
             ->where('end', '>', Carbon::now('UTC'))
@@ -79,7 +88,7 @@ class DashboardController extends Controller
 
         return [
             'appointments' => $appointments,
-            'lessons' => $lessons,
+            'lessons' => $lessons_converted,
             'availabilities' => $availabilities,
             'meta' => $meta
         ];
