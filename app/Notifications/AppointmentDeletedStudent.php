@@ -44,7 +44,7 @@ class AppointmentDeletedStudent extends Notification
     {
         return (new MailMessage)
             ->subject(__('mail-appointment_deleted_student.subject'))
-            ->from('info@consteach.com', __('mail.from_name'))
+            ->from(env('MAIL_FROM_ADDRESS'), __('mail.from_name'))
             ->markdown('mails.student.appointment_deleted', ['appointment' => $this->data]);
     }
 

@@ -44,7 +44,7 @@ class FreeAppointmentBookedTeacher extends Notification
     {
         return (new MailMessage)
             ->subject(__('mail-free_appointment_booked_teacher.subject'))
-            ->from('info@consteach.com', __('mail.from_name'))
+            ->from(env('MAIL_FROM_ADDRESS'), __('mail.from_name'))
             ->markdown('mails.teacher.free_appointment_booked', ['appointment' => $this->data]);
     }
 

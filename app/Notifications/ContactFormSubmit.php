@@ -44,7 +44,7 @@ class ContactFormSubmit extends Notification
     {
         return (new MailMessage)
             ->subject(__('mail-contact_form.subject'))
-            ->from('info@consteach.com', __('mail.from_name'))
+            ->from(env('MAIL_FROM_ADDRESS'), __('mail.from_name'))
             ->markdown('mails.contact_form', [
                 'message' => $this->message
             ]);

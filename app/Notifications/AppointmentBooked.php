@@ -58,7 +58,7 @@ class AppointmentBooked extends Notification
 
         return (new MailMessage)
             ->subject(__('mail-appointment_booked.subject'))
-            ->from('info@consteach.com', __('mail.from_name'))
+            ->from(env('MAIL_FROM_ADDRESS'), __('mail.from_name'))
             ->markdown('mails.teacher.appointment_booked', ['data' => $data]);
     }
 

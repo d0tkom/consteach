@@ -42,7 +42,7 @@ class StudentRegistered extends Notification
     {
         return (new MailMessage)
             ->subject(__('mail-student_registered.subject'))
-            ->from('info@consteach.com', __('mail.from_name'))
+            ->from(env('MAIL_FROM_ADDRESS'), __('mail.from_name'))
             ->markdown('mails.student.registered');
     }
 
