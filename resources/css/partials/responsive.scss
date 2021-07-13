@@ -97,9 +97,6 @@
 }
 
 @media all and (max-width: 1024px) {
-
-
-
 	body main .language-learning .container {
 		grid-template-columns: repeat(1, minmax(0, 1fr));
 	}
@@ -130,6 +127,15 @@
 		justify-content: flex-start;
 		text-align: left;
 		margin-left: 20px;
+	}
+}
+
+@media all and (max-height: 800px) {
+	.popUpContainer {
+		.popupContent {
+			height: 80vh;
+			overflow-y: scroll;
+		}
 	}
 }
 
