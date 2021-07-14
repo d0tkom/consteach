@@ -39,6 +39,9 @@ Vue.use(VueScrollTo);
 
 var CountryLanguage = require('country-language');
 
+import VueSlideoutPanel from 'vue2-slideout-panel';
+Vue.use(VueSlideoutPanel);
+
 import VueProgressBar from 'vue-progressbar'
 
 Vue.use(VueProgressBar, {
@@ -57,6 +60,10 @@ Vue.use(VueGtag, {
 
 const app = document.getElementById('app');
 
+Vue.component('register', require('@/Pages/Auth/Register.vue').default);
+Vue.component('login', require('@/Pages/Auth/Login.vue').default);
+Vue.component('forgot-password', require('@/Pages/Auth/ForgotPassword.vue').default);
+
 new Vue({
     data: {
         viewport: {
@@ -68,9 +75,9 @@ new Vue({
             USD: null
         },
         popup: {
-            login: false,
-            registration: false,
-            lostPassword: false,
+            registration: null,
+            login: null,
+            forgotPassword: null,
             registrationType: 'student'
         },
         registrationAddonData: null,
@@ -143,20 +150,20 @@ new Vue({
         };
 
         if (window.location.hash === '#login') {
-            this.popup.login = true;
+            this.openLoginPopup();
         }
 
         if (window.location.hash === '#registration') {
-            this.popup.registration = true;
+            this.openRegistrationPopup();
         }
 
         if (window.location.hash === '#teacher-registration') {
             this.popup.registrationType = 'teacher';
-            this.popup.registration = true;
+            this.openRegistrationPopup();
         }
 
         if (window.location.hash === '#lost-password') {
-            this.popup.lostPassword = true;
+            this.openForgotPasswordPopup();
         }
 
         this.getCurrencyExchange();
@@ -173,7 +180,6 @@ new Vue({
             if (!this.languageToCountry[languageCode]) {
                 return null;
             }
-
 
             return this.languageToCountry[languageCode];
         },
@@ -214,10 +220,57 @@ new Vue({
             });
         },
         openRegistrationPopup(type = 'student') {
-            this.popup.lostPassword = false;
-            this.popup.login = false;
             this.popup.registrationType = type;
-            this.popup.registration = true;
+
+            this.hideLoginPopup();
+            this.hideForgotPasswordPopup();
+
+            this.popup.registration = this.$showPanel({
+                component : 'register',
+                openOn: 'right',
+                width: 600
+            });
+        },
+        hideRegistrationPopup() {
+            if (!this.popup.registration) {
+                return;
+            }
+            this.popup.registration.hide();
+            this.popup.registration = null;
+        },
+        openLoginPopup() {
+            this.hideRegistrationPopup();
+            this.hideForgotPasswordPopup();
+
+            this.popup.login = this.$showPanel({
+                component : 'login',
+                openOn: 'right',
+                width: 600
+            });
+        },
+        hideLoginPopup() {
+            if (!this.popup.login) {
+                return;
+            }
+            this.popup.login.hide();
+            this.popup.login = null;
+        },
+        openForgotPasswordPopup() {
+            this.hideLoginPopup();
+            this.hideRegistrationPopup();
+
+            this.popup.forgotPassword = this.$showPanel({
+                component : 'forgot-password',
+                openOn: 'right',
+                width: 600
+            });
+        },
+        hideForgotPasswordPopup() {
+            if (!this.popup.forgotPassword) {
+                return;
+            }
+            this.popup.forgotPassword.hide();
+            this.popup.forgotPassword = null;
         },
         getUrlVars() {
             let vars = {};
@@ -226,11 +279,6 @@ new Vue({
             });
 
             return vars;
-        },
-        openLoginPopup() {
-            this.popup.registration = false;
-            this.popup.lostPassword = false;
-            this.popup.login = true;
         },
         getCurrencyExchange() {
             axios.get('/currency').then(({data}) => {

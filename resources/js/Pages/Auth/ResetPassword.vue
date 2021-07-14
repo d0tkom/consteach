@@ -1,8 +1,21 @@
 <template>
-    <jet-authentication-card>
-        <template #logo>
-            <jet-authentication-card-logo />
-        </template>
+	<div class="slideoutContent p-6">
+		<c-btn
+			class="slideoutCloseBtn"
+			icon="close"
+			icon-only
+			text
+			circle
+			@click="$root.hideForgotPasswordPopup()"
+		></c-btn>
+
+		<div class="flex justify-center my-4 mb-8">
+			<logo
+				class="brandLogo"
+				:width="200"
+				:height="60"
+			/>
+		</div>
 
         <jet-validation-errors class="mb-4" />
 
@@ -28,7 +41,7 @@
                 </jet-button>
             </div>
         </form>
-    </jet-authentication-card>
+    </div>
 </template>
 
 <script>
@@ -38,9 +51,11 @@
     import JetInput from '@/Jetstream/Input'
     import JetLabel from '@/Jetstream/Label'
     import JetValidationErrors from '@/Jetstream/ValidationErrors'
+    import Logo from "../../Layouts/Partials/Logo";
 
     export default {
         components: {
+	        Logo,
             JetAuthenticationCard,
             JetAuthenticationCardLogo,
             JetButton,

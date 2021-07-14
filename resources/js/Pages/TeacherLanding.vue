@@ -84,7 +84,7 @@
 							large
 							glow
 							navigate-to="/#registration"
-							@click="$root.popup.registration = true"
+							@click="$root.openRegistrationPopup('teacher')"
 						>
 							Regisztrálok
 						</c-btn>
@@ -92,23 +92,14 @@
 				</div>
 			</section>
 		</main>
-		<login-popup v-model="$root.popup.login" />
-		<register-popup v-model="$root.popup.registration" />
-		<lost-password-popup v-model="$root.popup.lostPassword" />
 	</app-layout>
 </template>
 
 <script>
-import LoginPopup from "@/Pages/Landing/LoginPopup";
-import RegisterPopup from "@/Pages/Landing/RegisterPopup";
-import LostPasswordPopup from "@/Pages/Landing/LostPasswordPopup";
 import AppLayout from "@/Layouts/AppLayout";
 
 export default {
 	components: {
-		LostPasswordPopup,
-		RegisterPopup,
-		LoginPopup,
 		AppLayout
 	},
 	props: {

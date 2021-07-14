@@ -1,7 +1,24 @@
 <template>
-	<div>
+	<div class="slideoutContent p-6">
+		<c-btn
+			class="slideoutCloseBtn"
+			icon="close"
+			icon-only
+			text
+			circle
+			@click="$root.hideRegistrationPopup()"
+		></c-btn>
+
+		<div class="flex justify-center my-4 mb-8">
+			<logo
+				class="brandLogo"
+				:width="200"
+				:height="60"
+			/>
+		</div>
+
         <jet-validation-errors class="mb-4" />
-		
+
 		<div class="roleSelect grid grid-cols-2 gap-4 mb-8">
 			<c-btn
 				full
@@ -118,7 +135,7 @@
 	        
 	        <div class="flex justify-end">
 		        <c-btn
-			        @click="alreadyRegisteredClicked"
+			        @click="$root.openLoginPopup()"
 			        text
 			    >
 			        {{ trans.get('auth.already_registered_btn') }}
@@ -136,9 +153,11 @@
     import JetCheckbox from "@/Jetstream/Checkbox";
     import JetLabel from '@/Jetstream/Label'
     import JetValidationErrors from '@/Jetstream/ValidationErrors'
+    import Logo from "../../Layouts/Partials/Logo";
 
     export default {
         components: {
+	        Logo,
             JetAuthenticationCard,
             JetAuthenticationCardLogo,
             JetButton,
@@ -170,10 +189,6 @@
 	        }
 	    },
         methods: {
-        	alreadyRegisteredClicked() {
-		        this.$root.popup.registration = false;
-		        this.$root.popup.login = true;
-	        },
             submit() {
         		if (this.$root.registrationAddonData) {
         			this.form.teacher_id = this.$root.registrationAddonData.teacher_id;
@@ -185,8 +200,7 @@
 		                this.form.reset('password', 'password_confirmation');
 	                },
 					onSuccess: () => {
-						this.$emit('close');
-						this.$root.popup.registration = false;
+						this.$root.hideRegistrationPopup();
 						this.$toast.success('Sikeres regisztráció');
 						this.$root.registrationAddonData = null;
 					},

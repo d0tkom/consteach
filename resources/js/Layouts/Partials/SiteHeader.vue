@@ -213,10 +213,6 @@
 				</div>
 			</nav>
 		</div>
-		
-		<login-popup v-model="$root.popup.login" />
-		<register-popup v-model="$root.popup.registration" />
-		<lost-password-popup v-model="$root.popup.lostPassword" />
 	</header>
 </template>
 
@@ -224,15 +220,9 @@
 import Wallet from "@/Widgets/Wallet";
 import Logo from '@/Layouts/Partials/Logo';
 import ProfilePopup from "@/Widgets/ProfilePopup";
-import LoginPopup from "@/Pages/Landing/LoginPopup";
-import RegisterPopup from "@/Pages/Landing/RegisterPopup";
-import LostPasswordPopup from "@/Pages/Landing/LostPasswordPopup";
 
 export default {
 	components: {
-		LostPasswordPopup,
-		RegisterPopup,
-		LoginPopup,
 		ProfilePopup,
 		Wallet,
 		Logo

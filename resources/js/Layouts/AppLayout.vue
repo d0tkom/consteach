@@ -28,6 +28,8 @@
 		>
 			?
 		</inertia-link>
+
+	    <slideout-panel></slideout-panel>
     </div>
 </template>
 

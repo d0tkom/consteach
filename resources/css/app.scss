@@ -276,3 +276,16 @@ th.fc-col-header-cell.fc-day.fc-day-disabled {
 	width: 1.2em !important;
 	background-size: cover !important;
 }
+
+.slideoutContent {
+	max-height: 90vh;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	position: relative;
+
+	.slideoutCloseBtn {
+		position: absolute;
+		right: 20px;
+		top: 20px;
+	}
+}

@@ -1,5 +1,22 @@
 <template>
-	<div>
+	<div class="slideoutContent p-4">
+		<c-btn
+			class="slideoutCloseBtn"
+			icon="close"
+			icon-only
+			text
+			circle
+			@click="$root.hideLoginPopup()"
+		></c-btn>
+
+		<div class="flex justify-center my-4 mb-8">
+			<logo
+				class="brandLogo"
+				:width="200"
+				:height="60"
+			/>
+		</div>
+
         <jet-validation-errors class="mb-4" />
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
@@ -60,13 +77,13 @@
 	        <div class="authPopupActions flex justify-between">
 		        <c-btn
 			        text
-			        navigate-to="/#lost-password"
+			        @click="$root.openForgotPasswordPopup()"
 		        >
 			        {{ trans.get('auth.lost_password_btn') }}
 		        </c-btn>
 		        <c-btn
 			        text
-			        @click="createNewAccountClicked"
+			        @click="$root.openRegistrationPopup()"
 		        >{{ trans.get('auth.create_new_account_btn') }}
 		        </c-btn>
 	        </div>
@@ -80,9 +97,11 @@
     import JetCheckbox from '@/Jetstream/Checkbox'
     import JetLabel from '@/Jetstream/Label'
     import JetValidationErrors from '@/Jetstream/ValidationErrors'
+    import Logo from "../../Layouts/Partials/Logo";
     
     export default {
         components: {
+	        Logo,
             JetButton,
             JetInput,
             JetCheckbox,
@@ -108,10 +127,6 @@
         },
 
         methods: {
-        	createNewAccountClicked() {
-        		this.$root.popup.login = false;
-        		this.$root.popup.registration = true;
-	        },
             submit() {
 	            if (this.$root.registrationAddonData) {
 		            this.form.teacher_id = this.$root.registrationAddonData.teacher_id;
@@ -128,8 +143,7 @@
 	                        this.form.reset('password');
                         },
                         onSuccess: () => {
-                            this.$emit('close');
-	                        this.$root.popup.login = false;
+                            this.$root.hideLoginPopup();
 	                        this.$toast.success('Bejelentkezve');
 	                        this.$root.registrationAddonData = null;
                         },

@@ -130,15 +130,6 @@
 	}
 }
 
-@media all and (max-height: 800px) {
-	.popUpContainer {
-		.popupContent {
-			height: 80vh;
-			overflow-y: scroll;
-		}
-	}
-}
-
 @media all and (max-width: 640px) {
 	body main .top .flex .left {
 		margin-top: 20px;
@@ -574,9 +565,19 @@
 		width: 140px;
 	}
 
-	.popUpContainer .popupContent .closeBtn {
-		top: 10px;
-		right: 10px;
+	body .slideoutContent {
+		.slideoutCloseBtn {
+			top: 10px;
+			right: 10px;
+		}
+
+		.roleSelect {
+			text-align: center;
+
+			.btnContent {
+				line-height: 1.6 !important;
+			}
+		}
 	}
 
 	.popupContent .authPopupActions {
@@ -586,10 +587,6 @@
 				font-size: 0.9em;
 			}
 		}
-	}
-
-	.popupContent .roleSelect {
-		text-align: center;
 	}
 
 	.popUpContainer .popupContent {

@@ -1,5 +1,22 @@
 <template>
-    <div>
+	<div class="slideoutContent p-6">
+		<c-btn
+			class="slideoutCloseBtn"
+			icon="close"
+			icon-only
+			text
+			circle
+			@click="$root.hideForgotPasswordPopup()"
+		></c-btn>
+
+		<div class="flex justify-center my-4 mb-8">
+			<logo
+				class="brandLogo"
+				:width="200"
+				:height="60"
+			/>
+		</div>
+
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
         </div>
@@ -37,9 +54,11 @@
     import JetInput from '@/Jetstream/Input'
     import JetLabel from '@/Jetstream/Label'
     import JetValidationErrors from '@/Jetstream/ValidationErrors'
+    import Logo from "../../Layouts/Partials/Logo";
 
     export default {
         components: {
+	        Logo,
             JetAuthenticationCard,
             JetAuthenticationCardLogo,
             JetButton,
@@ -62,7 +81,7 @@
 
         methods: {
             submit() {
-                this.form.post(this.route('password.email'))
+                this.form.post(this.route('password.email'));
             }
         }
     }
