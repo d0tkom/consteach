@@ -11,6 +11,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\App;
 use App\Models\Student;
 use App\Models\Teacher;
+use Session;
 
 class LoginController extends Controller
 {
@@ -29,7 +30,14 @@ class LoginController extends Controller
      */
     public function redirectToProvider($provider)
     {
-        session(['user_role' => request('teacher') ? 'teacher' : 'student']);
+	    $isTeacher = request()->input('teacher');
+	    $userRole = 'student';
+
+	    if ($isTeacher === "true") {
+		    $userRole = "teacher";
+	    }
+
+	    Session::put('user_role', $userRole);
         return Socialite::driver($provider)->redirect();
     }
 
@@ -44,6 +52,7 @@ class LoginController extends Controller
         $socialite_user = Socialite::driver($provider)->user();
 
         $user = User::where('provider_id', $socialite_user->getId())->first();
+		$userRole = Session::get('user_role');
 
         if (!$user) {
             $user = User::create([
@@ -51,14 +60,14 @@ class LoginController extends Controller
                 'first_name' => explode(' ', $socialite_user->getName())[0],
                 'last_name' => explode(' ', $socialite_user->getName())[1],
                 'provider_id' => $socialite_user->getId(),
-                'role' => session('user_role'),
+                'role' => $userRole,
                 'currency' => 'HUF',
                 'site_language' => App::getLocale(),
                 'timezone' => 'Europe/Budapest'
                 //'token' => $user->token
             ]);
 
-            if (session('user_role') == 'teacher') {
+            if ($userRole === 'teacher') {
                 Teacher::create([
                     'user_id' => $user->id,
                     'about_me' => json_encode(array()),
@@ -78,7 +87,7 @@ class LoginController extends Controller
             }
         }
 
-        session()->forget('user_role');
+        Session::forget('user_role');
 
         Auth::login($user, true);
 
