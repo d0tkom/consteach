@@ -16,8 +16,8 @@
         "@tailwindcss/typography": "^0.3.0",
         "autoprefixer": "^10.0.2",
         "axios": "^0.21.1",
-        "laravel-mix": "^6.0.6",
         "jquery": "^3.2",
+        "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "node-sass": "^5.0.0",
         "portal-vue": "^2.1.7",
@@ -29,7 +29,8 @@
         "tailwindcss": "^2.0.1",
         "vue": "^2.5.17",
         "vue-loader": "^15.9.6",
-        "vue-template-compiler": "^2.6.10"
+        "vue-template-compiler": "^2.6.10",
+        "vue2-slideout-panel": "^2.14.0"
     },
     "dependencies": {
         "@cospired/i18n-iso-languages": "^2.2.0",

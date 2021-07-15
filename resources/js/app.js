@@ -129,6 +129,10 @@ new Vue({
         this.$inertia.on('start', event => this.pageChange(event.detail.visit.url));
 
         this.$inertia.on('before', () => {
+            this.hideLoginPopup();
+            this.hideRegistrationPopup();
+            this.hideForgotPasswordPopup();
+
             this.$Progress.start();
             scrollLock.enablePageScroll();
         });
