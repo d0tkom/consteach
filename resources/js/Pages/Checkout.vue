@@ -269,10 +269,11 @@
             }
         },
         async mounted() {
-            this.stripe = await loadStripe('pk_live_51IJzZ5BL1awehvPyrHviKgBvcqZXkcWLjBWNoyHRrL3BkfT52upQZ9DvweI14ULrVk3zEoxUhnvByh5Ggi5VBC8g00Rin5gQVb');
+            this.stripe = await loadStripe('pk_test_51IJzZ5BL1awehvPyAmK3WX8hXKt8NZYxV2q9KFu1VIuO0GFAkt3YIJefhmO2J2cKkt6xuWlnDjUw6ejJYEN4xV2300ss9XpQPd');
             const elements = this.stripe.elements({
 	            locale: 'hu'
             });
+
             this.cardElement = elements.create('card', {
                 hidePostalCode: true,
                 classes: {
@@ -347,6 +348,40 @@
                 this.product.fee = (amount*this.$root.fee-amount)*100;
                 this.product.currency = currency;
             },
+	        getBillingDetails() {
+		        return {
+			        name: this.$page.props.user.first_name + '' + this.$page.props.user.last_name,
+				        email: this.$page.props.user.email,
+			        address: {
+				        line1: this.billing.address,
+				        city: this.billing.city,
+				        state: this.billing.state,
+				        postal_code: this.billing.postal
+			        }
+		        }
+	        },
+	        confirmPayment(paymentClientSecret, paymentMethod) {
+		        this.paymentProcessing = true;
+
+		        this.stripe.confirmCardPayment(paymentClientSecret, {
+			        payment_method: {
+				        card: this.cardElement,
+				        billing_details: this.getBillingDetails
+			        },
+		        })
+		        .then(result => {
+				        this.paymentProcessing = false;
+				        this.$inertia.visit('/dashboard');
+				        let message = this.trans.get('checkout.transaction_success_notification');
+				        this.$toast.success(message);
+		        })
+	            .catch((error) => {
+			        this.paymentProcessing = false;
+			        console.error(error);
+			        let message = this.trans.get('checkout.transaction_fail_notification');
+			        this.$toast.error(message);
+		        });
+	        },
             async processPayment() {
                 this.paymentProcessing = true;
                 if (this.trialSelected) {
@@ -370,16 +405,7 @@
 
                 const {paymentMethod, error} = await this.stripe.createPaymentMethod(
                     'card', this.cardElement, {
-                        billing_details: {
-                            name: this.$page.props.user.first_name + '' + this.$page.props.user.last_name,
-                            email: this.$page.props.user.email,
-                            address: {
-                                line1: this.billing.address,
-                                city: this.billing.city,
-                                state: this.billing.state,
-                                postal_code: this.billing.postal
-                            }
-                        }
+                        billing_details: this.getBillingDetails
                     }
                 );
 
@@ -389,18 +415,24 @@
                 } else {
                     this.product.payment_method = paymentMethod.id;
                     axios.post('payment', {appointment: this.appointment, billing: this.billing, product: this.product})
-                        .then((response) => {
-                            this.paymentProcessing = false;
+                        .then(({data}) => {
+	                        this.paymentProcessing = false;
+
+                        	if (data.payment_client_secret) {
+		                        return this.confirmPayment(data.payment_client_secret, paymentMethod);
+	                        }
+
                             this.$inertia.visit('/dashboard');
 	                        let message = this.trans.get('checkout.transaction_success_notification');
 	                        this.$toast.success(message);
                         })
                         .catch((error) => {
-                            this.paymentProcessing = false;
-                            console.error(error);
+	                        this.paymentProcessing = false;
+	                        console.error(error);
 	                        let message = this.trans.get('checkout.transaction_fail_notification');
 	                        this.$toast.error(message);
-                        });
+                        }
+                    );
                 }
             }
         }

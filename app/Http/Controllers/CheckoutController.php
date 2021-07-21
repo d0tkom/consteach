@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Notifications\FreeAppointmentBookedStudent;
 use App\Notifications\FreeAppointmentBookedTeacher;
 use App\Notifications\LessonBoughtTeacher;
+use Exception;
 use Illuminate\Http\Request;
 use App\Models\Lesson;
 use App\Models\Appointment;
@@ -14,6 +15,9 @@ use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Carbon\Carbon;
 use BillingoApiV3Wrapper as BillingoApi;
+use Laravel\Cashier\Exceptions\PaymentActionRequired;
+use Stripe\PaymentIntent;
+use Stripe\Stripe;
 
 class CheckoutController extends Controller
 {
@@ -131,11 +135,63 @@ class CheckoutController extends Controller
         }
     }
 
+    private function paymentSuccess($user, $payment, $student, $teacherId, $lessonNumber, $appointment) {
+	    $order = $user->orders()
+		    ->create([
+			    'transaction_id' => $payment->charges->data[0]->id,
+			    'total' => $payment->charges->data[0]->amount,
+			    'teacher_id' => $teacherId,
+			    'lesson_number' => $lessonNumber,
+		    ]);
+
+	    $order->save();
+
+	    $lesson = 0;
+
+	    for ($i = 0; $i < $lessonNumber; $i++) {
+	    	$price = ($payment->charges->data[0]->amount)/1.2/$lessonNumber;
+
+		    $lesson = Lesson::create(
+			    [
+				    'student_id' => $student->id,
+				    'teacher_id' => $teacherId,
+				    'price' => $price,
+				    'status' => 0
+			    ]
+		    );
+	    }
+
+	    if ($appointment != null) {
+		    $newAppointment = Appointment::where('id', $appointment['id'])->first();
+		    $newAppointment->active = true;
+		    $newAppointment->type = 'normal';
+		    $newAppointment->lesson_id = $lesson->id;
+		    $newAppointment->save();
+
+		    $lesson->status = 1;
+	    }
+
+	    $lesson->save();
+
+	    /*$partner_id = $this->createOrUpdateInvoicePartner();
+
+		$product_id = $this->createProduct($order);
+
+		$invoice_id = $this->createInvoice($order, $product_id);
+
+		BillingoApi::api('Document')->sendInvoice($invoice_id)->getResponse();
+
+		BillingoApi::api('Product')->delete($product_id)->getResponse();*/
+
+	    $lesson->teacher->user->notify(new LessonBoughtTeacher($lesson));
+
+	    return $order;
+    }
+
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -150,69 +206,28 @@ class CheckoutController extends Controller
         $student->country = $request->input('billing')['country'];
         $student->postal = $request->input('billing')['postal'];
 
+	    $teacherId = $request->input('product')['teacher_id'];
+	    $lessonNumber = $request->input('product')['lesson_number'];
+	    $appointment = $request->input('appointment');
+
         $student->save();
 
         try {
-            $user = auth()->user();
-            $user->createOrGetStripeCustomer();
+	        $user = auth()->user();
+	        $user->createOrGetStripeCustomer();
 
-            $payment = $user->charge(
-                $request->input('product')['amount'],
-                $request->input('product')['payment_method']
-            );
+	        $payment = $user->charge(
+		        $request->input('product')['amount'],
+		        $request->input('product')['payment_method']
+	        );
 
-            $payment = $payment->asStripePaymentIntent();
+	        $payment = $payment->asStripePaymentIntent();
 
-            $order = $user->orders()
-                ->create([
-                    'transaction_id' => $payment->charges->data[0]->id,
-                    'total' => $payment->charges->data[0]->amount,
-                    'teacher_id' => $request->input('product')['teacher_id'],
-                    'lesson_number' => $request->input('product')['lesson_number'],
-                ]);
-
-            $order->save();
-
-            $lesson = 0;
-
-            for ($i = 0; $i < $request->input('product')['lesson_number']; $i++) {
-                $lesson = Lesson::create(
-                    [
-                        'student_id' => $student->id,
-                        'teacher_id' => $request->input('product')['teacher_id'],
-                        'price' => ($payment->charges->data[0]->amount)/1.2/$request->input('product')['lesson_number'],
-                        'status' => 0
-                    ]
-                );
-            }
-
-            if ($request->input('appointment') != null) {
-                $appointment = Appointment::where('id', $request->input('appointment')['id'])->first();
-                $appointment->active = true;
-                $appointment->type = 'normal';
-                $appointment->lesson_id = $lesson->id;
-                $appointment->save();
-
-                $lesson->status = 1;
-            }
-
-            $lesson->save();
-
-            /*$partner_id = $this->createOrUpdateInvoicePartner();
-
-            $product_id = $this->createProduct($order);
-
-            $invoice_id = $this->createInvoice($order, $product_id);
-            
-            BillingoApi::api('Document')->sendInvoice($invoice_id)->getResponse();
-
-            BillingoApi::api('Product')->delete($product_id)->getResponse();*/
-
-            $lesson->teacher->user->notify(new LessonBoughtTeacher($lesson));
-
-            return $order;
-        } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], 500);
+	        $this->paymentSuccess($user, $payment, $student, $teacherId, $lessonNumber, $appointment);
+        } catch (PaymentActionRequired $exception) {
+	        return response()->json(['payment_client_secret' => $exception->payment->clientSecret()]);
+        } catch(Exception $exception) {
+	        return response()->json(['message' => $exception->getMessage()], 500);
         }
     }
 
