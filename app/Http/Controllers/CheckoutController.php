@@ -60,11 +60,21 @@ class CheckoutController extends Controller
 		// Handle the event
 		if ($event->type === 'payment_intent.succeeded') {
 			$paymentIntent = $event->data->object;
-			$transactionId = $paymentIntent->payment->id;
+			$paymentIntentId = $paymentIntent->id;
+			$transactionId = $paymentIntent->charges->data[0]->id;;
 
-			$order = Order::where('transaction_id', $transactionId)->first();
+			$order = Order::where('transaction_id', $paymentIntentId)->first();
 			$order->active = 1;
+			$order->transaction_id = $transactionId;
 			$order->save();
+
+			$this->finalizeOrder(
+				$order->lesson_number,
+				$order->student_id,
+				$order->teacher_id,
+				$order->total,
+				$appointmentId
+			);
 		}
 	}
 
@@ -173,31 +183,34 @@ class CheckoutController extends Controller
     	return $lesson;
     }
 
-    private function registerOrder($user, $student, $teacherId, $lessonNumber, $appointment, $amount) {
+    private function registerOrder($user, $teacherId, $lessonNumber, $amount, $appointmentId) {
 	    $order = $user->orders()
 		    ->create([
 			    'transaction_id' => null,
 			    'total' => $amount,
 			    'teacher_id' => $teacherId,
 			    'lesson_number' => $lessonNumber,
+			    'appointment_id' => $appointmentId
 		    ]);
 
 	    $order->save();
 
-	    $lesson = 0;
+	    return $order;
+    }
 
+    private function finalizeOrder($lessonNumber, $studentId, $teacherId, $amount, $appointmentId) {
 	    for ($i = 0; $i < $lessonNumber; $i++) {
-	    	$price = ($amount)/1.2/$lessonNumber;
+		    $price = ($amount)/1.2/$lessonNumber;
 
-		    $lesson = $this->createLesson($student->id, $teacherId, $price);
+		    $lesson = $this->createLesson($studentId, $teacherId, $price);
 	    }
 
-	    if ($appointment != null) {
-		    $newAppointment = Appointment::where('id', $appointment['id'])->first();
-		    $newAppointment->active = true;
-		    $newAppointment->type = 'normal';
-		    $newAppointment->lesson_id = $lesson->id;
-		    $newAppointment->save();
+	    if ($appointmentId != null) {
+		    $appointment = Appointment::where('id', $appointmentId)->first();
+		    $appointment->active = true;
+		    $appointment->type = 'normal';
+		    $appointment->lesson_id = $lesson->id;
+		    $appointment->save();
 
 		    $lesson->status = 1;
 	    }
@@ -211,8 +224,6 @@ class CheckoutController extends Controller
 		BillingoApi::api('Product')->delete($product_id)->getResponse();*/
 
 	    $lesson->teacher->user->notify(new LessonBoughtTeacher($lesson));
-
-	    return $order;
     }
 
     /**
@@ -239,14 +250,13 @@ class CheckoutController extends Controller
 	    $appointment = $request->input('appointment');
 	    $paymentMethod = $request->input('product')['payment_method'];
 
-
         $student->save();
 
         try {
 	        $user = auth()->user();
 	        $user->createOrGetStripeCustomer();
 
-	        $order = $this->registerOrder($user, $student, $teacherId, $lessonNumber, $appointment, $amount);
+	        $order = $this->registerOrder($user, $teacherId, $lessonNumber, $amount, $appointment['id']);
 
 	        $payment = $user->charge(
 		        $amount,
@@ -257,6 +267,8 @@ class CheckoutController extends Controller
 
 	        $order->transaction_id = $payment->charges->data[0]->id;
 	        $order->save();
+
+	        $this->finalizeOrder($lessonNumber, $student->id, $teacherId, $amount, $appointment['id']);
         } catch (PaymentActionRequired $exception) {
         	$order->transaction_id = $exception->payment->id;
 	        $order->save();
