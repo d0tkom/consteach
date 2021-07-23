@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Notifications\FreeAppointmentBookedStudent;
 use App\Notifications\FreeAppointmentBookedTeacher;
 use App\Notifications\LessonBoughtTeacher;
@@ -16,8 +17,10 @@ use Inertia\Inertia;
 use Carbon\Carbon;
 use BillingoApiV3Wrapper as BillingoApi;
 use Laravel\Cashier\Exceptions\PaymentActionRequired;
+use Stripe\Event as StripeEvent;
 use Stripe\PaymentIntent;
 use Stripe\Stripe;
+use UnexpectedValueException;
 
 class CheckoutController extends Controller
 {
@@ -40,6 +43,30 @@ class CheckoutController extends Controller
     {
         //
     }
+
+	public function stripePaymentSuccessWebhook() {
+		$payload = @file_get_contents('php://input');
+
+		try {
+			$event = StripeEvent::constructFrom(
+				json_decode($payload, true)
+			);
+		} catch(UnexpectedValueException $e) {
+			// Invalid payload
+			http_response_code(400);
+			exit();
+		}
+
+		// Handle the event
+		if ($event->type === 'payment_intent.succeeded') {
+			$paymentIntent = $event->data->object;
+			$transactionId = $paymentIntent->payment->id;
+
+			$order = Order::where('transaction_id', $transactionId)->first();
+			$order->active = 1;
+			$order->save();
+		}
+	}
 
     public function createStripeSellerAccount($stripe)
     {
@@ -135,11 +162,22 @@ class CheckoutController extends Controller
         }
     }
 
-    private function paymentSuccess($user, $payment, $student, $teacherId, $lessonNumber, $appointment) {
+    private function createLesson($studentId, $teacherId, $price) {
+	    $lesson = Lesson::create([
+		    'student_id' => $studentId,
+		    'teacher_id' => $teacherId,
+		    'price' => $price,
+		    'status' => 0
+	    ]);
+
+    	return $lesson;
+    }
+
+    private function registerOrder($user, $student, $teacherId, $lessonNumber, $appointment, $amount) {
 	    $order = $user->orders()
 		    ->create([
-			    'transaction_id' => $payment->charges->data[0]->id,
-			    'total' => $payment->charges->data[0]->amount,
+			    'transaction_id' => null,
+			    'total' => $amount,
 			    'teacher_id' => $teacherId,
 			    'lesson_number' => $lessonNumber,
 		    ]);
@@ -149,16 +187,9 @@ class CheckoutController extends Controller
 	    $lesson = 0;
 
 	    for ($i = 0; $i < $lessonNumber; $i++) {
-	    	$price = ($payment->charges->data[0]->amount)/1.2/$lessonNumber;
+	    	$price = ($amount)/1.2/$lessonNumber;
 
-		    $lesson = Lesson::create(
-			    [
-				    'student_id' => $student->id,
-				    'teacher_id' => $teacherId,
-				    'price' => $price,
-				    'status' => 0
-			    ]
-		    );
+		    $lesson = $this->createLesson($student->id, $teacherId, $price);
 	    }
 
 	    if ($appointment != null) {
@@ -174,13 +205,9 @@ class CheckoutController extends Controller
 	    $lesson->save();
 
 	    /*$partner_id = $this->createOrUpdateInvoicePartner();
-
 		$product_id = $this->createProduct($order);
-
 		$invoice_id = $this->createInvoice($order, $product_id);
-
 		BillingoApi::api('Document')->sendInvoice($invoice_id)->getResponse();
-
 		BillingoApi::api('Product')->delete($product_id)->getResponse();*/
 
 	    $lesson->teacher->user->notify(new LessonBoughtTeacher($lesson));
@@ -196,8 +223,9 @@ class CheckoutController extends Controller
     public function store(Request $request)
     {
         $student = auth()->user()->extra;
+	    $amount = $request->input('product')['amount'];
 
-        if ($request->input('product')['amount'] == 0) {
+        if ($amount == 0) {
             return $this->TrialPayment($request->input('appointment')['id'] ?? null, $student->id);
         }
 
@@ -209,6 +237,8 @@ class CheckoutController extends Controller
 	    $teacherId = $request->input('product')['teacher_id'];
 	    $lessonNumber = $request->input('product')['lesson_number'];
 	    $appointment = $request->input('appointment');
+	    $paymentMethod = $request->input('product')['payment_method'];
+
 
         $student->save();
 
@@ -216,18 +246,28 @@ class CheckoutController extends Controller
 	        $user = auth()->user();
 	        $user->createOrGetStripeCustomer();
 
+	        $order = $this->registerOrder($user, $student, $teacherId, $lessonNumber, $appointment, $amount);
+
 	        $payment = $user->charge(
-		        $request->input('product')['amount'],
-		        $request->input('product')['payment_method']
+		        $amount,
+		        $paymentMethod
 	        );
 
 	        $payment = $payment->asStripePaymentIntent();
 
-	        $this->paymentSuccess($user, $payment, $student, $teacherId, $lessonNumber, $appointment);
+	        $order->transaction_id = $payment->charges->data[0]->id;
+	        $order->save();
         } catch (PaymentActionRequired $exception) {
-	        return response()->json(['payment_client_secret' => $exception->payment->clientSecret()]);
+        	$order->transaction_id = $exception->payment->id;
+	        $order->save();
+
+	        return response()->json([
+	        	'payment_client_secret' => $exception->payment->clientSecret()
+	        ]);
         } catch(Exception $exception) {
-	        return response()->json(['message' => $exception->getMessage()], 500);
+	        return response()->json([
+	        	'message' => $exception->getMessage()
+	        ], 500);
         }
     }
 

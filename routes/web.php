@@ -1,12 +1,8 @@
 <?php
 
 use App\Http\Controllers\UserController;
-use App\Notifications\TeacherRegistered;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
-
-use App\Models\User;
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CurrencyController;
@@ -29,6 +25,9 @@ use App\Http\Controllers\CheckoutController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// STRIPE WEBHOOK
+Route::post('/webhook/stripe/payment/success', [CheckoutController::class, 'stripePaymentSuccessWebhook']);
 
 Route::get('/', [HomeController::class, 'index'])->name('landing');
 

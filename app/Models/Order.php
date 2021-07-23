@@ -16,7 +16,8 @@ class Order extends Model
     	'teacher_id',
     	'user_id',
     	'total',
-    	'lesson_number'
+	    'active',
+    	'lesson_number',
     ];
 
     public function teacher()

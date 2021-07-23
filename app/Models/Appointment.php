@@ -20,6 +20,7 @@ class Appointment extends Model
         'type',
         'start',
         'end',
+	    'active',
         'student_approved',
         'teacher_approved',
     ];

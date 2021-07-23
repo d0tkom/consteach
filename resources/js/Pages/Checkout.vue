@@ -370,14 +370,14 @@
 			        },
 		        })
 		        .then(result => {
-				        this.paymentProcessing = false;
-				        this.$inertia.visit('/dashboard');
-				        let message = this.trans.get('checkout.transaction_success_notification');
-				        this.$toast.success(message);
-		        })
-	            .catch((error) => {
 			        this.paymentProcessing = false;
-			        console.error(error);
+			        this.$inertia.visit('/dashboard');
+			        let message = this.trans.get('checkout.transaction_success_notification');
+			        this.$toast.success(message);
+		        })
+	            .catch(error => {
+		            console.error(error);
+		            this.paymentProcessing = false;
 			        let message = this.trans.get('checkout.transaction_fail_notification');
 			        this.$toast.error(message);
 		        });
@@ -386,16 +386,15 @@
                 this.paymentProcessing = true;
                 if (this.trialSelected) {
                 	axios.post('payment', {appointment: this.appointment, billing: this.billing, product: this.product})
-                        .then((response) => {
+                        .then(response => {
                             this.paymentProcessing = false;
-                            
                             let message = this.trans.get('checkout.transaction_success_notification');
 	                        this.$toast.success(message);
 	                        this.$inertia.visit('/dashboard');
                         })
-                        .catch((error) => {
+                        .catch(error => {
+	                        console.error(error);
                             this.paymentProcessing = false;
-                            console.error(error);
                             let message = this.trans.get('checkout.transaction_fail_notification');
 	                        this.$toast.error(message);
                         });

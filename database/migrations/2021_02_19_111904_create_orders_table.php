@@ -15,10 +15,11 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('transaction_id');
+            $table->string('transaction_id')->nullable();
             $table->integer('total');
             $table->foreignId('teacher_id')->constrained();
             $table->integer('lesson_number');
+            $table->boolean('active')->default(0);
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
