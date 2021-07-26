@@ -17,7 +17,7 @@
 						</label>
 						<label for="e1" @click="trialSelected = false; selectProduct(1, teacher.one_hour_price, 'HUF')">
 							<div class="sm:flex border rounded p-1 mb-2 sm:text-left text-center select-none line-hover">
-								<input id="e1" class="mt-1 sm:mr-3" type="radio" name="lesson":checked="!trialSelected" />
+								<input id="e1" class="mt-1 sm:mr-3" type="radio" name="lesson" :checked="!trialSelected" />
 								<div class="text-md font-semibold flex-1 mr-4">1 {{ trans.choice('checkout.lesson', 1) }}</div>
 								<div class="text-green-500 text-md">
 									<currency
@@ -370,17 +370,17 @@
 			        },
 		        })
 		        .then(result => {
-			        this.paymentProcessing = false;
-			        this.$inertia.visit('/dashboard');
-			        let message = this.trans.get('checkout.transaction_success_notification');
-			        this.$toast.success(message);
+			        if (result.error) {
+				        console.error(result.error);
+				        this.paymentProcessing = false;
+				        this.$toast.error(result.error.message);
+			        } else {
+				        this.paymentProcessing = false;
+				        this.$inertia.visit('/dashboard');
+				        let message = this.trans.get('checkout.transaction_success_notification');
+				        this.$toast.success(message);
+			        }
 		        })
-	            .catch(error => {
-		            console.error(error);
-		            this.paymentProcessing = false;
-			        let message = this.trans.get('checkout.transaction_fail_notification');
-			        this.$toast.error(message);
-		        });
 	        },
             async processPayment() {
                 this.paymentProcessing = true;

@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->foreignId('teacher_id')->constrained();
             $table->integer('lesson_number');
             $table->boolean('active')->default(0);
+            $table->foreignId('appointment_id')->nullable();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

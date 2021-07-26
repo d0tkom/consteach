@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Student;
 use App\Notifications\FreeAppointmentBookedStudent;
 use App\Notifications\FreeAppointmentBookedTeacher;
 use App\Notifications\LessonBoughtTeacher;
@@ -64,16 +65,23 @@ class CheckoutController extends Controller
 			$transactionId = $paymentIntent->charges->data[0]->id;;
 
 			$order = Order::where('transaction_id', $paymentIntentId)->first();
+
+			if (!$order) {
+				return response()->json(["message" => "Order not found"], 500);
+			}
+
 			$order->active = 1;
 			$order->transaction_id = $transactionId;
 			$order->save();
 
+			$student = Student::where("user_id", $order->user_id)->first();
+
 			$this->finalizeOrder(
 				$order->lesson_number,
-				$order->student_id,
+				$student->id,
 				$order->teacher_id,
 				$order->total,
-				$appointmentId
+				$order->appointment_id
 			);
 		}
 	}
@@ -198,7 +206,14 @@ class CheckoutController extends Controller
 	    return $order;
     }
 
-    private function finalizeOrder($lessonNumber, $studentId, $teacherId, $amount, $appointmentId) {
+	/**
+	 * @param $lessonNumber
+	 * @param $studentId
+	 * @param $teacherId
+	 * @param $amount
+	 * @param $appointmentId
+	 */
+	private function finalizeOrder($lessonNumber, $studentId, $teacherId, $amount, $appointmentId) {
 	    for ($i = 0; $i < $lessonNumber; $i++) {
 		    $price = ($amount)/1.2/$lessonNumber;
 
@@ -217,11 +232,13 @@ class CheckoutController extends Controller
 
 	    $lesson->save();
 
-	    /*$partner_id = $this->createOrUpdateInvoicePartner();
+	    /*
+	    $partner_id = $this->createOrUpdateInvoicePartner();
 		$product_id = $this->createProduct($order);
 		$invoice_id = $this->createInvoice($order, $product_id);
 		BillingoApi::api('Document')->sendInvoice($invoice_id)->getResponse();
-		BillingoApi::api('Product')->delete($product_id)->getResponse();*/
+		BillingoApi::api('Product')->delete($product_id)->getResponse();
+	    */
 
 	    $lesson->teacher->user->notify(new LessonBoughtTeacher($lesson));
     }
@@ -247,7 +264,7 @@ class CheckoutController extends Controller
 
 	    $teacherId = $request->input('product')['teacher_id'];
 	    $lessonNumber = $request->input('product')['lesson_number'];
-	    $appointment = $request->input('appointment');
+	    $appointmentId = $request->input('appointment') ? $request->input('appointment')['id'] : null;
 	    $paymentMethod = $request->input('product')['payment_method'];
 
         $student->save();
@@ -256,7 +273,7 @@ class CheckoutController extends Controller
 	        $user = auth()->user();
 	        $user->createOrGetStripeCustomer();
 
-	        $order = $this->registerOrder($user, $teacherId, $lessonNumber, $amount, $appointment['id']);
+	        $order = $this->registerOrder($user, $teacherId, $lessonNumber, $amount, $appointmentId);
 
 	        $payment = $user->charge(
 		        $amount,
@@ -268,7 +285,7 @@ class CheckoutController extends Controller
 	        $order->transaction_id = $payment->charges->data[0]->id;
 	        $order->save();
 
-	        $this->finalizeOrder($lessonNumber, $student->id, $teacherId, $amount, $appointment['id']);
+	        $this->finalizeOrder($lessonNumber, $student->id, $teacherId, $amount, $appointmentId);
         } catch (PaymentActionRequired $exception) {
         	$order->transaction_id = $exception->payment->id;
 	        $order->save();
@@ -276,11 +293,11 @@ class CheckoutController extends Controller
 	        return response()->json([
 	        	'payment_client_secret' => $exception->payment->clientSecret()
 	        ]);
-        } catch(Exception $exception) {
+        } /*catch(Exception $exception) {
 	        return response()->json([
 	        	'message' => $exception->getMessage()
 	        ], 500);
-        }
+        }*/
     }
 
     /**
@@ -345,15 +362,9 @@ class CheckoutController extends Controller
     public function TrialPayment($appointment_id, $student_id)
     {
         $user = auth()->user();
+		$teacherId = request()->input('product')['teacher_id'];
 
-        $lesson = Lesson::create(
-            [
-                'student_id' => $student_id,
-                'teacher_id' => request()->input('product')['teacher_id'],
-                'price' => 0,
-                'status' => 0
-            ]
-        );
+	    $lesson = $this->createLesson($student_id, $teacherId, 0);
 
         if ($appointment_id != null) {
             $appointment = Appointment::where('id', $appointment_id)->first();
