@@ -153,7 +153,7 @@ export default {
 				this.data.ten_hour_price / 10
 			];
 
-			return Math.max(...prices) * this.$root.fee;
+			return Math.max(...prices) / this.$root.fee;
 		},
 		description() {
 			let aboutMe = this.data.about_me;

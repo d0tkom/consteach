@@ -622,7 +622,7 @@ export default {
 			let valueCalculated = value * hours;
 			
 			if (!net) {
-				valueCalculated /= this.$root.fee;
+				valueCalculated *= this.$root.fee;
 			}
 			
 			this.$set(this.form, form_item, valueCalculated);
@@ -631,7 +631,7 @@ export default {
 			let value = form_item / hours;
 			
 			if (!net) {
-				value *= this.$root.fee;
+				value /= this.$root.fee;
 			}
 			
 			return Math.floor(value);
@@ -639,7 +639,7 @@ export default {
 		calculateGrossPrice(value) {
 			value = parseInt(value, 10);
 
-			return Math.floor(value * this.$root.fee);
+			return Math.floor(value / this.$root.fee);
 		},
 		addNewSpokenLanguage() {
 			const languageTemplate = JSON.parse(JSON.stringify(this.languageTemplate));

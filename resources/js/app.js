@@ -86,7 +86,7 @@ new Vue({
         cookiePolicy: {
             accepted: false
         },
-        fee: 1.2,
+        fee: 0.8,
         languageToCountry: {
             "hu": "hu",
             "es": "es",

@@ -215,7 +215,7 @@ class CheckoutController extends Controller
 	 */
 	private function finalizeOrder($lessonNumber, $studentId, $teacherId, $amount, $appointmentId) {
 	    for ($i = 0; $i < $lessonNumber; $i++) {
-		    $price = ($amount)/1.2/$lessonNumber;
+		    $price = ($amount)*0.8/$lessonNumber;
 
 		    $lesson = $this->createLesson($studentId, $teacherId, $price);
 	    }
@@ -417,7 +417,7 @@ class CheckoutController extends Controller
     {
         $product = [
             'name' => trans_choice('bill.lesson', $order->lesson_number),
-            'net_unit_price' => intval(round(($order->total - $order->total/1.2)/100)),
+            'net_unit_price' => intval(round(($order->total - $order->total*0.8)/100)),
             'currency' => 'HUF',
             'unit_price_type' => 'gross',
             'unit' => 'db',

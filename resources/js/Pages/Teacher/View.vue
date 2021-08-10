@@ -171,7 +171,7 @@
 					                    <div class="originalPrice text-gray text-sm">
 						                    <currency
 							                    class="line-through"
-							                    :value="(teacher.one_hour_price*$root.fee)"
+							                    :value="(teacher.one_hour_price/$root.fee)"
 						                    />
 						                </div>
 					                    <div class="newPRice text-green-500 text-lg">
@@ -210,7 +210,7 @@
                                     <div class="relative">
                                         <div class="value text-green-500 text-lg">
 	                                        <currency
-		                                        :value="teacher.one_hour_price*$root.fee"
+		                                        :value="teacher.one_hour_price/$root.fee"
 	                                        />
                                              / {{ trans.get('teacher_profile.hour') }}
 	                                    </div>
@@ -221,7 +221,7 @@
                                     <div class="relative">
                                         <div class="value text-green-500 text-lg">
 	                                        <currency
-		                                        :value="(teacher.five_hour_price / 5)*$root.fee"
+		                                        :value="(teacher.five_hour_price / 5)/$root.fee"
 	                                        />
                                              / {{ trans.get('teacher_profile.hour') }}
 	                                   </div>
@@ -232,7 +232,7 @@
                                     <div class="relative">
                                         <div class="value text-green-500 text-lg">
 	                                        <currency
-		                                        :value="(teacher.ten_hour_price / 10) * $root.fee"
+		                                        :value="(teacher.ten_hour_price / 10) / $root.fee"
 	                                        />
                                              / {{ trans.get('teacher_profile.hour') }}
 	                                    </div>
@@ -243,7 +243,7 @@
 		                            <div class="relative">
 			                            <div class="value text-green-500 text-lg">
 				                            <currency
-					                            :value="(teacher.twenty_hour_price / 20) * $root.fee"
+					                            :value="(teacher.twenty_hour_price / 20) / $root.fee"
 				                            />
 				                            / {{ trans.get('teacher_profile.hour') }}
 			                            </div>
