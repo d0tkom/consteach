@@ -12,15 +12,17 @@ class ContactFormSubmit extends Notification
     use Queueable;
 
     private $message;
+    private $email;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($message)
+    public function __construct($message, $email)
     {
         $this->message = $message;
+        $this->email = $email;
     }
 
     /**
@@ -43,7 +45,7 @@ class ContactFormSubmit extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject(__('mail-contact_form.subject'))
+            ->subject($this->email)
             ->from(env('MAIL_FROM_ADDRESS'), __('mail.from_name'))
             ->markdown('mails.contact_form', [
                 'message' => $this->message

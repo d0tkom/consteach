@@ -7,7 +7,12 @@
 			
 			<div class="card">
 				<div class="text-md font-bold color-blue-dark">{{ trans.get('faq_teacher.contact_title') }}</div>
-				<p v-html="trans.get('faq_teacher.contact_description')"></p>
+				<p v-html="trans.get('faq_teacher.contact_description')"></p><br>
+				<cInput
+                    v-model="contact.email"
+                    class="mb-4"
+                    :label="trans.get('settings.email_label')"
+                ></cInput>
 				<c-text-area
 					:hint="trans.get('faq_teacher.contact_max_char')"
 					:max="250"
@@ -190,7 +195,8 @@ export default {
 			openedQuestion: null,
 			contact: {
 				loading: false,
-				text: ''
+				text: '',
+				email: '',
 			}
 		};
 	},
@@ -201,15 +207,19 @@ export default {
 	methods: {
 		submitContactForm() {
 			this.contact.loading = true;
-			axios.post('/', {
-				text: this.contact.text
+			axios.post('/contact', {
+				text: this.contact.text,
+				email: this.contact.email
 			}).then(({data}) => {
 				this.contact.submitted = true;
 				this.contact.loading = false;
 				this.contact.text = "";
+				this.contact.email = "";
+				this.$toast.success(this.trans.get('faq.submit_success_notification'));
 			}).catch(error => {
 				console.error(error);
 				this.contact.loading = false;
+				this.$toast.error(this.trans.get('faq.submit_fail_notification'));
 			});
 		}
 	}

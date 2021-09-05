@@ -75,7 +75,7 @@
 						{{ trans.get('header.login_btn') }}
 					</c-btn>
 					<c-btn
-						@click="$root.openRegistrationPopup('student')"
+						@click="$root.openRegistrationPopup()"
 					>
 						{{ trans.get('header.register_btn') }}
 					</c-btn>

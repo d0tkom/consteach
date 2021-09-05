@@ -166,7 +166,7 @@ class AppointmentController extends Controller
             $appointment->save();
         }
 
-        if ($appointment->student_approved && $appointment->teacher_approved) {
+        if ($appointment->teacher_approved) {
             $lesson = $appointment->lesson;
             $lesson->payout_available = true;
             $lesson->status = 2;

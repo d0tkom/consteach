@@ -81,7 +81,8 @@ class CheckoutController extends Controller
 				$student->id,
 				$order->teacher_id,
 				$order->total,
-				$order->appointment_id
+				$order->appointment_id,
+				$order
 			);
 		}
 	}
@@ -161,7 +162,7 @@ class CheckoutController extends Controller
                 $total = 0;
 
                 foreach ($lessons as $lesson) {
-                    $total += $lesson->price/100;
+                    $total += $lesson->price;
                     $lesson->payout_available = false;
                     $lesson->save();
                 }
@@ -213,7 +214,7 @@ class CheckoutController extends Controller
 	 * @param $amount
 	 * @param $appointmentId
 	 */
-	private function finalizeOrder($lessonNumber, $studentId, $teacherId, $amount, $appointmentId) {
+	private function finalizeOrder($lessonNumber, $studentId, $teacherId, $amount, $appointmentId, $order) {
 	    for ($i = 0; $i < $lessonNumber; $i++) {
 		    $price = ($amount)*0.8/$lessonNumber;
 
@@ -232,13 +233,12 @@ class CheckoutController extends Controller
 
 	    $lesson->save();
 
-	    /*
 	    $partner_id = $this->createOrUpdateInvoicePartner();
 		$product_id = $this->createProduct($order);
 		$invoice_id = $this->createInvoice($order, $product_id);
 		BillingoApi::api('Document')->sendInvoice($invoice_id)->getResponse();
 		BillingoApi::api('Product')->delete($product_id)->getResponse();
-	    */
+	    
 
 	    $lesson->teacher->user->notify(new LessonBoughtTeacher($lesson));
     }
@@ -285,7 +285,7 @@ class CheckoutController extends Controller
 	        $order->transaction_id = $payment->charges->data[0]->id;
 	        $order->save();
 
-	        $this->finalizeOrder($lessonNumber, $student->id, $teacherId, $amount, $appointmentId);
+	        $this->finalizeOrder($lessonNumber, $student->id, $teacherId, $amount, $appointmentId, $order);
         } catch (PaymentActionRequired $exception) {
         	$order->transaction_id = $exception->payment->id;
 	        $order->save();

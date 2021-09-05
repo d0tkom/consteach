@@ -78,7 +78,7 @@ new Vue({
             registration: null,
             login: null,
             forgotPassword: null,
-            registrationType: 'student'
+            registrationType: null
         },
         registrationAddonData: null,
         languageList: null,
@@ -223,7 +223,7 @@ new Vue({
                 page_path: url,
             });
         },
-        openRegistrationPopup(type = 'student') {
+        openRegistrationPopup(type) {
             this.popup.registrationType = type;
 
             this.hideLoginPopup();

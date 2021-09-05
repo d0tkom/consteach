@@ -21,7 +21,7 @@ class ContactController extends Controller
         (new User)->forceFill([
             'name' => 'ConsTeach [admin]',
             'email' => $email,
-        ])->notify(new ContactFormSubmit($message));
+        ])->notify(new ContactFormSubmit($message, $request->email));
 
         return response()->json(['status' => 'ok']);
     }
