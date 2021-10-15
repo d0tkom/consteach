@@ -19,13 +19,25 @@ class TeacherController extends Controller
      *
      * @return \Inertia\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $priceFilter = $request->price;
+        $timeFilter = $request->time;
+        $dayFilter = $request->day;
+        $languageFilter = $request->language;
+        $order = $request->order;
+
+        $availableOrders = ['one_hour_price', 'appointment_count', 'random'];
+
+        if (!in_array($order, $availableOrders)) {
+            $order = null;
+        }
+
         $availableLanguages = Teacher::getAllLanguages();
 
         $randomOrderSeed = time();
         Session::put('teacher_list_random_seed', $randomOrderSeed);
-
+/*
         $teachers = Teacher::with('user')
             ->where('complete', true)
             ->where('validated', true)
@@ -33,17 +45,24 @@ class TeacherController extends Controller
             ->get();
 
         $teachers = CollectionHelper::paginate($teachers, 5);
-
+*/
         $meta = [
             'title' => __('find_teacher.document_title'),
             'description' => __('find_teacher.document_description'),
             'img' => __('find_teacher.document_img')
         ];
 
+        $teachers = new \stdClass();
+
         return Inertia::render('Teacher/List')->with([
             'all_teachers' => $teachers,
             'availableLanguages' => $availableLanguages,
-            'meta' => $meta
+            'meta' => $meta,
+            'price' => $priceFilter,
+            'language' => $languageFilter,
+            'order' => $order,
+            'time' => $timeFilter,
+            'day' => $dayFilter
         ]);
     }
 
@@ -232,7 +251,7 @@ class TeacherController extends Controller
                     } else {
                         return false;
                     }
-                    
+
                 })->isEmpty();
             });
         }

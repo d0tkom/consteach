@@ -19,14 +19,14 @@
                             :value="filters.order.value"
                             :active="filters.order.active"
                             :options="filters.order.options"
-                            @change="value => filters.order.value = value"
+                            @change="orderFilterChanged"
                             @change-active="active => filters.order.active = active"
                         />
                     </div>
                     <div>
                         <c-btn
                             icon-right="keyboard_arrow_down"
-                            outlined
+                            :outlined="!urlParameters.language"
                             class="mr-2"
                             @click="filters.language.active = true"
                         >
@@ -42,15 +42,15 @@
                             :locale="locale"
                             :value="filters.language.value"
                             :active="filters.language.active"
-                            @change="value => filters.language.value = value"
+                            @change="languageFilterChanged"
                             @change-active="active => filters.language.active = active"
                         />
                     </div>
-                
+
                     <div>
                         <c-btn
                             icon-right="keyboard_arrow_down"
-                            outlined
+                            :outlined="!urlParameters.price"
                             class="mr-2"
                             @click="filters.price.active = true"
                         >
@@ -59,14 +59,14 @@
                         <find-teacher-price
                             :value="filters.price.value"
                             :active="filters.price.active"
-                            @change="value => filters.price.value = value"
+                            @change="priceFilterChanged"
                             @change-active="active => filters.price.active = active"
                         />
                     </div>
                     <div>
                         <c-btn
                             icon-right="keyboard_arrow_down"
-                            outlined
+                            :outlined="!urlParameters.time && !urlParameters.day"
                             class="mr-2"
                             @click="filters.time.active = true"
                         >
@@ -76,14 +76,14 @@
 	                        @input="loadFilteredData(); filters.time.active = false"
                             :value="filters.time.value"
                             :active="filters.time.active"
-                            @change-day="value => filters.time.value.day = value"
-                            @change-time-of-day="value => filters.time.value.timeOfDay = value"
+                            @change-day="dayFilterChanged"
+                            @change-time-of-day="timeFilterChanged"
                             @change-active="active => filters.time.active = active"
                         />
                     </div>
                 </div>
             </div>
-            
+
 	        <div
 		        @mouseenter="mouseEnter(teacher.id)"
 		        @mouseleave="mouseLeave(teacher.id)"
@@ -97,7 +97,7 @@
 		        />
 	        </div>
 			<div
-				v-if="teachers.length === 0"
+				v-if="firstLoaded && teachers.length === 0"
 				class="flex items-center justify-center flex-col mt-28"
 			>
 				<span class="material-icons color-primary" style="font-size: 100px">search_off</span>
@@ -108,7 +108,7 @@
 					@click="resetFilters()"
 				>{{ trans.get('find_teacher.no_result_btn') }}</c-btn>
 			</div>
-	        
+
             <div class="actions flex justify-center">
                 <c-btn
                     v-if="moreExists"
@@ -126,7 +126,7 @@
     import FindTeacherLanguage from "@/Popups/FindTeacherLanguage";
     import FindTeacherPrice from "@/Popups/FindTeacherPrice";
     import FindTeacherDay from "@/Popups/FindTeacherDay";
-    
+
     export default {
         components: {
             FindTeacherDay,
@@ -139,9 +139,15 @@
         props: {
             all_teachers: Object,
             availableLanguages: Array,
+            price: String,
+            language: String,
+            time: String,
+            order: String,
+            day: String,
         },
         data() {
             return {
+                firstLoaded: false,
                 activeTeacher: null,
                 teachers: this.all_teachers.data,
                 moreExists: this.all_teachers.current_page < this.all_teachers.last_page,
@@ -169,6 +175,21 @@
                     },
                     time: {
                         active: false,
+                        timeOfDays: [
+                            {
+                                start: '00:00',
+                                end: '06:00'
+                            }, {
+                                start: '06:00',
+                                end: '12:00'
+                            }, {
+                                start: '12:00',
+                                end: '18:00'
+                            }, {
+                                start: '18:00',
+                                end: '24:00'
+                            }
+                        ],
                         value: {
                             timeOfDay: [],
                             day: []
@@ -176,6 +197,44 @@
                     },
                 },
             };
+        },
+        computed: {
+            urlParameters() {
+                let parameters = {};
+
+                if (this.filters.language.value) {
+                    parameters.language = this.filters.language.value;
+                }
+
+                if (this.filters.order.value && this.filters.order.value !== 'random') {
+                    parameters.order = this.filters.order.value;
+                }
+
+                if (this.filters.price.value) {
+                    if (this.filters.price.value[0] > 0 || this.filters.price.value[1] < 15000) {
+                        parameters.price = this.filters.price.value.join('-');
+                    }
+                }
+
+                if (this.filters.time.value.timeOfDay.length) {
+                    let timeOfDays = [];
+                    this.filters.time.timeOfDays.forEach((time, timeIndex) => {
+                        this.filters.time.value.timeOfDay.forEach((timeSelected, timeIndexSelected) => {
+                            if (time.start === timeSelected.start && time.end === timeSelected.end) {
+                                timeOfDays.push(timeIndex);
+                            }
+                        });
+                    });
+
+                    parameters.time = timeOfDays.join('-');
+                }
+
+                if (this.filters.time.value.day.length) {
+                    parameters.day = this.filters.time.value.day.join('-');
+                }
+
+                return parameters;
+            }
         },
         created() {
             this.languageList = require('@cospired/i18n-iso-languages');
@@ -186,33 +245,80 @@
 	    mounted() {
 		    let title = this.trans.get('find_teacher.document_title');
 		    this.$root.documentTitle(title);
-      
-		    let parameters = this.$root.getUrlVars();
-		    
-		    if (parameters['lang']) {
-			    this.filters.language.value = parameters['lang'];
-		    }
+
+            if (this.language) {
+                this.filters.language.value = this.language
+            }
+
+            if (this.order) {
+                this.filters.order.value = this.order
+            }
+
+            if (this.price) {
+                this.filters.price.value = this.price.split('-')
+            }
+
+            if (this.time || this.day) {
+                if (this.time) {
+                    const times = this.time.split('-');
+                    times.forEach(time => {
+                        this.filters.time.value.timeOfDay.push(this.filters.time.timeOfDays[time]);
+                    });
+                }
+
+                if (this.day) {
+                    this.filters.time.value.day = this.day.split('-')
+                }
+            }
+
+            this.loadFilteredData();
 	    },
         watch: {
-            'filters.order.value': function (){
-                 this.loadFilteredData();
-             },
-             'filters.language.value': function (){
-                 this.loadFilteredData();
-             },
-             'filters.price.value': function (){
-                 this.loadFilteredData();
-             },
         },
         methods: {
+            dayFilterChanged(value) {
+                this.filters.time.value.day = value
+
+                this.$inertia.visit('/teachers', {
+                    data: this.urlParameters
+                });
+            },
+            timeFilterChanged(value) {
+                this.filters.time.value.timeOfDay = value
+
+                this.$inertia.visit('/teachers', {
+                    data: this.urlParameters
+                });
+            },
+            priceFilterChanged(value) {
+                this.filters.price.value = value
+
+                this.$inertia.visit('/teachers', {
+                    data: this.urlParameters
+                });
+            },
+            languageFilterChanged(value) {
+                this.filters.language.value = value
+
+                this.$inertia.visit('/teachers', {
+                    data: this.urlParameters
+                });
+            },
+            orderFilterChanged(value) {
+                this.filters.order.value = value
+
+                this.$inertia.visit('/teachers', {
+                    data: this.urlParameters
+                });
+            },
 			resetFilters() {
-					this.filters.order.value = 'random';
-					this.filters.language.value = null;
-					this.filters.price.value = [0,15000];
-					this.filters.time.value = {
-						timeOfDay: [],
-						day: []
-					};
+                this.filters.order.value = 'random';
+                this.filters.language.value = null;
+                this.filters.price.value = [0,15000];
+                this.filters.time.value = {
+                    timeOfDay: [],
+                    day: []
+                };
 			},
             loadMoreTeacher() {
                 let self = this;
@@ -258,6 +364,8 @@
                     self.teachers = response.data.teachers.data;
                     self.next_page_url = response.data.teachers.next_page_url;
                     self.total = response.data.teachers.total;
+
+                    self.firstLoaded = true;
                 })
                 .catch(function (error) {
                     console.log(error);

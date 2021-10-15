@@ -66,7 +66,7 @@ export default {
 				scrollLock.disablePageScroll();
 				$('header').addClass('scrollLock');
 
-				this.scrollFix();
+				//this.scrollFix();
 			} else {
 				scrollLock.enablePageScroll();
 				$('header').removeClass('scrollLock');

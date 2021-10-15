@@ -11,7 +11,7 @@
 				small
 				v-for="(timeOfDay, t) in timeOfDays"
 				:key="t"
-				:text="value_.timeOfDay.indexOf(timeOfDay.value) === -1"
+				:text="!timeIsActive(timeOfDay.value)"
 				@click="timeOfDayToggle(timeOfDay.value)"
 			>{{ timeOfDay.label }}</c-btn>
 		</div>
@@ -20,7 +20,7 @@
 			<c-btn
 				v-for="(day, d) in days"
 				:key="d"
-				:text="value_.day.indexOf(day.value) === -1"
+				:text="!dayIsActive(day)"
 				@click="dayToggle(day.value)"
 			>{{ day.label }}</c-btn>
 		</div>
@@ -105,26 +105,59 @@ export default {
 		};
 	},
 	methods: {
+        timeIsActive(time) {
+            let active = false;
+            this.value_.timeOfDay.forEach(timeOfDay => {
+                if (timeOfDay.start === time.start && timeOfDay.end === time.end) {
+                    active = true;
+                    return true;
+                }
+            })
+
+            return active;
+        },
+        dayIsActive(day) {
+            let active = false;
+
+            this.value_.day.forEach(dayItem => {
+                if (dayItem == day.value) {
+                    active = true;
+                    return true;
+                }
+            })
+
+            return active;
+        },
 		submit() {
 			this.$emit('change-time-of-day', this.value_.timeOfDay);
 			this.$emit('change-day', this.value_.day);
 			this.$emit('input', this.value_);
 		},
 		timeOfDayToggle(value) {
-			let valueIndex = this.value_.timeOfDay.indexOf(value);
-			if (valueIndex === -1) {
-				this.value_.timeOfDay.push(value);
-			} else {
-				this.$delete(this.value_.timeOfDay, valueIndex);
-			}
+            let isActive = false;
+            this.value_.timeOfDay.forEach((timeItem, timeIndex) => {
+                if (timeItem.start == value.start && timeItem.end == value.end) {
+                    isActive = true;
+                    this.$delete(this.value_.timeOfDay, timeIndex);
+                }
+            })
+
+            if (!isActive) {
+                this.value_.timeOfDay.push(value);
+            }
 		},
 		dayToggle(value) {
-			let valueIndex = this.value_.day.indexOf(value);
-			if (valueIndex === -1) {
-				this.value_.day.push(value);
-			} else {
-				this.$delete(this.value_.day, valueIndex);
-			}
+            let isActive = false;
+            this.value_.day.forEach((dayItem, dayIndex) => {
+                if (dayItem == value) {
+                    isActive = true;
+                    this.$delete(this.value_.day, dayIndex);
+                }
+            })
+
+            if (!isActive) {
+                this.value_.day.push(value);
+            }
 		}
 	}
 }

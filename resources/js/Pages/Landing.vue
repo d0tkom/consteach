@@ -26,7 +26,7 @@
 						</div>
 					</div>
 				</section>
-				
+
 				<section class="choose-a-language">
 					<div class="section-content">
 						<div class="base-line"></div>
@@ -35,7 +35,7 @@
 						</div>
 						<div class="container py-4">
 							<inertia-link
-								:href="'/teachers?lang='+language"
+								:href="'/teachers?language='+language"
 								v-for="language in availableLanguagesFiltered"
 								v-if="language"
 								:key="language"
@@ -65,7 +65,7 @@
 					</div>
 				</section>
 			</div>
-			
+
 			<section class="language-learning">
 				<div class="section-content">
 					<div class="base-line"></div>
@@ -98,7 +98,7 @@
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="mb-8 mt-24 text-center">
 						<h3 class="title font-bold text-2xl">
 							{{ trans.get('landing.language_learning_find_teacher_title') }}
@@ -121,7 +121,7 @@
 					</div>
 				</div>
 			</section>
-			
+
 			<section class="next-level">
 				<div class="section-content">
 					<div class="base-line"></div>
@@ -197,7 +197,7 @@
 					</div>
 				</div>
 			</section>
-			
+
 			<section id="teach-with-us" class="teach-with-us">
 				<div class="section-content">
 					<div class="base-line"></div>
@@ -256,7 +256,7 @@
 					</div>
 				</div>
 			</section>
-			
+
 			<section class="join-us">
 				<div class="section-content">
 					<div class="base-line"></div>
@@ -327,7 +327,7 @@ export default {
 		this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/en.json'));
 		this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/hu.json'));
 		this.languageList.registerLocale(require('@cospired/i18n-iso-languages/langs/de.json'));
-		
+
 		this.languageList = this.languageList.getNames(this.locale, {select: 'official'});
 
 		this.availableLanguages[3] = 'it';
@@ -335,7 +335,7 @@ export default {
 	mounted() {
 		let title = this.trans.get('landing.document_title');
 		this.$root.documentTitle(title, false);
-		
+
 		this.$root.initHashScroll();
 	},
 	computed: {
@@ -343,7 +343,7 @@ export default {
 			if (this.moreLanguages) {
 				return this.$page.props.availableLanguages;
 			}
-			
+
 			return this.$page.props.availableLanguages.slice(0, 6);
 		}
 	},
